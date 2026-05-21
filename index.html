@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <meta name="description" content=""/>
+    <script src="portfolio.js" defer></script>
+</head>
+
+<body>
+
+  
+  <h4 class="h4-tka">TURNER ASHTON
+  </h4>
+
+        <p class="p-tka">
+  /portfolio/works
+  </p>
+
+
+
+
+<div class="card-clickables">
+
+
+ <h2>&emsp;
+ <br>
+ &emsp;CLICK FOR
+ <br>
+  &emsp;&emsp;RANDOM
+ <br>
+ &emsp;&emsp;PROJECT >
+ </h2>
+<br>
+
+
+
+<!--EVERYTHING FOR THE RANDOM GENERATOR HERE INCLUDING CSS AND JAVASCRIPT-->
+
+<!--include body here if needed -tka -->
+
+<!-- CLICKABLE PNG -->
+<img
+  src="images/pack_random.png"
+  class="floating-png"
+  id="random-image"
+  alt="PNG"
+>
+
+<!-- HIDDEN VIDEO PLAYER -->
+<video id="loader-video" autoplay playsinline>
+  <source
+    src="videos/random_pack_video_loader2.mp4"
+    type="video/mp4"
+  >
+</video>
+
+<script>
+  const pages = [
+    "pack1.html",
+    "pack2.html",
+    "pack3.html",
+    "pack4.html",
+    "pack5.html",
+  ];
+
+  const image = document.getElementById("random-image");
+  const video = document.getElementById("loader-video");
+
+  image.addEventListener("click", () => {
+
+    // Pick random page
+    const randomPage =
+      pages[Math.floor(Math.random() * pages.length)];
+
+    // Show video across browser window
+    video.style.display = "block";
+
+    // Play video
+    video.play();
+
+    // Redirect after video ends
+    video.onended = () => {
+      window.location.href = randomPage;
+    };
+  });
+</script>
+
+<!--include /body here if needed -tka -->
+
+<style>
+  .floating-png {
+    width: 250px;
+    cursor: pointer;
+    transition: transform 0.5s ease;
+  }
+
+  .floating-png:hover {
+    transform: translateY(-40px);
+  }
+
+  /* Full browser video */
+  #loader-video {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    background: black;
+    display: none;
+    z-index: 9999;
+  }
+</style>
+
+
+<!--EVERYTHING FOR THE RANDOM GENERATOR HERE INCLUDING CSS AND JAVASCRIPT-->
+
+
+
+
+<p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</p>
+
+
+<h2>
+  <br>
+    <br>
+      <br>
+  <br>
+  <br>
+    <br>
+      <br>
+  <br>
+    <br>
+  SELECT
+  <br>
+A PACK
+  <br>
+  TOPIC
+  <br>
+TO VIEW >
+</h2>
+
+
+
+<!--PACK 1 hover & click-->
+  <div class="container-pack-1">
+    <div class="png-wrapper">
+    <a href="pack1intro.html">
+     <img src="images/pack_1.png" class="floating-png" alt="PNG">
+    </a>
+    </div>
+  </div>
+  &emsp;
+  <!--PACK 2 hover & click-->
+<div class="container-pack-2">
+  <div class="png-wrapper">
+    <a href="pack2intro.html">
+    <img src="images/pack_2.png" class="floating-png" alt="PNG">
+    </a>
+  </div>
+</div>
+&emsp;
+<!--PACK 3 hover & click-->
+<div class="container-pack-3">
+  <div class="png-wrapper">
+        <a href="pack3intro.html">
+    <img src="images/pack_3.png" class="floating-png" alt="PNG">
+    </a>
+  </div>
+</div>
+&emsp;
+<!--PACK 4 hover & click-->
+<div class="container-pack-4">
+  <div class="png-wrapper">
+        <a href="pack4intro.html">
+    <img src="images/pack_4.png" class="floating-png" alt="PNG">
+    </a>
+  </div>
+</div>
+&emsp;
+<!--PACK 5 hover & click-->
+<div class="container-pack-5">
+  <div class="png-wrapper">
+        <a href="pack5intro.html">
+    <img src="images/pack_5.png" class="floating-png" alt="PNG">
+    </a>
+  </div>
+</div>
+<!--PACK END hover & click area-->
+
+</div>
+
+
+<footer class="footer-tka">
+  <br>
+  <br>
+    <br>
+  <br>
+    <br>
+  <br>
+    <br>
+  <br>
+    <br>
+  <br>
+    <br>
+  <br>
+  @art.tsukii</footer>
+
+</body>
+
+
+
+
+</html>

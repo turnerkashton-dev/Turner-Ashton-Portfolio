@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <meta name="description" content=""/>
+    <script src="portfolio.js" defer></script>
+</head>
+    
+<div class="header" id="myHeader">
+        <h2><b>click TWICE to open</b></h2>
+</div>
+
+
+<br>
+
+
+
+<label class="image-toggler-card-1">
+  <input type="checkbox">
+  <img src="images/pack_1.png" class="image-one-card-1">
+  <img src="images/pack_back_1.png" class="image-two-card-1">
+</label>
+
+
+</html>
+
+
+
+
+
+<!-- CSS RULES FOR ONLY this PAGE -->
+<style>
+/*BODY rules*/
+  body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #111;
+  }
+
+
+/* IMAGE 1 = ENLARGE */
+.image-one-card-1 {
+  transition: transform 0.3s ease;
+}
+
+.image-one-card-1:hover {
+  transform: scale(1.08);
+}
+
+
+/* IMAGE 2 = SHRINK */
+.image-two-card-1 {
+  transition: transform 0.3s ease;
+}
+
+.image-two-card-1:hover {
+  transform: scale(0.92);
+}
+  
+
+.image-two-card-1:hover {
+  transform: scale(0.92);
+  filter: brightness(0.9);
+}
+
+</style>

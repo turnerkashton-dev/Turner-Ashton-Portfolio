@@ -1,0 +1,278 @@
+.all-cards-start {
+width: 100%;
+}
+
+.hover-card-1 {
+width: 100%;
+}
+
+
+
+/*BODY rules*/
+body {
+  margin: 0;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  background: #111;
+  background-image: url('images/background_grid_2.jpeg');
+  background-size: cover;
+  background-blend-mode: soft-light;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+
+.header {
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.footer-tka {
+  text-align: center;
+  padding: 0px;
+  color: rgba(255,255,255,0.7);
+  margin-top: none;
+}
+
+.h4-tka {
+  text-align: center;
+  color: white;
+  margin: 10px 0 5px 0;
+  font-size: 120px;
+}
+
+.p-tka {
+  font-size: smaller;
+  font-weight: 900;
+  text-decoration: overline;
+  text-decoration-color: red;
+  text-align: center;
+  font-size: 18px;
+}
+
+.card-clickables {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+  
+/*ALL CODE RELATING TO IMAGE TOGGERS ie: pack1.html > down*/
+
+/* IMAGE TOGGLER down PACK ONE*/
+/* Hide the actual checkbox */
+.image-toggler-card-1 input {
+  display: none;
+}
+
+/* Show only the first image by default */
+.image-two-card-1 {
+  display: none;
+}
+
+/* When the checkbox is checked, swap the images */
+.image-toggler-card-1 input:checked ~ .image-one-card-1 {
+  display: none;
+}
+
+.image-toggler-card-1 input:checked ~ .image-two-card-1 {
+  display: block;
+}
+
+.image-one-card-1,
+.image-two-card-1 {
+  cursor: pointer;
+}
+/* IMAGE TOGGLER up PACK ONE*/
+
+
+
+/* IMAGE TOGGLER down PACK TWO*/
+/* Hide the actual checkbox */
+.image-toggler-card-2 input {
+  display: none;
+}
+
+/* Show only the first image by default */
+.image-two-card-2 {
+  display: none;
+}
+
+/* When the checkbox is checked, swap the images */
+.image-toggler-card-2 input:checked ~ .image-one-card-2 {
+  display: none;
+}
+
+.image-toggler-card-2 input:checked ~ .image-two-card-2 {
+  display: block;
+}
+/* IMAGE TOGGLER up PACK TWO*/
+
+/* IMAGE TOGGLER down PACK THREE*/
+/* Hide the actual checkbox */
+.image-toggler-card-3 input {
+  display: none;
+}
+
+/* Show only the first image by default */
+.image-two-card-3 {
+  display: none;
+}
+
+/* When the checkbox is checked, swap the images */
+.image-toggler-card-3 input:checked ~ .image-one-card-3 {
+  display: none;
+}
+
+.image-toggler-card-3 input:checked ~ .image-two-card-3 {
+  display: block;
+}
+/* IMAGE TOGGLER up PACK THREE*/
+
+
+
+/* IMAGE TOGGLER down PACK FOUR*/
+/* Hide the actual checkbox */
+.image-toggler-card-4 input {
+  display: none;
+}
+
+/* Show only the first image by default */
+.image-two-card-4 {
+  display: none;
+}
+
+/* When the checkbox is checked, swap the images */
+.image-toggler-card-4 input:checked ~ .image-one-card-4 {
+  display: none;
+}
+
+.image-toggler-card-4 input:checked ~ .image-two-card-4 {
+  display: block;
+}
+/* IMAGE TOGGLER up PACK FOUR*/
+
+
+
+/* IMAGE TOGGLER down PACK FIVE*/
+/* Hide the actual checkbox */
+.image-toggler-card-5 input {
+  display: none;
+}
+
+/* Show only the first image by default */
+.image-two-card-5 {
+  display: none;
+}
+
+/* When the checkbox is checked, swap the images */
+.image-toggler-card-5 input:checked ~ .image-one-card-5 {
+  display: none;
+}
+
+.image-toggler-card-5 input:checked ~ .image-two-card-5 {
+  display: block;
+}
+/* IMAGE TOGGLER up PACK FIVE*/
+
+/*ALL CODE RELATING TO IMAGE TOGGERS ie: pack1.html > up*/
+
+
+
+
+
+
+
+
+
+
+/*CONTAINERS for packs on HOVER > down*/
+  .container-pack-1 {
+    position: relative;
+    width: 150px;
+    height: 300px;
+        z-index: 3;
+      /*TILTING*/
+    transform: rotate(-10deg);
+  }
+
+  .container-pack-2 {
+    position: relative;
+    width: 150px;
+    height: 300px;
+        z-index: 4;
+      /*TILTING*/
+    transform: rotate(-5deg);
+  }
+
+  .container-pack-3 {
+    position: relative;
+    width: 150px;
+    height: 300px;
+    z-index: 5;
+  }
+
+  .container-pack-4 {
+    position: relative;
+    width: 150px;
+    height: 300px;
+        z-index: 2;
+      /*TILTING*/
+    transform: rotate(5deg);
+  }
+
+
+  .container-pack-5 {
+    position: relative;
+    width: 150px;
+    height: 300px;
+        z-index: 1;
+      /*TILTING*/
+    transform: rotate(7deg);
+  }
+
+
+/*HOVER EFFECT FOR index.html CARD PACKS*/
+.png-wrapper {
+  position: absolute;
+  bottom: -50%;
+  left: 10%;
+}
+
+.floating-png {
+  width: 200px;
+  display: block;
+  transform: translateX(0%) translateY(120px);
+  transition: transform 0.5s ease;
+}
+
+.floating-png:hover {
+  transform: translateX(0%) translateY(-20px);
+}
+
+
+/*on load cards swing into place*/
+.container-pack-1,
+.container-pack-2,
+.container-pack-3,
+.container-pack-4,
+.container-pack-5 {
+  transition: transform 2s ease-out;
+}
+
+.container-pack-1:hover,
+.container-pack-2:hover,
+.container-pack-3:hover,
+.container-pack-4:hover,
+.container-pack-5:hover {
+  z-index: 999;
+}
+
+
+
+
+
