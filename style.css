@@ -192,7 +192,7 @@ body {
 
 /*CONTAINERS for packs on HOVER > down*/
   .container-pack-1 {
-    position: relative;
+    position: fixed;
     width: 150px;
     height: 300px;
         z-index: 3;
