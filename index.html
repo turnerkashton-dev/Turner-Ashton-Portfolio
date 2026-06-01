@@ -10,43 +10,46 @@
 
 <body>
 
+
+  <h4 class="h4-tka" id="title">TURNER ASHTON</h4>
+
+  <h3 class="h3-tka" id="subtitle">portfolio & works</h3>
+
+
+  <!--
+<span>HOVER</span>
+<div class="div-hover-text-pack1test">BRANDING</div>
+-->
+
+
+
+
+<div class="card-clickables-behind">
+  <br>
+  SELECT CARD PACK TO VIEW PORTFOLIO WORKS</div>
   
-  <h4 class="h4-tka">TURNER ASHTON
-  </h4>
-
-        <p class="p-tka">
-  /portfolio/works
-  </p>
 
 
 
+<div class="card-clickables-backing-border">
 
 <div class="card-clickables">
 
-
- <h2>&emsp;
- <br>
- &emsp;CLICK FOR
- <br>
-  &emsp;&emsp;RANDOM
- <br>
- &emsp;&emsp;PROJECT >
- </h2>
-<br>
-
-
-
 <!--EVERYTHING FOR THE RANDOM GENERATOR HERE INCLUDING CSS AND JAVASCRIPT-->
 
-<!--include body here if needed -tka -->
-
+<!--CHANGE THE /DIV TO THE END OF all random TO MAKE VIDEO APPEAR BEHIND EXISTING IMAGES ON RIGHT -tka -->
+<div class="card-clickables-random">
 <!-- CLICKABLE PNG -->
+ <div class="container-pack-random">
 <img
   src="images/pack_random.png"
   class="floating-png"
   id="random-image"
   alt="PNG"
 >
+</div>
+
+</div>
 
 <!-- HIDDEN VIDEO PLAYER -->
 <video id="loader-video" autoplay playsinline>
@@ -98,6 +101,7 @@
 
   .floating-png:hover {
     transform: translateY(-40px);
+        transition: transform 0.5s ease;
   }
 
   /* Full browser video */
@@ -116,47 +120,42 @@
 
 <!--EVERYTHING FOR THE RANDOM GENERATOR HERE INCLUDING CSS AND JAVASCRIPT-->
 
+<!--<p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</p>
 
-
-
-<p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</p>
-
+ <h2>
+  CLICK FOR RANDOM PROJECT \/
+ </h2>
 
 <h2>
-  <br>
-    <br>
-      <br>
-  <br>
-  <br>
-    <br>
-      <br>
-  <br>
-    <br>
   SELECT
-  <br>
 A PACK
-  <br>
   TOPIC
-  <br>
 TO VIEW >
 </h2>
 
+-->
 
 
 <!--PACK 1 hover & click-->
-  <div class="container-pack-1">
-    <div class="png-wrapper">
+<div class="container-pack-1">
+  <div class="png-wrapper">
     <a href="pack1intro.html">
-     <img src="images/pack_1.png" class="floating-png" alt="PNG">
+      <img src="images/pack_1.png"
+           class="floating-png"
+           id="pack1"
+           alt="PNG">
     </a>
-    </div>
   </div>
+</div>
   &emsp;
   <!--PACK 2 hover & click-->
 <div class="container-pack-2">
   <div class="png-wrapper">
     <a href="pack2intro.html">
-    <img src="images/pack_2.png" class="floating-png" alt="PNG">
+      <img src="images/pack_2.png"
+           class="floating-png"
+           id="pack2"
+           alt="PNG">
     </a>
   </div>
 </div>
@@ -164,8 +163,11 @@ TO VIEW >
 <!--PACK 3 hover & click-->
 <div class="container-pack-3">
   <div class="png-wrapper">
-        <a href="pack3intro.html">
-    <img src="images/pack_3.png" class="floating-png" alt="PNG">
+    <a href="pack3intro.html">
+      <img src="images/pack_3.png"
+           class="floating-png"
+           id="pack3"
+           alt="PNG">
     </a>
   </div>
 </div>
@@ -173,8 +175,11 @@ TO VIEW >
 <!--PACK 4 hover & click-->
 <div class="container-pack-4">
   <div class="png-wrapper">
-        <a href="pack4intro.html">
-    <img src="images/pack_4.png" class="floating-png" alt="PNG">
+    <a href="pack4intro.html">
+      <img src="images/pack_4.png"
+           class="floating-png"
+           id="pack4"
+           alt="PNG">
     </a>
   </div>
 </div>
@@ -182,8 +187,12 @@ TO VIEW >
 <!--PACK 5 hover & click-->
 <div class="container-pack-5">
   <div class="png-wrapper">
-        <a href="pack5intro.html">
-    <img src="images/pack_5.png" class="floating-png" alt="PNG">
+
+    <a href="pack5intro.html">
+      <img src="images/pack_5.png"
+           class="floating-png"
+           id="pack5"
+           alt="PNG">
     </a>
   </div>
 </div>
@@ -191,21 +200,144 @@ TO VIEW >
 
 </div>
 
+</div>
+
 
 <footer class="footer-tka">
-  <br>
-  <br>
-    <br>
-  <br>
-    <br>
-  <br>
-    <br>
-  <br>
-    <br>
-  <br>
-    <br>
-  <br>
-  @art.tsukii</footer>
+  @art.tsukii
+</footer>
+
+
+
+
+
+<script>
+const subtitle = document.getElementById("subtitle");
+const title = document.getElementById("title");
+const randomImage = document.getElementById("random-image");
+
+const hoverData = {
+  pack1: {
+    text: "BRANDING",
+    color: "rgb(226, 137, 4)"
+  },
+  pack2: {
+    text: "MOCKUPS",
+    color: "rgb(129, 178, 218)"
+  },
+  pack3: {
+    text: "ANIMATION",
+    color: "rgb(255, 0, 0)"
+  },
+  pack4: {
+    text: "TATTOOS",
+    color: "rgb(255, 141, 230)"
+  },
+  pack5: {
+    text: "DIGITAL.ART",
+    color: "rgb(191, 123, 230)"
+  }
+};
+
+Object.keys(hoverData).forEach(packId => {
+  const pack = document.getElementById(packId);
+
+  pack.addEventListener("mouseenter", () => {
+    subtitle.textContent = hoverData[packId].text;
+    subtitle.style.color = hoverData[packId].color;
+  });
+
+  pack.addEventListener("mouseleave", () => {
+    subtitle.textContent = "portfolio & works";
+    subtitle.style.color = "white";
+  });
+});
+
+
+Object.keys(hoverData).forEach(packId => {
+  const pack = document.getElementById(packId);
+
+  pack.addEventListener("mouseenter", () => {
+
+    // Existing subtitle behavior
+    subtitle.textContent = hoverData[packId].text;
+    subtitle.style.color = hoverData[packId].color;
+
+    // New title behavior
+    title.innerHTML =
+      `<span style="color:${hoverData[packId].color}">&lt;</span>
+       TURNER ASHTON
+       <span style="color:${hoverData[packId].color}">&gt;</span>`;
+  });
+
+  pack.addEventListener("mouseleave", () => {
+
+    // Existing subtitle reset
+    subtitle.textContent = "portfolio & works";
+    subtitle.style.color = "white";
+
+    // Title reset
+    title.textContent = "TURNER ASHTON";
+  });
+});
+
+
+
+
+
+
+let jackpotInterval;
+
+randomImage.addEventListener("mouseenter", () => {
+  subtitle.textContent = "random";
+  subtitle.classList.add("random-active");
+});
+
+randomImage.addEventListener("mouseleave", () => {
+  subtitle.textContent = "portfolio & works";
+  subtitle.classList.remove("random-active");
+});
+
+randomImage.addEventListener("mouseenter", () => {
+
+  // subtitle becomes "spinning"
+  subtitle.textContent = "spinning...";
+  subtitle.classList.add("glitch");
+
+  // title gets gold brackets
+  title.innerHTML = `
+    <span class="gold">&lt;</span>
+    TURNER ASHTON
+    <span class="gold">&gt;</span>
+  `;
+
+  // start shaking image
+  randomImage.classList.add("jackpot");
+
+  // rapid text flicker (jackpot feel)
+  const words = ["RANDOM", "???", "BRANDING", "? ? ?", "MOCKUP", "?  ?  ?", "ANIMATION", "?  ?  ?", "TATTOO", "?  ?  ?", "DIGITAL.ART", "? ? ?", "PORTFOLIO", "???"];
+  let i = 0;
+
+  jackpotInterval = setInterval(() => {
+    subtitle.textContent = words[i % words.length];
+    i++;
+  }, 120);
+});
+
+randomImage.addEventListener("mouseleave", () => {
+
+  clearInterval(jackpotInterval);
+
+  // reset everything
+  subtitle.textContent = "portfolio & works";
+  subtitle.classList.remove("glitch");
+
+  title.textContent = "TURNER ASHTON";
+
+  randomImage.classList.remove("jackpot");
+});
+
+</script>
 
 </body>
 

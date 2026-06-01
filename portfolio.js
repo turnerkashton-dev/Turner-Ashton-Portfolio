@@ -47,4 +47,44 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+// SCRIPTING FOR 2ND CLICK ON PACK WHEN IN pack3.html
 
+document.addEventListener("DOMContentLoaded", () => {
+  const secondImage = document.querySelector(".image-two-card-3");
+  const checkbox = document.querySelector(".image-toggler-card-3 input");
+
+  secondImage.addEventListener("click", () => {
+    // Only redirect if it's actually in the "checked" state
+    if (checkbox.checked) {
+      window.location.href = "cards3.html";
+    }
+  });
+});
+
+// SCRIPTING FOR 2ND CLICK ON PACK WHEN IN pack4.html
+
+document.addEventListener("DOMContentLoaded", () => {
+  const secondImage = document.querySelector(".image-two-card-4");
+  const checkbox = document.querySelector(".image-toggler-card-4 input");
+
+  secondImage.addEventListener("click", () => {
+    // Only redirect if it's actually in the "checked" state
+    if (checkbox.checked) {
+      window.location.href = "cards4.html";
+    }
+  });
+});
+
+// SCRIPTING FOR 2ND CLICK ON PACK WHEN IN pack5.html
+
+document.addEventListener("DOMContentLoaded", () => {
+  const secondImage = document.querySelector(".image-two-card-5");
+  const checkbox = document.querySelector(".image-toggler-card-5 input");
+
+  secondImage.addEventListener("click", () => {
+    // Only redirect if it's actually in the "checked" state
+    if (checkbox.checked) {
+      window.location.href = "cards5.html";
+    }
+  });
+});
