@@ -8,12 +8,8 @@
     <script src="portfolio.js" defer></script>
 </head>
     
-<div class="header" id="myHeader">
-        <h2><b>&emsp;Turner Ashton</b></h2>
-</div>
 
 
-<br>
 
 
 
@@ -24,5 +20,59 @@
 </label>
 
 
-</html>
 
+<div class="click2toopen">click <b><i>TWICE</i></b> to open</div>
+
+
+
+<!-- CSS RULES FOR ONLY this PAGE -->
+<style>
+/*BODY rules*/
+  body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #111;
+    flex-direction: column;
+  }
+
+
+
+/* IMAGE 1 = ENLARGE */
+.image-one-card-3 {
+  transition: transform 0.3s ease;
+}
+
+.image-one-card-3:hover {
+  transform: scale(1.08);
+}
+
+
+/* IMAGE 2 = SHRINK */
+.image-two-card-3 {
+  transition: transform 0.3s ease;
+}
+
+.image-two-card-3:hover {
+  transform: scale(0.92);
+}
+  
+
+.image-two-card-3:hover {
+  transform: scale(0.92);
+  filter: brightness(0.9);
+}
+
+.click2toopen {
+  text-decoration: overline rgb(129, 178, 218);
+  text-decoration-thickness: 1.5px;
+}
+
+.image-one-card-3,
+.image-two-card-3 {
+  cursor: pointer;
+}
+
+</style>

@@ -8,12 +8,8 @@
     <script src="portfolio.js" defer></script>
 </head>
     
-<div class="header" id="myHeader">
-        <h2><b>click TWICE to open</b></h2>
-</div>
 
 
-<br>
 
 
 
@@ -24,9 +20,8 @@
 </label>
 
 
-</html>
 
-
+<div class="click2toopen">click <b><i>TWICE</i></b> to open</div>
 
 
 
@@ -40,7 +35,9 @@
     justify-content: center;
     align-items: center;
     background: #111;
+    flex-direction: column;
   }
+
 
 
 /* IMAGE 1 = ENLARGE */
@@ -68,4 +65,17 @@
   filter: brightness(0.9);
 }
 
+.click2toopen {
+  text-decoration: overline orange;
+  text-decoration-thickness: 1.5px;
+    text-align: center;
+  font-size: 150%;
+}
+
+.image-one-card-1,
+.image-two-card-1 {
+  cursor: pointer;
+}
+
 </style>
+
