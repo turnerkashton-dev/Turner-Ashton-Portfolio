@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<style>
+
+.png-wrapper {
+  display: inline-block;
+  position: relative;
+}
+
+/* FULLSCREEN TEXT */
+.hover-text {
+  position: fixed;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  font-size: 8rem;
+  font-weight: bold;
+
+  color: white;
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  transition: opacity 0.4s ease;
+
+  z-index: 999;
+}
+
+/* ONLY TRIGGER WHEN HOVERING THE PNG */
+.png-wrapper:hover .hover-text {
+  opacity: 0.5;
+}
+
+body {
+    background: black;
+}
+</style>
+
+<div class="container-pack-1">
+
+  <div class="png-wrapper">
+
+    <div class="hover-text">
+      BRANDING
+    </div>
+
+    <a href="pack1intro.html">
+      <img src="images/pack_1.png"
+           class="floating-png"
+           alt="PNG">
+    </a>
+
+  </div>
+
+</div>
+
+</html>

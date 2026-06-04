@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3d test scroll</title>
+</head>
+<body>
+
+<!-- Use it like any other HTML element -->
+
+
+<!-- Import the component script via link -->
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+</body>
+
+
+<model-viewer camera-controls touch-action="pan-y" camera-orbit="calc(-1.5rad + env(window-scroll-y) * 4rad) calc(0deg + env(window-scroll-y) * 180deg) calc(5m - env(window-scroll-y) * 10m)" src="3ds/pack1.glb" 
+alt="A 3D model of an astronaut">
+</model-viewer>
+
+
+
+
+
+
+
+<style>
+body {
+  justify-content: center;
+  align-items: center;
+  background-image: url(images/background_grid_2.jpeg);
+  background-blend-mode: soft-light;
+}
+
+
+
+
+
+
+   model-viewer {
+       width: 30vw;
+       height: 200vh;
+      background-color: rgba(0, 0, 0, 0.74);
+       border: rgb(255, 255, 255);
+       border-width: 15px;
+       border-style: solid;
+       margin-top: 0vh;
+                      -webkit-box-reflect: below 10px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.4));
+
+   }
+
+
+
+
+   
+</style>
+
+</html>
+
+
+<!--https://modelviewer.dev/examples/stagingandcameras/-->

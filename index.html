@@ -22,18 +22,35 @@
 -->
 
 
-
-
 <div class="card-clickables-behind">
+
   <br>
-  SELECT CARD PACK TO VIEW PORTFOLIO WORKS</div>
+  SELECT A CARD PACK > TO VIEW PORTFOLIO WORKS
+
+</div>
   
 
 
 
 <div class="card-clickables-backing-border">
 
+
 <div class="card-clickables">
+
+
+
+      <h1 class="h1-tka">
+
+        DECISION
+      <br>
+      PARALYSIS?
+      <br>
+
+      <i>click me ></i>
+
+      </h1>
+
+
 
 <!--EVERYTHING FOR THE RANDOM GENERATOR HERE INCLUDING CSS AND JAVASCRIPT-->
 
@@ -43,7 +60,7 @@
  <div class="container-pack-random">
 <img
   src="images/pack_random.png"
-  class="floating-png"
+  class="floating-png-random"
   id="random-image"
   alt="PNG"
 >
@@ -94,15 +111,53 @@
 
 <style>
   .floating-png {
-    width: 250px;
+    width: 25vh;
     cursor: pointer;
     transition: transform 0.5s ease;
+          /*
+            border: red;
+        border-width: 1px;
+        border-style: solid;
+          */
   }
 
   .floating-png:hover {
-    transform: translateY(-40px);
+    transform: translateY(-60px);
         transition: transform 0.5s ease;
+        /*
+        border: blue;
+        border-width: 1px;
+        border-style: solid;
+        */
   }
+
+
+
+/*EVERYTHING FOR BREATHING EFFECT ON random PACK INSTEAD OF THE FLOAT UP ON HOVER*/
+    .floating-png-random {
+      margin-top: 8vh;
+    width: 28vh;
+    cursor: pointer;
+    transition: transform 0.5s ease;
+          /*
+            border: red;
+        border-width: 1px;
+        border-style: solid;
+          */
+  }
+
+  .floating-png-random:hover {
+    animation: floatingpngrandomhoveranimation 0.75s infinite;
+      animation-direction: alternate-reverse;
+  }
+
+  @keyframes floatingpngrandomhoveranimation {
+  0%   { transform: translate(0, 0) scale(1.04); }
+  25%  { transform: translate(0, 0) scale(1.038); }
+  50%  { transform: translate(0.3px, -0.3px) scale(1.035); }
+  75% { transform: translate(0, 0) scale(1.032); }
+  100% { transform: translate(0, 0) scale(1.03); }
+}
 
   /* Full browser video */
   #loader-video {
@@ -115,6 +170,7 @@
     display: none;
     z-index: 9999;
   }
+
 </style>
 
 
@@ -201,6 +257,12 @@ TO VIEW >
 </div>
 
 </div>
+
+<!--
+<footer class="footer-tka2">
+  SELECT A CARD PACK > TO VIEW PORTFOLIO WORKS
+</footer>
+-->
 
 
 <footer class="footer-tka">
