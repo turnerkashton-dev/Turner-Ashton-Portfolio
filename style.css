@@ -491,28 +491,119 @@ body {
 
 
 /*MOBILE CSS FROM HERE ON*/
+/* =========================
+   MOBILE VERSION
+   ========================= */
 
 @media (max-width: 768px) {
 
-  .card-clickables {
-    flex-direction: column;
-    align-items: center;
+  body {
+    overflow-x: hidden;
+    padding: 10px;
   }
 
+  .h4-tka {
+    font-size: clamp(2rem, 10vw, 3.5rem);
+    margin-top: 10px;
+  }
+
+  .h3-tka {
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+
+  .card-clickables-behind,
+  .card-clickables {
+    position: relative;
+    top: auto;
+    left: auto;
+    min-height: auto;
+  }
+
+  .card-clickables-behind {
+    justify-content: center;
+    text-align: center;
+    padding: 15px;
+    margin-bottom: 20px;
+  }
+
+  .card-clickables-backing-border {
+    min-height: auto;
+    border-width: 3px;
+    padding: 20px 10px;
+  }
+
+  .card-clickables {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+    -webkit-box-reflect: unset;
+    overflow: visible;
+  }
+
+  .card-clickables-random {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+  }
+
+  .container-pack-random,
   .container-pack-1,
   .container-pack-2,
   .container-pack-3,
   .container-pack-4,
   .container-pack-5 {
-    transform: none;
-    width: 50vw;
-    max-width: 220px;
+
+    width: 70vw;
+    max-width: 260px;
+    height: auto;
+
+    transform: none !important;
+    margin: 0;
   }
 
   .png-wrapper {
-    position: relative;
+    width: 100%;
+    height: auto;
     left: 0;
-    bottom: 0;
+  }
+
+  .floating-png,
+  .floating-png-random {
+
+    width: 100%;
+    max-width: 260px;
+    height: auto;
+
+    margin-top: 0;
+
+    transform: none !important;
+  }
+
+  .floating-png:hover,
+  .floating-png-random:hover {
+    transform: none;
+    animation: none;
+  }
+
+  .h1-tka {
+
+    text-align: center;
+    margin: 0 0 20px 0;
+    font-size: 1.3rem;
+    order: -1;
+  }
+
+  .footer-tka {
+    margin-top: 40px;
+    padding-bottom: 20px;
+    font-size: 0.9rem;
   }
 
 }
+
+
