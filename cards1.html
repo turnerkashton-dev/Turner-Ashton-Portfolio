@@ -133,6 +133,65 @@
     transform: translate(-50%, -50%) rotateY(180deg) rotate(12deg) scale(1.05);
   }
 
+
+
+  /* =========================
+   MOBILE LAYOUT
+   ========================= */
+@media (max-width: 768px) {
+
+  .cards-container {
+    width: 100%;
+    height: 100vh;
+  }
+
+  .card {
+    width: 35vw;
+    height: calc(35vw * 1.6667);
+    max-width: 180px;
+    max-height: 300px;
+  }
+
+  /* Vertical spread */
+  .spread.card-1 {
+    left: 50%;
+    top: calc(50% - 180px);
+    transform: translate(-50%, -50%);
+  }
+
+  .spread.card-2 {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .spread.card-3 {
+    left: 50%;
+    top: calc(50% + 180px);
+    transform: translate(-50%, -50%);
+  }
+
+  /* Flipped positions */
+  .flipped.card-1 {
+    transform: translate(-50%, -50%) rotateY(180deg);
+  }
+
+  .flipped.card-2 {
+    transform: translate(-50%, -50%) rotateY(180deg);
+  }
+
+  .flipped.card-3 {
+    transform: translate(-50%, -50%) rotateY(180deg);
+  }
+
+  /* Hover effects aren't useful on mobile */
+  .flipped.card-1:hover,
+  .flipped.card-2:hover,
+  .flipped.card-3:hover {
+    transform: translate(-50%, -50%) rotateY(180deg);
+  }
+}
+
 </style>
 </head>
 
