@@ -489,6 +489,24 @@ body {
 
 
 
+/*DESKTOP+ CSS FROM HERE ON*/
+/* =========================
+   LARGER SCREEN VERSION
+   ========================= */
+
+@media (min-width: 768px) {
+
+.carousel-container {
+    display: none;
+}
+
+}
+
+
+
+
+
+
 
 /*MOBILE CSS FROM HERE ON*/
 /* =========================
@@ -497,100 +515,114 @@ body {
 
 @media (max-width: 768px) {
 
-  body {
-    overflow-x: hidden;
-    padding: 10px;
-  }
-
-  .h4-tka {
-    font-size: clamp(2rem, 10vw, 3.5rem);
-    margin-top: 10px;
-  }
-
-  .h3-tka {
-    font-size: 1rem;
-    margin-bottom: 20px;
-  }
-
-  .card-clickables-behind,
-  .card-clickables {
-    position: relative;
-    top: auto;
-    left: auto;
-    min-height: auto;
-  }
-
-  .card-clickables-behind {
-    justify-content: center;
-    text-align: center;
-    padding: 15px;
-    margin-bottom: 20px;
-  }
-
-  .card-clickables-backing-border {
-    min-height: auto;
-    border-width: 3px;
-    padding: 20px 10px;
-  }
-
-  .card-clickables {
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-
-    -webkit-box-reflect: unset;
-    overflow: visible;
-  }
-
-  .card-clickables-random {
-    width: 100%;
-    height: auto;
-    display: flex;
-    justify-content: center;
-  }
-
-  .container-pack-random,
-  .container-pack-1,
-  .container-pack-2,
-  .container-pack-3,
-  .container-pack-4,
-  .container-pack-5 {
-
-    width: 70vw;
-    max-width: 260px;
-    height: auto;
-
-    transform: none !important;
+* {
     margin: 0;
-  }
+    padding: 0;
+    box-sizing: border-box;
+}
 
-  .png-wrapper {
+body {
+
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+
+    overflow: hidden;
+
+    background: #111;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    overflow-x: hidden;
+    overflow-y: visible;
+
+    font-family: Arial, sans-serif;
+}
+
+
+.carousel-container {
+
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.carousel {
+    position: relative;
     width: 100%;
-    height: auto;
-    left: 0;
+    height: 500px;
+
+    perspective: 2000px;
+    transform-style: preserve-3d;
+}
+
+.card {
+
+  -webkit-box-reflect: below 3vh linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.4));
+
+
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+
+    transition:
+        opacity .2s linear;
+}
+
+
+
+.card img {
+
+    width: 220px;
+    display: block;
+
+    user-select: none;
+    pointer-events: none;
+}
+
+.card.active {
+
+    z-index: 100;
+
+    transform:
+        translate(-50%, -50%) scale(1.15);
+
+    opacity: 1;
+}
+
+
+/*ターナー*/
+
+/* HIDING & then changing THE DESKTOP VERSION into MOBILE BEGINS HERE */
+
+.card-clickables-backing-border {
+    display: none;
   }
 
-  .floating-png,
-  .floating-png-random {
+.card-clickables {
+    display: none;
+}
 
-    width: 100%;
-    max-width: 260px;
-    height: auto;
+.card-clickables-random {
+    display: none;
+}
 
-    margin-top: 0;
+.card-clickables-behind {
+    display: none;
+}
 
-    transform: none !important;
-  }
-
-  .floating-png:hover,
-  .floating-png-random:hover {
-    transform: none;
-    animation: none;
-  }
-
-  .h1-tka {
+  
+.h1-tka {
 
     text-align: center;
     margin: 0 0 20px 0;
@@ -598,11 +630,64 @@ body {
     order: -1;
   }
 
-  .footer-tka {
-    margin-top: 40px;
-    padding-bottom: 20px;
-    font-size: 0.9rem;
+.h3-tka {
+
+    margin-top: 12vh;
+
+    position: absolute;
+    width: 100vw;
+
+    color: rgba(255, 0, 0, 0.712);
+    font-size: 1rem;
+
+    text-align: center;
+    justify-content: space-between;
+
+    z-index: 9999;
+
+
+}
+
+.h4-tka {
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 10vh;
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+
+    padding: 1.5rem;
+
+    font-size: clamp(2rem, 10vw, 3.5rem);
+    margin-top: 5vh;
+
+    z-index: 9999;
+
+}
+
+.footer-tka {
+
+    /*absolute within position is allowing the free floating placement*/
+    position: absolute;
+
+    margin-top: 90vh;
+    padding-bottom: 0px;
+    font-size: 1rem;
+    
+    width: 100vw;
+
+    text-align: center;
+    color: white;
+
+    z-index: 9999;
+
   }
+
 
 }
 
