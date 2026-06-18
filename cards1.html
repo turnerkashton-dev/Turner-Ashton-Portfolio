@@ -135,6 +135,12 @@
 
 
 
+
+
+
+
+
+
   /* =========================
    MOBILE LAYOUT
    ========================= */
@@ -155,13 +161,24 @@
     height: calc(35vw * 1.6667);
     max-width: 180px;
     max-height: 300px;
+
+    left: 50%;
+    top: 50%;
+    transform-style: preserve-3d;
+    transform: translate(-50%, -50%);
+    transition:
+      transform 1s ease,
+      left 1.2s ease,
+      box-shadow 0.3s ease;
   }
 
   /* Vertical spread */
   .spread.card-1 {
     left: 25%;
-    top: 20%;
+    top: 48%;
+    rotate: 5deg;
     transform: translate(-50%, -50%);
+    z-index: -1;
   }
 
   .spread.card-2 {
@@ -172,20 +189,27 @@
 
   .spread.card-3 {
     left: 75%;
-    top: 80%;
+    top: 50%;
+    rotate: -5deg;
     transform: translate(-50%, -50%);
   }
 
   /* Flipped positions */
   .flipped.card-1 {
+    left: 20%;
+    top: 30%;
     transform: translate(-50%, -50%) rotateY(180deg);
   }
 
   .flipped.card-2 {
     transform: translate(-50%, -50%) rotateY(180deg);
+    z-index: 9999;
   }
 
   .flipped.card-3 {
+    left: 75%;
+    top: 70%;
+    rotate: 5deg;
     transform: translate(-50%, -50%) rotateY(180deg);
   }
 
