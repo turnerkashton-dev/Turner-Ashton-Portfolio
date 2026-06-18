@@ -78,6 +78,7 @@ body {
   justify-content: center;
   align-items: center;
   margin-top: 10%;
+  margin-left: 8vw;
 }
 
 .h3-tka {
@@ -355,7 +356,6 @@ body {
              border-width: 2px;
              border-style: solid;
              */
-
   }
 
   .container-pack-4 {
@@ -489,6 +489,12 @@ body {
 
 
 
+
+
+
+
+
+
 /*DESKTOP+ CSS FROM HERE ON*/
 /* =========================
    LARGER SCREEN VERSION
@@ -498,6 +504,20 @@ body {
 
 .carousel-container {
     display: none;
+}
+
+.mobile-instructions {
+  display: none;
+}
+
+.mobile-clickables-toggle {
+    display: flex;
+  justify-content: center;
+  overflow: visible;
+  min-height: 60vh;
+  -webkit-box-reflect: below 0vh linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.4));
+  z-index: 2;
+  margin-right: 8vw;
 }
 
 }
@@ -583,7 +603,7 @@ body {
 
 .card img {
 
-    width: 220px;
+    width: 190px;
     display: block;
 
     user-select: none;
@@ -606,21 +626,58 @@ body {
 /* HIDING & then changing THE DESKTOP VERSION into MOBILE BEGINS HERE */
 
 .card-clickables-backing-border {
-    display: none;
+
+display: none;
+
+    width: 100vw;
+    height: 50vh;
+    align-items: center;
+    
+    border: none;
   }
 
 .card-clickables {
-    display: none;
+
+display: none;
+
+    width: 100vw;
+    height: 50vh;
+    align-items: center;
+
+    border: none;
+
+          -webkit-box-reflect: none;
 }
 
 .card-clickables-random {
-    display: none;
+
+display: none;
+
+    width: 100vw;
+    height: 50vh;
+    align-items: center;
+
+    border: none;
+}
+
+.container-pack-random {
+
+display: none;
+
+    width: 100vw;
+    height: 50vh;
+    align-items: center;
+
+    border: none;
 }
 
 .card-clickables-behind {
-    display: none;
+  display: none;
 }
 
+.mobile-clickables-toggle {
+  display: none;
+}
   
 .h1-tka {
 
@@ -632,7 +689,7 @@ body {
 
 .h3-tka {
 
-    margin-top: 7vh;
+    margin-top: 8vh;
 
     position: absolute;
     width: 100vw;
@@ -645,12 +702,13 @@ body {
 
     z-index: 9999;
 
+  text-shadow: 2px 2px 5px rgba(255, 0, 0, 0.767);
 
 }
 
 .h4-tka {
 
-    margin-top: 1vh;
+    margin-top: 2vh;
 
     color: white;
     position: absolute;
@@ -663,6 +721,7 @@ body {
 
     display: flex;
     align-items: center;
+    justify-content: center;
 
     padding: 1.5rem;
 
@@ -691,6 +750,78 @@ body {
 
   }
 
+
+.mobile-instructions {
+
+  width: 100vw;
+
+  position: absolute;
+  margin-top: 18vh;
+
+  text-align: center;
+  font-size: x-small;
+  color: white;
+
+  text-shadow: 2px 2px 5px rgb(255, 255, 255);
+}
+
+/*MOBILE SCROLLING TEXT FOR INFO & ALERTS INSTRUCTIONS ON OPENING A PACK*/
+
+  /* Container styles */
+.scrolling-text-container {
+    background-color: #eff5ff1e;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+/* Inner container styles */
+.scrolling-text-inner {
+    display: flex;
+    white-space: nowrap;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 8px 0;
+}
+
+/* Text styles */
+.scrolling-text {
+    display: flex;
+}
+
+.scrolling-text-item {
+    padding: 0 30px;
+}
+
+/* Apply the animation to the text items */
+.scrolling-text-inner>div {
+    animation: var(--direction) var(--marquee-speed) linear infinite;
+}
+
+/* Pause the animation when a user hovers over it */
+.scrolling-text-container:hover .scrolling-text-inner>div {
+    animation-play-state: paused;
+}
+
+/* Setting the Animation using Keyframes */
+@keyframes scroll-left {
+    0% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes scroll-right {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(0%);
+    }
+}
 
 }
 

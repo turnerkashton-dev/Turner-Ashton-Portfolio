@@ -8,9 +8,9 @@ let lastTime = 0;
 let isDragging = false;
 
 /* ---------------------------
-   CONFIGURATION (tweak these tka)
+   CONFIGURATION (tweak these tka) radius is space between was 200
 ----------------------------*/
-const radius = 200;
+const radius = 180;
 const sensitivity = 0.006;
 const inertiaStrength = 1;
 const friction = 0.82;
@@ -37,7 +37,7 @@ function updateCarousel() {
         const x = Math.sin(angle) * radius;
         const z = Math.cos(angle) * radius;
 
-        // hide behind camera
+        // hide behind camera BEHIND OTHER CARDS the 120
         if (z < -120) {
             card.style.opacity = "0";
             card.style.pointerEvents = "none";
@@ -47,7 +47,7 @@ function updateCarousel() {
         card.style.opacity = "1";
         card.style.pointerEvents = "auto";
 
-        // depth scaling (Pokémon-style pop center)
+        // depth scaling (depth * 0.6 scales cards as well as depth)
         const depth = (z + radius) / (radius * 2);
 
         const scale = 0.55 + depth * 0.6;
@@ -157,9 +157,9 @@ cards.forEach((card, index) => {
             % cards.length;
 
         if (index === activeIndex) {
-
+/*
             alert("Selected Pack " + (index + 1));
-
+*/
         } else {
 
             position = index;
