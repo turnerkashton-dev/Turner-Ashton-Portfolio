@@ -13,6 +13,7 @@ width: 100%;
   box-sizing: border-box;
 }
 
+
 /*BODY rules*/
 body {
   margin: 0;
@@ -541,6 +542,13 @@ body {
     box-sizing: border-box;
 }
 
+html {
+  overflow-y: scroll;
+  overscroll-behavior-y: none;
+  overflow-x: hidden;
+  overscroll-behavior-x: none;
+}
+
 body {
 
     margin: 0;
@@ -565,13 +573,14 @@ body {
 .carousel-container {
 
     width: 100vw;
-    height: 100vh;
+    height: 90vh;
+    margin-top: 10vh;
 
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
-}
+  }
 
 .carousel {
     position: relative;
