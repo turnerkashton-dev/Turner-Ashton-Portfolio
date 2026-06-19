@@ -88,3 +88,23 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+
+
+
+
+
+
+
+
+
+
+  // BACK BUTTON MOBILE
+  document.getElementById('backBtn-mobile').addEventListener('click', () => {
+    window.history.back();
+  });
+
+  // HOME BUTTON MOBILE
+  document.getElementById('homeBtn-mobile').addEventListener('click', () => {
+    window.location.href = 'index.html';
+  });
