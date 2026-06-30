@@ -1,5 +1,5 @@
 .all-cards-start {
-width: 100%;
+  width: 100%;
 }
 
 
@@ -45,7 +45,7 @@ body {
 .footer-tka {
   text-align: center;
   padding: 0px;
-  color: rgba(255,255,255,0.7);
+  color: rgba(255, 255, 255, 0.7);
   flex-basis: end;
   margin-top: 20vh;
   z-index: 999;
@@ -56,23 +56,23 @@ body {
   flex-basis: end;
   z-index: 999;
   margin-top: 10vh;
-            text-shadow: 3px 1px 2px rgb(0, 0, 0);
-            -webkit-text-fill-color: rgb(255, 255, 255);
-            font-size: larger;
-            font-weight: 900;
-            font-style: italic;
-            -webkit-text-stroke: medium;
-            -webkit-text-stroke-color: rgb(0, 0, 0);
-            -webkit-text-stroke-width: 0.75px;
+  text-shadow: 3px 1px 2px rgb(0, 0, 0);
+  -webkit-text-fill-color: rgb(255, 255, 255);
+  font-size: larger;
+  font-weight: 900;
+  font-style: italic;
+  -webkit-text-stroke: medium;
+  -webkit-text-stroke-color: rgb(0, 0, 0);
+  -webkit-text-stroke-width: 0.75px;
 }
 
 .h9-tka {
   margin-top: 15vh;
   display: flex;
   flex-direction: row;
-    justify-content: center;
-    overflow: visible;
-               -webkit-box-reflect: below 10px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.4));
+  justify-content: center;
+  overflow: visible;
+  -webkit-box-reflect: below 10px linear-gradient(to bottom, rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.4));
 }
 
 .h1-tka {
@@ -87,8 +87,8 @@ body {
   color: white;
   margin-top: 0px;
   flex-basis: 99%;
-    transition: color 0.3s ease,
-              opacity 0.3s ease;
+  transition: color 0.3s ease,
+    opacity 0.3s ease;
 }
 
 .h4-tka {
@@ -109,9 +109,9 @@ body {
 }
 
 .card-clickables-backing-border {
-         border: rgb(0, 0, 0);
-       border-width: 10px;
-       border-style: solid;
+  border: rgb(0, 0, 0);
+  border-width: 10px;
+  border-style: solid;
   min-height: 50vh;
 }
 
@@ -122,11 +122,11 @@ body {
 
 .card-clickables-behind,
 .card-clickables {
-    position: absolute;
-    top: 20%;
-    left: 0;
-    width: 100%;
-    min-height: 120vh;
+  position: absolute;
+  top: 20%;
+  left: 0;
+  width: 100%;
+  min-height: 120vh;
 }
 
 /*TURNER LOOK HERE FOR THE MIRRORING CHANGES THIS IS THE SPOT*/
@@ -136,47 +136,47 @@ body {
   justify-content: center;
   overflow: hidden;
   min-height: 60vh;
-  -webkit-box-reflect: below 0vh linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.4));
+  -webkit-box-reflect: below 0vh linear-gradient(to bottom, rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.4));
   z-index: 2;
 }
 
 .card-clickables-behind {
   display: flex;
-  justify-content:right;
+  justify-content: right;
   padding-right: 5vw;
   overflow: visible;
   min-height: 50vh;
-  -webkit-box-reflect: below 1vh linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.4));
-        border: rgb(255, 255, 255);
-        border-width: 4px;
-        border-style: solid;
-        z-index: 1;
-            text-shadow: 3px 1px 2px rgba(250, 19, 19, 0.416);
-            -webkit-text-fill-color: rgba(255, 0, 0, 0.514);
-            font-size: larger;
-            font-weight: 900;
-            font-style: italic;
-            -webkit-text-stroke: medium;
-            -webkit-text-stroke-color: rgb(0, 0, 0);
-            -webkit-text-stroke-width: 0.25px;
-          }
+  -webkit-box-reflect: below 1vh linear-gradient(to bottom, rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.4));
+  border: rgb(255, 255, 255);
+  border-width: 4px;
+  border-style: solid;
+  z-index: 1;
+  text-shadow: 3px 1px 2px rgba(250, 19, 19, 0.416);
+  -webkit-text-fill-color: rgba(255, 0, 0, 0.514);
+  font-size: larger;
+  font-weight: 900;
+  font-style: italic;
+  -webkit-text-stroke: medium;
+  -webkit-text-stroke-color: rgb(0, 0, 0);
+  -webkit-text-stroke-width: 0.25px;
+}
 
 .card-clickables-random {
-    overflow: visible;
-              /*
+  overflow: visible;
+  /*
                  border: rgb(12, 185, 113);
              border-width: 5px;
              border-style: solid;
             */
-    width: max(30vw);
-    height: max(30vh);
-    /*THIS IS THE SIZING OF THE BOUNDING BOX WITH COLLISION PUSHING PACKS TO THE RIGHT*/
+  width: max(30vw);
+  height: max(30vh);
+  /*THIS IS THE SIZING OF THE BOUNDING BOX WITH COLLISION PUSHING PACKS TO THE RIGHT*/
 }
 
 .card-clickables-random:hover {
-/*left blank in this moment on purpose*/
+  /*left blank in this moment on purpose*/
 }
-  
+
 /*ALL CODE RELATING TO IMAGE TOGGERS ie: pack1.html > down*/
 
 /* IMAGE TOGGLER down PACK ONE*/
@@ -191,11 +191,11 @@ body {
 }
 
 /* When the checkbox is checked, swap the images */
-.image-toggler-card-1 input:checked ~ .image-one-card-1 {
+.image-toggler-card-1 input:checked~.image-one-card-1 {
   display: none;
 }
 
-.image-toggler-card-1 input:checked ~ .image-two-card-1 {
+.image-toggler-card-1 input:checked~.image-two-card-1 {
   display: block;
 }
 
@@ -203,6 +203,7 @@ body {
 .image-two-card-1 {
   cursor: pointer;
 }
+
 /* IMAGE TOGGLER up PACK ONE*/
 
 
@@ -219,13 +220,14 @@ body {
 }
 
 /* When the checkbox is checked, swap the images */
-.image-toggler-card-2 input:checked ~ .image-one-card-2 {
+.image-toggler-card-2 input:checked~.image-one-card-2 {
   display: none;
 }
 
-.image-toggler-card-2 input:checked ~ .image-two-card-2 {
+.image-toggler-card-2 input:checked~.image-two-card-2 {
   display: block;
 }
+
 /* IMAGE TOGGLER up PACK TWO*/
 
 /* IMAGE TOGGLER down PACK THREE*/
@@ -240,13 +242,14 @@ body {
 }
 
 /* When the checkbox is checked, swap the images */
-.image-toggler-card-3 input:checked ~ .image-one-card-3 {
+.image-toggler-card-3 input:checked~.image-one-card-3 {
   display: none;
 }
 
-.image-toggler-card-3 input:checked ~ .image-two-card-3 {
+.image-toggler-card-3 input:checked~.image-two-card-3 {
   display: block;
 }
+
 /* IMAGE TOGGLER up PACK THREE*/
 
 
@@ -263,13 +266,14 @@ body {
 }
 
 /* When the checkbox is checked, swap the images */
-.image-toggler-card-4 input:checked ~ .image-one-card-4 {
+.image-toggler-card-4 input:checked~.image-one-card-4 {
   display: none;
 }
 
-.image-toggler-card-4 input:checked ~ .image-two-card-4 {
+.image-toggler-card-4 input:checked~.image-two-card-4 {
   display: block;
 }
+
 /* IMAGE TOGGLER up PACK FOUR*/
 
 
@@ -286,13 +290,14 @@ body {
 }
 
 /* When the checkbox is checked, swap the images */
-.image-toggler-card-5 input:checked ~ .image-one-card-5 {
+.image-toggler-card-5 input:checked~.image-one-card-5 {
   display: none;
 }
 
-.image-toggler-card-5 input:checked ~ .image-two-card-5 {
+.image-toggler-card-5 input:checked~.image-two-card-5 {
   display: block;
 }
+
 /* IMAGE TOGGLER up PACK FIVE*/
 
 /*ALL CODE RELATING TO IMAGE TOGGERS ie: pack1.html > up*/
@@ -303,90 +308,90 @@ body {
 /*CONTAINERS for packs on HOVER > down*/
 
 
-  .container-pack-random {
-    position: relative;
-    width: min(15vw, 150px);
-    height: min(30vh, 300px);
-        z-index: 6;
-      /*TILTING and TESTING*/
-    transform: rotate(0deg);
-                /*
+.container-pack-random {
+  position: relative;
+  width: min(15vw, 150px);
+  height: min(30vh, 300px);
+  z-index: 6;
+  /*TILTING and TESTING*/
+  transform: rotate(0deg);
+  /*
     border: rgb(4, 80, 48);
     border-width: 2px;
     border-style: solid;
                */
-  }
+}
 
 
 
-  .container-pack-1 {
-    position: relative;
-    width: min(15vw, 150px);
-    height: min(30vh, 300px);
-        z-index: 3;
-      /*TILTING*/
-    transform: rotate(-7deg);
-            /*
+.container-pack-1 {
+  position: relative;
+  width: min(15vw, 150px);
+  height: min(30vh, 300px);
+  z-index: 3;
+  /*TILTING*/
+  transform: rotate(-7deg);
+  /*
               border: rgb(255, 136, 0);
              border-width: 2px;
              border-style: solid;
            */
-  }
+}
 
-  .container-pack-2 {
-    position: relative;
-    width: min(15vw, 150px);
-    height: min(30vh, 300px);
-        z-index: 4;
-      /*TILTING*/
-    transform: rotate(-5deg);
-             /*
+.container-pack-2 {
+  position: relative;
+  width: min(15vw, 150px);
+  height: min(30vh, 300px);
+  z-index: 4;
+  /*TILTING*/
+  transform: rotate(-5deg);
+  /*
               border: rgb(0, 174, 255);
              border-width: 2px;
              border-style: solid;
             */
-  }
+}
 
-  .container-pack-3 {
-    position: relative;
-    width: min(15vw, 150px);
-    height: min(30vh, 300px);
-    z-index: 5;
-             /*
+.container-pack-3 {
+  position: relative;
+  width: min(15vw, 150px);
+  height: min(30vh, 300px);
+  z-index: 5;
+  /*
               border: rgb(150, 12, 12);
              border-width: 2px;
              border-style: solid;
              */
-  }
+}
 
-  .container-pack-4 {
-    position: relative;
-    width: min(15vw, 150px);
-    height: min(30vh, 300px);
-        z-index: 2;
-      /*TILTING*/
-    transform: rotate(5deg);
-             /*
+.container-pack-4 {
+  position: relative;
+  width: min(15vw, 150px);
+  height: min(30vh, 300px);
+  z-index: 2;
+  /*TILTING*/
+  transform: rotate(5deg);
+  /*
               border: rgb(247, 0, 255);
              border-width: 2px;
              border-style: solid;
             */
-  }
+}
 
 
-  .container-pack-5 {
-    position: relative;
-    width: min(15vw, 150px);
-    height: min(30vh, 300px);
-        z-index: 1;
-      /*TILTING*/
-    transform: rotate(7deg);
-             /*
+.container-pack-5 {
+  position: relative;
+  width: min(15vw, 150px);
+  height: min(30vh, 300px);
+  z-index: 1;
+  /*TILTING*/
+  transform: rotate(7deg);
+  /*
               border: rgb(204, 0, 255);
              border-width: 2px;
              border-style: solid;
             */
-  }
+}
 
 
 /*HOVER EFFECT FOR index.html CARD PACKS*/
@@ -394,14 +399,15 @@ body {
   position: relative;
   left: 10%;
   left: 10%;
-      width: min(15vw, 150px);
-      height: min(30vh, 300px);
-            /*
+  width: min(15vw, 150px);
+  height: min(30vh, 300px);
+  /*
                border: rgb(0, 60, 255);
              border-width: 1px;
              border-style: solid;
             */
 }
+
 /*problem witih middle pack not showing if absolute changed to fixed, this is supposed to change the hover text location*/
 
 /*TURNER LOOK HERE FOR THE MOVEMENT UP ON HOVER*/
@@ -435,6 +441,7 @@ body {
 .container-pack-5 {
   transition: transform 1s ease-out;
 }
+
 /*ON HOVER CARD MOVES TO FRONT*/
 .container-pack-1:hover,
 .container-pack-2:hover,
@@ -450,18 +457,46 @@ body {
 
 /*THIS IS FOR THE index.html CASINO FEEL*/
 @keyframes jackpotShake {
-  0%   { transform: translate(0, 0) scale(1.01); }
-  50%  { transform: translate(0.3px, -0.3px) scale(1.015); }
-  100% { transform: translate(0, 0) scale(1.01); }
+  0% {
+    transform: translate(0, 0) scale(1.01);
+  }
+
+  50% {
+    transform: translate(0.3px, -0.3px) scale(1.015);
+  }
+
+  100% {
+    transform: translate(0, 0) scale(1.01);
+  }
 }
 
 @keyframes textGlitch {
-  0% { opacity: 1; filter: blur(0px); }
-  20% { opacity: 0.8; filter: blur(1px); }
-  40% { opacity: 1; }
-  60% { opacity: 0.6; filter: blur(2px); }
-  80% { opacity: 1; }
-  100% { opacity: 1; }
+  0% {
+    opacity: 1;
+    filter: blur(0px);
+  }
+
+  20% {
+    opacity: 0.8;
+    filter: blur(1px);
+  }
+
+  40% {
+    opacity: 1;
+  }
+
+  60% {
+    opacity: 0.6;
+    filter: blur(2px);
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 /*
@@ -501,29 +536,29 @@ body {
    LARGER SCREEN VERSION
    ========================= */
 
-@media (min-width: 768px) {
+@media (min-width: 1410px) {
 
-.carousel-container {
+  .carousel-container {
     display: none;
-}
+  }
 
-.mobile-instructions {
-  display: none;
-}
+  .mobile-instructions {
+    display: none;
+  }
 
-.mobile-clickables-toggle {
+  .mobile-clickables-toggle {
     display: flex;
-  justify-content: center;
-  overflow: visible;
-  min-height: 60vh;
-  -webkit-box-reflect: below 0vh linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.4));
-  z-index: 2;
-  margin-right: 8vw;
-}
+    justify-content: center;
+    overflow: visible;
+    min-height: 60vh;
+    -webkit-box-reflect: below 0vh linear-gradient(to bottom, rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.4));
+    z-index: 2;
+    margin-right: 8vw;
+  }
 
-.header-mobile {
-  display: none;
-}
+  .header-mobile {
+    display: none;
+  }
 
 }
 
@@ -538,22 +573,22 @@ body {
    MOBILE VERSION
    ========================= */
 
-@media (max-width: 768px) {
+@media (max-width: 1410px) {
 
-* {
+  * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
+  }
 
-html {
-  overflow-y: scroll;
-  overscroll-behavior-y: none;
-  overflow-x: hidden;
-  overscroll-behavior-x: none;
-}
+  html {
+    overflow-y: scroll;
+    overscroll-behavior-y: none;
+    overflow-x: hidden;
+    overscroll-behavior-x: none;
+  }
 
-body {
+  body {
 
     margin: 0;
     width: 100vw;
@@ -571,7 +606,7 @@ body {
     overflow-y: visible;
 
     font-family: Arial, sans-serif;
-}
+  }
 
 
 
@@ -584,26 +619,26 @@ body {
     left: 0;
 
     width: 100%;
-    height: 5vh;
-/*
+    height: 6vh;
+    /*
     background: rgba(255, 255, 255, 0.85);
 */
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
 
 
     padding: 0 24px;
-    margin-top: 11vh;
+    margin-top: 12vh;
 
     z-index: 10;
 
-/*
+    /*
     backdrop-filter: blur(8px);
 */
   }
 
- /* BUTTONS MOBILE menu?*/
+  /* BUTTONS MOBILE menu?*/
   .header-btn-mobile {
     width: 48px;
     height: 48px;
@@ -628,10 +663,69 @@ body {
 
 
 
+  .header-btn-2-mobile {
+    width: 48px;
+    height: 48px;
+
+    border: none;
+    background: transparent;
+
+    cursor: pointer;
+
+    transition: transform 0.2s ease;
+  }
+
+  .header-btn-2-mobile img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
 
 
 
-.carousel-container {
+  .header-btn-3-mobile {
+    width: 48px;
+    height: 48px;
+
+    border: none;
+    background: transparent;
+
+    cursor: pointer;
+
+    transition: transform 0.2s ease;
+  }
+
+  .header-btn-3-mobile img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+
+
+  .header-btn-4-mobile {
+    width: 48px;
+    height: 48px;
+
+    border: none;
+    background: transparent;
+
+    cursor: pointer;
+
+    transition: transform 0.2s ease;
+  }
+
+  .header-btn-4-mobile img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+
+
+
+
+  .carousel-container {
 
     width: 100vw;
     height: 85vh;
@@ -643,18 +737,18 @@ body {
     overflow: hidden;
   }
 
-.carousel {
+  .carousel {
     position: relative;
     width: 100%;
     height: 500px;
 
     perspective: 2000px;
     transform-style: preserve-3d;
-}
+  }
 
-.card {
+  .card {
 
-  -webkit-box-reflect: below 3vh linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.4));
+    -webkit-box-reflect: below 3vh linear-gradient(to bottom, rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.4));
 
 
     position: absolute;
@@ -666,90 +760,90 @@ body {
     backface-visibility: hidden;
 
     transition:
-        opacity .2s linear;
-}
+      opacity .2s linear;
+  }
 
 
 
-.card img {
+  .card img {
 
     width: 190px;
     display: block;
 
     user-select: none;
     pointer-events: none;
-}
+  }
 
-.card.active {
+  .card.active {
 
     z-index: 100;
 
     transform:
-        translate(-50%, -50%) scale(1.15);
+      translate(-50%, -50%) scale(1.15);
 
     opacity: 1;
-}
+  }
 
 
-/*ターナー*/
+  /*ターナー*/
 
-/* HIDING & then changing THE DESKTOP VERSION into MOBILE BEGINS HERE */
+  /* HIDING & then changing THE DESKTOP VERSION into MOBILE BEGINS HERE */
 
-.card-clickables-backing-border {
+  .card-clickables-backing-border {
 
-display: none;
+    display: none;
 
     width: 100vw;
     height: 50vh;
     align-items: center;
-    
+
     border: none;
   }
 
-.card-clickables {
+  .card-clickables {
 
-display: none;
-
-    width: 100vw;
-    height: 50vh;
-    align-items: center;
-
-    border: none;
-
-          -webkit-box-reflect: none;
-}
-
-.card-clickables-random {
-
-display: none;
+    display: none;
 
     width: 100vw;
     height: 50vh;
     align-items: center;
 
     border: none;
-}
 
-.container-pack-random {
+    -webkit-box-reflect: none;
+  }
 
-display: none;
+  .card-clickables-random {
+
+    display: none;
 
     width: 100vw;
     height: 50vh;
     align-items: center;
 
     border: none;
-}
+  }
 
-.card-clickables-behind {
-  display: none;
-}
+  .container-pack-random {
 
-.mobile-clickables-toggle {
-  display: none;
-}
-  
-.h1-tka {
+    display: none;
+
+    width: 100vw;
+    height: 50vh;
+    align-items: center;
+
+    border: none;
+  }
+
+  .card-clickables-behind {
+    display: none;
+  }
+
+  .mobile-clickables-toggle {
+    display: none;
+  }
+
+  .h1-tka {
 
     text-align: center;
     margin: 0 0 20px 0;
@@ -757,7 +851,7 @@ display: none;
     order: -1;
   }
 
-.h3-tka {
+  .h3-tka {
 
     margin-top: 8vh;
 
@@ -772,11 +866,11 @@ display: none;
 
     z-index: 9999;
 
-  text-shadow: 2px 2px 5px rgba(255, 0, 0, 0.767);
+    text-shadow: 2px 2px 5px rgba(255, 0, 0, 0.767);
 
-}
+  }
 
-.h4-tka {
+  .h4-tka {
 
     margin-top: 2vh;
 
@@ -800,9 +894,9 @@ display: none;
 
     z-index: 9999;
 
-}
+  }
 
-.footer-tka {
+  .footer-tka {
 
     /*absolute within position is allowing the free floating placement*/
     position: absolute;
@@ -810,7 +904,7 @@ display: none;
     margin-top: 90vh;
     padding-bottom: 0px;
     font-size: 1rem;
-    
+
     width: 100vw;
 
     text-align: center;
@@ -820,99 +914,135 @@ display: none;
 
   }
 
-.bottom-menu {
-  width: 100vw;
-  height: 5vh;
+  .bottom-menu {
+    width: 100vw;
+    height: 5vh;
 
-  background-color: white;
-  animation-name: BottomMenuUp;
-  animation-duration: 3s;
-}
+    background-color: white;
+    animation-name: BottomMenuUp;
+    animation-duration: 3s;
+  }
 
-@keyframes BottomMenuUp {
-0% {height: 5vh;}
-25% {height: 10vh;}
-50% {height: 15vh;}
-75% {height: 20vh;}
-100% {height: 25vh;}
-}
+  @keyframes BottomMenuUp {
+    0% {
+      height: 5vh;
+    }
+
+    25% {
+      height: 10vh;
+    }
+
+    50% {
+      height: 15vh;
+    }
+
+    75% {
+      height: 20vh;
+    }
+
+    100% {
+      height: 25vh;
+    }
+  }
 
 
 
 
 
-.mobile-instructions {
+  .mobile-instructions {
 
-  width: 100vw;
+    width: 100vw;
 
-  position: absolute;
-  margin-top: 18vh;
+    position: absolute;
+    margin-top: 20vh;
 
-  text-align: center;
-  font-size: x-small;
-  color: white;
+    text-align: center;
+    font-size: x-small;
+    color: white;
 
-  text-shadow: 2px 2px 5px rgb(255, 255, 255);
-}
+  }
 
-/*MOBILE SCROLLING TEXT FOR INFO & ALERTS INSTRUCTIONS ON OPENING A PACK*/
+  /*MOBILE SCROLLING TEXT FOR INFO & ALERTS INSTRUCTIONS ON OPENING A PACK*/
 
   /* Container styles */
-.scrolling-text-container {
+  .scrolling-text-container {
     background-color: #eff5ff1e;
     border-radius: 4px;
     overflow: hidden;
-}
+  }
 
-/* Inner container styles */
-.scrolling-text-inner {
+  /* Inner container styles */
+  .scrolling-text-inner {
     display: flex;
     white-space: nowrap;
     font-size: 16px;
     font-weight: 600;
     padding: 8px 0;
-}
+  }
 
-/* Text styles */
-.scrolling-text {
+  /* Text styles */
+  .scrolling-text {
     display: flex;
-}
+  }
 
-.scrolling-text-item {
+  .scrolling-text-item-1 {
     padding: 0 30px;
-}
+    color: white;
+    text-shadow: 2px 2px 5px rgb(255, 255, 255);
 
-/* Apply the animation to the text items */
-.scrolling-text-inner>div {
+  }
+
+  .scrolling-text-item-2 {
+    padding: 0 30px;
+    color: rgb(255, 0, 0);
+    text-shadow: 2px 2px 5px rgb(255, 0, 0);
+
+  }
+
+  .scrolling-text-item-divider {
+    padding: 0 30px;
+    color: rgb(255, 187, 0);
+    text-shadow: 2px 2px 5px rgb(255, 208, 0);
+
+  }
+
+  .scrolling-text-item-temporary {
+    padding: 0 30px;
+    color: rgb(92, 143, 253);
+    text-shadow: 2px 2px 5px rgb(40, 116, 202);
+
+  }
+
+
+  /* Apply the animation to the text items */
+  .scrolling-text-inner>div {
     animation: var(--direction) var(--marquee-speed) linear infinite;
-}
+  }
 
-/* Pause the animation when a user hovers over it */
-.scrolling-text-container:hover .scrolling-text-inner>div {
+  /* Pause the animation when a user hovers over it */
+  .scrolling-text-container:hover .scrolling-text-inner>div {
     animation-play-state: paused;
-}
+  }
 
-/* Setting the Animation using Keyframes */
-@keyframes scroll-left {
+  /* Setting the Animation using Keyframes */
+  @keyframes scroll-left {
     0% {
-        transform: translateX(0%);
+      transform: translateX(0%);
     }
 
     100% {
-        transform: translateX(-100%);
+      transform: translateX(-100%);
     }
-}
+  }
 
-@keyframes scroll-right {
+  @keyframes scroll-right {
     0% {
-        transform: translateX(-100%);
+      transform: translateX(-100%);
     }
 
     100% {
-        transform: translateX(0%);
+      transform: translateX(0%);
     }
-}
+  }
 
 }
-
-
