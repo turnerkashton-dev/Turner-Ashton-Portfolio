@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Pack 2 Card 1</title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Pack 2 Card 1</title>
 
 
 </head>
+
 <body>
 
   <!-- HEADER -->
@@ -18,7 +20,7 @@
       <img src="images/arrow_icon.png" alt="Back" style="rotate: 90deg;">
     </button>
 
-<h2>TURNER ASHTON</h2>
+    <h2>TURNER ASHTON</h2>
 
     <!-- HOME BUTTON -->
     <button class="header-btn" id="homeBtn">
@@ -29,37 +31,63 @@
 
   <!-- PAGE CONTENT -->
   <div class="content">
-    <h1> < TEMPORARY FILLER > </A></h1>
+    <h1 style="color: rgb(5, 5, 5);">
+      <&emsp;Tsukii Printing Mockups&emsp;> </A>
+    </h1>
 
     <br>
-<!--
-<iframe src="pdfs/tsukii pt2 STYLE GUIDE FINAL PDF.pdf" width="70%" height="1000px" style="border: none;">
-    <p>Your browser does not support iframes. <a href="pdfs/tsukii pt2 STYLE GUIDE FINAL PDF.pdf">Download the PDF instead.</a></p>
-</iframe>
--->
+    <h2>ENVELOPE MOCKUP EXAMPLE</h2>
+    <img src="images/tsukii_printing_envelope.jpg" alt="Tsukii printing envelope" class="responsive-tka2">
+
+
+    <img src="images/tsukii_printing_letterhead.jpg" alt="Tsukii printing letterhead" class="responsive-tka2">
+
+
+    <img src="images/tsukii_printing_business_card.jpg" alt="Tsukii business card" class="responsive-tka2">
+
+    <br>
+
+    <h2>temporary filler</h2>
+
+    <br>
+    <br>
+    <br>
+
+
+    <img src="images/tsukii_all_printing_examples.jpg" alt="Tsukii all printing examples" class="responsive-tka1">
+
+
+
+
+    <br>
+
+
+
+
+
   </div>
 
-<script>
+  <script>
 
-  // BACK BUTTON
-  document.getElementById('backBtn').addEventListener('click', () => {
-    window.history.back();
-  });
+    // BACK BUTTON
+    document.getElementById('backBtn').addEventListener('click', () => {
+      window.history.back();
+    });
 
-  // HOME BUTTON
-  document.getElementById('homeBtn').addEventListener('click', () => {
-    window.location.href = 'index.html';
-  });
+    // HOME BUTTON
+    document.getElementById('homeBtn').addEventListener('click', () => {
+      window.location.href = 'index.html';
+    });
 
-</script>
+  </script>
 
 </body>
+
 </html>
 
 
 
 <style>
-
   * {
     margin: 0;
     padding: 0;
@@ -67,9 +95,10 @@
   }
 
   body {
-    background: #111;
+    background: #dbdbdb;
     min-height: 100vh;
     font-family: Arial, sans-serif;
+
   }
 
   /* HEADER BAR */
@@ -91,7 +120,7 @@
 
     z-index: 1000;
 
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 
     backdrop-filter: blur(8px);
   }
@@ -117,6 +146,7 @@
     width: 100%;
     height: 100%;
     object-fit: contain;
+
   }
 
   /* PAGE CONTENT */
@@ -126,4 +156,67 @@
     text-align: center;
   }
 
+
+
+
+
+
+  /*DESKTOP CSS FROM HERE ON*/
+  /* =========================*/
+  @media (min-width: 1410px) {
+
+    .responsive-tka1 {
+      max-width: 60%;
+      height: auto;
+      border-radius: 50px;
+    }
+
+    .responsive-tka2 {
+      max-width: 30%;
+      height: auto;
+      border-radius: 50px;
+
+    }
+
+
+
+
+    h1 {
+      font-size: 2vw;
+    }
+
+  }
+
+
+
+  /*MOBILE CSS FROM HERE ON*/
+  /* =========================*/
+
+  @media (max-width: 1410px) {
+
+    body {
+      background-color: rgb(202, 196, 197);
+    }
+
+    .responsive-tka1 {
+      max-width: 80%;
+      height: auto;
+
+      border-radius: 25px;
+    }
+
+    .responsive-tka2 {
+      max-width: 80%;
+      height: auto;
+      border-radius: 50px;
+
+      border-radius: 15px;
+    }
+
+
+    h1 {
+      font-size: 5vw;
+    }
+
+  }
 </style>
