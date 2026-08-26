@@ -108,6 +108,8 @@ body {
   font-size: 18px;
 }
 
+
+
 .card-clickables-backing-border {
   border: rgb(0, 0, 0);
   border-width: 10px;
@@ -560,7 +562,221 @@ body {
     display: none;
   }
 
+
+  .header-mobile {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 6vh;
+    /*
+    background: rgba(255, 255, 255, 0.85);
+*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+    padding: 0 24px;
+    margin-top: 95vh;
+
+    z-index: 10;
+
+    /*
+    backdrop-filter: blur(8px);
+*/
+  }
+
+  /* BUTTONS MOBILE menu?*/
+  .header-btn-mobile {
+    width: 48px;
+    height: 48px;
+
+    border: none;
+    background: transparent;
+
+    cursor: pointer;
+
+    transition: transform 0.2s ease;
+  }
+
+  .header-btn-mobile:hover {
+    transform: scale(1.1);
+  }
+
+  .header-btn-mobile img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+
+
+  .header-btn-2-mobile {
+    width: 48px;
+    height: 48px;
+
+    border: none;
+    background: transparent;
+
+    cursor: pointer;
+
+    transition: transform 0.2s ease;
+  }
+
+  .header-btn-2-mobile img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+
+
+  .header-btn-3-mobile {
+    width: 48px;
+    height: 48px;
+
+    border: none;
+    background: transparent;
+
+    cursor: pointer;
+
+    transition: transform 0.2s ease;
+  }
+
+  .header-btn-3-mobile img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+
+
+  .header-btn-4-mobile {
+    width: 48px;
+    height: 48px;
+
+    border: none;
+    background: transparent;
+
+    cursor: pointer;
+
+    transition: transform 0.2s ease;
+  }
+
+  .header-btn-4-mobile img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .mobile-bottom-bar {
+    display: none;
+  }
+
+  .scrolling-text-container-v3 {
+    display: none;
+  }
+
+  .scrolling-text-container-v4 {
+    display: none;
+  }
+
+  /* CURRENTLY disabled, scrolling text on desktop version REMOVE DISPLAY NONE IN FIRST DIV */
+
+  .scrolling-text-container-v2 {
+    background-color: #eff5ff00;
+    border-radius: 4px;
+    overflow: hidden;
+
+    position: fixed;
+    top: 20vh;
+
+    width: 100vw;
+
+    display: none;
+  }
+
+  /* Inner container styles */
+  .scrolling-text-inner-v2 {
+    display: flex;
+    white-space: nowrap;
+    font-size: 22px;
+    font-weight: 600;
+    padding: 8px 0;
+  }
+
+  /* Text styles */
+  .scrolling-text-v2 {
+    display: flex;
+  }
+
+  .scrolling-text-item-1-v2 {
+    padding: 0 30px;
+    color: white;
+    text-shadow: 2px 2px 5px rgb(255, 255, 255);
+
+  }
+
+  .scrolling-text-item-2-v2 {
+    padding: 0 30px;
+    color: rgb(255, 0, 0);
+    text-shadow: 2px 2px 5px rgb(255, 0, 0);
+
+  }
+
+  .scrolling-text-item-divider-v2 {
+    padding: 0 30px;
+    color: rgb(255, 187, 0);
+    text-shadow: 2px 2px 5px rgb(255, 208, 0);
+
+  }
+
+  .scrolling-text-item-temporary-v2 {
+    padding: 0 30px;
+    color: rgb(92, 143, 253);
+    text-shadow: 2px 2px 5px rgb(40, 116, 202);
+
+  }
+
+
+  /* Apply the animation to the text items */
+  .scrolling-text-inner-v2>div {
+    animation: var(--direction) var(--marquee-speed) linear infinite;
+  }
+
+  /* Pause the animation when a user hovers over it */
+  .scrolling-text-container-v2:hover .scrolling-text-inner-v2>div {
+    animation-play-state: paused;
+  }
+
+  /* Setting the Animation using Keyframes */
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(0%);
+    }
+
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  @keyframes scroll-right {
+    0% {
+      transform: translateX(-100%);
+    }
+
+    100% {
+      transform: translateX(0%);
+    }
+  }
+
 }
+
+
+
+/* ------------------------------------------------------------------------------------------------------------------- */
 
 
 
@@ -728,13 +944,15 @@ body {
   .carousel-container {
 
     width: 100vw;
-    height: 85vh;
-    margin-top: 15vh;
+    height: 95vh;
+    margin-top: 5vh;
 
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    z-index: 3;
+    /*background: linear-gradient(#111, rgba(255, 0, 0, 0.116));*/
   }
 
   .carousel {
@@ -852,14 +1070,14 @@ body {
   }
 
   .h3-tka {
-
+    /*8vh perfect*/
     margin-top: 8vh;
 
     position: absolute;
     width: 100vw;
 
     color: rgba(255, 0, 0, 0.712);
-    font-size: 1rem;
+    font-size: clamp(1rem, 2vw, 1.5rem);
 
     text-align: center;
     justify-content: space-between;
@@ -871,7 +1089,7 @@ body {
   }
 
   .h4-tka {
-
+    /*2vh perfect*/
     margin-top: 2vh;
 
     color: white;
@@ -889,7 +1107,7 @@ body {
 
     padding: 1.5rem;
 
-    font-size: clamp(2rem, 10vw, 3.5rem);
+    font-size: clamp(2rem, 9vw, 3.5rem);
 
 
     z-index: 9999;
@@ -901,7 +1119,7 @@ body {
     /*absolute within position is allowing the free floating placement*/
     position: absolute;
 
-    margin-top: 90vh;
+    margin-top: 89vh;
     padding-bottom: 0px;
     font-size: 1rem;
 
@@ -909,9 +1127,103 @@ body {
 
     text-align: center;
     color: white;
+    text-shadow: 2px 2px 5px rgba(29, 26, 26, 0.767);
 
     z-index: 9999;
 
+  }
+
+  .mobile-scrolling-top-bar-left {
+    background: linear-gradient(to left, rgba(0, 0, 0, 0), rgb(0, 0, 0));
+    width: 10vw;
+    height: 100vh;
+    position: absolute;
+    z-index: 2;
+    margin-top: 0vh;
+    margin-left: 0vw;
+    border-radius: 0px;
+    color: black;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .mobile-scrolling-top-bar-right {
+    background: linear-gradient(to right, rgba(0, 0, 0, 0), rgb(0, 0, 0));
+    width: 10vw;
+    height: 100vh;
+    position: absolute;
+    z-index: 2;
+    margin-top: 0vh;
+    margin-left: 90vw;
+    border-radius: 0px;
+    color: black;
+    text-align: center;
+    overflow: hidden;
+  }
+
+
+  .mobile-top-bar-left {
+    display: none;
+
+
+
+    background: linear-gradient(to left, rgba(0, 0, 0, 0), rgb(0, 0, 0));
+    width: 10vw;
+    height: 60vh;
+    position: absolute;
+    z-index: 9;
+    margin-top: 40vh;
+    margin-left: 0vw;
+    border-radius: 0px;
+    color: black;
+    text-align: center;
+    padding: 1.5vh;
+    mix-blend-mode: screen;
+    backdrop-filter: blur(2px);
+    filter: blur(0px);
+    box-shadow: 0 0 15px 2px #141414;
+
+  }
+
+  .mobile-top-bar-right {
+    display: none;
+
+
+    background: rgba(0, 0, 0, 0.247);
+    width: 10vw;
+    height: 80vh;
+    position: absolute;
+    z-index: 9;
+    margin-top: 20vh;
+    margin-left: 90vw;
+    border-radius: 0px;
+    color: black;
+    text-align: center;
+    padding: 1.5vh;
+    mix-blend-mode: screen;
+    backdrop-filter: blur(2px);
+    box-shadow: 0 0 15px 2px #141414;
+
+  }
+
+  .mobile-bottom-bar {
+    display: none;
+
+
+    background: rgba(0, 0, 0, 0.247);
+    width: 40vw;
+    height: 4vh;
+    position: absolute;
+    z-index: 9;
+    margin-top: 88vh;
+    margin-left: 30vw;
+    border-radius: 40px;
+    color: black;
+    text-align: center;
+    padding: 1.5vh;
+    mix-blend-mode: screen;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 0 15px 2px #141414;
   }
 
   .bottom-menu {
@@ -966,9 +1278,16 @@ body {
 
   /* Container styles */
   .scrolling-text-container {
-    background-color: #eff5ff1e;
+    /* background-color: #eff5ff1e; previous*/
+    background-color: #2c2c2c00;
+
     border-radius: 4px;
     overflow: hidden;
+
+    position: fixed;
+    /*top: 28vh; previous*/
+    top: 32vh;
+    opacity: 30%;
   }
 
   /* Inner container styles */
@@ -1017,6 +1336,7 @@ body {
   /* Apply the animation to the text items */
   .scrolling-text-inner>div {
     animation: var(--direction) var(--marquee-speed) linear infinite;
+    animation-duration: 18s;
   }
 
   /* Pause the animation when a user hovers over it */
@@ -1045,4 +1365,296 @@ body {
     }
   }
 
+
+
+
+
+
+  /*MOBILE SCROLLING TEXT        version two for bottom*/
+
+  /* Container styles */
+  .scrolling-text-container-v2 {
+    background-color: #2c2c2c00;
+    border-radius: 4px;
+    overflow: hidden;
+
+    position: fixed;
+    /*ORIGINAL at 80vh*/
+    top: 23vh;
+
+    width: 100vw;
+
+    opacity: 70%;
+
+    /*-webkit-box-reflect: below 0vh linear-gradient(to bottom, rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.4));*/
+
+  }
+
+  /* Inner container styles */
+  .scrolling-text-inner-v2 {
+    display: flex;
+    white-space: nowrap;
+    font-size: 26px;
+    font-weight: 600;
+    padding: 8px 0;
+  }
+
+  /* Text styles */
+  .scrolling-text-v2 {
+    display: flex;
+  }
+
+  .scrolling-text-item-1-v2 {
+    padding: 0 30px;
+    color: white;
+    text-shadow: 2px 2px 5px rgb(255, 255, 255);
+
+  }
+
+  .scrolling-text-item-2-v2 {
+    padding: 0 30px;
+    color: rgb(255, 0, 0);
+    text-shadow: 2px 2px 5px rgb(255, 0, 0);
+
+  }
+
+  .scrolling-text-item-divider-v2 {
+    padding: 0 30px;
+    color: rgb(255, 187, 0);
+    text-shadow: 2px 2px 5px rgb(255, 208, 0);
+
+  }
+
+  .scrolling-text-item-temporary-v2 {
+    padding: 0 30px;
+    color: rgb(92, 143, 253);
+    text-shadow: 2px 2px 5px rgb(40, 116, 202);
+
+  }
+
+
+  /* Apply the animation to the text items */
+  .scrolling-text-inner-v2>div {
+    animation: var(--direction) var(--marquee-speed) linear infinite;
+  }
+
+  /* Pause the animation when a user hovers over it */
+  .scrolling-text-container-v2:hover .scrolling-text-inner-v2>div {
+    animation-play-state: paused;
+  }
+
+  /* Setting the Animation using Keyframes */
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(0%);
+    }
+
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  @keyframes scroll-right {
+    0% {
+      transform: translateX(-100%);
+    }
+
+    100% {
+      transform: translateX(0%);
+    }
+  }
+
+
+
+  /*MOBILE SCROLLING TEXT        version three for bottom*/
+
+  /* Container styles */
+  .scrolling-text-container-v3 {
+    background-color: #2c2c2c00;
+    /*background: linear-gradient(to bottom, #111, #2c2c2c);*/
+    border-radius: 4px;
+    overflow: hidden;
+
+    position: fixed;
+    /*ORIGINAL at 80vh*/
+    top: 20vh;
+
+    width: 100vw;
+
+    opacity: 40%;
+
+    /*-webkit-box-reflect: below 0vh linear-gradient(to bottom, rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.4));*/
+
+  }
+
+  /* Inner container styles */
+  .scrolling-text-inner-v3 {
+    display: flex;
+    white-space: nowrap;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 8px 0;
+  }
+
+  /* Text styles */
+  .scrolling-text-v3 {
+    display: flex;
+  }
+
+  .scrolling-text-item-1-v3 {
+    padding: 0 30px;
+    color: white;
+    text-shadow: 2px 2px 5px rgb(255, 255, 255);
+
+  }
+
+  .scrolling-text-item-2-v3 {
+    padding: 0 30px;
+    color: rgb(255, 0, 0);
+    text-shadow: 2px 2px 5px rgb(255, 0, 0);
+
+  }
+
+  .scrolling-text-item-divider-v3 {
+    padding: 0 30px;
+    color: rgb(255, 187, 0);
+    text-shadow: 2px 2px 5px rgb(255, 208, 0);
+
+  }
+
+  .scrolling-text-item-temporary-v3 {
+    padding: 0 30px;
+    color: rgb(92, 143, 253);
+    text-shadow: 2px 2px 5px rgb(40, 116, 202);
+
+  }
+
+
+  /* Apply the animation to the text items */
+  .scrolling-text-inner-v3>div {
+    animation: var(--direction) var(--marquee-speed) linear infinite;
+  }
+
+  /* Pause the animation when a user hovers over it */
+  .scrolling-text-container-v3:hover .scrolling-text-inner-v3>div {
+    animation-play-state: paused;
+  }
+
+  /* Setting the Animation using Keyframes */
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(0%);
+    }
+
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  @keyframes scroll-right {
+    0% {
+      transform: translateX(-100%);
+    }
+
+    100% {
+      transform: translateX(0%);
+    }
+  }
+
+
+
+
+  /*MOBILE SCROLLING TEXT        version four for bottom*/
+
+  /* Container styles */
+  .scrolling-text-container-v4 {
+    background-color: #2c2c2c00;
+    /*background: linear-gradient(to bottom, #111, #2c2c2c);*/
+    border-radius: 4px;
+    overflow: hidden;
+
+    position: fixed;
+    /*ORIGINAL at 80vh*/
+    top: 28vh;
+
+    width: 100vw;
+
+    /*-webkit-box-reflect: below 0vh linear-gradient(to bottom, rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.4));*/
+  }
+
+  /* Inner container styles */
+  .scrolling-text-inner-v4 {
+    display: flex;
+    white-space: nowrap;
+    font-size: 22px;
+    font-weight: 600;
+    padding: 8px 0;
+  }
+
+  /* Text styles */
+  .scrolling-text-v4 {
+    display: flex;
+  }
+
+  .scrolling-text-item-1-v4 {
+    padding: 0 30px;
+    color: white;
+    text-shadow: 2px 2px 5px rgb(255, 255, 255);
+
+  }
+
+  .scrolling-text-item-2-v4 {
+    padding: 0 30px;
+    color: rgb(255, 0, 0);
+    text-shadow: 2px 2px 5px rgb(255, 0, 0);
+
+  }
+
+  .scrolling-text-item-divider-v4 {
+    padding: 0 30px;
+    color: rgb(255, 187, 0);
+    text-shadow: 2px 2px 5px rgb(255, 208, 0);
+
+  }
+
+  .scrolling-text-item-temporary-v4 {
+    padding: 0 30px;
+    color: rgb(92, 143, 253);
+    text-shadow: 2px 2px 5px rgb(40, 116, 202);
+
+  }
+
+
+  /* Apply the animation to the text items */
+  .scrolling-text-inner-v4>div {
+    animation: var(--direction) var(--marquee-speed) linear infinite;
+    animation-duration: 25s;
+
+  }
+
+  /* Pause the animation when a user hovers over it */
+  .scrolling-text-container-v4:hover .scrolling-text-inner-v4>div {
+    animation-play-state: paused;
+  }
+
+  /* Setting the Animation using Keyframes */
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(0%);
+    }
+
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  @keyframes scroll-right {
+    0% {
+      transform: translateX(-100%);
+    }
+
+    100% {
+      transform: translateX(0%);
+    }
+  }
 }

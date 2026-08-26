@@ -1,216 +1,306 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Cards 3 Selection Tree</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cards 3 Selection Tree</title>
 
-<style>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  body {
-    background: #111;
-    overflow: hidden;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: Arial, sans-serif;
-    background-image: url(images/pack_3_open.png);
-    background-size: fill;
-    background-repeat: no-repeat;
-    background-position: center;
-  }
+    body {
+      background: #111;
+      overflow: hidden;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      background-image: url(images/pack_3_open.png);
+      background-size: fill;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
 
-  .cards-container {
-    position: relative;
-    width: 900px;
-    height: 500px;
-    perspective: 1200px;
-  }
+    .cards-container {
+      position: relative;
+      width: 900px;
+      height: 500px;
+      perspective: 1200px;
+    }
 
-  .card {
-    position: absolute;
-    width: 228px;
-    height: 380px;
-    left: 50%;
-    top: 50%;
-    transform-style: preserve-3d;
-    transform: translate(-50%, -50%);
-    transition:
-      transform 1s ease,
-      left 1.2s ease,
-      box-shadow 0.3s ease;
-    cursor: pointer;
-  }
+    .card {
+      position: absolute;
+      width: 228px;
+      height: 380px;
+      left: 50%;
+      top: 50%;
+      transform-style: preserve-3d;
+      transform: translate(-50%, -50%);
+      transition:
+        transform 1s ease,
+        left 1.2s ease,
+        box-shadow 0.3s ease;
+      cursor: pointer;
+    }
 
-  .card:hover {
-    box-shadow: 0 10px 30px rgba(255,255,255,0.2);
-  }
+    .card:hover {
+      box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+    }
 
-  /* Card Faces */
-  .card-face {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 16px;
-    backface-visibility: hidden;
-    overflow: hidden;
-  }
+    /* Card Faces */
+    .card-face {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 16px;
+      backface-visibility: hidden;
+      overflow: hidden;
+    }
 
-  .card-face img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+    .card-face img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
-  .card-front {
-    transform: rotateY(180deg);
-  }
+    .card-front {
+      transform: rotateY(180deg);
+    }
 
-  /* Initial Stack */
-  .card:nth-child(1) {
-    z-index: 3;
-  }
+    /* Initial Stack */
+    .card:nth-child(1) {
+      z-index: 3;
+    }
 
-  .card:nth-child(2) {
-    z-index: 2;
-  }
+    .card:nth-child(2) {
+      z-index: 2;
+    }
 
-  .card:nth-child(3) {
-    z-index: 1;
-  }
+    .card:nth-child(3) {
+      z-index: 1;
+    }
 
-  /* Spread Animation */
-  .spread.card-1 {
-    left: calc(50% - 260px);
-    transform: translate(-50%, -50%) rotate(-12deg);
-  }
+    /* Spread Animation */
+    .spread.card-1 {
+      left: calc(50% - 260px);
+      transform: translate(-50%, -50%) rotate(-12deg);
+    }
 
-  .spread.card-2 {
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
+    .spread.card-2 {
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
 
-  .spread.card-3 {
-    left: calc(50% + 260px);
-    transform: translate(-50%, -50%) rotate(12deg);
-  }
+    .spread.card-3 {
+      left: calc(50% + 260px);
+      transform: translate(-50%, -50%) rotate(12deg);
+    }
 
-  /* Flip State */
-  .flipped {
-    transform-style: preserve-3d;
-  }
+    /* Flip State */
+    .flipped {
+      transform-style: preserve-3d;
+    }
 
-  .flipped.card-1 {
-    transform: translate(-50%, -50%) rotateY(180deg) rotate(-12deg);
-  }
+    .flipped.card-1 {
+      transform: translate(-50%, -50%) rotateY(180deg) rotate(-12deg);
+    }
 
-  .flipped.card-2 {
-    transform: translate(-50%, -50%) rotateY(180deg);
-  }
+    .flipped.card-2 {
+      transform: translate(-50%, -50%) rotateY(180deg);
+    }
 
-  .flipped.card-3 {
-    transform: translate(-50%, -50%) rotateY(180deg) rotate(12deg);
-  }
-
-
+    .flipped.card-3 {
+      transform: translate(-50%, -50%) rotateY(180deg) rotate(12deg);
+    }
 
 
-  .flipped.card-1:hover {
-    transform: translate(-50%, -50%) rotateY(180deg) rotate(-12deg) scale(1.05);
-  }
 
-  .flipped.card-2:hover {
-    transform: translate(-50%, -50%) rotateY(180deg) scale(1.05);
-  }
 
-  .flipped.card-3:hover {
-    transform: translate(-50%, -50%) rotateY(180deg) rotate(12deg) scale(1.05);
-  }
+    .flipped.card-1:hover {
+      transform: translate(-50%, -50%) rotateY(180deg) rotate(-12deg) scale(1.05);
+    }
 
-</style>
+    .flipped.card-2:hover {
+      transform: translate(-50%, -50%) rotateY(180deg) scale(1.05);
+    }
+
+    .flipped.card-3:hover {
+      transform: translate(-50%, -50%) rotateY(180deg) rotate(12deg) scale(1.05);
+    }
+
+
+
+
+
+
+
+
+
+    /* =========================
+   MOBILE LAYOUT
+   ========================= */
+    @media (max-width: 768px) {
+
+      body {
+        background-image: url(images/pack_1_open.png);
+        background-size: contain;
+      }
+
+      .cards-container {
+        width: 100%;
+        height: 100vh;
+      }
+
+      .card {
+        width: 35vw;
+        height: calc(35vw * 1.6667);
+        max-width: 180px;
+        max-height: 300px;
+
+        left: 50%;
+        top: 50%;
+        transform-style: preserve-3d;
+        transform: translate(-50%, -50%);
+        transition:
+          transform 1s ease,
+          left 1.2s ease,
+          box-shadow 0.3s ease;
+      }
+
+      /* Vertical spread */
+      .spread.card-1 {
+        left: 25%;
+        top: 48%;
+        rotate: 5deg;
+        transform: translate(-50%, -50%);
+        z-index: -1;
+      }
+
+      .spread.card-2 {
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .spread.card-3 {
+        left: 75%;
+        top: 50%;
+        rotate: -5deg;
+        transform: translate(-50%, -50%);
+      }
+
+      /* Flipped positions */
+      .flipped.card-1 {
+        left: 20%;
+        top: 30%;
+        transform: translate(-50%, -50%) rotateY(180deg);
+      }
+
+      .flipped.card-2 {
+        transform: translate(-50%, -50%) rotateY(180deg);
+        z-index: 9999;
+      }
+
+      .flipped.card-3 {
+        left: 75%;
+        top: 70%;
+        rotate: 5deg;
+        transform: translate(-50%, -50%) rotateY(180deg);
+      }
+
+      /* Hover effects aren't useful on mobile */
+      .flipped.card-1:hover,
+      .flipped.card-2:hover,
+      .flipped.card-3:hover {
+        transform: translate(-50%, -50%) rotateY(180deg);
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<div class="cards-container">
+  <div class="cards-container">
 
-  <!-- CARD 1 -->
-  <div class="card card-1" data-link="pack_3_card_1.html">
-    <div class="card-face card-back">
-      <img src="images/card_3_back.png" alt="">
+    <!-- CARD 1 -->
+    <div class="card card-1" data-link="pack_3_card_1.html">
+      <div class="card-face card-back">
+        <img src="images/card_3_back.png" alt="">
+      </div>
+
+      <div class="card-face card-front">
+        <img src="images/card_front.png" alt="">
+      </div>
     </div>
 
-    <div class="card-face card-front">
-      <img src="images/card_front.png" alt="">
+    <!-- CARD 2 -->
+    <div class="card card-2" data-link="pack_3_card_2.html">
+      <div class="card-face card-back">
+        <img src="images/card_3_back.png" alt="">
+      </div>
+
+      <div class="card-face card-front">
+        <img src="images/card_front.png" alt="">
+      </div>
     </div>
+
+    <!-- CARD 3 -->
+    <div class="card card-3" data-link="pack_3_card_3.html">
+      <div class="card-face card-back">
+        <img src="images/card_3_back.png" alt="">
+      </div>
+
+      <div class="card-face card-front">
+        <img src="images/card_front.png" alt="">
+      </div>
+    </div>
+
   </div>
 
-  <!-- CARD 2 -->
-  <div class="card card-2" data-link="pack_3_card_2.html">
-    <div class="card-face card-back">
-      <img src="images/card_3_back.png" alt="">
-    </div>
+  <script>
+    const cards = document.querySelectorAll('.card');
 
-    <div class="card-face card-front">
-      <img src="images/card_front.png" alt="">
-    </div>
-  </div>
-
-  <!-- CARD 3 -->
-  <div class="card card-3" data-link="pack_3_card_3.html">
-    <div class="card-face card-back">
-      <img src="images/card_3_back.png" alt="">
-    </div>
-
-    <div class="card-face card-front">
-      <img src="images/card_front.png" alt="">
-    </div>
-  </div>
-
-</div>
-
-<script>
-  const cards = document.querySelectorAll('.card');
-
-  // Step 1: Spread cards after load
-  window.addEventListener('load', () => {
-    setTimeout(() => {
-      cards.forEach(card => {
-        card.classList.add('spread');
-      });
-    }, 500);
-  });
-
-  // Step 2 + 3:
-  // First click = flip
-  // Second click = navigate
-  cards.forEach(card => {
-
-    let flipped = false;
-
-    card.addEventListener('click', () => {
-
-      // FIRST CLICK
-      if (!flipped) {
-        flipped = true;
-        card.classList.add('flipped');
-      }
-
-      // SECOND CLICK
-      else {
-        const link = card.dataset.link;
-        window.location.href = link;
-      }
-
+    // Step 1: Spread cards after load
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        cards.forEach(card => {
+          card.classList.add('spread');
+        });
+      }, 500);
     });
 
-  });
-</script>
+    // Step 2 + 3:
+    // First click = flip
+    // Second click = navigate
+    cards.forEach(card => {
+
+      let flipped = false;
+
+      card.addEventListener('click', () => {
+
+        // FIRST CLICK
+        if (!flipped) {
+          flipped = true;
+          card.classList.add('flipped');
+        }
+
+        // SECOND CLICK
+        else {
+          const link = card.dataset.link;
+          window.location.href = link;
+        }
+
+      });
+
+    });
+  </script>
 
 </body>
+
 </html>
