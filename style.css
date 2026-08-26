@@ -944,8 +944,8 @@ body {
   .carousel-container {
 
     width: 100vw;
-    height: 90vh;
-    margin-top: 10vh;
+    height: 80vh;
+    margin-top: 20vh;
 
     display: flex;
     justify-content: center;
