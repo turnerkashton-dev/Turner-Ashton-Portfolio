@@ -1,13 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Pack 3 Card 2</title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Pack 3 Card 2</title>
 
 
 </head>
+
+
+<img src="images/apple_pencil_2nd_gen.webp" alt="apple pencil" class="responsive-tka1">
+<img src="images/apple_pencil_2nd_gen.webp" alt="apple pencil" class="responsive-tka2">
+<img src="images/apple_pencil_2nd_gen.webp" alt="apple pencil" class="responsive-tka3">
+<img src="images/apple_pencil_2nd_gen.webp" alt="apple pencil" class="responsive-tka4">
+
+
+
 <body>
 
   <!-- HEADER -->
@@ -18,48 +28,141 @@
       <img src="images/arrow_icon.png" alt="Back" style="rotate: 90deg;">
     </button>
 
-<h2>TURNER ASHTON</h2>
+
+
+    <h2 class="h2-left">TURNER
+    </h2>
+
+
+    <button class="header-btn-pack" id="packBtn">
+      <img src="images/pack_3.png" alt="Pack 3">
+    </button>
+
+    <button class="header-btn-pack" id="backBtn">
+      <img src="images/pack_3_card_2.png" alt="card 2 pack 3">
+    </button>
+
+    <h2 class="h2-right">
+      ASHTON
+    </h2>
 
     <!-- HOME BUTTON -->
     <button class="header-btn" id="homeBtn">
       <img src="images/home_icon.png" alt="Home">
     </button>
 
+
+
   </header>
+
+
+
+
 
   <!-- PAGE CONTENT -->
   <div class="content">
-    <h1> < TEMPORARY FILLER > </A></h1>
+
+
+
+    <h1>
+      <&emsp;1sec. of Animation BREAKDOWN&emsp;> </A>
+    </h1>
 
     <br>
-<!--
+    <br>
+    <br>
+
+    <div class="p-tka-1">First, I imported a 3d model of a city into Adobe After Effects, & then rigged a camera to
+      provide the
+      motion for
+      our characters perspective.
+    </div>
+
+    <br>
+
+    <video class="showcase-video" controls muted>
+      <source src="videos/1st POV only CSM 3dbacking 11sec.mp4" type="video/mp4">
+    </video>
+
+    <br>
+    <h3>⬇</h3>
+    <br>
+
+    <div class="p-tka-2">Next I drew 15 frames for the first second of our scene.
+    </div>
+
+    <br>
+
+    <video class="showcase-video" controls muted>
+      <source src="videos/1_sec_chainsawcam_background.mov" type="video/mp4">
+    </video>
+
+    <br>
+    <h3>⬇</h3>
+    <br>
+
+    <div class="p-tka-1">Then an overlay, which in this case, our characters perspective. Giving a medium for us
+      to view the scene through.
+    </div>
+
+    <br>
+
+    <video class="showcase-video" controls muted>
+      <source src="videos/timelapse_chainsawcam.MP4" type="video/mp4">
+    </video>
+
+    <br>
+    <h3>⬇</h3>
+    <br>
+
+    <div class="p-tka-2">Finally put it all together! A 15fps background, with a 3fps overlay. This way weight &
+      contrast
+      is added to the scene.
+    </div>
+
+    <br>
+
+    <video class="showcase-video" controls muted>
+      <source src="videos/1_sec_chainsawcam_pov.MP4" type="video/mp4">
+    </video>
+
+    <br>
+
+
+
+
+    <!--
 <iframe src="pdfs/tsukii pt2 STYLE GUIDE FINAL PDF.pdf" width="70%" height="1000px" style="border: none;">
     <p>Your browser does not support iframes. <a href="pdfs/tsukii pt2 STYLE GUIDE FINAL PDF.pdf">Download the PDF instead.</a></p>
 </iframe>
 -->
   </div>
 
-<script>
+  <script>
 
-  // BACK BUTTON
-  document.getElementById('backBtn').addEventListener('click', () => {
-    window.history.back();
-  });
+    // BACK BUTTON
+    document.getElementById('backBtn').addEventListener('click', () => {
+      window.history.back();
+    });
 
-  // HOME BUTTON
-  document.getElementById('homeBtn').addEventListener('click', () => {
-    window.location.href = 'index.html';
-  });
+    // HOME BUTTON
+    document.getElementById('homeBtn').addEventListener('click', () => {
+      window.location.href = 'index.html';
+    });
 
-</script>
+    // PACK BUTTON
+    document.getElementById('packBtn').addEventListener('click', () => {
+      window.location.href = 'pack3.html';
+    });
+  </script>
 
 </body>
+
 </html>
 
 
 
 <style>
-
   * {
     margin: 0;
     padding: 0;
@@ -70,6 +173,10 @@
     background: #111;
     min-height: 100vh;
     font-family: Arial, sans-serif;
+    background-image: url(images/background_grid_2.jpeg);
+    background-size: contain;
+    background-blend-mode: soft-light;
+    overflow-x: hidden;
   }
 
   /* HEADER BAR */
@@ -91,7 +198,7 @@
 
     z-index: 1000;
 
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 
     backdrop-filter: blur(8px);
   }
@@ -126,4 +233,228 @@
     text-align: center;
   }
 
+  .p-tka-1 {
+    color: rgb(252, 251, 251);
+    margin-left: 35%;
+    margin-right: 30%;
+    text-align: auto;
+    font-size: large;
+
+    background-color: rgba(156, 51, 51, 0.555);
+
+
+    border: 10px rgba(255, 255, 255, 0.253) solid;
+    border-radius: 20px;
+  }
+
+  .p-tka-2 {
+    color: rgb(252, 251, 251);
+    margin-left: 30%;
+    margin-right: 35%;
+    text-align: auto;
+    font-size: large;
+
+    background-color: rgba(89, 121, 180, 0.329);
+
+
+    border: 10px rgba(255, 255, 255, 0.253) solid;
+    border-radius: 20px;
+  }
+
+  .header-btn-pack {
+    width: 48px;
+    height: 48px;
+
+    margin: none;
+
+    border: none;
+    background: transparent;
+
+    cursor: pointer;
+
+    transition: scale(1.1);
+
+  }
+
+  .header-btn-pack:hover {
+    transform: scale(1.1);
+  }
+
+  .header-btn-pack img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  /*DESKTOP CSS FROM HERE ON*/
+  /* =========================*/
+  @media (min-width: 1410px) {
+
+
+
+    .responsive-tka1 {
+      width: 10%;
+      height: auto;
+      z-index: 999;
+      position: absolute;
+
+      margin-left: 2%;
+
+      transform: rotate(-90deg);
+
+    }
+
+    .responsive-tka2 {
+      width: 10%;
+      height: auto;
+      z-index: 999;
+      position: absolute;
+
+      margin-left: 88%;
+
+      margin-top: 30%;
+
+
+      transform: rotate(90deg);
+    }
+
+
+    .responsive-tka3 {
+      width: 10%;
+      height: auto;
+      z-index: 999;
+      position: absolute;
+
+      margin-left: 2%;
+
+      margin-top: 60%;
+      transform: rotate(-90deg);
+
+    }
+
+    .responsive-tka4 {
+      width: 10%;
+      height: auto;
+      z-index: 999;
+      position: absolute;
+
+      margin-left: 88%;
+
+      margin-top: 85%;
+
+
+      transform: rotate(90deg);
+    }
+
+
+    h1 {
+      font-size: 2vw;
+      color: rgb(255, 255, 255);
+
+    }
+
+    h3 {
+      font-size: xx-large;
+    }
+
+    .h2-right {
+      margin-right: 40%;
+    }
+
+    .h2-left {
+      margin-left: 40%
+    }
+
+    .showcase-video {
+      width: 35%;
+      height: auto;
+
+      border: 30px rgba(255, 255, 255, 0.253) solid;
+      border-radius: 20px;
+
+    }
+  }
+
+
+
+  /*MOBILE CSS FROM HERE ON*/
+  /* =========================*/
+
+  @media (max-width: 1410px) {
+
+
+
+    .responsive-tka1 {
+      width: 40%;
+      height: auto;
+
+      transform: rotate(-90deg);
+
+      display: none;
+    }
+
+    .responsive-tka2 {
+      width: 40%;
+      height: auto;
+
+      display: none;
+    }
+
+    .responsive-tka3 {
+      width: 40%;
+      height: auto;
+
+      display: none;
+    }
+
+    .responsive-tka4 {
+      width: 40%;
+      height: auto;
+
+      display: none;
+    }
+
+    h1 {
+      font-size: 5vw;
+    }
+
+    h2 {
+      font-size: 5vw;
+    }
+
+    .showcase-video {
+      width: 90%;
+      height: auto;
+
+      border: 30px rgba(255, 255, 255, 0.253) solid;
+      border-radius: 20px;
+    }
+
+    .p-tka-1 {
+      color: rgb(255, 126, 126);
+      margin-left: 20px;
+      margin-right: 20px;
+      text-align: auto;
+      font-size: large;
+
+      background-color: rgba(156, 51, 51, 0.555);
+      border: 10px rgba(255, 255, 255, 0.253) solid;
+      border-radius: 20px;
+    }
+
+
+    .p-tka-2 {
+      color: rgb(252, 251, 251);
+      margin-left: 20px;
+      margin-right: 20px;
+      text-align: auto;
+      font-size: large;
+
+      background-color: rgba(89, 121, 180, 0.329);
+
+
+      border: 10px rgba(255, 255, 255, 0.253) solid;
+      border-radius: 20px;
+    }
+  }
 </style>

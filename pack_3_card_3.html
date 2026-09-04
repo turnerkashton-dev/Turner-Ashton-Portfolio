@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Pack 3 Card 3</title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Pack 3 Card 3</title>
 
 
 </head>
+
+
+
+
+
 <body>
 
   <!-- HEADER -->
@@ -18,48 +24,92 @@
       <img src="images/arrow_icon.png" alt="Back" style="rotate: 90deg;">
     </button>
 
-<h2>TURNER ASHTON</h2>
+
+
+    <h2 class="h2-left">TURNER
+    </h2>
+
+
+    <button class="header-btn-pack" id="packBtn">
+      <img src="images/pack_3.png" alt="Pack 3">
+    </button>
+
+    <button class="header-btn-pack" id="backBtn">
+      <img src="images/card_3_back.png" alt="card 3 pack 3">
+    </button>
+
+    <h2 class="h2-right">
+      ASHTON
+    </h2>
 
     <!-- HOME BUTTON -->
     <button class="header-btn" id="homeBtn">
       <img src="images/home_icon.png" alt="Home">
     </button>
 
+
+
   </header>
+
+
+
+
 
   <!-- PAGE CONTENT -->
   <div class="content">
-    <h1> < TEMPORARY FILLER > </A></h1>
+
+
+
+    <h1>
+      <&emsp;FILLER&emsp;> </A>
+    </h1>
 
     <br>
-<!--
+
+    <img src="images/card_3_back.png" alt="card back 3" class="responsive-tka1">
+
+
+    <video class="showcase-video" controls muted>
+      <source src="videos/tourbox storyboard animated.mp4" type="video/mp4">
+    </video>
+
+
+
+    <img src="images/card_3_back.png" alt="card back 3" class="responsive-tka2">
+  </div>
+
+  <!--
 <iframe src="pdfs/tsukii pt2 STYLE GUIDE FINAL PDF.pdf" width="70%" height="1000px" style="border: none;">
     <p>Your browser does not support iframes. <a href="pdfs/tsukii pt2 STYLE GUIDE FINAL PDF.pdf">Download the PDF instead.</a></p>
 </iframe>
 -->
   </div>
 
-<script>
+  <script>
 
-  // BACK BUTTON
-  document.getElementById('backBtn').addEventListener('click', () => {
-    window.history.back();
-  });
+    // BACK BUTTON
+    document.getElementById('backBtn').addEventListener('click', () => {
+      window.history.back();
+    });
 
-  // HOME BUTTON
-  document.getElementById('homeBtn').addEventListener('click', () => {
-    window.location.href = 'index.html';
-  });
+    // HOME BUTTON
+    document.getElementById('homeBtn').addEventListener('click', () => {
+      window.location.href = 'index.html';
+    });
 
-</script>
+    // PACK BUTTON
+    document.getElementById('packBtn').addEventListener('click', () => {
+      window.location.href = 'pack3.html';
+    });
+  </script>
 
 </body>
+
 </html>
 
 
 
 <style>
-
   * {
     margin: 0;
     padding: 0;
@@ -91,7 +141,7 @@
 
     z-index: 1000;
 
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 
     backdrop-filter: blur(8px);
   }
@@ -126,4 +176,101 @@
     text-align: center;
   }
 
+
+
+  .header-btn-pack {
+    width: 48px;
+    height: 48px;
+
+    margin: none;
+
+    border: none;
+    background: transparent;
+
+    cursor: pointer;
+
+    transition: scale(1.1);
+
+  }
+
+  .header-btn-pack:hover {
+    transform: scale(1.1);
+  }
+
+  .header-btn-pack img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  /*DESKTOP CSS FROM HERE ON*/
+  /* =========================*/
+  @media (min-width: 1410px) {
+
+
+
+    .responsive-tka1 {
+      width: 10%;
+      height: auto;
+    }
+
+    .responsive-tka2 {
+      width: 10%;
+      height: auto;
+      margin-bottom: 25%;
+    }
+
+    h1 {
+      font-size: 2vw;
+      color: rgb(255, 255, 255);
+
+    }
+
+    .h2-right {
+      margin-right: 40%;
+    }
+
+    .h2-left {
+      margin-left: 40%
+    }
+
+    .showcase-video {
+      width: 35%;
+      height: auto;
+    }
+  }
+
+
+
+  /*MOBILE CSS FROM HERE ON*/
+  /* =========================*/
+
+  @media (max-width: 1410px) {
+
+
+
+    .responsive-tka1 {
+      width: 40%;
+      height: auto;
+    }
+
+    .responsive-tka2 {
+      width: 40%;
+      height: auto;
+    }
+
+
+    h1 {
+      font-size: 5vw;
+    }
+
+    h2 {
+      font-size: 5vw;
+    }
+
+    .showcase-video {
+      width: 90%;
+      height: auto;
+    }
+  }
 </style>
