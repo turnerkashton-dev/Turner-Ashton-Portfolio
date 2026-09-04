@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Pack 1 Card 2</title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Pack 1 Card 2</title>
 
 
 </head>
+
 <body>
 
   <!-- HEADER -->
@@ -18,7 +20,25 @@
       <img src="images/arrow_icon.png" alt="Back" style="rotate: 90deg;">
     </button>
 
-<h2>TURNER ASHTON</h2>
+
+
+    <h2 class="h2-left">TURNER
+    </h2>
+
+
+    <button class="header-btn-pack" id="packBtn">
+      <img src="images/pack_1.png" alt="Pack 1">
+    </button>
+
+    <button class="header-btn-pack" id="backBtn">
+      <img src="images/pack_1_card_2.png" alt="card 2 pack 1">
+    </button>
+
+
+    <h2 class="h2-right">
+      ASHTON
+    </h2>
+
 
     <!-- HOME BUTTON -->
     <button class="header-btn" id="homeBtn">
@@ -29,38 +49,112 @@
 
   <!-- PAGE CONTENT -->
   <div class="content">
-    <h1> < A STYLE SHEET FOR MAKO COSMETICS' LOGO & ACCOMPANYING INFO > </A> > </A></h1>
+    <h1>
+      < A STYLE SHEET FOR MAKO COSMETICS' LOGO </A> > </A>
+    </h1>
+
+    <br>
+    <br>
+    <br>
+
+    <div class="p-tka-1">Sketching out ideas
+    </div>
 
     <br>
 
-<iframe src="pdfs/STYLE SHEET mako FINAL PDF.pdf" width="60%" height="900px" style="border: none;">
-    <p>Your browser does not support iframes. <a href="pdfs/STYLE SHEET mako FINAL PDF.pdf">Download the PDF instead.</a></p>
-</iframe>
+    <video class="showcase-video" controls muted>
+      <source src="videos/mako_sketch_timelapse.MP4" type="video/mp4">
+    </video>
 
+    <br>
+    <h3>⬇</h3>
+    <br>
+
+    <div class="p-tka-2">9 ideas taken from sketches, into Adobe Illustrator, & fleshed out
+    </div>
+
+    <br>
+
+    <img src="images/9_mako_ideas.jpg" alt="9 Mako fleshed out ideas" class="responsive-tka1">
+
+
+    <br>
+    <h3>⬇</h3>
+    <br>
+
+    <div class="p-tka-1">Narrowed down to 1 idea
+    </div>
+
+    <br>
+
+    <img src="images/mako_logo_final_bw.jpg" alt="Final Mako Logo Desicion" class="responsive-tka1">
+
+    <br>
+    <h3>⬇</h3>
+    <br>
+
+    <div class="p-tka-2">Exploring colors & ideas
+    </div>
+
+    <br>
+    <img src="images/mako_stone_idea.jpg" alt="Color Exploration Mako Logo pt 2" class="responsive-tka1">
+
+
+    <br>
+
+    <img src="images/mako_color_explore.jpg" alt="Color Exploration Mako Logo" class="responsive-tka2">
+
+    <br>
+    <h3>⬇</h3>
+    <br>
+
+    <div class="p-tka-1">*example* Style Sheet created for Mako Cosmetics to utilize for brand integrity
+    </div>
+
+    <br>
+
+    <img src="images/style_sheet_mako.jpg" alt="Mako Style Sheet" class="responsive-tka3">
+
+
+    <!--
+    <iframe src="pdfs/STYLE SHEET mako FINAL PDF.pdf" width="60%" height="900px" style="border: none;">
+      <p>Your browser does not support iframes. <a href="pdfs/STYLE SHEET mako FINAL PDF.pdf">Download the PDF
+          instead.</a></p>
+    </iframe>
+    -->
   </div>
 
-<script>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
 
-  // BACK BUTTON
-  document.getElementById('backBtn').addEventListener('click', () => {
-    window.history.back();
-  });
+  <script>
 
-  // HOME BUTTON
-  document.getElementById('homeBtn').addEventListener('click', () => {
-    window.location.href = 'index.html';
-  });
+    // BACK BUTTON
+    document.getElementById('backBtn').addEventListener('click', () => {
+      window.history.back();
+    });
 
-</script>
+    // HOME BUTTON
+    document.getElementById('homeBtn').addEventListener('click', () => {
+      window.location.href = 'index.html';
+    });
+
+    // PACK BUTTON
+    document.getElementById('packBtn').addEventListener('click', () => {
+      window.location.href = 'pack3.html';
+    });
+  </script>
 
 </body>
+
 </html>
 
 
 
-
 <style>
-
   * {
     margin: 0;
     padding: 0;
@@ -71,6 +165,10 @@
     background: #111;
     min-height: 100vh;
     font-family: Arial, sans-serif;
+    background-image: url(images/background_grid_2.jpeg);
+    background-size: contain;
+    background-blend-mode: soft-light;
+    overflow-x: hidden;
   }
 
   /* HEADER BAR */
@@ -92,7 +190,7 @@
 
     z-index: 1000;
 
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 
     backdrop-filter: blur(8px);
   }
@@ -127,4 +225,214 @@
     text-align: center;
   }
 
+  .p-tka-1 {
+    color: rgb(252, 251, 251);
+    margin-left: 35%;
+    margin-right: 30%;
+    text-align: auto;
+    font-size: larger;
+
+    background-color: rgba(202, 131, 50, 0.555);
+
+
+    border: 10px rgba(255, 255, 255, 0.253) solid;
+    border-radius: 20px;
+  }
+
+  .p-tka-2 {
+    color: rgb(252, 251, 251);
+    margin-left: 30%;
+    margin-right: 35%;
+    text-align: auto;
+    font-size: larger;
+
+    background-color: rgba(3, 216, 231, 0.329);
+
+
+    border: 10px rgba(255, 255, 255, 0.253) solid;
+    border-radius: 20px;
+  }
+
+  .header-btn-pack {
+    width: 48px;
+    height: 48px;
+
+    margin: none;
+
+    border: none;
+    background: transparent;
+
+    cursor: pointer;
+
+    transition: scale(1.1);
+
+  }
+
+  .header-btn-pack:hover {
+    transform: scale(1.1);
+  }
+
+  .header-btn-pack img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  /*DESKTOP CSS FROM HERE ON*/
+  /* =========================*/
+  @media (min-width: 1410px) {
+
+
+
+    .responsive-tka1 {
+      width: 35%;
+      height: auto;
+
+      border: 30px rgba(255, 255, 255, 0.253) solid;
+      border-radius: 20px;
+    }
+
+    .responsive-tka2 {
+      width: 20%;
+      height: auto;
+
+      border: 30px rgba(255, 255, 255, 0.253) solid;
+      border-radius: 20px;
+    }
+
+
+    .responsive-tka3 {
+      width: 50%;
+      height: auto;
+
+      border: 30px rgba(255, 255, 255, 0.253) solid;
+      border-radius: 20px;
+    }
+
+    .responsive-tka4 {
+      width: 10%;
+      height: auto;
+      z-index: 999;
+      position: absolute;
+
+      margin-left: 88%;
+
+      margin-top: 85%;
+
+
+      transform: rotate(90deg);
+    }
+
+
+    h1 {
+      font-size: 2vw;
+      color: rgb(255, 255, 255);
+
+    }
+
+    h3 {
+      font-size: xx-large;
+    }
+
+    .h2-right {
+      margin-right: 40%;
+    }
+
+    .h2-left {
+      margin-left: 40%
+    }
+
+    .showcase-video {
+      width: 35%;
+      height: auto;
+
+      border: 30px rgba(255, 255, 255, 0.253) solid;
+      border-radius: 20px;
+
+    }
+  }
+
+
+
+  /*MOBILE CSS FROM HERE ON*/
+  /* =========================*/
+
+  @media (max-width: 1410px) {
+
+
+
+    .responsive-tka1 {
+      width: 90%;
+      height: auto;
+
+      border: 20px rgba(255, 255, 255, 0.253) solid;
+      border-radius: 20px;
+    }
+
+    .responsive-tka2 {
+      width: 60%;
+      height: auto;
+
+      border: 30px rgba(255, 255, 255, 0.253) solid;
+      border-radius: 20px;
+    }
+
+    .responsive-tka3 {
+      width: 90%;
+      height: auto;
+
+      border: 20px rgba(255, 255, 255, 0.253) solid;
+      border-radius: 20px;
+    }
+
+    .responsive-tka4 {
+      width: 40%;
+      height: auto;
+
+      display: none;
+    }
+
+    h1 {
+      font-size: 5vw;
+    }
+
+    h2 {
+      font-size: 5vw;
+    }
+
+    .showcase-video {
+      width: 90%;
+      height: auto;
+
+      border: 30px rgba(255, 255, 255, 0.253) solid;
+      border-radius: 20px;
+    }
+
+    .p-tka-1 {
+      color: rgb(255, 255, 255);
+      margin-left: 20px;
+      margin-right: 20px;
+      text-align: auto;
+      font-size: larger;
+
+      background-color: rgba(202, 131, 50, 0.555);
+      border: 10px rgba(255, 255, 255, 0.253) solid;
+      border-radius: 20px;
+    }
+
+
+    .p-tka-2 {
+      color: rgb(252, 251, 251);
+      margin-left: 20px;
+      margin-right: 20px;
+      text-align: auto;
+      font-size: larger;
+
+      background-color: rgba(3, 216, 231, 0.329);
+
+
+      border: 10px rgba(255, 255, 255, 0.253) solid;
+      border-radius: 20px;
+    }
+  }
 </style>

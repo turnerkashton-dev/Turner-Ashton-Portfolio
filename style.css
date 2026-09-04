@@ -558,14 +558,12 @@ body {
     margin-right: 8vw;
   }
 
-  .header-mobile {
-    display: none;
-  }
+
 
 
   .header-mobile {
     position: fixed;
-    top: 0;
+    top: 0%;
     left: 0;
 
     width: 100%;
@@ -579,19 +577,19 @@ body {
 
 
     padding: 0 24px;
-    margin-top: 95vh;
+    margin-top: 93vh;
 
-    z-index: 10;
+    z-index: 3;
 
     /*
     backdrop-filter: blur(8px);
 */
   }
 
-  /* BUTTONS MOBILE menu?*/
+  /* BUTTONS MOBILE menu*/
   .header-btn-mobile {
-    width: 48px;
-    height: 48px;
+    width: 60px;
+    height: 60px;
 
     border: none;
     background: transparent;
@@ -614,8 +612,8 @@ body {
 
 
   .header-btn-2-mobile {
-    width: 48px;
-    height: 48px;
+    width: 60px;
+    height: 60px;
 
     border: none;
     background: transparent;
@@ -634,8 +632,8 @@ body {
 
 
   .header-btn-3-mobile {
-    width: 48px;
-    height: 48px;
+    width: 60px;
+    height: 60px;
 
     border: none;
     background: transparent;
@@ -654,8 +652,8 @@ body {
 
 
   .header-btn-4-mobile {
-    width: 48px;
-    height: 48px;
+    width: 60px;
+    height: 60px;
 
     border: none;
     background: transparent;

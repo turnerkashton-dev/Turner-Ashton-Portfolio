@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Pack 2 Card 2</title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Pack 2 Card 2</title>
 
 
 </head>
+
 <body>
 
   <!-- HEADER -->
@@ -18,7 +20,25 @@
       <img src="images/arrow_icon.png" alt="Back" style="rotate: 90deg;">
     </button>
 
-<h2>TURNER ASHTON</h2>
+
+
+    <h2 class="h2-left">TURNER
+    </h2>
+
+
+    <button class="header-btn-pack" id="packBtn">
+      <img src="images/pack_2.png" alt="Pack 2">
+    </button>
+
+    <button class="header-btn-pack" id="backBtn">
+      <img src="images/pack_2_card_1.png" alt="card 1 pack 2">
+    </button>
+
+
+    <h2 class="h2-right">
+      ASHTON
+    </h2>
+
 
     <!-- HOME BUTTON -->
     <button class="header-btn" id="homeBtn">
@@ -29,37 +49,83 @@
 
   <!-- PAGE CONTENT -->
   <div class="content">
-    <h1> < TEMPORARY FILLER > </A></h1>
+    <h1>
+      <&emsp;MEOW FISH Mockup&emsp;> </A>
+    </h1>
 
     <br>
-<!--
-<iframe src="pdfs/tsukii pt2 STYLE GUIDE FINAL PDF.pdf" width="70%" height="1000px" style="border: none;">
-    <p>Your browser does not support iframes. <a href="pdfs/tsukii pt2 STYLE GUIDE FINAL PDF.pdf">Download the PDF instead.</a></p>
-</iframe>
--->
+    <br>
+    <h4 style="color: rgb(212, 71, 47);">Idea Sketching</h4>
+    <video class="showcase-video" controls muted>
+      <source src="videos/meowfish_sketch_timelapse.MP4" type="video/mp4">
+    </video>
+
+    <br>
+    <h3>⬇</h3>
+    <br>
+
+    <h4 style="color: rgb(212, 71, 47);">Final Logo</h4>
+    <img src="images/meowfish_final_logo_bw.jpg" alt="Tsukii printing envelope" class="responsive-tka2">
+
+    <br>
+    <h3>⬇</h3>
+    <br>
+
+    <h4 style="color: rgb(212, 71, 47);">Color Testing</h4>
+    <img src="images/meowfish_color_testing.jpg" alt="Tsukii printing letterhead" class="responsive-tka2">
+
+    <br>
+    <h3>⬇</h3>
+    <br>
+
+    <h4 style="color: rgb(212, 71, 47);">Find Mockup base</h4>
+    <img src="images/meowfish_blank_3bags.jpeg" alt="Tsukii business card" class="responsive-tka2">
+
+    <br>
+    <h3>⬇</h3>
+    <br>
+
+    <h4 style="color: rgb(212, 71, 47);">Mockup Poster ad</h4>
+    <img src="images/meowfish_ad_bags.jpg" alt="Tsukii all printing examples" class="responsive-tka1">
+
+
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+
+
+
   </div>
 
-<script>
+  <script>
 
-  // BACK BUTTON
-  document.getElementById('backBtn').addEventListener('click', () => {
-    window.history.back();
-  });
+    // BACK BUTTON
+    document.getElementById('backBtn').addEventListener('click', () => {
+      window.history.back();
+    });
 
-  // HOME BUTTON
-  document.getElementById('homeBtn').addEventListener('click', () => {
-    window.location.href = 'index.html';
-  });
+    // HOME BUTTON
+    document.getElementById('homeBtn').addEventListener('click', () => {
+      window.location.href = 'index.html';
+    });
 
-</script>
+    // PACK BUTTON
+    document.getElementById('packBtn').addEventListener('click', () => {
+      window.location.href = 'pack2.html';
+    });
+  </script>
 
 </body>
+
 </html>
 
 
 
 <style>
-
   * {
     margin: 0;
     padding: 0;
@@ -67,9 +133,15 @@
   }
 
   body {
-    background: #111;
+    background: #310404;
     min-height: 100vh;
     font-family: Arial, sans-serif;
+
+    background-image: url(images/meowfish_sketch.PNG);
+    background-size: contain;
+    background-blend-mode: saturation;
+
+    background-size: 300px 300px;
   }
 
   /* HEADER BAR */
@@ -91,7 +163,7 @@
 
     z-index: 1000;
 
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 
     backdrop-filter: blur(8px);
   }
@@ -117,6 +189,7 @@
     width: 100%;
     height: 100%;
     object-fit: contain;
+
   }
 
   /* PAGE CONTENT */
@@ -126,4 +199,232 @@
     text-align: center;
   }
 
+
+
+  .header-btn-pack {
+    width: 48px;
+    height: 48px;
+
+    margin: none;
+
+    border: none;
+    background: transparent;
+
+    cursor: pointer;
+
+    transition: scale(1.1);
+
+  }
+
+  .header-btn-pack:hover {
+    transform: scale(1.1);
+  }
+
+  .header-btn-pack img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  h3 {
+    font-size: xx-large;
+  }
+
+
+  /*DESKTOP CSS FROM HERE ON*/
+  /* =========================*/
+  @media (min-width: 1410px) {
+
+    .responsive-tka1 {
+      max-width: 60%;
+      height: auto;
+
+
+      border-radius: 20px;
+      border-top: 20px solid;
+      border-bottom: 20px solid;
+      border-left: 100px solid;
+      border-right: 100px solid;
+
+
+
+      border-color: rgba(255, 255, 255, 0.342);
+
+      backdrop-filter: blur(3px);
+
+    }
+
+    .responsive-tka2 {
+      max-width: 30%;
+      height: auto;
+      border-radius: 20px;
+      border-top: 20px solid;
+      border-bottom: 20px solid;
+      border-left: 80px solid;
+      border-right: 80px solid;
+
+
+      border-color: rgba(255, 255, 255, 0.342);
+
+      backdrop-filter: blur(8px);
+
+    }
+
+
+
+    h4 {
+      font-size: x-large;
+
+      background-color: rgba(255, 255, 255, 0.247);
+      background-blend-mode: screen;
+
+      border-top-left-radius: 25px;
+      border-top-right-radius: 25px;
+
+      border-top: 5px solid;
+      border-left: 5px solid;
+      border-right: 5px solid;
+
+
+      border-color: rgba(228, 18, 18, 0.164);
+
+      backdrop-filter: blur(8px);
+
+      width: 15%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+
+    h1 {
+      font-size: 2vw;
+
+    }
+
+    .h2-right {
+      margin-right: 40%;
+    }
+
+    .h2-left {
+      margin-left: 40%
+    }
+
+
+    .showcase-video {
+      width: 35%;
+      height: auto;
+
+
+      border-radius: 25px;
+      border-top: 20px solid;
+      border-left: 50px solid;
+      border-right: 50px solid;
+      border-bottom: 20px solid;
+
+
+      border-color: rgba(255, 255, 255, 0.342);
+
+      backdrop-filter: blur(8px);
+    }
+
+  }
+
+
+
+  /*MOBILE CSS FROM HERE ON*/
+  /* =========================*/
+
+  @media (max-width: 1410px) {
+
+
+    body {
+      background-size: 150px, 150px;
+    }
+
+    .responsive-tka1 {
+      max-width: 90%;
+      height: auto;
+
+
+
+      border-radius: 20px;
+      border-top: 5px solid;
+      border-bottom: 5px solid;
+      border-left: 10px solid;
+      border-right: 10px solid;
+
+
+
+      border-color: rgba(255, 255, 255, 0.342);
+
+      backdrop-filter: blur(3px);
+
+    }
+
+    .responsive-tka2 {
+      max-width: 80%;
+      height: auto;
+
+
+
+      border-radius: 20px;
+      border-top: 5px solid;
+      border-bottom: 5px solid;
+      border-left: 10px solid;
+      border-right: 10px solid;
+
+
+
+      border-color: rgba(255, 255, 255, 0.342);
+
+      backdrop-filter: blur(3px);
+    }
+
+    h1 {
+      font-size: 5vw;
+    }
+
+    .showcase-video {
+      width: 90%;
+      height: auto;
+
+
+
+
+      border-radius: 20px;
+      border-top: 5px solid;
+      border-bottom: 5px solid;
+      border-left: 10px solid;
+      border-right: 10px solid;
+
+
+
+      border-color: rgba(255, 255, 255, 0.342);
+
+      backdrop-filter: blur(3px);
+    }
+
+    h4 {
+      font-size: large;
+
+      background-color: rgba(255, 255, 255, 0.247);
+      background-blend-mode: screen;
+
+      border-top-left-radius: 25px;
+      border-top-right-radius: 25px;
+
+      border-top: 5px solid;
+      border-left: 5px solid;
+      border-right: 5px solid;
+
+
+      border-color: rgba(228, 18, 18, 0.164);
+
+      backdrop-filter: blur(8px);
+
+      width: 40%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
 </style>
