@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Pack 1 Card 3</title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Pack 1 Card 3</title>
 
 
 </head>
+
 <body>
 
   <!-- HEADER -->
@@ -18,7 +20,25 @@
       <img src="images/arrow_icon.png" alt="Back" style="rotate: 90deg;">
     </button>
 
-<h2>TURNER ASHTON</h2>
+
+
+    <h2 class="h2-left">TURNER
+    </h2>
+
+
+    <button class="header-btn-pack" id="packBtn">
+      <img src="images/pack_1.png" alt="Pack 1">
+    </button>
+
+    <button class="header-btn-pack" id="backBtn">
+      <img src="images/pack_1_card_3.png" alt="card 3 pack 1">
+    </button>
+
+
+    <h2 class="h2-right">
+      ASHTON
+    </h2>
+
 
     <!-- HOME BUTTON -->
     <button class="header-btn" id="homeBtn">
@@ -29,48 +49,64 @@
 
   <!-- PAGE CONTENT -->
   <div class="content">
-    <h1> < AN EXAMPLE FOR LOGO & MOCKUP CREATION > </A> > </A></h1>
+    <h1>
+      < AN EXAMPLE FOR LOGO & MOCKUP CREATION> </A> > </A>
+    </h1>
 
     <br>
 
-<img src="images/mockup 1 WIP JPG tsukii.jpg" style="width: 50%;">
+    <img src="images/mockup 1 WIP JPG tsukii.jpg" class="responsive-tka1" alt="Tsukii logo & mockup example">
 
 
   </div>
 
-<script>
+  <script>
 
-  // BACK BUTTON
-  document.getElementById('backBtn').addEventListener('click', () => {
-    window.history.back();
-  });
+    // BACK BUTTON
+    document.getElementById('backBtn').addEventListener('click', () => {
+      window.history.back();
+    });
 
-  // HOME BUTTON
-  document.getElementById('homeBtn').addEventListener('click', () => {
-    window.location.href = 'index.html';
-  });
+    // HOME BUTTON
+    document.getElementById('homeBtn').addEventListener('click', () => {
+      window.location.href = 'index.html';
+    });
 
-</script>
+    // PACK BUTTON
+    document.getElementById('packBtn').addEventListener('click', () => {
+      window.location.href = 'pack1.html';
+    });
+  </script>
 
 </body>
+
 </html>
 
 
 
 
 <style>
-
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
 
+
   body {
-    background: #111;
+    background: #5f5a5a;
     min-height: 100vh;
     font-family: Arial, sans-serif;
+
+
+    background-image: url('images/background_grid_2.jpeg');
+    background-size: cover;
+
+
+    background-blend-mode: multiply;
   }
+
+
 
   /* HEADER BAR */
   .header {
@@ -91,7 +127,7 @@
 
     z-index: 1000;
 
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 
     backdrop-filter: blur(8px);
   }
@@ -126,4 +162,97 @@
     text-align: center;
   }
 
+  .header-btn-pack {
+    width: 48px;
+    height: 48px;
+
+    margin: none;
+
+    border: none;
+    background: transparent;
+
+    cursor: pointer;
+
+    transition: scale(1.1);
+
+  }
+
+  .header-btn-pack:hover {
+    transform: scale(1.1);
+  }
+
+  .header-btn-pack img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+
+  /*DESKTOP CSS FROM HERE ON*/
+  /* =========================*/
+  @media (min-width: 1410px) {
+
+    .responsive-tka1 {
+      max-width: 60%;
+      height: auto;
+      border-radius: 50px;
+    }
+
+    .responsive-tka2 {
+      max-width: 30%;
+      height: auto;
+      border-radius: 50px;
+
+    }
+
+
+
+
+    h1 {
+      font-size: 2vw;
+    }
+
+    .h2-right {
+      margin-right: 40%;
+    }
+
+    .h2-left {
+      margin-left: 40%
+    }
+
+  }
+
+
+
+  /*MOBILE CSS FROM HERE ON*/
+  /* =========================*/
+
+  @media (max-width: 1410px) {
+
+    body {
+      background-size: contain;
+    }
+
+
+    .responsive-tka1 {
+      max-width: 80%;
+      height: auto;
+
+      border-radius: 25px;
+    }
+
+    .responsive-tka2 {
+      max-width: 80%;
+      height: auto;
+      border-radius: 50px;
+
+      border-radius: 15px;
+    }
+
+
+    h1 {
+      font-size: 5vw;
+    }
+
+  }
 </style>

@@ -18,7 +18,23 @@
       <img src="images/arrow_icon.png" alt="Back" style="rotate: 90deg;">
     </button>
 
-<h2>TURNER ASHTON</h2>
+
+
+    <h2 class="h2-left">TURNER
+    </h2>
+
+
+    <button class="header-btn-pack" id="packBtn">
+      <img src="images/pack_4.png" alt="Pack 4">
+    </button>
+
+    <button class="header-btn-pack" id="backBtn">
+      <img src="images/pack_4_card_1.png" alt="card 1 pack 4">
+    </button>
+
+    <h2 class="h2-right">
+      ASHTON
+    </h2>
 
     <!-- HOME BUTTON -->
     <button class="header-btn" id="homeBtn">
@@ -51,6 +67,10 @@
     window.location.href = 'index.html';
   });
 
+    // PACK BUTTON
+    document.getElementById('packBtn').addEventListener('click', () => {
+      window.location.href = 'pack4.html';
+    });
 </script>
 
 </body>
@@ -58,8 +78,9 @@
 
 
 
-<style>
 
+
+<style>
   * {
     margin: 0;
     padding: 0;
@@ -70,6 +91,10 @@
     background: #111;
     min-height: 100vh;
     font-family: Arial, sans-serif;
+    background-image: url(images/background_grid_2.jpeg);
+    background-size: contain;
+    background-blend-mode: soft-light;
+    overflow-x: hidden;
   }
 
   /* HEADER BAR */
@@ -91,7 +116,7 @@
 
     z-index: 1000;
 
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 
     backdrop-filter: blur(8px);
   }
@@ -126,4 +151,216 @@
     text-align: center;
   }
 
+  .p-tka-1 {
+    color: rgb(252, 251, 251);
+    margin-left: 35%;
+    margin-right: 30%;
+    text-align: auto;
+    font-size: larger;
+
+    background-color: rgba(202, 131, 50, 0.555);
+
+
+    border: 10px rgba(255, 255, 255, 0.253) solid;
+    border-radius: 20px;
+  }
+
+  .p-tka-2 {
+    color: rgb(252, 251, 251);
+    margin-left: 30%;
+    margin-right: 35%;
+    text-align: auto;
+    font-size: larger;
+
+    background-color: rgba(3, 216, 231, 0.329);
+
+
+    border: 10px rgba(255, 255, 255, 0.253) solid;
+    border-radius: 20px;
+  }
+
+  .header-btn-pack {
+    width: 48px;
+    height: 48px;
+
+    margin: none;
+
+    border: none;
+    background: transparent;
+
+    cursor: pointer;
+
+    transition: scale(1.1);
+
+  }
+
+  .header-btn-pack:hover {
+    transform: scale(1.1);
+  }
+
+  .header-btn-pack img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  /*DESKTOP CSS FROM HERE ON*/
+  /* =========================*/
+  @media (min-width: 1410px) {
+
+
+
+    .responsive-tka1 {
+      width: 35%;
+      height: auto;
+
+      border: 30px rgba(255, 255, 255, 0.253) solid;
+      border-radius: 20px;
+    }
+
+    .responsive-tka2 {
+      width: 20%;
+      height: auto;
+
+      border: 30px rgba(255, 255, 255, 0.253) solid;
+      border-radius: 20px;
+    }
+
+
+    .responsive-tka3 {
+      width: 50%;
+      height: auto;
+
+      border: 30px rgba(255, 255, 255, 0.253) solid;
+      border-radius: 20px;
+    }
+
+    .responsive-tka4 {
+      width: 10%;
+      height: auto;
+      z-index: 999;
+      position: absolute;
+
+      margin-left: 88%;
+
+      margin-top: 85%;
+
+
+      transform: rotate(90deg);
+    }
+
+
+    h1 {
+      font-size: 2vw;
+      color: rgb(255, 255, 255);
+
+    }
+
+    h3 {
+      font-size: xx-large;
+    }
+
+    .h2-right {
+      margin-right: 40%;
+    }
+
+    .h2-left {
+      margin-left: 40%
+    }
+
+    .showcase-video {
+      width: 35%;
+      height: auto;
+
+      border: 30px rgba(255, 255, 255, 0.253) solid;
+      border-radius: 20px;
+
+    }
+  }
+
+
+
+  /*MOBILE CSS FROM HERE ON*/
+  /* =========================*/
+
+  @media (max-width: 1410px) {
+
+    body {
+      background-size: contain;
+    }
+
+    .responsive-tka1 {
+      width: 90%;
+      height: auto;
+
+      border: 20px rgba(255, 255, 255, 0.253) solid;
+      border-radius: 20px;
+    }
+
+    .responsive-tka2 {
+      width: 60%;
+      height: auto;
+
+      border: 30px rgba(255, 255, 255, 0.253) solid;
+      border-radius: 20px;
+    }
+
+    .responsive-tka3 {
+      width: 90%;
+      height: auto;
+
+      border: 20px rgba(255, 255, 255, 0.253) solid;
+      border-radius: 20px;
+    }
+
+    .responsive-tka4 {
+      width: 40%;
+      height: auto;
+
+      display: none;
+    }
+
+    h1 {
+      font-size: 5vw;
+    }
+
+    h2 {
+      font-size: 5vw;
+    }
+
+    .showcase-video {
+      width: 90%;
+      height: auto;
+
+      border: 30px rgba(255, 255, 255, 0.253) solid;
+      border-radius: 20px;
+    }
+
+    .p-tka-1 {
+      color: rgb(255, 255, 255);
+      margin-left: 20px;
+      margin-right: 20px;
+      text-align: auto;
+      font-size: larger;
+
+      background-color: rgba(202, 131, 50, 0.555);
+      border: 10px rgba(255, 255, 255, 0.253) solid;
+      border-radius: 20px;
+    }
+
+
+    .p-tka-2 {
+      color: rgb(252, 251, 251);
+      margin-left: 20px;
+      margin-right: 20px;
+      text-align: auto;
+      font-size: larger;
+
+      background-color: rgba(3, 216, 231, 0.329);
+
+
+      border: 10px rgba(255, 255, 255, 0.253) solid;
+      border-radius: 20px;
+    }
+  }
 </style>
