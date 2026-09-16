@@ -49,75 +49,142 @@
 
   <!-- PAGE CONTENT -->
   <div class="content">
-    <h1>
-      <&emsp;MEOW FISH Mockup&emsp;> </A>
-    </h1>
+
+    <div class="backing-content1">
+
+      <h1>
+        <&emsp;MEOW FISH Mockup&emsp;> </A>
+      </h1>
+
+      <br>
+      <br>
+      <h4 style="color: #f0f3f5;">Idea Sketching</h4>
+      <video class="showcase-video" controls muted>
+        <source src="videos/meowfish_sketch_timelapse.MP4" type="video/mp4">
+      </video>
+
+      <br>
+      <h3>⬇</h3>
+      <br>
+
+      <h4 style="color: #f0f3f5;">Final Logo</h4>
+      <img src="images/meowfish_final_logo_bw.jpg" alt="Tsukii printing envelope" class="responsive-tka2">
+
+      <br>
+      <h3>⬇</h3>
+      <br>
+
+      <h4 style="color: #f0f3f5;">Color Testing</h4>
+      <img src="images/meowfish_color_testing.jpg" alt="Tsukii printing letterhead" class="responsive-tka2">
+
+      <br>
+      <h3>⬇</h3>
+      <br>
+
+      <h4 style="color: #f0f3f5;">Find Mockup base</h4>
+      <img src="images/meowfish_blank_3bags.jpeg" alt="Tsukii business card" class="responsive-tka2">
+
+      <br>
+      <h3>⬇</h3>
+      <br>
+
+      <h4 style="color: #f0f3f5;">Mockup Poster ad</h4>
+      <img src="images/meowfish_ad_bags.jpg" alt="Tsukii all printing examples" class="responsive-tka1">
+
+
+
+      <div class="comparison-slider">
+        <!-- Back layer: AFTER image -->
+        <div class="comparison-layer after">
+          <img src="images/meowfish_ad_bags.jpg" alt="After" />
+        </div>
+
+        <!-- Front layer: BEFORE image (masked) -->
+        <div class="comparison-layer before">
+          <img src="images/meowfish_blank_3bags.jpeg" alt="Before" />
+        </div>
+
+        <!-- Draggable handle -->
+        <div class="comparison-handle"></div>
+
+        <!-- Optional labels -->
+        <span class="comparison-label before">Before</span>
+        <span class="comparison-label after">After</span>
+      </div>
+
+
+      <div class="p-reveal-instructions">USE SLIDER TO REVEAL FINAL MOCKUP AD</p>
+
+        <br>
+
+
+      </div>
+
+    </div>
 
     <br>
     <br>
-    <h4 style="color: rgb(212, 71, 47);">Idea Sketching</h4>
-    <video class="showcase-video" controls muted>
-      <source src="videos/meowfish_sketch_timelapse.MP4" type="video/mp4">
-    </video>
-
-    <br>
-    <h3>⬇</h3>
-    <br>
-
-    <h4 style="color: rgb(212, 71, 47);">Final Logo</h4>
-    <img src="images/meowfish_final_logo_bw.jpg" alt="Tsukii printing envelope" class="responsive-tka2">
-
-    <br>
-    <h3>⬇</h3>
-    <br>
-
-    <h4 style="color: rgb(212, 71, 47);">Color Testing</h4>
-    <img src="images/meowfish_color_testing.jpg" alt="Tsukii printing letterhead" class="responsive-tka2">
-
-    <br>
-    <h3>⬇</h3>
-    <br>
-
-    <h4 style="color: rgb(212, 71, 47);">Find Mockup base</h4>
-    <img src="images/meowfish_blank_3bags.jpeg" alt="Tsukii business card" class="responsive-tka2">
-
-    <br>
-    <h3>⬇</h3>
-    <br>
-
-    <h4 style="color: rgb(212, 71, 47);">Mockup Poster ad</h4>
-    <img src="images/meowfish_ad_bags.jpg" alt="Tsukii all printing examples" class="responsive-tka1">
-
-
-
-    <br>
-    <br>
-    <br>
     <br>
 
 
 
 
+    <script>
 
-  </div>
+      // BACK BUTTON
+      document.getElementById('backBtn').addEventListener('click', () => {
+        window.history.back();
+      });
 
-  <script>
+      // HOME BUTTON
+      document.getElementById('homeBtn').addEventListener('click', () => {
+        window.location.href = 'index.html';
+      });
 
-    // BACK BUTTON
-    document.getElementById('backBtn').addEventListener('click', () => {
-      window.history.back();
-    });
+      // PACK BUTTON
+      document.getElementById('packBtn').addEventListener('click', () => {
+        window.location.href = 'pack2.html';
+      });
+    </script>
 
-    // HOME BUTTON
-    document.getElementById('homeBtn').addEventListener('click', () => {
-      window.location.href = 'index.html';
-    });
 
-    // PACK BUTTON
-    document.getElementById('packBtn').addEventListener('click', () => {
-      window.location.href = 'pack2.html';
-    });
-  </script>
+    <script>function initComparisonSlider(container) {
+        const before = container.querySelector('.before');
+        const handle = container.querySelector('.comparison-handle');
+        let isDragging = false;
+
+        // Calculate position as percentage
+        function getPercent(clientX) {
+          const rect = container.getBoundingClientRect();
+          const x = clientX - rect.left;
+          return Math.max(0, Math.min(100, (x / rect.width) * 100));
+        }
+
+        // Update the slider
+        function updateSlider(percent) {
+          before.style.clipPath = `inset(0 ${100 - percent}% 0 0)`;
+          handle.style.left = percent + '%';
+        }
+
+        // Mouse events
+        container.addEventListener('mousedown', (e) => {
+          isDragging = true;
+          updateSlider(getPercent(e.clientX));
+        });
+
+        document.addEventListener('mousemove', (e) => {
+          if (!isDragging) return;
+          updateSlider(getPercent(e.clientX));
+        });
+
+        document.addEventListener('mouseup', () => {
+          isDragging = false;
+        });
+      }
+
+      // Initialisation
+      initComparisonSlider(document.querySelector('.comparison-slider'));</script>
+
 
 </body>
 
@@ -133,7 +200,7 @@
   }
 
   body {
-    background: #310404;
+    background: #042a3b;
     min-height: 100vh;
     font-family: Arial, sans-serif;
 
@@ -252,6 +319,8 @@
 
       backdrop-filter: blur(3px);
 
+      display: none;
+
     }
 
     .responsive-tka2 {
@@ -286,7 +355,7 @@
       border-right: 5px solid;
 
 
-      border-color: rgba(228, 18, 18, 0.164);
+      border-color: #297aa0;
 
       backdrop-filter: blur(8px);
 
@@ -297,7 +366,7 @@
 
 
     h1 {
-      font-size: 2vw;
+      font-size: 5vw;
 
     }
 
@@ -326,6 +395,114 @@
 
       backdrop-filter: blur(8px);
     }
+
+
+    .comparison-slider {
+      margin-left: 16vw;
+
+      position: relative;
+      width: 100%;
+      max-width: 900px;
+      aspect-ratio: 16 / 12;
+      overflow: hidden;
+      border-radius: 12px;
+      cursor: ew-resize;
+      user-select: none;
+    }
+
+    .comparison-layer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .comparison-layer img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .comparison-layer.after {
+      z-index: 1;
+    }
+
+    .comparison-layer.before {
+      z-index: 2;
+      /* clip-path: inset(top right bottom left) */
+      /* Shows 50% left of the BEFORE image */
+      clip-path: inset(0 50% 0 0);
+    }
+
+    .comparison-handle {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 4px;
+      background: white;
+      transform: translateX(-50%);
+      z-index: 10;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Handle circle */
+    .comparison-handle::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 44px;
+      height: 44px;
+      background: white;
+      border-radius: 50%;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Icone fleches */
+    .comparison-handle::after {
+      content: '↔';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 1.2rem;
+      color: #333;
+    }
+
+    .p-reveal-instructions {
+      font-size: xx-large;
+      font-style: italic;
+      color: #f0f2f3;
+      text-shadow: -4px 10px 10px rgba(204, 219, 226, 0.6);
+    }
+
+    .backing-content1 {
+      width: 80vw;
+      margin-left: 10vw;
+      margin-right: 10vw;
+
+      padding-top: 60px;
+      padding-bottom: 40px;
+
+      border-radius: 25px;
+      height: auto;
+
+      background-blend-mode: soft-light;
+
+      color: white;
+      text-align: center;
+
+      background-image: url('images/background_black_paper.jpeg');
+      background-size: contain;
+
+      box-shadow: 2px 21px 26px 9px rgba(0, 0, 0, 0.75) inset;
+      -webkit-box-shadow: 2px 21px 26px 9px rgba(0, 0, 0, 0.75) inset;
+      -moz-box-shadow: 2px 21px 26px 9px rgba(0, 0, 0, 0.75) inset;
+    }
+
 
   }
 
@@ -418,7 +595,7 @@
       border-right: 5px solid;
 
 
-      border-color: rgba(228, 18, 18, 0.164);
+      border-color: #297aa0;
 
       backdrop-filter: blur(8px);
 
@@ -426,5 +603,40 @@
       margin-left: auto;
       margin-right: auto;
     }
+
+    .comparison-slider {
+      display: none;
+    }
+
+    .p-reveal-instructions {
+      display: none;
+    }
+
+    .backing-content1 {
+      width: 95vw;
+      margin-left: 2.5vw;
+      margin-right: 2.5vw;
+
+      padding-top: 10px;
+      padding-bottom: 10px;
+
+      border-radius: 15px;
+      height: auto;
+
+
+      background-blend-mode: soft-light;
+
+      color: white;
+      text-align: center;
+
+      background-image: url('images/background_black_paper.jpeg');
+      background-size: contain;
+
+      box-shadow: 2px 21px 26px 9px rgba(0, 0, 0, 0.75) inset;
+      -webkit-box-shadow: 2px 21px 26px 9px rgba(0, 0, 0, 0.75) inset;
+      -moz-box-shadow: 2px 21px 26px 9px rgba(0, 0, 0, 0.75) inset;
+    }
+
+
   }
 </style>
