@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>How I Made This Site</title>
+
+
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+
+    <!-- BACK BUTTON -->
+    <button class="header-btn" id="backBtn">
+      <img src="images/arrow_icon.png" alt="Back" style="rotate: 90deg;">
+    </button>
+
+
+
+    <h2 class="h2-left">TURNER
+    </h2>
+
+
+    <button class="header-btn-pack" id="packBtn">
+      <img src="images/pack_random.png" alt="filler image">
+    </button>
+
+
+    <h2 class="h2-right">
+      ASHTON
+    </h2>
+
+    <!-- HOME BUTTON -->
+    <button class="header-btn" id="homeBtn">
+      <img src="images/home_icon.png" alt="Home">
+    </button>
+
+  </header>
+
+  <!-- PAGE CONTENT -->
+  <div class="content">
+    <h1>
+       <&emsp;HOW I MADE THIS WEBSITE&emsp;> </A>
+    </h1>
+
+    <br>
+
+<div class="journey-controls">
+
+    <button class="journey-btn" id="journey-back-btn">
+        <img style="rotate: -90deg;" src="images/arrow_icon.png" alt="Previous journey">
+    </button>
+
+    <button class="journey-btn" id="journey-start-btn">
+        <img style="rotate: 180deg;" src="images/home_icon.png" alt="Go to beginning">
+    </button>
+
+    <button class="journey-btn" id="journey1-btn">
+        <img style="rotate: 90deg;" src="images/arrow_icon.png" alt="Next journey">
+    </button>
+
+
+
+</div>
+
+<div class="journey-window">
+
+
+    <div class="journey-track" id="journeyTrack">
+
+        <div class="journey-slide">
+            <img src="images/journey1_image.png" alt="Journey image #1">
+        </div>
+
+        <div class="journey-slide">
+            <img src="images/journey2_image.png" alt="Journey image #2">
+        </div>
+
+        <div class="journey-slide">
+            <img src="images/journey3_image.png" alt="Journey image #3">
+        </div>
+
+        <div class="journey-slide">
+            <img src="images/journey4_image.png" alt="Journey image #4">
+        </div>
+
+        <div class="journey-slide">
+            <img src="images/journey5_image.png" alt="Journey image #5">
+        </div>
+
+        <div class="journey-slide">
+            <img src="images/journey6_image.png" alt="Journey image #6">
+        </div>
+    </div>
+
+
+</div>
+
+
+
+<h2 style="color: red;">DISCLAIMERS / CREDITATIONS / THANKS:</h2>
+
+<br>
+
+<p style="font-weight: bold; font-size: 1.5em; color: rgb(219, 151, 151);">THANKS</p>
+<p>w3schools.com + stackoverflow.com + cssgenerator.com + VS Code Studio</p>
+<p>BTECH Technical College + github.com</p>
+
+<br>
+
+<p style="font-weight: bold; font-size: 1.5em; color: rgb(219, 151, 151);">DISCLAIMERS</p>
+<p>A free version of Chatgpt was used when creating this websites first development phase.</p>
+<p>This site began as a school project & utilizing a generative AI for code checking was required.</p>
+<p>Chatgpt was only prompted with human written code.</p>
+<p>No full generative AI code was used.</p>
+<p>Any copy & pasted code from Chatgpt was reviewed and modified before being implemented.</p>
+
+
+  <script>
+
+    // BACK BUTTON
+    document.getElementById('backBtn').addEventListener('click', () => {
+      window.history.back();
+    });
+
+    // HOME BUTTON
+    document.getElementById('homeBtn').addEventListener('click', () => {
+      window.location.href = 'index.html';
+    });
+
+    // PACK BUTTON
+    document.getElementById('packBtn').addEventListener('click', () => {
+      window.location.href = 'pack5.html';
+    });
+
+
+    //journey
+// JOURNEY BUTTONS
+const nextButton = document.getElementById('journey1-btn');
+const backButton = document.getElementById('journey-back-btn');
+const startButton = document.getElementById('journey-start-btn');
+
+const track = document.getElementById('journeyTrack');
+
+const totalJourneys = 6;
+let currentJourney = 0;
+
+
+// NEXT
+nextButton.addEventListener('click', () => {
+
+    if (currentJourney < totalJourneys - 1) {
+        currentJourney++;
+
+        track.style.transform =
+            `translateY(-${currentJourney * 100}vh)`;
+    }
+
+});
+
+
+// BACK ONE IMAGE
+backButton.addEventListener('click', () => {
+
+    if (currentJourney > 0) {
+        currentJourney--;
+
+        track.style.transform =
+            `translateY(-${currentJourney * 100}vh)`;
+    }
+
+});
+
+
+// GO TO BEGINNING
+startButton.addEventListener('click', () => {
+
+    currentJourney = 0;
+
+    track.style.transform =
+        'translateY(0)';
+
+});
+
+
+
+
+
+  </script>
+
+
+
+
+</body>
+
+</html>
+
+
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    background: #5f5a5a;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+
+
+    background-image: url('images/background_grid_2.jpeg');
+    background-size: cover;
+
+
+    background-blend-mode: multiply;
+  }
+
+
+  /* HEADER BAR */
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 80px;
+
+    background: rgba(255, 255, 255, 0.85);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 24px;
+
+    z-index: 1000;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+    backdrop-filter: blur(8px);
+  }
+
+  /* BUTTONS */
+  .header-btn {
+    width: 48px;
+    height: 48px;
+
+    border: none;
+    background: transparent;
+
+    cursor: pointer;
+
+    transition: transform 0.2s ease;
+  }
+
+  .header-btn:hover {
+    transform: scale(1.1);
+  }
+
+  .header-btn img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  /* PAGE CONTENT */
+  .content {
+    padding-top: 120px;
+    color: white;
+    text-align: center;
+  }
+
+
+
+  .header-btn-pack {
+    width: 48px;
+    height: 48px;
+
+    margin: none;
+
+    border: none;
+    background: transparent;
+
+    cursor: pointer;
+
+    transition: scale(1.1);
+
+  }
+
+  .header-btn-pack:hover {
+    transform: scale(1.1);
+  }
+
+  .header-btn-pack img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+
+
+
+  /*DESKTOP CSS FROM HERE ON*/
+  /* =========================*/
+  @media (min-width: 1410px) {
+
+    body {
+    overflow: hidden;
+    }
+
+
+ /* ============journey begin=============*/
+
+   /*============j window============= */
+
+.journey-window {
+    position: absolute;
+
+    top: 45%;
+    left: 50%;
+
+    width: 100vw;
+    height: 100vh;
+
+    transform: translate(-50%, -50%);
+
+    overflow: hidden;
+
+    z-index: 1;
+}
+
+
+/*============j track============= */
+
+.journey-track {
+    width: 100%;
+    
+    display: flex;
+    flex-direction: column;
+
+    transform: translateY(0);
+
+    transition: transform 2s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+
+/*===========j images============== */
+
+.journey-slide {
+
+    width: 100vw;
+    height: 100vh;
+
+    flex-shrink: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.journey-slide img {
+
+    width: 80vw;
+    height: auto;
+
+    display: block;
+
+}
+ /* ===========journey buttons==============*/
+
+.journey-controls {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    display: flex;
+    gap: 15px;
+
+    z-index: 1001;
+}
+
+
+  .journey-btn {
+    width: 48px;
+    height: 48px;
+
+    border: none;
+    background: transparent;
+
+    cursor: pointer;
+
+    transition: transform 0.2s ease;
+
+    background: rgba(238, 6, 6, 0.678);
+    border-radius: 50%;
+
+
+  }
+
+  .journey-btn:hover {
+    transform: scale(1.1);
+  }
+
+  .journey-btn img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+
+    transform: rotate(180deg);
+  }
+
+ /* ===========j==============*/
+
+
+
+    .responsive-tka1 {
+      width: 10%;
+      height: auto;
+    }
+
+    .responsive-tka2 {
+      width: 10%;
+      height: auto;
+      margin-bottom: 25%;
+    }
+
+    h1 {
+      font-size: 2vw;
+      color: rgb(255, 255, 255);
+
+    }
+
+    .h2-right {
+      margin-right: 40%;
+    }
+
+    .h2-left {
+      margin-left: 40%
+    }
+
+
+    .responsive-tka3 {
+      width: 30%;
+      height: auto;
+    }
+
+    .video-tka1 {
+      width: 20%;
+      height: auto;
+    }
+
+    .showcase-video {
+      width: 50%;
+      height: auto;
+
+      border: 30px rgba(255, 255, 255, 0.253) solid;
+      border-radius: 20px;
+
+    }
+
+  }
+
+
+
+  /*MOBILE CSS FROM HERE ON*/
+  /* =========================*/
+
+  @media (max-width: 1410px) {
+
+    body {
+      background-size: contain;
+    }
+
+
+
+    .responsive-tka1 {
+      width: 40%;
+      height: auto;
+    }
+
+    .responsive-tka2 {
+      width: 40%;
+      height: auto;
+    }
+
+
+    h1 {
+      font-size: 5vw;
+    }
+
+    h2 {
+      font-size: 5vw;
+    }
+
+    .responsive-tka3 {
+      width: 80%;
+      height: auto;
+    }
+
+
+    .video-tka1 {
+      width: 45%;
+      height: auto;
+    }
+
+
+    .showcase-video {
+      width: 90%;
+      height: auto;
+
+      border: 30px rgba(255, 255, 255, 0.253) solid;
+      border-radius: 20px;
+    }
+
+
+    
+ /* ============journey begin=============*/
+
+   /*============j window============= */
+
+.journey-window {
+    position: absolute;
+
+    top: 45%;
+    left: 50%;
+
+    width: 100vw;
+    height: 100vh;
+
+    transform: translate(-50%, -50%);
+
+    overflow: hidden;
+
+    z-index: 1;
+}
+
+
+/*============j track============= */
+
+.journey-track {
+    width: 100%;
+    
+    display: flex;
+    flex-direction: column;
+
+    transform: translateY(0);
+
+    transition: transform 0.75s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+
+/*===========j images============== */
+
+.journey-slide {
+
+    width: 100vw;
+    height: 100vh;
+
+    flex-shrink: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.journey-slide img {
+
+    width: 80vw;
+    height: auto;
+
+    display: block;
+
+}
+ /* ===========journey buttons==============*/
+
+.journey-controls {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    display: flex;
+    gap: 15px;
+
+    z-index: 1001;
+}
+
+
+  .journey-btn {
+    width: 48px;
+    height: 48px;
+
+    border: none;
+    background: transparent;
+
+    cursor: pointer;
+
+    transition: transform 0.2s ease;
+
+    background: rgba(238, 6, 6, 0.678);
+    border-radius: 50%;
+
+
+  }
+
+  .journey-btn:hover {
+    transform: scale(1.1);
+  }
+
+  .journey-btn img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+
+    transform: rotate(180deg);
+  }
+
+ /* ===========j==============*/
+
+
+  }
+</style>

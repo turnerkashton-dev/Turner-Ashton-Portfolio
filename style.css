@@ -540,6 +540,100 @@ body {
 
 @media (min-width: 1410px) {
 
+/*about me section*/
+
+
+.about-me-container {
+    position: fixed;
+    top: 10%;
+    left: 1%;
+    right: 90%;
+
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 0;
+
+
+}
+
+.about-me-image {
+    width: 100%;
+    height: auto;
+    max-width: 800px;
+    max-height: 600px;
+}
+.about-me-btn {
+    width: 150px;
+    height: auto;
+
+    border: none;
+    background: transparent;
+
+    cursor: pointer;
+
+    transition: transform 0.2s ease;
+
+    opacity: 0.5;
+
+}
+
+  .about-me-btn:hover {
+    transform: scale(1.1);
+
+    opacity: 1;
+
+  }
+
+/*how i made this website section*/
+
+.how-i-made-this-site-container{
+    position: fixed;
+    top: 15%;
+    left: 1%;
+    right: 87%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+    z-index: 0;
+
+}
+
+.how-i-made-this-site-image {
+    width: 100%;
+    height: auto;
+    max-width: 800px;
+    max-height: 600px;
+}
+
+.how-i-made-this-site-btn {
+    width: 200px;
+    height: auto;
+
+    border: none;
+    background: transparent;
+
+    cursor: pointer;
+
+    transition: transform 0.2s ease;
+
+    opacity: 0.5;
+}
+
+  .how-i-made-this-site-btn:hover {
+    transform: scale(1.1);
+
+    opacity: 1;
+  }
+
+  /*carousel etc section*/
+
+
   .carousel-container {
     display: none;
   }
@@ -1222,6 +1316,7 @@ body {
     mix-blend-mode: screen;
     backdrop-filter: blur(12px);
     box-shadow: 0 0 15px 2px #141414;
+    
   }
 
   .bottom-menu {
@@ -1655,4 +1750,14 @@ body {
       transform: translateX(0%);
     }
   }
+
+
+.how-i-made-this-site-container{
+display: none;
+}
+
+.about-me-container {
+  display: none;
+}
+
 }

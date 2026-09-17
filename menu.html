@@ -102,6 +102,25 @@
       </header>
 
 
+    <!-- ABOUT ME BUTTON -->
+<a href="about_me.html">
+    <div class="about-me-container">
+        <button class="about-me-btn" id="aboutMeBtn">
+            <img src="images/about_me.png" alt="About Me Image" class="about-me-image">
+        </button>
+    </div>
+</a>
+
+    <!-- HOW I MADE THIS SITE BUTTON -->
+<a href="how_its_made.html">
+    <div class="how-i-made-this-site-container">
+        <button class="how-i-made-this-site-btn" id="howIMadeThisSiteBtn">
+            <img src="images/how_i_made_this_site.png" alt="How I Made This Site Image" class="how-i-made-this-site-image">
+        </button>
+    </div>
+</a>
+
+
       <br>
 
       <h1>
@@ -834,6 +853,84 @@
       -moz-box-shadow: 2px 21px 26px 9px rgba(0, 0, 0, 0.75) inset;
 
     }
+
+
+.about-me-container {
+    position: fixed;
+    top: 10%;
+    left: 90%;
+    right: 1%;
+
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 3;
+}
+
+.about-me-image {
+    width: 100%;
+    height: auto;
+    max-width: 800px;
+    max-height: 600px;
+}
+.about-me-btn {
+    width: 150px;
+    height: auto;
+
+    border: none;
+    background: transparent;
+
+    cursor: pointer;
+
+    transition: transform 0.2s ease;
+}
+
+  .about-me-btn:hover {
+    transform: scale(1.1);
+  }
+
+/*how i made this website section*/
+
+.how-i-made-this-site-container{
+    position: fixed;
+    top: 15%;
+    left: 87%;
+    right: 1%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+    z-index: 3;
+}
+
+.how-i-made-this-site-image {
+    width: 100%;
+    height: auto;
+    max-width: 800px;
+    max-height: 600px;
+}
+
+.how-i-made-this-site-btn {
+    width: 200px;
+    height: auto;
+
+    border: none;
+    background: transparent;
+
+    cursor: pointer;
+
+    transition: transform 0.2s ease;
+}
+
+  .how-i-made-this-site-btn:hover {
+    transform: scale(1.1);
+  }
+
+
   }
 
 
@@ -1111,5 +1208,73 @@
       -moz-box-shadow: 2px 21px 26px 9px rgba(0, 0, 0, 0.75) inset;
 
     }
+
+
+.about-me-container {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 3;
+}
+
+.about-me-image {
+    width: 100%;
+    height: auto;
+    max-width: 800px;
+    max-height: 600px;
+}
+.about-me-btn {
+    width: 150px;
+    height: auto;
+
+    border: none;
+    background: transparent;
+
+    cursor: pointer;
+
+    transition: transform 0.2s ease;
+}
+
+  .about-me-btn:hover {
+    transform: scale(1.1);
+  }
+
+/*how i made this website section*/
+
+.how-i-made-this-site-container{
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+    z-index: 3;
+}
+
+.how-i-made-this-site-image {
+    width: 100%;
+    height: auto;
+    max-width: 800px;
+    max-height: 600px;
+}
+
+.how-i-made-this-site-btn {
+    width: 200px;
+    height: auto;
+
+    border: none;
+    background: transparent;
+
+    cursor: pointer;
+
+    transition: transform 0.2s ease;
+}
+
+  .how-i-made-this-site-btn:hover {
+    transform: scale(1.1);
+  }
+
   }
 </style>

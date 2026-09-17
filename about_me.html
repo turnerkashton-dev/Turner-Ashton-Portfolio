@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>About Me</title>
+
+
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+
+    <!-- BACK BUTTON -->
+    <button class="header-btn" id="backBtn">
+      <img src="images/arrow_icon.png" alt="Back" style="rotate: 90deg;">
+    </button>
+
+
+
+    <h2 class="h2-left">TURNER
+    </h2>
+
+
+    <button class="header-btn-pack" id="packBtn">
+      <img src="images/pack_random.png" alt="filler image">
+    </button>
+
+
+
+    <h2 class="h2-right">
+      ASHTON
+    </h2>
+
+    <!-- HOME BUTTON -->
+    <button class="header-btn" id="homeBtn">
+      <img src="images/home_icon.png" alt="Home">
+    </button>
+
+  </header>
+
+  <!-- PAGE CONTENT -->
+  <div class="content">
+
+    <!--
+    <h1>
+       <&emsp;ABOUT ME&emsp;> </A>
+    </h1>
+  -->
+
+    <br>
+
+
+<!-- JOURNEY CONTROLS -->
+
+<button class="journey-btn journey-back" id="journey-back-btn">
+    <img src="images/arrow_icon.png" alt="Previous">
+</button>
+
+<button class="journey-home" id="journey-home-btn">
+    <img src="images/home_icon.png" alt="Home">
+</button>
+
+<button class="journey-btn journey-forward" id="journey-forward-btn">
+    <img src="images/arrow_icon.png" alt="Next">
+</button>
+
+
+
+<div class="journey-image1">
+    <img id="journey-img" src="images/journey1_mountains2.png" alt="journey image #1">
+</div>
+
+<div class="journey-image2">
+    <img id="journey-img2" src="images/journey_lego2.png" alt="journey image #2">
+</div>
+
+<div class="journey-image3">
+    <img id="journey-img3" src="images/journey_travel2.png" alt="journey image #3">
+</div>
+
+<div class="journey-image4">
+    <img id="journey-img4" src="images/journey_soccer2.png" alt="journey image #4">
+</div>
+
+<div class="journey-image5">
+    <img id="journey-img5" src="images/journey_home2.png" alt="journey image #5">
+</div>
+
+<div class="journey-image6">
+    <img id="journey-img6" src="images/journey_turner2.png" alt="journey image #6">
+</div>
+
+
+
+
+<!--mobile only for about me-->
+<div class="mobile-display-aboutme-bottom">
+  \/=back /\=forward
+</div>
+
+<div class="mobile-display-aboutme-top">
+  \/=back /\=forward
+</div>
+
+
+  <script>
+
+    // BACK BUTTON
+    document.getElementById('backBtn').addEventListener('click', () => {
+      window.history.back();
+    });
+
+    // HOME BUTTON
+    document.getElementById('homeBtn').addEventListener('click', () => {
+      window.location.href = 'index.html';
+    });
+
+    // PACK BUTTON
+    document.getElementById('packBtn').addEventListener('click', () => {
+      window.location.href = 'index.html';
+    });
+
+
+
+// journey
+const forwardButton = document.getElementById('journey-forward-btn');
+const backButton = document.getElementById('journey-back-btn');
+const homeButton = document.getElementById('journey-home-btn');
+
+const journey1 = document.querySelector('.journey-image1');
+const journey2 = document.querySelector('.journey-image2');
+const journey3 = document.querySelector('.journey-image3');
+const journey4 = document.querySelector('.journey-image4');
+const journey5 = document.querySelector('.journey-image5');
+const journey6 = document.querySelector('.journey-image6');
+
+let journeyStep = 1;
+
+// FORWARD
+forwardButton.addEventListener('click', () => {
+
+    if (journeyStep === 1) {
+
+        // FIRST CLICK:
+        // Move Journey 1 upward
+        journey1.classList.add('move-up');
+        journeyStep = 1.5;
+
+    } else if (journeyStep === 1.5) {
+
+        // SECOND CLICK:
+        // Move Journey 1 farther upward
+        journey1.classList.add('move-up-2');
+        journeyStep = 1.75;
+
+    } else if (journeyStep === 1.75) {
+
+        // THIRD CLICK:
+        // Journey 1 → Journey 2
+        journey1.classList.add('move-down');
+        journey2.classList.add('move-in');
+        journeyStep = 2;
+
+    } else if (journeyStep === 2) {
+
+        // Journey 2 → Journey 3
+        journey2.classList.add('move-down');
+        journey3.classList.add('move-in');
+        journeyStep = 3;
+
+    } else if (journeyStep === 3) {
+
+        // Journey 3 → Journey 4
+        journey3.classList.add('move-down');
+        journey4.classList.add('move-in');
+        journeyStep = 4;
+
+    } else if (journeyStep === 4) {
+
+        // Journey 4 → Journey 5
+        journey4.classList.add('move-down');
+        journey5.classList.add('move-in');
+        journeyStep = 5;
+
+    } else if (journeyStep === 5) {
+
+        // Journey 5 → Journey 6
+        journey5.classList.add('move-down');
+        journey6.classList.add('move-in');
+        journeyStep = 6;
+    }
+});
+
+
+// BACK
+backButton.addEventListener('click', () => {
+
+    if (journeyStep === 1.75) {
+
+        // Journey 1: second position → first position
+        journey1.classList.remove('move-up-2');
+        journeyStep = 1.5;
+
+    } else if (journeyStep === 1.5) {
+
+        // Journey 1: first position → starting position
+        journey1.classList.remove('move-up');
+        journeyStep = 1;
+
+    } else if (journeyStep === 2) {
+
+        // Journey 2 → Journey 1
+        journey1.classList.remove('move-down');
+        journey2.classList.remove('move-in');
+
+        journeyStep = 1.75;
+
+    } else if (journeyStep === 3) {
+
+        // Journey 3 → Journey 2
+        journey2.classList.remove('move-down');
+        journey3.classList.remove('move-in');
+
+        journeyStep = 2;
+
+    } else if (journeyStep === 4) {
+
+        // Journey 4 → Journey 3
+        journey3.classList.remove('move-down');
+        journey4.classList.remove('move-in');
+
+        journeyStep = 3;
+
+    } else if (journeyStep === 5) {
+
+        // Journey 5 → Journey 4
+        journey4.classList.remove('move-down');
+        journey5.classList.remove('move-in');
+
+        journeyStep = 4;
+
+    } else if (journeyStep === 6) {
+
+        // Journey 6 → Journey 5
+        journey5.classList.remove('move-down');
+        journey6.classList.remove('move-in');
+
+        journeyStep = 5;
+    }
+});
+
+
+// JOURNEY HOME — RETURN TO START OF IMAGE 1
+homeButton.addEventListener('click', () => {
+
+    journey1.classList.remove('move-up');
+    journey1.classList.remove('move-up-2');
+    journey1.classList.remove('move-down');
+
+    journey2.classList.remove('move-in');
+    journey2.classList.remove('move-down');
+
+    journey3.classList.remove('move-in');
+    journey3.classList.remove('move-down');
+
+    journey4.classList.remove('move-in');
+    journey4.classList.remove('move-down');
+
+    journey5.classList.remove('move-in');
+    journey5.classList.remove('move-down');
+
+    journey6.classList.remove('move-in');
+    journey6.classList.remove('move-down');
+
+    journeyStep = 1;
+});
+
+
+
+
+
+
+  </script>
+
+
+
+
+</body>
+
+</html>
+
+
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    background: #5f5a5a;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+
+
+    background-image: url('images/background_grid_2.jpeg');
+    background-size: cover;
+
+
+    background-blend-mode: multiply;
+  }
+
+
+  /* HEADER BAR */
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 80px;
+
+    background: rgba(255, 255, 255, 0.85);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 24px;
+
+    z-index: 1000;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+    backdrop-filter: blur(8px);
+  }
+
+  /* BUTTONS */
+  .header-btn {
+    width: 48px;
+    height: 48px;
+
+    border: none;
+    background: transparent;
+
+    cursor: pointer;
+
+    transition: transform 0.2s ease;
+  }
+
+  .header-btn:hover {
+    transform: scale(1.1);
+  }
+
+  .header-btn img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  /* PAGE CONTENT */
+  .content {
+    padding-top: 120px;
+    color: white;
+    text-align: center;
+  }
+
+
+
+  .header-btn-pack {
+    width: 48px;
+    height: 48px;
+
+    margin: none;
+
+    border: none;
+    background: transparent;
+
+    cursor: pointer;
+
+    transition: scale(1.1);
+
+  }
+
+  .header-btn-pack:hover {
+    transform: scale(1.1);
+  }
+
+  .header-btn-pack img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+
+
+
+  /*DESKTOP CSS FROM HERE ON*/
+  /* =========================*/
+  @media (min-width: 1410px) {
+
+    body {
+    overflow: hidden;
+    }
+
+
+    .responsive-tka1 {
+      width: 10%;
+      height: auto;
+    }
+
+    .responsive-tka2 {
+      width: 10%;
+      height: auto;
+      margin-bottom: 25%;
+    }
+
+    h1 {
+      font-size: 2vw;
+      color: rgb(255, 255, 255);
+
+    }
+
+    .h2-right {
+      margin-right: 40%;
+    }
+
+    .h2-left {
+      margin-left: 40%
+    }
+
+
+    .responsive-tka3 {
+      width: 30%;
+      height: auto;
+    }
+
+    .video-tka1 {
+      width: 20%;
+      height: auto;
+    }
+
+    .showcase-video {
+      width: 50%;
+      height: auto;
+
+      border: 30px rgba(255, 255, 255, 0.253) solid;
+      border-radius: 20px;
+
+    }
+
+
+
+    
+
+ /* ============journey begin=============*/
+
+
+.journey-image1,
+.journey-image2,
+.journey-image3,
+.journey-image4,
+.journey-image5,
+.journey-image6 {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+
+    width: 200vw;
+    height: 200vw;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transform: translate(-50%, -50%);
+
+    pointer-events: none;
+}
+
+
+
+
+
+/* journey image 1 */
+#journey-img {
+    width: 130vw;
+    height: auto;
+
+
+/*TURNER RIGHT HERE TO EDIT RESTING SPOT*/
+    transform: translateY(150vh);
+
+    opacity: 1;
+
+    transition:
+        transform 2s ease-in-out,
+        opacity 2s ease-in-out;
+}
+
+
+/* first CLICK */
+.journey-image1.move-up #journey-img {
+    transform: translateY(100vh);
+}
+
+
+/* second CLICK */
+.journey-image1.move-up-2 #journey-img {
+    transform: translateY(10vh);
+}
+
+/* third CLICK */
+.journey-image1.move-down #journey-img {
+    transform: translateY(-100vh);
+}
+
+
+
+
+/* journey image 2 */
+.journey-image2 {
+    z-index: 2;
+}
+
+#journey-img2 {
+    width: 100vw;
+    height: auto;
+
+    /* starting above the screen */
+    transform: translateY(-150vh);
+
+    transition:
+        transform 2s ease-out,
+        opacity 2s ease-out;
+
+    opacity: 1;
+}
+
+/* when moving to journey 2 */
+
+.journey-image2.move-in #journey-img2 {
+    transform: translateY(0);
+}
+
+
+
+
+
+
+/* journey image 3 */
+.journey-image3 {
+    z-index: 3;
+}
+
+#journey-img3 {
+    width: 100vw;
+    height: auto;
+
+    /* starting above the screen */
+    transform: translateY(-150vh);
+
+    transition:
+        transform 2s ease-out,
+        opacity 2s ease-out;
+
+    opacity: 1;
+}
+
+
+
+
+/* move image 2 down */
+.journey-image2.move-down #journey-img2 {
+    transform: translateY(100vh);
+}
+
+
+/* bring image 3 in */
+.journey-image3.move-in #journey-img3 {
+    transform: translateY(0);
+}
+
+
+/* journey image 3 */
+.journey-image3 {
+    z-index: 3;
+}
+
+#journey-img3 {
+    width: 100vw;
+    height: auto;
+
+    /* starting above the screen */
+    transform: translateY(-150vh);
+
+    transition:
+        transform 2s ease-out,
+        opacity 2s ease-out;
+
+    opacity: 1;
+}
+
+
+/* move image 2 down */
+.journey-image2.move-down #journey-img2 {
+    transform: translateY(100vh);
+}
+
+
+/* bring image 3 in */
+.journey-image3.move-in #journey-img3 {
+    transform: translateY(0);
+}
+
+/* 
+   JOURNEY IMAGE 4
+edit the .journey-image4 top: 50vh; TURNER LOOK HERE ITS RIGHT HERE */
+
+.journey-image4 {
+    z-index: 4;
+    top: 50vh;
+}
+
+#journey-img4 {
+    width: 100vw;
+    height: auto;
+
+    /* starts above the screen */
+    transform: translateY(-150vh);
+
+    transition:
+        transform 2s ease-out,
+        opacity 2s ease-out;
+
+    opacity: 1;
+}
+
+
+/* Journey 3 moves down */
+.journey-image3.move-down #journey-img3 {
+    transform: translateY(100vh);
+}
+
+
+/* Journey 4 comes in */
+.journey-image4.move-in #journey-img4 {
+    transform: translateY(0);
+}
+
+
+/* Journey 4 moves down */
+.journey-image4.move-down #journey-img4 {
+    transform: translateY(100vh);
+}
+
+
+/* =========================
+   JOURNEY IMAGE 5
+========================= */
+
+.journey-image5 {
+    z-index: 5;
+    top: 54vh;
+}
+
+#journey-img5 {
+    width: 100vw;
+    height: auto;
+
+    /* starts above the screen */
+    transform: translateY(-150vh);
+
+    transition:
+        transform 2s ease-out,
+        opacity 2s ease-out;
+
+    opacity: 1;
+}
+
+
+/* Journey 5 comes in */
+.journey-image5.move-in #journey-img5 {
+    transform: translateY(0);
+}
+
+
+/* Journey 5 moves down */
+.journey-image5.move-down #journey-img5 {
+    transform: translateY(100vh);
+}
+
+
+/* =========================
+   JOURNEY IMAGE 6
+========================= */
+
+.journey-image6 {
+    z-index: 6;
+    top: 55vh;
+}
+
+#journey-img6 {
+    width: 100vw;
+    height: auto;
+
+    /* starts above the screen */
+    transform: translateY(-150vh);
+
+    transition:
+        transform 2s ease-out,
+        opacity 2s ease-out;
+
+    opacity: 1;
+}
+
+
+/* Journey 6 comes in */
+.journey-image6.move-in #journey-img6 {
+    transform: translateY(0);
+}
+
+
+
+
+
+ /* =journey buttons=*/
+.journey-home {
+    width: 52px;
+    height: 52px;
+
+    position: absolute;
+
+    border: solid 0px rgb(20, 0, 0);
+    cursor: pointer;
+
+    background: rgba(238, 99, 6, 0.397);
+    mix-blend-mode: normal;
+    border-radius: 50%;
+
+    z-index: 999;
+    transition: transform 0.2s ease;
+}
+
+.journey-btn {
+    width: 42px;
+    height: 42px;
+
+    position: absolute;
+
+    border: solid 0px rgb(20, 0, 0);
+    cursor: pointer;
+
+    background: rgba(238, 99, 6, 0.397);
+    mix-blend-mode: normal;
+    border-radius: 50%;
+
+    z-index: 999;
+    transition: transform 0.2s ease;
+}
+
+/* journey back */
+.journey-back {
+    top: 84vh;
+    left: 2vw;
+}
+
+/* journey home */
+.journey-home {
+    top: 90vh;
+    left: 1.75vw;
+}
+
+/* journey forward */
+.journey-forward {
+    top: 78vh;
+    left: 2vw;
+}
+
+
+/* journey btn imgs */
+.journey-btn img,
+.journey-home img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+
+/* journey down arrow */
+.journey-back img {
+    transform: rotate(0deg);
+}
+
+
+/* journey forward arrow */
+.journey-forward img {
+    transform: rotate(180deg);
+}
+
+
+/* journey hover */
+.journey-btn:hover,
+.journey-home:hover {
+    transform: scale(1.1);
+
+    background: rgb(238, 99, 6);
+
+    border-radius: 50%;
+}
+
+ /* ===========j==============*/
+
+  .mobile-display-aboutme-bottom {
+    display: none;
+  }
+
+  .mobile-display-aboutme-top {
+    display: none;
+  }
+
+
+  }
+
+
+
+
+  
+
+  /*MOBILE CSS FROM HERE ON*/
+  /* =========================*/
+
+  @media (max-width: 1410px) {
+
+    body {
+
+      background-size: cover;
+    }
+
+
+
+    .responsive-tka1 {
+      width: 40%;
+      height: auto;
+    }
+
+    .responsive-tka2 {
+      width: 40%;
+      height: auto;
+    }
+
+
+    h1 {
+      font-size: 5vw;
+    }
+
+    h2 {
+      font-size: 5vw;
+    }
+
+    .responsive-tka3 {
+      width: 80%;
+      height: auto;
+    }
+
+
+    .video-tka1 {
+      width: 45%;
+      height: auto;
+    }
+
+
+    .showcase-video {
+      width: 90%;
+      height: auto;
+
+      border: 30px rgba(255, 255, 255, 0.253) solid;
+      border-radius: 20px;
+    }
+
+
+
+    
+
+ /* ============journey begin=============*/
+
+
+.journey-image1,
+.journey-image2,
+.journey-image3 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    width: 100vw;
+    height: 100vw;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transform: translate(-50%, -50%);
+
+    pointer-events: none;
+}
+
+/* journey image 1 */
+#journey-img {
+    width: 100vw;
+    height: auto;
+
+    transform: translateY(10vh);
+
+    opacity: 1;
+
+    transition:
+        transform 2s ease-out,
+        opacity 2s ease-out;
+}
+
+/* journey image 2 */
+.journey-image2 {
+    z-index: 2;
+}
+
+#journey-img2 {
+    width: 100vw;
+    height: auto;
+
+    /* starting above the screen */
+    transform: translateY(-150vh);
+
+    transition:
+        transform 2s ease-out,
+        opacity 2s ease-out;
+
+    opacity: 1;
+}
+
+/* when moving to journey 2 */
+
+.journey-image1.move-down #journey-img {
+    transform: translateY(100vh);
+}
+
+.journey-image2.move-in #journey-img2 {
+    transform: translateY(0);
+}
+
+
+/* journey image 3 */
+.journey-image3 {
+    z-index: 3;
+}
+
+#journey-img3 {
+    width: 100vw;
+    height: auto;
+
+    /* starting above the screen */
+    transform: translateY(-150vh);
+
+    transition:
+        transform 2s ease-out,
+        opacity 2s ease-out;
+
+    opacity: 1;
+}
+
+
+/* move image 2 down */
+.journey-image2.move-down #journey-img2 {
+    transform: translateY(100vh);
+}
+
+
+/* bring image 3 in */
+.journey-image3.move-in #journey-img3 {
+    transform: translateY(0);
+}
+
+
+/* journey image 3 */
+.journey-image3 {
+    z-index: 3;
+}
+
+#journey-img3 {
+    width: 100vw;
+    height: auto;
+
+    /* starting above the screen */
+    transform: translateY(-150vh);
+
+    transition:
+        transform 2s ease-out,
+        opacity 2s ease-out;
+
+    opacity: 1;
+}
+
+
+/* move image 2 down */
+.journey-image2.move-down #journey-img2 {
+    transform: translateY(100vh);
+}
+
+
+/* bring image 3 in */
+.journey-image3.move-in #journey-img3 {
+    transform: translateY(0);
+}
+
+
+ /* =journey buttons=*/
+
+.journey-btn,
+.journey-home {
+    width: 62px;
+    height: 62px;
+
+    position: absolute;
+
+    border: solid 2px rgb(20, 0, 0);
+    cursor: pointer;
+
+    background: rgba(238, 99, 6, 0.774);
+    mix-blend-mode: difference;
+    border-radius: 50%;
+
+    z-index: 999;
+    transition: transform 0.2s ease;
+}
+
+
+/* journey forward */
+.journey-forward {
+    top: 74vh;
+    left: 45vw;
+}
+
+/* journey back */
+.journey-back {
+    top: 82vh;
+    left: 45vw;
+}
+
+/* journey home */
+.journey-home {
+    top: 90vh;
+    left: 45vw;
+}
+
+/* journey btn imgs */
+.journey-btn img,
+.journey-home img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+
+    z-index: 999;
+}
+
+
+/* journey down arrow */
+.journey-back img {
+    transform: rotate(0deg);
+}
+
+
+/* journey forward arrow */
+.journey-forward img {
+    transform: rotate(180deg);
+}
+
+
+/* journey hover */
+.journey-btn:hover,
+.journey-home:hover {
+    transform: scale(1.1);
+
+    background: rgb(238, 99, 6);
+
+    border-radius: 50%;
+}
+
+ /* ===========j==============*/
+
+  .mobile-display-aboutme-bottom {
+    position: absolute;
+    top: 72vh;
+    left: 0vw;
+
+    width: 100vw;
+    height: 28vh;
+
+    background-color: rgba(255, 255, 255, 0.39);
+
+    background-image: url(images/background_black_paper.jpeg);
+    background-size: cover;
+
+    z-index: 10;
+
+    color:#5f5a5a00;
+
+        border-top: solid rgba(238, 99, 6, 0.473) 10px;
+
+  }
+
+  .mobile-display-aboutme-top {
+    position: absolute;
+    top: 0vh;
+    left: 0vw;
+
+    width: 100vw;
+    height: 28vh;
+
+    background-color: rgba(255, 255, 255, 0.39);
+
+    background-image: url(images/background_black_plaster.jpeg);
+    background-size: cover;
+
+    z-index: 10;
+
+    color:#5f5a5a00;
+
+
+    border-bottom: solid rgba(238, 99, 6, 0.473) 10px;
+  }
+
+/* FIRST CLICK — move Journey 1 upward */
+.journey-image1.move-up #journey-img {
+    transform: translateY(-70vh);
+}
+
+
+  }
+</style>
