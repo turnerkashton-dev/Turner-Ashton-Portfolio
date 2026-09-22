@@ -46,21 +46,13 @@
       <img src="images/pack_5.png" alt="Pack 5">
     </button>
 
-
-
-
     <button class="header-btn-pack-menu" id="packBtnmenu">
       <img src="images/pack_random.png" alt="Pack menu">
     </button>
 
-
-
-
-
     <h2 class="h2-right">
       ASHTON
     </h2>
-
 
     <!-- HOME BUTTON -->
     <button class="header-btn" id="homeBtn">
@@ -68,6 +60,7 @@
     </button>
 
   </header>
+
 
   <!-- PAGE CONTENT -->
   <div class="content">
@@ -102,23 +95,24 @@
       </header>
 
 
-    <!-- ABOUT ME BUTTON -->
-<a href="about_me.html">
-    <div class="about-me-container">
-        <button class="about-me-btn" id="aboutMeBtn">
+      <!-- ABOUT ME BUTTON -->
+      <a href="about_me.html">
+        <div class="about-me-container">
+          <button class="about-me-btn" id="aboutMeBtn">
             <img src="images/about_me.png" alt="About Me Image" class="about-me-image">
-        </button>
-    </div>
-</a>
+          </button>
+        </div>
+      </a>
 
-    <!-- HOW I MADE THIS SITE BUTTON -->
-<a href="how_its_made.html">
-    <div class="how-i-made-this-site-container">
-        <button class="how-i-made-this-site-btn" id="howIMadeThisSiteBtn">
-            <img src="images/how_i_made_this_site.png" alt="How I Made This Site Image" class="how-i-made-this-site-image">
-        </button>
-    </div>
-</a>
+      <!-- HOW I MADE THIS SITE BUTTON -->
+      <a href="how_its_made.html">
+        <div class="how-i-made-this-site-container">
+          <button class="how-i-made-this-site-btn" id="howIMadeThisSiteBtn">
+            <img src="images/how_i_made_this_site.png" alt="How I Made This Site Image"
+              class="how-i-made-this-site-image">
+          </button>
+        </div>
+      </a>
 
 
       <br>
@@ -147,13 +141,12 @@
 
   -->
 
+      <br>
+      <br>
+
+
       <p style="color: red;">SELECT A TOPIC OR CARD TO VIEW</p>
       <br>
-      <br>
-      <br>
-
-
-
 
 
 
@@ -364,6 +357,27 @@
 
       </div>
 
+      <br>
+      <br>
+      <p style="color: red;">CONTACT ME</p>
+
+
+
+      <form action="https://formspree.io/f/xaenogbq" method="POST" class="email-tka">
+        <label for="name">Name:</label>
+        <br>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+        <br><br>
+        <label for="email">Email:</label>
+        <br>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        <br><br>
+        <label for="message">Message:</label>
+        <br>
+        <textarea id="message" name="message" rows="10" placeholder="Enter your message" required></textarea>
+        <br><br>
+        <button type="submit"> SEND MESSAGE </button>
+      </form>
 
     </div>
 
@@ -657,6 +671,64 @@
   }
 
 
+
+  .email-tka input,
+  .email-tka textarea {
+    width: 100%;
+    padding: 12px;
+
+    margin-top: 5px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: rgba(255, 255, 255, 0.9);
+
+    color: black;
+
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+
+    box-sizing: border-box;
+  }
+
+
+  .email-tka textarea {
+    min-height: 180px;
+    resize: vertical;
+  }
+
+
+  .email-tka input:focus,
+  .email-tka textarea:focus {
+    outline: 2px solid red;
+  }
+
+
+  .email-tka button {
+    padding: 12px 25px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: black;
+    color: white;
+
+    font-weight: bold;
+    cursor: pointer;
+
+    transition:
+      transform 0.2s ease,
+      background 0.2s ease;
+  }
+
+
+  .email-tka button:hover {
+    transform: scale(1.05);
+    background: red;
+  }
+
+
   /*DESKTOP CSS FROM HERE ON*/
   /* =========================*/
   @media (min-width: 1410px) {
@@ -855,81 +927,107 @@
     }
 
 
-.about-me-container {
-    position: fixed;
-    top: 10%;
-    left: 90%;
-    right: 1%;
+    .about-me-container {
+      position: fixed;
+      top: 10%;
+      left: 90%;
+      right: 1%;
 
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-    z-index: 3;
-}
+      z-index: 3;
+    }
 
-.about-me-image {
-    width: 100%;
-    height: auto;
-    max-width: 800px;
-    max-height: 600px;
-}
-.about-me-btn {
-    width: 150px;
-    height: auto;
+    .about-me-image {
+      width: 100%;
+      height: auto;
+      max-width: 800px;
+      max-height: 600px;
+    }
 
-    border: none;
-    background: transparent;
+    .about-me-btn {
+      width: 150px;
+      height: auto;
 
-    cursor: pointer;
+      border: none;
+      background: transparent;
 
-    transition: transform 0.2s ease;
-}
+      cursor: pointer;
 
-  .about-me-btn:hover {
-    transform: scale(1.1);
-  }
+      transition: transform 0.2s ease;
+    }
 
-/*how i made this website section*/
+    .about-me-btn:hover {
+      transform: scale(1.1);
+    }
 
-.how-i-made-this-site-container{
-    position: fixed;
-    top: 15%;
-    left: 87%;
-    right: 1%;
+    /*how i made this website section*/
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    .how-i-made-this-site-container {
+      position: fixed;
+      top: 15%;
+      left: 87%;
+      right: 1%;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
 
-    z-index: 3;
-}
+      z-index: 3;
+    }
 
-.how-i-made-this-site-image {
-    width: 100%;
-    height: auto;
-    max-width: 800px;
-    max-height: 600px;
-}
+    .how-i-made-this-site-image {
+      width: 100%;
+      height: auto;
+      max-width: 800px;
+      max-height: 600px;
+    }
 
-.how-i-made-this-site-btn {
-    width: 200px;
-    height: auto;
+    .how-i-made-this-site-btn {
+      width: 200px;
+      height: auto;
 
-    border: none;
-    background: transparent;
+      border: none;
+      background: transparent;
 
-    cursor: pointer;
+      cursor: pointer;
 
-    transition: transform 0.2s ease;
-}
+      transition: transform 0.2s ease;
+    }
 
-  .how-i-made-this-site-btn:hover {
-    transform: scale(1.1);
-  }
+    .how-i-made-this-site-btn:hover {
+      transform: scale(1.1);
+    }
 
+
+
+
+    .email-tka {
+      width: 50vw;
+
+      margin-left: 18%;
+
+      font-size: 2vh;
+      color: red;
+
+      background-image: url(images/background_horiz.jpeg);
+      background-size: cover;
+
+
+      box-shadow: 2px 21px 26px 9px rgba(0, 0, 0, 0.75) inset;
+      -webkit-box-shadow: 2px 21px 26px 9px rgba(0, 0, 0, 0.75) inset;
+      -moz-box-shadow: 2px 21px 26px 9px rgba(0, 0, 0, 0.75) inset;
+
+      border: 0px;
+      border-radius: 25px;
+
+      background-blend-mode: screen;
+
+    }
 
   }
 
@@ -1210,71 +1308,96 @@
     }
 
 
-.about-me-container {
+    .about-me-container {
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-    z-index: 3;
-}
+      z-index: 3;
+    }
 
-.about-me-image {
-    width: 100%;
-    height: auto;
-    max-width: 800px;
-    max-height: 600px;
-}
-.about-me-btn {
-    width: 150px;
-    height: auto;
+    .about-me-image {
+      width: 100%;
+      height: auto;
+      max-width: 800px;
+      max-height: 600px;
+    }
 
-    border: none;
-    background: transparent;
+    .about-me-btn {
+      width: 150px;
+      height: auto;
 
-    cursor: pointer;
+      border: none;
+      background: transparent;
 
-    transition: transform 0.2s ease;
-}
+      cursor: pointer;
 
-  .about-me-btn:hover {
-    transform: scale(1.1);
-  }
+      transition: transform 0.2s ease;
+    }
 
-/*how i made this website section*/
+    .about-me-btn:hover {
+      transform: scale(1.1);
+    }
 
-.how-i-made-this-site-container{
+    /*how i made this website section*/
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    .how-i-made-this-site-container {
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
 
-    z-index: 3;
-}
+      z-index: 3;
+    }
 
-.how-i-made-this-site-image {
-    width: 100%;
-    height: auto;
-    max-width: 800px;
-    max-height: 600px;
-}
+    .how-i-made-this-site-image {
+      width: 100%;
+      height: auto;
+      max-width: 800px;
+      max-height: 600px;
+    }
 
-.how-i-made-this-site-btn {
-    width: 200px;
-    height: auto;
+    .how-i-made-this-site-btn {
+      width: 200px;
+      height: auto;
 
-    border: none;
-    background: transparent;
+      border: none;
+      background: transparent;
 
-    cursor: pointer;
+      cursor: pointer;
 
-    transition: transform 0.2s ease;
-}
+      transition: transform 0.2s ease;
+    }
 
-  .how-i-made-this-site-btn:hover {
-    transform: scale(1.1);
-  }
+    .how-i-made-this-site-btn:hover {
+      transform: scale(1.1);
+    }
+
+
+    .email-tka {
+      width: 80vw;
+
+      margin-left: 8%;
+
+      font-size: 2vh;
+      color: red;
+
+      background-image: url(images/background_horiz.jpeg);
+      background-size: cover;
+
+
+      box-shadow: 2px 21px 26px 9px rgba(0, 0, 0, 0.75) inset;
+      -webkit-box-shadow: 2px 21px 26px 9px rgba(0, 0, 0, 0.75) inset;
+      -moz-box-shadow: 2px 21px 26px 9px rgba(0, 0, 0, 0.75) inset;
+
+      border: 0px;
+      border-radius: 25px;
+
+      background-blend-mode: screen;
+
+    }
 
   }
 </style>

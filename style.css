@@ -314,9 +314,9 @@ body {
   position: relative;
   width: min(15vw, 150px);
   height: min(30vh, 300px);
-  z-index: 6;
+  z-index: 0;
   /*TILTING and TESTING*/
-  transform: rotate(0deg);
+  transform: rotate(7deg);
   /*
     border: rgb(4, 80, 48);
     border-width: 2px;
@@ -387,7 +387,7 @@ body {
   height: min(30vh, 300px);
   z-index: 1;
   /*TILTING*/
-  transform: rotate(7deg);
+  transform: rotate(6deg);
   /*
               border: rgb(204, 0, 255);
              border-width: 2px;
@@ -540,10 +540,10 @@ body {
 
 @media (min-width: 1410px) {
 
-/*about me section*/
+  /*about me section*/
 
 
-.about-me-container {
+  .about-me-container {
     position: fixed;
     top: 10%;
     left: 1%;
@@ -557,15 +557,16 @@ body {
     z-index: 0;
 
 
-}
+  }
 
-.about-me-image {
+  .about-me-image {
     width: 100%;
     height: auto;
     max-width: 800px;
     max-height: 600px;
-}
-.about-me-btn {
+  }
+
+  .about-me-btn {
     width: 150px;
     height: auto;
 
@@ -578,7 +579,7 @@ body {
 
     opacity: 0.5;
 
-}
+  }
 
   .about-me-btn:hover {
     transform: scale(1.1);
@@ -587,9 +588,9 @@ body {
 
   }
 
-/*how i made this website section*/
+  /*how i made this website section*/
 
-.how-i-made-this-site-container{
+  .how-i-made-this-site-container {
     position: fixed;
     top: 15%;
     left: 1%;
@@ -602,16 +603,16 @@ body {
 
     z-index: 0;
 
-}
+  }
 
-.how-i-made-this-site-image {
+  .how-i-made-this-site-image {
     width: 100%;
     height: auto;
     max-width: 800px;
     max-height: 600px;
-}
+  }
 
-.how-i-made-this-site-btn {
+  .how-i-made-this-site-btn {
     width: 200px;
     height: auto;
 
@@ -623,7 +624,7 @@ body {
     transition: transform 0.2s ease;
 
     opacity: 0.5;
-}
+  }
 
   .how-i-made-this-site-btn:hover {
     transform: scale(1.1);
@@ -1316,7 +1317,7 @@ body {
     mix-blend-mode: screen;
     backdrop-filter: blur(12px);
     box-shadow: 0 0 15px 2px #141414;
-    
+
   }
 
   .bottom-menu {
@@ -1752,12 +1753,12 @@ body {
   }
 
 
-.how-i-made-this-site-container{
-display: none;
-}
+  .how-i-made-this-site-container {
+    display: none;
+  }
 
-.about-me-container {
-  display: none;
-}
+  .about-me-container {
+    display: none;
+  }
 
 }

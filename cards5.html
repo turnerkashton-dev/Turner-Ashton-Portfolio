@@ -27,6 +27,156 @@
       background-position: center;
     }
 
+
+
+    /* HEADER BAR */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+
+      width: 100%;
+      height: 80px;
+
+      background: #707070;
+      background: linear-gradient(180deg, rgba(112, 112, 112, 0.75) 0%, rgba(112, 112, 112, 0.5) 30%, rgba(255, 255, 255, 0) 100%);
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding: 0 24px;
+
+      z-index: 1000;
+
+
+      backdrop-filter: blur(8px);
+
+      opacity: 0%;
+      animation-name: headerAnimation;
+      animation-duration: 3s;
+      animation-delay: none;
+      animation-fill-mode: forwards;
+    }
+
+    @keyframes headerAnimation {
+      0% {
+        opacity: 0%;
+      }
+
+      10% {
+        opacity: 0%;
+      }
+
+      20% {
+        opacity: 0%;
+      }
+
+      30% {
+        opacity: 0%;
+      }
+
+      35% {
+        opacity: 5%;
+      }
+
+      40% {
+        opacity: 15%;
+      }
+
+      50% {
+        opacity: 30%;
+      }
+
+      55% {
+        opacity: 40%;
+      }
+
+      60% {
+        opacity: 50%;
+      }
+
+      65% {
+        opacity: 60%;
+      }
+
+      70% {
+        opacity: 70%;
+      }
+
+      80% {
+        opacity: 80%;
+      }
+
+      90% {
+        opacity: 90%;
+      }
+
+      100% {
+        opacity: 100%;
+      }
+    }
+
+
+
+    /* BUTTONS */
+    .header-btn {
+      width: 48px;
+      height: 48px;
+
+      border: none;
+      background: transparent;
+
+      cursor: pointer;
+
+      transition: transform 0.2s ease;
+    }
+
+    .header-btn:hover {
+      transform: scale(1.1);
+    }
+
+    .header-btn img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+
+    .header-btn-pack {
+      width: 48px;
+      height: 48px;
+
+      margin: none;
+
+      border: none;
+      background: transparent;
+
+      cursor: pointer;
+
+      transition: scale(1.1);
+
+    }
+
+    .header-btn-pack:hover {
+      transform: scale(1.2);
+    }
+
+    .header-btn-pack img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+
+    .cards-container {
+      position: relative;
+      width: 900px;
+      height: 500px;
+      perspective: 1200px;
+    }
+
+
     .cards-container {
       position: relative;
       width: 900px;
@@ -137,6 +287,160 @@
 
 
 
+    /*DESKTOP CSS FROM HERE ON*/
+    /* =========================*/
+    @media (min-width: 1410px) {
+
+
+      .h2-right {
+        margin-right: 40%;
+      }
+
+      .h2-left {
+        margin-left: 40%;
+      }
+
+
+
+      .header-btn-pack-menu {
+        display: none;
+      }
+
+
+      .header-mobile-menutop {
+
+        align-items: center;
+        justify-content: space-between;
+
+
+        padding: 0 10px;
+        margin-top: 0vh;
+
+        z-index: 3;
+
+        opacity: 90%;
+        /*
+    backdrop-filter: blur(8px);
+*/
+      }
+
+
+
+      .header-mobile {
+        position: flex;
+        top: 0%;
+        left: 0%;
+
+        width: 100%;
+        height: 6vh;
+        /*
+    background: rgba(255, 255, 255, 0.85);
+*/
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+
+        padding: 0 800px;
+        margin-top: 0vh;
+
+        z-index: 3;
+
+        /*
+    backdrop-filter: blur(8px);
+*/
+      }
+
+
+      /* BUTTONS MOBILE menu*/
+      .header-btn-mobile {
+        width: 60px;
+        height: 60px;
+
+        border: none;
+        background: transparent;
+
+        cursor: pointer;
+
+        transition: transform 0.2s ease;
+      }
+
+      .header-btn-mobile:hover {
+        transform: scale(1.1);
+      }
+
+      .header-btn-mobile img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+
+
+      .header-btn-2-mobile {
+        width: 60px;
+        height: 60px;
+
+        border: none;
+        background: transparent;
+
+        cursor: pointer;
+
+        transition: transform 0.2s ease;
+      }
+
+      .header-btn-2-mobile img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+
+
+      .header-btn-3-mobile {
+        width: 60px;
+        height: 60px;
+
+        border: none;
+        background: transparent;
+
+        cursor: pointer;
+
+        transition: transform 0.2s ease;
+      }
+
+      .header-btn-3-mobile img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+
+
+      .header-btn-4-mobile {
+        width: 60px;
+        height: 60px;
+
+        border: none;
+        background: transparent;
+
+        cursor: pointer;
+
+        transition: transform 0.2s ease;
+      }
+
+      .header-btn-4-mobile img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+
+    }
+
+
+
+
 
 
 
@@ -220,11 +524,192 @@
       .flipped.card-3:hover {
         transform: translate(-50%, -50%) rotateY(180deg);
       }
+
+
+
+      .header-btn-pack {
+        display: none;
+      }
+
+
+      .header-btn-pack-menu {
+        width: 40px;
+        height: 60px;
+
+        margin: none;
+
+        border: none;
+        background: transparent;
+
+        cursor: pointer;
+
+        display: none;
+      }
+
+      .header-btn-pack-menu img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+
+
+      /* HEADER MOBILE BAR */
+
+      .header-mobile-menutop {
+        display: none;
+      }
+
+      .header-mobile {
+        position: flex;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 6vh;
+        /*
+    background: rgba(255, 255, 255, 0.85);
+*/
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+
+
+        padding: 0 24px;
+        margin-top: -5vh;
+
+        z-index: 10;
+
+        /*
+    backdrop-filter: blur(8px);
+*/
+      }
+
+
+      /* BUTTONS MOBILE menu?*/
+      .header-btn-mobile {
+        width: 48px;
+        height: 48px;
+
+        border: none;
+        background: transparent;
+
+        cursor: pointer;
+
+        transition: transform 0.2s ease;
+      }
+
+      .header-btn-mobile:hover {
+        transform: scale(1.1);
+      }
+
+      .header-btn-mobile img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+
+
+      .header-btn-2-mobile {
+        width: 48px;
+        height: 48px;
+
+        border: none;
+        background: transparent;
+
+        cursor: pointer;
+
+        transition: transform 0.2s ease;
+      }
+
+      .header-btn-2-mobile img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+
+
+      .header-btn-3-mobile {
+        width: 48px;
+        height: 48px;
+
+        border: none;
+        background: transparent;
+
+        cursor: pointer;
+
+        transition: transform 0.2s ease;
+      }
+
+      .header-btn-3-mobile img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+
+
+      .header-btn-4-mobile {
+        width: 48px;
+        height: 48px;
+
+        border: none;
+        background: transparent;
+
+        cursor: pointer;
+
+        transition: transform 0.2s ease;
+      }
+
+      .header-btn-4-mobile img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
     }
   </style>
 </head>
 
 <body>
+
+
+  <!-- HEADER -->
+  <header class="header">
+
+    <!-- BACK BUTTON -->
+    <button class="header-btn" id="backBtn">
+      <img src="images/arrow_icon.png" alt="Back" style="rotate: 90deg;">
+    </button>
+
+
+    <h2 class="h2-left">TURNER
+    </h2>
+
+
+    <button class="header-btn-pack" id="packBtn5">
+      <img src="images/pack_5.png" alt="Pack 5">
+    </button>
+
+
+    <button class="header-btn-pack-menu" id="packBtnmenu">
+      <img src="images/menu_icon.png" alt="Menu Btn">
+    </button>
+
+
+    <h2 class="h2-right">
+      ASHTON
+    </h2>
+
+
+    <!-- HOME BUTTON -->
+    <button class="header-btn" id="homeBtn">
+      <img src="images/home_icon.png" alt="Home">
+    </button>
+
+  </header>
 
   <div class="cards-container">
 
@@ -298,6 +783,40 @@
 
       });
 
+    });
+
+
+
+
+    // BACK BUTTON
+    document.getElementById('backBtn').addEventListener('click', () => {
+      window.history.back();
+    });
+
+    // HOME BUTTON
+    document.getElementById('homeBtn').addEventListener('click', () => {
+      window.location.href = 'index.html';
+    });
+
+    // PACK BUTTONS
+    document.getElementById('packBtn1').addEventListener('click', () => {
+      window.location.href = 'pack1.html';
+    });
+    document.getElementById('packBtn2').addEventListener('click', () => {
+      window.location.href = 'pack2.html';
+    });
+    document.getElementById('packBtn3').addEventListener('click', () => {
+      window.location.href = 'pack3.html';
+    });
+    document.getElementById('packBtn4').addEventListener('click', () => {
+      window.location.href = 'pack4.html';
+    });
+    document.getElementById('packBtn5').addEventListener('click', () => {
+      window.location.href = 'pack5.html';
+    });
+
+    document.getElementById('packBtnmenu').addEventListener('click', () => {
+      window.location.href = 'menu.html';
     });
   </script>
 

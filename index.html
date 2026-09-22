@@ -51,23 +51,23 @@
 
 
 
-    <!-- ABOUT ME BUTTON -->
-<a href="about_me.html">
+  <!-- ABOUT ME BUTTON -->
+  <a href="about_me.html">
     <div class="about-me-container">
-        <button class="about-me-btn" id="aboutMeBtn">
-            <img src="images/about_me.png" alt="About Me Image" class="about-me-image">
-        </button>
+      <button class="about-me-btn" id="aboutMeBtn">
+        <img src="images/about_me.png" alt="About Me Image" class="about-me-image">
+      </button>
     </div>
-</a>
+  </a>
 
-    <!-- HOW I MADE THIS SITE BUTTON -->
-<a href="how_its_made.html">
+  <!-- HOW I MADE THIS SITE BUTTON -->
+  <a href="how_its_made.html">
     <div class="how-i-made-this-site-container">
-        <button class="how-i-made-this-site-btn" id="howIMadeThisSiteBtn">
-            <img src="images/how_i_made_this_site.png" alt="How I Made This Site Image" class="how-i-made-this-site-image">
-        </button>
+      <button class="how-i-made-this-site-btn" id="howIMadeThisSiteBtn">
+        <img src="images/how_i_made_this_site.png" alt="How I Made This Site Image" class="how-i-made-this-site-image">
+      </button>
     </div>
-</a>
+  </a>
 
 
 
@@ -165,8 +165,8 @@
     <div class="scrolling-text-container-v4">
       <div class="scrolling-text-inner-v4" style="--marquee-speed: 20s; --direction:scroll-left" role="marquee">
         <div class="scrolling-text-v4">
-          <div class="scrolling-text-item-divider-http://127.0.0.1:5500/pack1intro.htmlv4">//</div>
-          <div class="scrolling-text-item-temporary-v4">PLEASE BE AWARE this site is being updated & may have bugs >
+          <div class="scrolling-text-item-divider-v4">//</div>
+          <div class=" scrolling-text-item-temporary-v4">PLEASE BE AWARE this site is being updated & may have bugs >
             THANK
             YOU!!</div>
 
@@ -237,162 +237,6 @@
     <div class="card-clickables">
 
 
-      <h1 class="h1-tka" style="color: rgba(255, 0, 0, 0.767);">
-
-        DECISION
-        <br>
-        PARALYSIS?
-        <br>
-
-        <i style="color: white;">click me ></i>
-
-      </h1>
-
-
-
-      <!--EVERYTHING FOR THE RANDOM GENERATOR HERE INCLUDING CSS AND JAVASCRIPT-->
-
-      <!--CHANGE THE /DIV TO THE END OF all random TO MAKE VIDEO APPEAR BEHIND EXISTING IMAGES ON RIGHT -tka -->
-      <div class="card-clickables-random">
-        <!-- CLICKABLE PNG -->
-        <div class="container-pack-random">
-          <img src="images/pack_random.png" class="floating-png-random" id="random-image" alt="PNG">
-        </div>
-
-      </div>
-
-      <!-- HIDDEN VIDEO PLAYER -->
-      <video id="loader-video" autoplay playsinline>
-        <source src="videos/random_pack_video_loader2.mp4" type="video/mp4">
-      </video>
-
-      <script>
-        const pages = [
-          "pack1.html",
-          "pack2.html",
-          "pack3.html",
-          "pack4.html",
-          "pack5.html",
-        ];
-
-        const image = document.getElementById("random-image");
-        const video = document.getElementById("loader-video");
-
-        image.addEventListener("click", () => {
-
-          // Pick random page
-          const randomPage =
-            pages[Math.floor(Math.random() * pages.length)];
-
-          // Show video across browser window
-          video.style.display = "block";
-
-          // Play video
-          video.play();
-
-          // Redirect after video ends
-          video.onended = () => {
-            window.location.href = randomPage;
-          };
-        });
-      </script>
-
-      <!--include /body here if needed -tka -->
-
-      <style>
-        .floating-png {
-          width: 25vh;
-          cursor: pointer;
-          transition: transform 0.5s ease;
-          /*
-            border: red;
-        border-width: 1px;
-        border-style: solid;
-          */
-        }
-
-        .floating-png:hover {
-          transform: translateY(-60px);
-          transition: transform 0.5s ease;
-          /*
-        border: blue;
-        border-width: 1px;
-        border-style: solid;
-        */
-        }
-
-
-
-        /*EVERYTHING FOR BREATHING EFFECT ON random PACK INSTEAD OF THE FLOAT UP ON HOVER*/
-        .floating-png-random {
-          margin-top: 8vh;
-          width: 28vh;
-          cursor: pointer;
-          transition: transform 0.5s ease;
-          /*
-            border: red;
-        border-width: 1px;
-        border-style: solid;
-          */
-        }
-
-        .floating-png-random:hover {
-          animation: floatingpngrandomhoveranimation 0.75s infinite;
-          animation-direction: alternate-reverse;
-        }
-
-        @keyframes floatingpngrandomhoveranimation {
-          0% {
-            transform: translate(0, 0) scale(1.04);
-          }
-
-          25% {
-            transform: translate(0, 0) scale(1.038);
-          }
-
-          50% {
-            transform: translate(0.3px, -0.3px) scale(1.035);
-          }
-
-          75% {
-            transform: translate(0, 0) scale(1.032);
-          }
-
-          100% {
-            transform: translate(0, 0) scale(1.03);
-          }
-        }
-
-        /* Full browser video */
-        #loader-video {
-          position: fixed;
-          inset: 0;
-          width: 100vw;
-          height: 100vh;
-          object-fit: cover;
-          background: black;
-          display: none;
-          z-index: 9999;
-        }
-      </style>
-
-
-      <!--EVERYTHING FOR THE RANDOM GENERATOR HERE INCLUDING CSS AND JAVASCRIPT-->
-
-      <!--<p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</p>
-
- <h2>
-  CLICK FOR RANDOM PROJECT \/
- </h2>
-
-<h2>
-  SELECT
-A PACK
-  TOPIC
-TO VIEW >
-</h2>
-
--->
 
       <div class="mobile-clickables-toggle">
 
@@ -442,11 +286,187 @@ TO VIEW >
             </a>
           </div>
         </div>
+
+        <!-- RANDOM PACK -->
+        <div class="container-pack-random">
+          <div class="png-wrapper">
+            <img src="images/pack_random.png" class="floating-png-random" id="random-image" alt="Random Pack">
+          </div>
+        </div>
+
         <!--PACK END hover & click area-->
+
+
+
+        <!--
+      <h1 class="h1-tka" style="color: rgba(255, 0, 0, 0.767);">
+
+        DECISION
+        <br>
+        PARALYSIS?
+        <br>
+
+        <i style="color: white;">click me ></i>
+
+      </h1>
+-->
+
+        <!--
+      !--EVERYTHING FOR THE RANDOM GENERATOR HERE INCLUDING CSS AND JAVASCRIPT--
+
+      !--CHANGE THE /DIV TO THE END OF all random TO MAKE VIDEO APPEAR BEHIND EXISTING IMAGES ON RIGHT -tka --
+      <div class="card-clickables-random">
+        !-- CLICKABLE PNG --
+        <div class="container-pack-random">
+          <img src="images/pack_random.png" class="floating-png-random" id="random-image" alt="PNG">
+        </div>
+
+      </div>
+-->
+
+
+        <!-- HIDDEN VIDEO PLAYER -->
+        <video id="loader-video" autoplay playsinline>
+          <source src="videos/random_pack_video_loader2.mp4" type="video/mp4">
+        </video>
+
+        <script>
+          const pages = [
+            "pack_1_card_1.html",
+            "pack_1_card_2.html",
+            "pack_1_card_3.html",
+            "pack_2_card_1.html",
+            "pack_2_card_2.html",
+            "pack_2_card_3.html",
+            "pack_3_card_1.html",
+            "pack_3_card_2.html",
+            "pack_3_card_3.html",
+            "pack_4_card_1.html",
+            "pack_4_card_2.html",
+            "pack_4_card_3.html",
+            "pack_5_card_1.html",
+            "pack_5_card_2.html",
+            "pack_5_card_3.html",
+          ];
+
+          const image = document.getElementById("random-image");
+          const video = document.getElementById("loader-video");
+
+          image.addEventListener("click", () => {
+
+            // Pick random page
+            const randomPage =
+              pages[Math.floor(Math.random() * pages.length)];
+
+            // Show video across browser window
+            video.style.display = "block";
+
+            // Play video
+            video.play();
+
+            // Redirect after video ends
+            video.onended = () => {
+              window.location.href = randomPage;
+            };
+          });
+        </script>
+
+        <!--include /body here if needed -tka -->
+
+        <style>
+          .floating-png {
+            width: 25vh;
+            cursor: pointer;
+            transition: transform 0.5s ease;
+            /*
+            border: red;
+        border-width: 1px;
+        border-style: solid;
+          */
+          }
+
+          .floating-png:hover {
+            transform: translateY(-60px);
+            transition: transform 0.5s ease;
+            /*
+        border: blue;
+        border-width: 1px;
+        border-style: solid;
+        */
+          }
+
+
+
+
+          /*EVERYTHING FOR BREATHING EFFECT ON random PACK INSTEAD OF THE FLOAT UP ON HOVER*/
+          .floating-png-random {
+            margin-top: 8vh;
+            width: 25vh;
+            cursor: pointer;
+            transition: transform 0.5s ease;
+            /*
+            border: red;
+        border-width: 1px;
+        border-style: solid;
+          */
+
+            transform: translateX(0%) translateY(0px);
+            /*change this transform /\ to 120px for the original amount of visual push down*/
+            transition: transform 0.5s ease;
+            margin-top: min(120px);
+          }
+
+          .floating-png-random:hover {
+            animation: floatingpngrandomhoveranimation 0.75s infinite;
+            animation-direction: alternate-reverse;
+
+            transform: translateX(0%) translateY(-20px);
+
+          }
+
+          @keyframes floatingpngrandomhoveranimation {
+            0% {
+              transform: translate(0, 0) scale(1.04);
+            }
+
+            25% {
+              transform: translate(0, 0) scale(1.038);
+            }
+
+            50% {
+              transform: translate(0.3px, -0.3px) scale(1.035);
+            }
+
+            75% {
+              transform: translate(0, 0) scale(1.032);
+            }
+
+            100% {
+              transform: translate(0, 0) scale(1.03);
+            }
+          }
+
+          /* Full browser video */
+          #loader-video {
+            position: fixed;
+            inset: 0;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            background: black;
+            display: none;
+            z-index: 9999;
+          }
+        </style>
+
+
+        <!--EVERYTHING FOR THE RANDOM GENERATOR HERE INCLUDING CSS AND JAVASCRIPT-->
 
       </div>
 
     </div>
+
+
 
     <!--
 <footer class="footer-tka2">

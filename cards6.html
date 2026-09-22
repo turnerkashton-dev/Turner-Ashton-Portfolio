@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cards 1 Selection Tree</title>
+  <title>Cards 6 Selection Tree</title>
 
   <style>
     * {
@@ -21,7 +21,7 @@
       justify-content: center;
       align-items: center;
       font-family: Arial, sans-serif;
-      background-image: url(images/pack_1_open.png);
+      background-image: url(images/pack_6_open.png);
       background-size: fill;
       background-repeat: no-repeat;
       background-position: center;
@@ -176,6 +176,14 @@
       perspective: 1200px;
     }
 
+
+    .cards-container {
+      position: relative;
+      width: 900px;
+      height: 500px;
+      perspective: 1200px;
+    }
+
     .card {
       position: absolute;
       width: 228px;
@@ -275,10 +283,6 @@
     .flipped.card-3:hover {
       transform: translate(-50%, -50%) rotateY(180deg) rotate(12deg) scale(1.05);
     }
-
-
-
-
 
 
 
@@ -439,6 +443,9 @@
 
 
 
+
+
+
     /* =========================
    MOBILE LAYOUT
    ========================= */
@@ -446,32 +453,12 @@
 
       body {
         background-image: url(images/pack_1_open.png);
-        min-height: 100vh;
         background-size: contain;
-      }
-
-
-
-      html,
-      body {
-        width: auto !important;
-        overflow-x: hidden !important
-      }
-
-      .h2-right {
-        font-size: 2.5vh;
-        padding-right: 25px;
-
-      }
-
-      .h2-left {
-        font-size: 2.5vh;
-        padding-left: 25px;
       }
 
       .cards-container {
         width: 100%;
-        height: 100%;
+        height: 100vh;
       }
 
       .card {
@@ -682,17 +669,9 @@
         object-fit: contain;
       }
 
-
-
     }
   </style>
-
-
 </head>
-
-
-
-
 
 <body>
 
@@ -735,44 +714,41 @@
   <div class="cards-container">
 
     <!-- CARD 1 -->
-    <div class="card card-1" data-link="pack_1_card_1.html">
+    <div class="card card-1" data-link="pack_6_card_1.html">
       <div class="card-face card-back">
-        <img src="images/card_1_back.png" alt="">
+        <img src="images/card_6_back.png" alt="">
       </div>
 
       <div class="card-face card-front">
-        <img src="images/pack_1_card_1.png" alt="">
+        <img src="images/pack_6_card_1.png" alt="">
       </div>
     </div>
 
     <!-- CARD 2 -->
-    <div class="card card-2" data-link="pack_1_card_2.html">
+    <div class="card card-2" data-link="pack_6_card_2.html">
       <div class="card-face card-back">
-        <img src="images/card_1_back.png" alt="">
+        <img src="images/card_6_back.png" alt="">
       </div>
 
       <div class="card-face card-front">
-        <img src="images/pack_1_card_2.png" alt="">
+        <img src="images/pack_6_card_2.png" alt="">
       </div>
     </div>
 
     <!-- CARD 3 -->
-    <div class="card card-3" data-link="pack_1_card_3.html">
+    <div class="card card-3" data-link="pack_6_card_3.html">
       <div class="card-face card-back">
-        <img src="images/card_1_back.png" alt="">
+        <img src="images/card_6_back.png" alt="">
       </div>
 
       <div class="card-face card-front">
-        <img src="images/pack_1_card_3.png" alt="">
+        <img src="images/pack_6_card_3.png" alt="">
       </div>
     </div>
 
   </div>
 
   <script>
-
-
-
     const cards = document.querySelectorAll('.card');
 
     // Step 1: Spread cards after load
@@ -811,6 +787,7 @@
 
 
 
+
     // BACK BUTTON
     document.getElementById('backBtn').addEventListener('click', () => {
       window.history.back();
@@ -841,8 +818,6 @@
     document.getElementById('packBtnmenu').addEventListener('click', () => {
       window.location.href = 'menu.html';
     });
-
-
   </script>
 
 </body>
