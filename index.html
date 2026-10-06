@@ -69,7 +69,14 @@
     </div>
   </a>
 
-
+  <!-- SLOTS BUTTON -->
+  <a href="slotindex.html">
+    <div class="slots-container">
+      <button class="slots-btn" id="aboutMeBtn">
+        <img src="images/try_your_luck.png" alt="About Me Image" class="slots-image">
+      </button>
+    </div>
+  </a>
 
 
   <h4 class="h4-tka" id="title">TURNER ASHTON</h4>
@@ -631,6 +638,34 @@
     });
 
   </script>
+
+
+
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyB4srPzYoTzploFgfsnSt7rg6sKKAVK6xo",
+      authDomain: "portfolio-signin-html.firebaseapp.com",
+      projectId: "portfolio-signin-html",
+      storageBucket: "portfolio-signin-html.firebasestorage.app",
+      messagingSenderId: "435126326109",
+      appId: "1:435126326109:web:9dee9abbc93c3c104b4eb4",
+      measurementId: "G-7YK2HQL61F"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+  </script>
+
+
 
 </body>
 
