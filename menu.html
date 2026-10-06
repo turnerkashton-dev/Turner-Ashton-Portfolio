@@ -115,6 +115,25 @@
       </a>
 
 
+      <!-- SLOTS BUTTON -->
+      <a href="slotindex.html">
+        <div class="slots-container">
+          <button class="slots-btn" id="aboutMeBtn">
+            <img src="images/try_your_luck.png" alt="About Me Image" class="slots-image">
+          </button>
+        </div>
+      </a>
+
+      <!-- PROFILE BUTTON -->
+      <a href="dashboard.html">
+        <div class="profile-container">
+          <button class="profile-btn" id="aboutMeBtn">
+            <img src="images/binder.png" alt="Profile Image" class="profile-image">
+          </button>
+        </div>
+      </a>
+
+
       <br>
 
       <h1>
@@ -1101,6 +1120,107 @@
 
 
 
+    /*slots section*/
+
+
+    .slots-container {
+      position: fixed;
+      top: 24%;
+      left: 89%;
+      right: 1%;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+
+      z-index: 3;
+
+    }
+
+    .slots-image {
+      width: 100%;
+      height: auto;
+      max-width: 800px;
+      max-height: 600px;
+    }
+
+    .slots-btn {
+      width: 150px;
+      height: auto;
+
+      border: none;
+      background: transparent;
+
+      cursor: pointer;
+
+      transition: transform 0.2s ease;
+
+      opacity: 1;
+
+    }
+
+    .slots-btn:hover {
+      transform: scale(1.1);
+
+      opacity: 1;
+
+    }
+
+
+
+    /*profile section*/
+
+
+    .profile-container {
+      position: fixed;
+      top: 28%;
+      left: 95%;
+      right: 1%;
+
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      z-index: 0;
+
+
+    }
+
+    .profile-image {
+      width: 100%;
+      height: auto;
+      max-width: 400px;
+      max-height: 300px;
+    }
+
+    .profile-btn {
+      width: 50px;
+      height: auto;
+
+      border: none;
+      background: transparent;
+
+      cursor: pointer;
+
+      transition: transform 0.2s ease;
+
+      opacity: 1;
+
+    }
+
+    .profile-btn:hover {
+      transform: scale(1.1);
+
+      opacity: 1;
+
+    }
+
+
+
+
+
     .email-tka {
       width: 50vw;
 
@@ -1532,6 +1652,96 @@
     .how-i-made-this-site-btn:hover {
       transform: scale(1.1);
     }
+
+
+
+    /*slots section*/
+
+
+    .slots-container {
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+
+      z-index: 3;
+    }
+
+    .slots-image {
+      width: 100%;
+      height: auto;
+      max-width: 800px;
+      max-height: 600px;
+    }
+
+    .slots-btn {
+      width: 150px;
+      height: auto;
+
+      border: none;
+      background: transparent;
+
+      cursor: pointer;
+
+      transition: transform 0.2s ease;
+
+      opacity: 1;
+
+    }
+
+    .slots-btn:hover {
+      transform: scale(1.1);
+
+      opacity: 1;
+
+    }
+
+
+
+    /*profile section*/
+
+
+    .profile-container {
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+
+      z-index: 3;
+
+    }
+
+    .profile-image {
+      width: 100%;
+      height: auto;
+      max-width: 400px;
+      max-height: 300px;
+    }
+
+    .profile-btn {
+      width: 50px;
+      height: auto;
+
+      border: none;
+      background: transparent;
+
+      cursor: pointer;
+
+      transition: transform 0.2s ease;
+
+      opacity: 1;
+
+    }
+
+    .profile-btn:hover {
+      transform: scale(1.1);
+
+      opacity: 1;
+
+    }
+
 
 
     .email-tka {
