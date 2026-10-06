@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Dashboard | Turner Ashton</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+
+      min-height: 100vh;
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      color: white;
+
+      background:
+        rgba(0, 0, 0, 0.75) url("images/background_grid.jpeg");
+
+      background-size: cover;
+
+      background-blend-mode: multiply;
+
+    }
+
+
+    /* =========================
+       LOADING SCREEN
+    ========================= */
+
+    #loadingScreen {
+
+      position: fixed;
+
+      inset: 0;
+
+      z-index: 9999;
+
+      display: flex;
+
+      justify-content: center;
+
+      align-items: center;
+
+      background: #050505;
+
+      color: white;
+
+      font-size: 18px;
+
+      letter-spacing: 2px;
+
+    }
+
+
+    /* =========================
+       DASHBOARD
+    ========================= */
+
+    #dashboard {
+
+      display: none;
+
+      min-height: 100vh;
+
+    }
+
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    .dashboard-header {
+
+      width: 100%;
+
+      padding: 20px 30px;
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      border-bottom:
+        1px solid rgba(255, 255, 255, 0.15);
+
+      background:
+        rgba(0, 0, 0, 0.75);
+
+      backdrop-filter:
+        blur(10px);
+
+    }
+
+
+    .logo {
+
+      font-size: 22px;
+
+      font-weight: bold;
+
+      letter-spacing: 2px;
+
+    }
+
+
+    .logout-button {
+
+      border:
+        1px solid white;
+
+      background:
+        transparent;
+
+      color:
+        white;
+
+      padding:
+        10px 20px;
+
+      border-radius:
+        20px;
+
+      cursor:
+        pointer;
+
+      font-size:
+        12px;
+
+      font-weight:
+        bold;
+
+      letter-spacing:
+        1px;
+
+      transition:
+        all 0.25s ease;
+
+    }
+
+
+    .logout-button:hover {
+
+      background:
+        white;
+
+      color:
+        black;
+
+    }
+
+
+    /* =========================
+       MAIN
+    ========================= */
+
+    .dashboard-main {
+
+      max-width:
+        1100px;
+
+      width:
+        90%;
+
+      margin:
+        0 auto;
+
+      padding:
+        60px 0;
+
+    }
+
+
+    .welcome {
+
+      margin-bottom:
+        40px;
+
+    }
+
+
+    .welcome h1 {
+
+      font-size:
+        clamp(32px, 6vw, 70px);
+
+      margin-bottom:
+        10px;
+
+    }
+
+
+    .welcome h1 span {
+
+      color:
+        #8559da;
+
+    }
+
+
+    .welcome p {
+
+      color:
+        rgba(255, 255, 255, 0.7);
+
+      font-size:
+        16px;
+
+    }
+
+
+    /* =========================
+       CARDS
+    ========================= */
+
+    .dashboard-grid {
+
+      display:
+        grid;
+
+      grid-template-columns:
+        repeat(auto-fit,
+          minmax(250px, 1fr));
+
+      gap:
+        20px;
+
+    }
+
+
+    .dashboard-card {
+
+      padding:
+        30px;
+
+      min-height:
+        200px;
+
+      border:
+        1px solid rgba(255, 255, 255, 0.15);
+
+      background:
+        rgba(0, 0, 0, 0.6);
+
+      border-radius:
+        12px;
+
+      backdrop-filter:
+        blur(10px);
+
+      transition:
+        transform 0.25s ease,
+        border-color 0.25s ease;
+
+    }
+
+
+    .dashboard-card:hover {
+
+      transform:
+        translateY(-5px);
+
+      border-color:
+        #8559da;
+
+    }
+
+
+    .dashboard-card h2 {
+
+      margin-bottom:
+        15px;
+
+      font-size:
+        20px;
+
+    }
+
+
+    .dashboard-card p {
+
+      color:
+        rgba(255, 255, 255, 0.7);
+
+      word-break:
+        break-word;
+
+    }
+
+
+    .user-email {
+
+      color:
+        #8559da !important;
+
+    }
+
+
+    /* =========================
+       BUTTONS
+    ========================= */
+
+    .dashboard-button {
+
+      display:
+        inline-block;
+
+      margin-top:
+        20px;
+
+      padding:
+        12px 20px;
+
+      border:
+        1px solid #8559da;
+
+      border-radius:
+        20px;
+
+      background:
+        #512da8;
+
+      color:
+        white;
+
+      text-decoration:
+        none;
+
+      font-size:
+        12px;
+
+      font-weight:
+        bold;
+
+      letter-spacing:
+        1px;
+
+      transition:
+        all 0.25s ease;
+
+    }
+
+
+    .dashboard-button:hover {
+
+      background:
+        #8559da;
+
+      transform:
+        translateY(-2px);
+
+    }
+
+
+    /* =========================
+       FIRESTORE STATUS
+    ========================= */
+
+    #firestoreStatus {
+
+      margin-top:
+        15px;
+
+      font-size:
+        13px;
+
+      color:
+        rgba(255, 255, 255, 0.6);
+
+    }
+
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 600px) {
+
+      .dashboard-header {
+
+        padding:
+          15px;
+
+      }
+
+      .dashboard-main {
+
+        width:
+          90%;
+
+        padding:
+          40px 0;
+
+      }
+
+      .welcome h1 {
+
+        font-size:
+          40px;
+
+      }
+
+    }
+  </style>
+
+</head>
+
+
+<body>
+
+
+  <!-- LOADING -->
+
+  <div id="loadingScreen">
+
+    CHECKING LOGIN...
+
+  </div>
+
+
+  <!-- DASHBOARD -->
+
+  <div id="dashboard">
+
+
+    <!-- HEADER -->
+
+    <header class="dashboard-header">
+
+      <div class="logo">
+
+        TURNER ASHTON
+
+      </div>
+
+
+      <button id="logoutButton" class="logout-button">
+
+        LOG OUT
+
+      </button>
+
+    </header>
+
+
+    <!-- MAIN -->
+
+    <main class="dashboard-main">
+
+
+      <section class="welcome">
+
+        <h1>
+
+          Welcome,
+          <span id="userName">
+            User
+          </span>
+
+        </h1>
+
+        <p>
+          You are successfully signed in.
+        </p>
+
+      </section>
+
+
+      <!-- CARDS -->
+
+      <section class="dashboard-grid">
+
+
+        <!-- USER CARD -->
+
+        <div class="dashboard-card">
+
+          <h2>
+            Account
+          </h2>
+
+          <p>
+            Signed in as:
+          </p>
+
+          <p id="userEmail" class="user-email">
+
+            Loading...
+
+          </p>
+
+          <p id="userUid">
+
+            Loading...
+
+          </p>
+
+        </div>
+
+
+        <!-- FIRESTORE CARD -->
+
+        <div class="dashboard-card">
+
+          <h2>
+            Firestore
+          </h2>
+
+          <p>
+            Your Firebase user document is connected to this dashboard.
+          </p>
+
+          <p id="firestoreStatus">
+
+            Checking Firestore...
+
+          </p>
+
+        </div>
+
+
+        <!-- PORTFOLIO CARD -->
+
+        <div class="dashboard-card">
+
+          <h2>
+            Portfolio
+          </h2>
+
+          <p>
+            Return to the main Turner Ashton portfolio.
+          </p>
+
+          <a href="index.html" class="dashboard-button">
+
+            VIEW PORTFOLIO
+
+          </a>
+
+        </div>
+
+
+        <!-- ACCOUNT CARD -->
+
+        <div class="dashboard-card">
+
+          <h2>
+            Account Status
+          </h2>
+
+          <p id="accountStatus">
+
+            Checking...
+
+          </p>
+
+        </div>
+
+
+      </section>
+
+
+    </main>
+
+
+  </div>
+
+
+  <!-- FIREBASE -->
+
+  <script type="module">
+
+
+    /* =========================
+       FIREBASE IMPORTS
+    ========================= */
+
+    import {
+      initializeApp
+    } from
+      "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
+
+
+    import {
+      getAnalytics
+    } from
+      "https://www.gstatic.com/firebasejs/12.19.0/firebase-analytics.js";
+
+
+    import {
+      getAuth,
+      onAuthStateChanged,
+      signOut
+    } from
+      "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
+
+
+    import {
+      getFirestore,
+      doc,
+      getDoc,
+      setDoc,
+      serverTimestamp
+    } from
+      "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
+
+
+    /* =========================
+       FIREBASE CONFIG
+    ========================= */
+
+    const firebaseConfig = {
+
+      apiKey:
+        "AIzaSyB4srPzYoTzploFgfsnSt7rg6sKKAVK6xo",
+
+      authDomain:
+        "portfolio-signin-html.firebaseapp.com",
+
+      projectId:
+        "portfolio-signin-html",
+
+      storageBucket:
+        "portfolio-signin-html.firebasestorage.app",
+
+      messagingSenderId:
+        "435126326109",
+
+      appId:
+        "1:435126326109:web:9dee9abbc93c3c104b4eb4",
+
+      measurementId:
+        "G-7YK2HQL61F"
+
+    };
+
+
+    /* =========================
+       INITIALIZE
+    ========================= */
+
+    const app =
+      initializeApp(firebaseConfig);
+
+
+    const analytics =
+      getAnalytics(app);
+
+
+    const auth =
+      getAuth(app);
+
+
+    const db =
+      getFirestore(app);
+
+
+    /* =========================
+       DOM
+    ========================= */
+
+    const loadingScreen =
+      document.getElementById(
+        "loadingScreen"
+      );
+
+
+    const dashboard =
+      document.getElementById(
+        "dashboard"
+      );
+
+
+    const userName =
+      document.getElementById(
+        "userName"
+      );
+
+
+    const userEmail =
+      document.getElementById(
+        "userEmail"
+      );
+
+
+    const userUid =
+      document.getElementById(
+        "userUid"
+      );
+
+
+    const accountStatus =
+      document.getElementById(
+        "accountStatus"
+      );
+
+
+    const firestoreStatus =
+      document.getElementById(
+        "firestoreStatus"
+      );
+
+
+    const logoutButton =
+      document.getElementById(
+        "logoutButton"
+      );
+
+
+    /* =========================
+       AUTH STATE
+    ========================= */
+
+    onAuthStateChanged(
+      auth,
+      async (user) => {
+
+
+        /*
+         * NO USER
+         *
+         * Send them back to signin.
+         */
+
+        if (!user) {
+
+          window.location.replace(
+            "signin.html"
+          );
+
+          return;
+
+        }
+
+
+        /*
+         * USER IS LOGGED IN
+         */
+
+        loadingScreen.style.display =
+          "none";
+
+        dashboard.style.display =
+          "block";
+
+
+        /*
+         * DISPLAY FIREBASE USER
+         */
+
+        userName.textContent =
+          user.displayName ||
+          "User";
+
+
+        userEmail.textContent =
+          user.email ||
+          "No email";
+
+
+        userUid.textContent =
+          "UID: " +
+          user.uid;
+
+
+        accountStatus.textContent =
+          "✓ Authenticated";
+
+
+        /*
+         * LOAD FIRESTORE USER
+         */
+
+        await loadUserFromFirestore(
+          user
+        );
+
+      }
+    );
+
+
+    /* =========================
+       FIRESTORE
+    ========================= */
+
+    async function loadUserFromFirestore(
+      user
+    ) {
+
+      try {
+
+        const userRef =
+          doc(
+            db,
+            "users",
+            user.uid
+          );
+
+
+        const userSnapshot =
+          await getDoc(
+            userRef
+          );
+
+
+        /*
+         * If the document does not
+         * exist yet, create it.
+         */
+
+        if (!userSnapshot.exists()) {
+
+          await setDoc(
+            userRef,
+            {
+              uid: user.uid,
+              name:
+                user.displayName ||
+                "",
+              email:
+                user.email ||
+                "",
+              createdAt:
+                serverTimestamp(),
+              lastLogin:
+                serverTimestamp()
+            },
+            {
+              merge: true
+            }
+          );
+
+
+          firestoreStatus.textContent =
+            "✓ Firestore user document created.";
+
+          return;
+
+        }
+
+
+        /*
+         * Document exists
+         */
+
+        const data =
+          userSnapshot.data();
+
+
+        firestoreStatus.textContent =
+          "✓ Firestore connected.";
+
+
+        /*
+         * If Firestore has a name,
+         * use it.
+         */
+
+        if (
+          data.name &&
+          data.name.trim()
+        ) {
+
+          userName.textContent =
+            data.name;
+
+        }
+
+      } catch (error) {
+
+        console.error(
+          "Firestore error:",
+          error
+        );
+
+
+        firestoreStatus.textContent =
+          "Firestore error: " +
+          error.message;
+
+      }
+
+    }
+
+
+    /* =========================
+       LOG OUT
+    ========================= */
+
+    logoutButton.addEventListener(
+      "click",
+      async () => {
+
+        try {
+
+          await signOut(auth);
+
+
+          window.location.replace(
+            "signin.html"
+          );
+
+        } catch (error) {
+
+          console.error(
+            "Logout error:",
+            error
+          );
+
+          alert(
+            "Unable to log out. Please try again."
+          );
+
+        }
+
+      }
+    );
+
+
+  </script>
+
+
+</body>
+
+</html>

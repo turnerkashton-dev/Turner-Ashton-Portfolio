@@ -1,0 +1,1006 @@
+/*
+ * Some general styling
+ */
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --item-height: 100px;
+}
+
+.icon.winning-bounce img {
+    animation:
+        winningImageBounce 0.65s cubic-bezier(.34, 1.56, .64, 1) 1;
+}
+
+
+@keyframes winningImageBounce {
+
+    0% {
+        transform: scale(1);
+    }
+
+    35% {
+        transform: scale(1.25);
+    }
+
+    55% {
+        transform: scale(0.92);
+    }
+
+    75% {
+        transform: scale(1.08);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+/*
+ * ==========================================
+ * SPIN BUTTON
+ * ==========================================
+ */
+
+.spin-button-backing {
+
+    background-color: #4b0101;
+
+
+    width: 100%;
+
+    margin-top: 15px;
+
+    box-shadow: 0px 5px 11px 5px rgba(0, 0, 0, 0.75) inset;
+    -webkit-box-shadow: 0px 5px 11px 5px rgba(0, 0, 0, 0.75) inset;
+    -moz-box-shadow: 0px 5px 11px 5px rgba(0, 0, 0, 0.75) inset;
+
+    border-top: 4px solid#f9e13d;
+    border-left: 2px solid #f9e13d;
+    border-right: 2px solid #f9e13d;
+    border-bottom: 1px solid #f9e13d;
+
+}
+
+.start-button {
+    position: relative;
+    border: none;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    outline-offset: 4px;
+    transition: filter 250ms;
+    user-select: none;
+    touch-action: manipulation;
+
+    margin-top: 2em;
+    left: 5%;
+    margin-bottom: 1em;
+
+    -webkit-text-fill-color: #4b0101;
+
+    font-weight: 600;
+    text-shadow: 1px -1px 3px rgba(37, 2, 2, 0.6);
+
+    width: 90%;
+}
+
+.shadow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    border-radius: 12px;
+
+    background: hsl(0deg 0% 0% / 0.25);
+
+    will-change: transform;
+
+    transform: translateY(2px);
+
+    transition:
+        transform 600ms cubic-bezier(.3, .7, .4, 1);
+}
+
+.edge {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: 12px;
+
+    background: linear-gradient(to left,
+            hsl(340deg 100% 16%) 0%,
+            hsl(340deg 100% 32%) 8%,
+            hsl(340deg 100% 32%) 92%,
+            hsl(340deg 100% 16%) 100%);
+}
+
+.front {
+    display: block;
+
+    position: relative;
+
+    padding: 12px 27px;
+
+    border-radius: 12px;
+
+    font-size: 1.1rem;
+
+    color: white;
+
+    background: hsl(345deg 100% 47%);
+
+    will-change: transform;
+
+    transform: translateY(-4px);
+
+    transition:
+        transform 600ms cubic-bezier(.3, .7, .4, 1);
+
+    background-size: cover;
+    background-blend-mode: screen;
+
+
+}
+
+button:hover {
+    filter: brightness(110%);
+}
+
+button:hover .front {
+    transform: translateY(-6px);
+
+    transition:
+        transform 250ms cubic-bezier(.3, .7, .4, 1.5);
+}
+
+button:active .front {
+    transform: translateY(-2px);
+
+    transition:
+        transform 34ms;
+}
+
+button:hover .shadow {
+    transform: translateY(4px);
+
+    transition:
+        transform 250ms cubic-bezier(.3, .7, .4, 1.5);
+}
+
+button:active .shadow {
+    transform: translateY(1px);
+
+    transition:
+        transform 34ms;
+}
+
+button:focus:not(:focus-visible) {
+    outline: none;
+}
+
+
+/*
+ * ==========================================
+ * MAIN SLOT MACHINE
+ * ==========================================
+ */
+
+#container {
+    background-color: #4b0101;
+
+    background-image:
+        url(images/background_metal_dirty_black.jpeg);
+
+    background-size: contain;
+
+    padding: 50px;
+    padding-top: 10vh;
+    padding-bottom: 38vh;
+
+    box-shadow:
+        0 10px 20px rgba(0, 0, 0, 0.5);
+
+    position: absolute;
+
+    top: 32%;
+    left: 50%;
+
+    margin-left: -320px;
+    margin-top: -220px;
+
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+
+    border-top: #fcf8ad 1px solid;
+    border-left: #fcf8ad 1px solid;
+    border-right: #fcf8ad 1px solid;
+
+}
+
+
+/*
+ * ==========================================
+ * REEL WINDOW
+ * ==========================================
+ */
+
+.window {
+    position: relative;
+
+    overflow: hidden;
+
+    height:
+        calc(3 * var(--item-height));
+}
+
+.window::before {
+    content: "";
+
+    clear: both;
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 6px;
+
+    background-image:
+        linear-gradient(to bottom,
+            rgba(0, 0, 0, 0.4),
+            transparent);
+
+    z-index: 20;
+}
+
+.window::after {
+    content: "";
+
+    clear: both;
+
+    position: absolute;
+
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 6px;
+
+    background-image:
+        linear-gradient(to bottom,
+            transparent,
+            rgba(0, 0, 0, 0.4));
+
+    z-index: 20;
+}
+
+.window-border {
+    padding: 5px;
+
+    background-image:
+        linear-gradient(to bottom,
+            #fcf8ad,
+            #f8f3cd,
+            #f9e13d);
+
+    box-shadow:
+        0 6px 4px -5px #eca654 inset;
+}
+
+
+/*
+ * ==========================================
+ * REELS AND ICONS
+ * ==========================================
+ */
+
+.icon {
+    width: 80px;
+
+    height:
+        var(--item-height);
+
+    display: block;
+
+    position: relative;
+}
+
+.outer-col {
+    overflow-y: hidden;
+
+    width: 100px;
+
+    float: left;
+
+    background-color: #eee;
+
+    background-image:
+        linear-gradient(#3c0101,
+            #741a1a,
+            #550101,
+            #3c0101);
+
+    height:
+        calc(var(--item-height) * 3);
+}
+
+.outer-spacer {
+    width: 8px;
+
+    height: 100%;
+
+    float: left;
+
+    border-right:
+        2px solid #f7ce6c38;
+
+    background-image:
+        linear-gradient(#be4d01,
+            #893802);
+}
+
+.col {
+    padding: 0 10px;
+
+    will-change: transform;
+
+    transform:
+        translateY(calc(-100% + var(--item-height) * 3));
+}
+
+.col img {
+    width: 100%;
+
+    height: auto;
+
+    margin: 10px 0;
+
+    position: relative;
+
+    z-index: 3;
+}
+
+
+/*
+ * Shadow behind the items.
+ */
+
+.col .icon::after {
+    content: "";
+
+    clear: both;
+
+    display: block;
+
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    width: 1px;
+    height: 1px;
+
+    background-color: white;
+
+    box-shadow:
+        0 0 35px 30px rgba(12, 0, 14, 0.69);
+
+    z-index: 2;
+
+    border-radius: 100%;
+}
+
+
+/*
+ * ==========================================
+ * SPINNING ANIMATION
+ * ==========================================
+ */
+
+#container.spinning .outer-col:nth-of-type(2) .col {
+    animation-delay: 0.01s;
+}
+
+#container.spinning .outer-col:nth-of-type(3) .col {
+    animation-delay: 0.02s;
+}
+
+#container.spinning .outer-col:nth-of-type(4) .col {
+    animation-delay: 0.03s;
+}
+
+#container.spinning .col {
+    animation-name: scroll;
+
+    animation-iteration-count: 1;
+
+    animation-timing-function:
+        cubic-bezier(.65,
+            .97,
+            .72,
+            1);
+}
+
+@keyframes scroll {
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+
+/*
+ * ==========================================
+ * WINNING SYMBOL
+ * ==========================================
+ */
+
+.icon.winning {
+    z-index: 50;
+
+    animation:
+        winningPulse 0.6s ease-in-out infinite alternate;
+}
+
+
+/*
+ * Make the actual image glow.
+ */
+
+.icon.winning img {
+    position: relative;
+
+    z-index: 100;
+
+    transform: scale(1.08);
+
+    filter:
+        brightness(1.3) drop-shadow(0 0 4px white) drop-shadow(0 0 8px #ffff00) drop-shadow(0 0 15px #ff9900) drop-shadow(0 0 25px #ff4500);
+}
+
+
+/*
+ * Pulsing animation.
+ */
+
+@keyframes winningPulse {
+
+    from {
+        filter:
+            brightness(1);
+    }
+
+    to {
+        filter:
+            brightness(1.5);
+    }
+}
+
+
+
+/*
+ * ==========================================
+ * WIN POPUP
+ * ==========================================
+ */
+
+.win-message {
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        rgba(0, 0, 0, 0.60);
+
+    z-index: 1000;
+
+    animation:
+        popupFadeIn 0.3s ease-out;
+}
+
+
+/*
+ * Popup box.
+ */
+
+.win-box {
+    min-width: 920px;
+    min-height: 900px;
+
+    padding: 35px;
+
+    text-align: center;
+
+
+    color: white;
+
+    margin-bottom: 5%;
+
+    background:
+        linear-gradient(145deg,
+            #741a1a00,
+            #3c010100);
+
+    border:
+        5px solid #f9e03d00;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 0 15px #f9e03d00,
+        0 0 35px #ff990000,
+        0 10px 40px rgba(0, 0, 0, 0);
+}
+
+
+/*
+ * WIN text.
+ */
+
+.win-box h2 {
+    color: #f9e13d;
+
+    font-size: 6rem;
+
+    margin-top: 0vh;
+
+    margin-bottom: 0vh;
+
+    text-shadow:
+        0 0 8px #ff9900;
+}
+
+.win-box p {
+    font-size: 1.1rem;
+
+    margin-bottom: 0vh;
+}
+
+.win-box strong {
+    color: #f9e13d;
+
+    text-shadow:
+        0 0 8px #ff9900;
+}
+
+
+/*
+ * Continue button/link.
+ */
+
+.win-box .continue-win {
+    display: inline-block;
+
+    margin-top: 10px;
+
+    padding: 12px 30px;
+
+    background:
+        #ffbb00;
+
+    color: rgb(82, 0, 0);
+
+    text-decoration: none;
+
+    border-radius: 10px;
+
+    font-weight: bolder;
+
+    transition:
+        transform 0.2s,
+        background 0.2s,
+        box-shadow 0.2s;
+
+    margin-top: 40vh;
+    width: 40%;
+}
+
+.win-box .continue-win:hover {
+    background: #ff4081;
+
+    transform: scale(1.05);
+
+    box-shadow:
+        0 0 15px #ff4081;
+}
+
+
+/*
+ * Close button.
+ */
+
+.win-box .close-win {
+    display: block;
+
+    margin: 15px auto 0;
+
+    padding: 8px 20px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #4b0101;
+
+    color: #fff;
+
+    cursor: pointer;
+
+    font-weight: bold;
+}
+
+.win-box .close-win:hover {
+    background: #741a1a;
+}
+
+
+/*
+ * Popup entrance animation.
+ */
+
+@keyframes popupFadeIn {
+
+    from {
+        opacity: 0;
+
+        transform:
+            scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            scale(1);
+    }
+}
+
+
+
+
+
+
+@media screen and (max-width: 700px) {
+
+    /*
+     * ==========================================
+     * MOBILE VARIABLES
+     * ==========================================
+     */
+
+    :root {
+        /*
+         * Five reels need to fit across the phone.
+         */
+        --item-height: 20vw;
+    }
+
+
+    /*
+     * ==========================================
+     * PAGE
+     * ==========================================
+     */
+
+    html,
+    body {
+        width: 100vw;
+        min-height: 100vh;
+
+        margin: 0;
+        padding: 0;
+
+        overflow-x: hidden;
+    }
+
+
+    /*
+     * ==========================================
+     * ENTIRE SLOT MACHINE
+     * ==========================================
+     * 
+     * 96vw = 96% of the phone width.
+     */
+
+    #container {
+
+        position: relative;
+
+        top: auto;
+        left: auto;
+
+        width: 96vw;
+        height: 50vh;
+
+        margin: 15px auto 0 auto;
+
+        padding: 2vw;
+
+        padding-top: 3vw;
+        padding-bottom: 4vw;
+
+        /*
+         * Override the desktop
+         * margin-left: -320px.
+         */
+
+        margin-left: auto;
+        margin-right: auto;
+
+        border-top-left-radius: 4vw;
+        border-top-right-radius: 4vw;
+    }
+
+
+    /*
+     * ==========================================
+     * GOLD BORDER
+     * ==========================================
+     */
+
+    .window-border {
+
+        width: 100%;
+
+        padding: 1vw;
+    }
+
+
+    /*
+     * ==========================================
+     * REEL WINDOW
+     * ==========================================
+     */
+
+    .window {
+
+        width: 100%;
+
+        height:
+            calc(var(--item-height) * 3);
+
+        display: flex;
+
+        overflow: hidden;
+    }
+
+
+    /*
+     * ==========================================
+     * REMOVE SPACERS
+     * ==========================================
+     *
+     * Your HTML has spacer elements between
+     * every reel.
+     *
+     * On a phone these waste valuable width.
+     */
+
+    .outer-spacer {
+        display: none;
+    }
+
+
+    /*
+     * ==========================================
+     * REELS
+     * ==========================================
+     *
+     * There are 5 reels.
+     *
+     * Each gets exactly 20% of the window.
+     */
+
+    .outer-col {
+
+        float: none;
+
+        width: 20%;
+
+        flex: 0 0 20%;
+
+        min-width: 0;
+
+        height:
+            calc(var(--item-height) * 3);
+
+        overflow: hidden;
+    }
+
+
+    /*
+     * ==========================================
+     * REEL CONTENT
+     * ==========================================
+     */
+
+    .col {
+
+        width: 100%;
+
+        padding: 0;
+
+        transform:
+            translateY(calc(-100% + var(--item-height) * 3));
+    }
+
+
+    /*
+     * ==========================================
+     * SYMBOL BOX
+     * ==========================================
+     */
+
+    .icon {
+
+        width: 100%;
+
+        height:
+            var(--item-height);
+    }
+
+
+    /*
+     * ==========================================
+     * SYMBOL IMAGE
+     * ==========================================
+     */
+
+    .col img {
+
+        display: block;
+
+        width: 90%;
+
+        height: auto;
+
+        margin:
+            calc(var(--item-height) * 0.05) auto;
+    }
+
+
+    /*
+     * ==========================================
+     * SPIN BUTTON
+     * ==========================================
+     */
+
+
+    .spin-button-backing {
+        background-color: #f9e13d;
+        width: 100%;
+
+        margin-top: 15px;
+
+        box-shadow: 0px 0px 9px 5px rgba(0, 0, 0, 0.75) inset;
+        -webkit-box-shadow: 0px 0px 9px 5px rgba(0, 0, 0, 0.75) inset;
+        -moz-box-shadow: 0px 0px 9px 5px rgba(0, 0, 0, 0.75) inset;
+
+    }
+
+    .start-button {
+
+        position: relative;
+
+        display: block;
+
+        left: auto;
+
+        margin:
+            4vw auto 0 auto;
+    }
+
+
+    /*
+     * ==========================================
+     * WINNING SYMBOL
+     * ==========================================
+     */
+
+    .icon.winning img {
+
+        transform: scale(1.08);
+
+        filter:
+            brightness(1.3) drop-shadow(0 0 3px white) drop-shadow(0 0 7px #ffff00) drop-shadow(0 0 12px #ff9900) drop-shadow(0 0 18px #ff4500);
+    }
+
+
+    /*
+     * ==========================================
+     * WIN POPUP
+     * ==========================================
+     */
+
+    .win-box {
+
+        width: 88vw;
+
+        min-width: 0;
+
+        max-width: 400px;
+
+        padding: 7vw 5vw;
+    }
+
+
+    .win-box h2 {
+
+        font-size: 7vw;
+    }
+
+
+    .win-box p {
+
+        font-size: 4vw;
+    }
+
+
+    .win-box .continue-win {
+
+        padding:
+            3vw 7vw;
+
+        font-size: 4vw;
+    }
+
+
+    .win-box .close-win {
+
+        padding:
+            2vw 5vw;
+
+        font-size: 3.5vw;
+    }
+}
+
+
+/*
+ * ==========================================
+ * VERY SMALL PHONES
+ * ==========================================
+ */
+
+@media screen and (max-width: 380px) {
+
+    :root {
+        --item-height: 19vw;
+    }
+
+
+    #container {
+
+        width: 97vw;
+
+        padding: 1.5vw;
+
+        padding-top: 2.5vw;
+        padding-bottom: 3vw;
+    }
+
+
+    .col img {
+        width: 88%;
+    }
+}

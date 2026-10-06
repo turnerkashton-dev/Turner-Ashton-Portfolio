@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slots WIP</title>
+    <link rel="stylesheet" href="./slots.css">
+    <script src="./slots.js" defer></script>
+
+<style>
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
+}
+
+
+/*
+ * BREATHING BACKGROUND
+ */
+
+#bg {
+    position: fixed;
+
+    top: -5%;
+    left: -5%;
+
+    width: 110vw;
+    height: 110vh;
+
+    background-image: url(images/background_grid_room.jpeg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    z-index: -10;
+
+    pointer-events: none;
+
+    animation: breathe 16s ease-in-out infinite;
+}
+
+
+@keyframes breathe {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.08);
+    }
+}
+
+
+/*
+ * MOBILE BACKGROUND
+ */
+
+@media screen and (max-width: 700px) {
+
+    #bg {
+        background-image:
+            url(images/background_grid_room.jpeg);
+
+        width: 110vw;
+        height: 110vh;
+
+        top: -5%;
+        left: -5%;
+    }
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+  <div id="container">
+    <div class="window-border">
+      <div class="window">
+        <div class="outer-spacer"></div>
+        <div class="outer-col">
+          <div class="col"></div>
+        </div>
+
+        <div class="outer-spacer"></div>
+        <div class="outer-col">
+          <div class="col"></div>
+        </div>
+
+        <div class="outer-spacer"></div>
+        <div class="outer-col">
+          <div class="col"></div>
+        </div>
+
+        <div class="outer-spacer"></div>
+        <div class="outer-col">
+          <div class="col"></div>
+        </div>
+
+        <div class="outer-spacer"></div>
+        <div class="outer-col">
+          <div class="col"></div>
+        </div>
+        <div class="outer-spacer"></div>
+      </div>
+    </div>
+
+
+
+
+<div class="spin-button-backing">
+
+    <!-- From Uiverse.io by cssbuttons-io --> 
+    <button class="start-button" onclick="spin(this)" value="Spin">
+  <span class="shadow"></span>
+  <span class="edge"></span>
+  <span class="front text"> SPIN
+  </span>
+    </button>
+
+</div>
+
+
+
+
+  </div>
+
+
+    <!-- HOME BUTTON -->
+    <button class="slots-home" id="homeBtn">
+      <img src="images/home_iconV.2.png" alt="Home">
+    </button>
+
+    <script>
+    
+    // HOME BUTTON
+    document.getElementById('homeBtn').addEventListener('click', () => {
+      window.location.href = 'index.html';
+    });
+
+</script>
+
+
+<style>
+    
+    .slots-home {
+      width: 100px;
+      height: 100px;
+
+      border: none;
+      background: transparent;
+
+      cursor: pointer;
+
+      transition: transform 0.2s ease;
+
+      position: absolute;
+
+      left: 92%;
+
+    }
+
+    .slots-home:hover {
+      transform: scale(0.89);
+    }
+
+    .slots-home img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+</style>
+
+<div id="bg"></div>
+
+
+
+</body>
+
+</html>

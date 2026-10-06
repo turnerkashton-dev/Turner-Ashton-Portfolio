@@ -16,13 +16,13 @@
   <header class="header">
 
     <!-- BACK BUTTON -->
-    <button class="header-btn" id="backBtn">
-      <img src="images/arrow_icon.png" alt="Back" style="rotate: 90deg;">
+    <button class="header-btn2-back" id="backBtn">
+      <img src="images/arrow_iconV.2.png" alt="Back" style="rotate: 90deg;">
     </button>
 
 
 
-    <h2 class="h2-left">TURNER
+    <h2 class="h2-leftV-2">TURNER
     </h2>
 
 
@@ -50,13 +50,13 @@
       <img src="images/pack_random.png" alt="Pack menu">
     </button>
 
-    <h2 class="h2-right">
+    <h2 class="h2-rightV-2">
       ASHTON
     </h2>
 
     <!-- HOME BUTTON -->
-    <button class="header-btn" id="homeBtn">
-      <img src="images/home_icon.png" alt="Home">
+    <button class="header-btn2-home" id="homeBtn">
+      <img src="images/home_iconV.2.png" alt="Home">
     </button>
 
   </header>
@@ -519,20 +519,20 @@
     overflow-x: hidden;
   }
 
-  /* HEADER BAR */
+  /* HEADER BAR was 80px height 9.30.26*/
   .header {
     position: fixed;
     top: 0;
     left: 0;
 
     width: 100%;
-    height: 80px;
+    min-height: 80px;
 
     background: rgba(255, 255, 255, 0.85);
 
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
 
     padding: 0 24px;
 
@@ -543,28 +543,6 @@
     backdrop-filter: blur(8px);
   }
 
-  /* BUTTONS */
-  .header-btn {
-    width: 48px;
-    height: 48px;
-
-    border: none;
-    background: transparent;
-
-    cursor: pointer;
-
-    transition: transform 0.2s ease;
-  }
-
-  .header-btn:hover {
-    transform: scale(1.1);
-  }
-
-  .header-btn img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
 
   /* PAGE CONTENT */
   .content {
@@ -656,7 +634,11 @@
 
     cursor: pointer;
 
+    transform: scale(1.2);
+
     transition: scale(1.1);
+
+    z-index: 1002;
 
   }
 
@@ -733,6 +715,88 @@
   /* =========================*/
   @media (min-width: 1410px) {
 
+    /* BUTTONS */
+    .header-btn {
+      width: 48px;
+      height: 48px;
+
+      border: none;
+      background: transparent;
+
+      cursor: pointer;
+
+      transition: transform 0.2s ease;
+    }
+
+    .header-btn:hover {
+      transform: scale(1.1);
+    }
+
+    .header-btn img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+
+    .header-btn2-back {
+      width: 130px;
+      height: 130px;
+
+      border: none;
+      background: transparent;
+
+      cursor: pointer;
+
+      transition: transform 0.2s ease;
+
+
+      position: absolute;
+
+      right: 92%;
+    }
+
+    .header-btn2-back:hover {
+      transform: scale(0.8);
+    }
+
+    .header-btn2-back img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+
+    }
+
+
+    .header-btn2-home {
+      width: 100px;
+      height: 100px;
+
+      border: none;
+      background: transparent;
+
+      cursor: pointer;
+
+      transition: transform 0.2s ease;
+
+      position: absolute;
+
+      left: 92%;
+
+    }
+
+    .header-btn2-home:hover {
+      transform: scale(0.89);
+    }
+
+    .header-btn2-home img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+
+
     .responsive-tka1 {
       max-width: 60%;
       height: auto;
@@ -764,6 +828,34 @@
     .h2-left {
       margin-left: 35%
     }
+
+
+
+    .h2-leftV-2 {
+      left: 25%;
+
+      font-size: 10vh;
+      position: absolute;
+
+
+      color: rgba(0, 0, 0, 0.075);
+      text-shadow: 3px 2px 3px rgba(255, 255, 255, 0.747);
+
+      z-index: 1001;
+    }
+
+
+    .h2-rightV-2 {
+      left: 54%;
+      font-size: 10vh;
+      position: absolute;
+
+      color: rgba(0, 0, 0, 0.075);
+      text-shadow: 3px 2px 3px rgba(255, 255, 255, 0.747);
+
+      z-index: 1001;
+    }
+
 
 
     .header-btn-pack-menu {
@@ -929,7 +1021,7 @@
 
     .about-me-container {
       position: fixed;
-      top: 10%;
+      top: 11%;
       left: 90%;
       right: 1%;
 
@@ -946,6 +1038,7 @@
       height: auto;
       max-width: 800px;
       max-height: 600px;
+
     }
 
     .about-me-btn {
@@ -958,6 +1051,8 @@
       cursor: pointer;
 
       transition: transform 0.2s ease;
+
+
     }
 
     .about-me-btn:hover {
@@ -968,7 +1063,7 @@
 
     .how-i-made-this-site-container {
       position: fixed;
-      top: 15%;
+      top: 17%;
       left: 87%;
       right: 1%;
 
@@ -1093,12 +1188,75 @@
     }
 
     .h2-right {
-      margin-right: 12%;
+      margin-right: 18%;
     }
 
     .h2-left {
-      margin-left: 12%
+      margin-left: 18%
     }
+
+
+    /* BUTTONS */
+    .header-btn {
+      width: 48px;
+      height: 48px;
+
+      border: none;
+      background: transparent;
+
+      cursor: pointer;
+    }
+
+
+    .header-btn img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+
+    .header-btn2-back {
+      width: 50px;
+      height: 50px;
+
+      border: none;
+      background: transparent;
+
+      position: absolute;
+
+      left: 3%;
+    }
+
+
+    .header-btn2-back img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+
+
+
+    .header-btn2-home {
+      width: 50px;
+      height: 50px;
+
+      border: none;
+      background: transparent;
+
+      position: absolute;
+
+      left: 85%;
+
+    }
+
+    .header-btn2-home img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+
 
     .header-btn-pack {
       display: none;

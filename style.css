@@ -632,6 +632,61 @@ body {
     opacity: 1;
   }
 
+
+
+  /*slots section*/
+
+
+  .slots-container {
+    position: fixed;
+    top: 7%;
+    left: 1.75%;
+    right: 90%;
+
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 0;
+
+
+  }
+
+  .slots-image {
+    width: 100%;
+    height: auto;
+    max-width: 800px;
+    max-height: 600px;
+  }
+
+  .slots-btn {
+    width: 150px;
+    height: auto;
+
+    border: none;
+    background: transparent;
+
+    cursor: pointer;
+
+    transition: transform 0.2s ease;
+
+    opacity: 0.5;
+
+  }
+
+  .slots-btn:hover {
+    transform: scale(1.1);
+
+    opacity: 1;
+
+  }
+
+
+
+
+
+
   /*carousel etc section*/
 
 
@@ -1758,6 +1813,10 @@ body {
   }
 
   .about-me-container {
+    display: none;
+  }
+
+  .slots-container {
     display: none;
   }
 
