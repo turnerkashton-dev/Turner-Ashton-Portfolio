@@ -68,6 +68,7 @@
     }
 
 
+
     /* =========================
        DASHBOARD
     ========================= */
@@ -108,6 +109,71 @@
 
     }
 
+
+    #dashboardCollection {
+    width: min(90%, 900px);
+    margin: 30px auto;
+    padding: 20px;
+    color: white;
+    background: rgba(0, 0, 0, 0.75);
+    border: 1px solid #f9e13d;
+    border-radius: 12px;
+}
+
+#dashboardCollection h2 {
+    color: #f9e13d;
+    text-align: center;
+}
+
+#dashboardUnlockedPages {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    gap: 15px;
+}
+
+.dashboard-prize-card {
+    min-width: 0;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+}
+
+.dashboard-prize-card img,
+.dashboard-locked-question {
+    display: flex;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #f9e13d;
+    border-radius: 8px;
+}
+
+.dashboard-prize-card img {
+    object-fit: contain;
+}
+
+.dashboard-locked-question {
+    background: rgba(0, 0, 0, 0.65);
+    border-style: dashed;
+    color: #f9e13d;
+    font-size: 48px;
+    font-weight: bold;
+}
+
+.dashboard-prize-card span {
+    display: block;
+    margin-top: 6px;
+    overflow-wrap: anywhere;
+}
+
+    .p-dashboard-header {
+      color: red;
+      font-size: 14px;
+      font-style: italic;
+      margin-left: 12%;
+    }
 
     .logo {
 
@@ -164,6 +230,89 @@
         black;
 
     }
+
+    
+    
+    .header-btn2-home {
+      width: 100px;
+      height: 100px;
+
+      border: none;
+      background: transparent;
+
+      cursor: pointer;
+
+      transition: transform 0.2s ease;
+
+      position: fixed;
+
+      left: 94%;
+      top: 7%;
+
+      z-index: 1000;
+
+    }
+
+    .header-btn2-home:hover {
+      transform: scale(0.89);
+    }
+
+    .header-btn2-home img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+
+
+    
+    /*slots section*/
+
+
+    .slots-container {
+      position: fixed;
+      top: 20%;
+      left: 92%;
+      right: 1%;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+
+      z-index: 3;
+
+    }
+
+    .slots-image {
+      width: 100%;
+      height: auto;
+      max-width: 800px;
+      max-height: 600px;
+    }
+
+    .slots-btn {
+      width: 150px;
+      height: auto;
+
+      border: none;
+      background: transparent;
+
+      cursor: pointer;
+
+      transition: transform 0.2s ease;
+
+      opacity: 1;
+
+    }
+
+    .slots-btn:hover {
+      transform: scale(1.1);
+
+      opacity: 1;
+
+    }
+
 
 
     /* =========================
@@ -385,6 +534,14 @@
 
     }
 
+    .prize-win-count {
+    display: block;
+    margin-top: 5px;
+    color: #f9e13d;
+    font-size: 13px;
+    font-weight: bold;
+}
+
 
     /* =========================
        MOBILE
@@ -416,11 +573,92 @@
 
       }
 
+      
+    .header-btn2-home {
+      width: 100vw;
+      height: 7vh;
+
+      border: none;
+      background: transparent;
+
+      position:sticky;
+
+      top: 0vh;
+      left: 0vw;
+
+      background: rgba(255, 255, 255, 0.185);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+
+      padding: 4px;
+
     }
+
+    .header-btn2-home img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+
+    
+    /*slots section*/
+
+
+    .slots-container {
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+
+      z-index: 3;
+    }
+
+    .slots-image {
+      width: 100%;
+      height: auto;
+      max-width: 800px;
+      max-height: 600px;
+    }
+
+    .slots-btn {
+      width: 150px;
+      height: auto;
+
+      border: none;
+      background: transparent;
+
+      cursor: pointer;
+
+      transition: transform 0.2s ease;
+
+      opacity: 1;
+
+    }
+
+
+  }
   </style>
 
 </head>
 
+
+    <!-- HOME BUTTON -->
+    <button class="header-btn2-home" id="homeBtn">
+      <img src="images/home_iconV.2_white.png" alt="Home">
+
+    </button>
+    
+          <!-- SLOTS BUTTON -->
+      <a href="slotindex.html">
+        <div class="slots-container">
+          <button class="slots-btn" id="aboutMeBtn">
+            <img src="images/try_your_luck.png" alt="About Me Image" class="slots-image">
+          </button>
+        </div>
+      </a>
+    
 
 <body>
 
@@ -445,7 +683,7 @@
 
       <div class="logo">
 
-        TURNER ASHTON
+        TURNER ASHTON <p class="p-dashboard-header">portfolio & works</p>
 
       </div>
 
@@ -480,6 +718,11 @@
         </p>
 
       </section>
+
+
+
+
+
 
 
       <!-- CARDS -->
@@ -576,6 +819,12 @@
       </section>
 
 
+      <section id="dashboardCollection">
+    <h2>MY COLLECTION</h2>
+    <p id="dashboardCollectionMessage">Loading collection...</p>
+    <div id="dashboardUnlockedPages"></div>
+</section>
+
     </main>
 
 
@@ -585,6 +834,12 @@
   <!-- FIREBASE -->
 
   <script type="module">
+
+    
+    // HOME BUTTON
+    document.getElementById('homeBtn').addEventListener('click', () => {
+      window.location.href = 'index.html';
+    });
 
 
     /* =========================
@@ -795,108 +1050,143 @@
     );
 
 
+const ALL_PRIZE_PAGES = [
+  "apple.html",
+  "apricot.html",
+  "banana.html",
+  "big-win.html",
+  "cherry.html",
+  "grapes.html",
+  "lemon.html",
+  "lucky-seven.html",
+  "orange.html",
+  "pear.html",
+  "strawberry.html",
+  "watermelon.html",
+  "multiple-fruits.html",
+  "four-across.html",
+  "five-across.html",
+  "full-screen.html"
+];
+
+function renderDashboardCollection(pages = [], winCounts = {}) {
+    const container = document.getElementById("dashboardUnlockedPages");
+    const message = document.getElementById("dashboardCollectionMessage");
+
+    if (!container || !message) return;
+
+    container.replaceChildren();
+
+    const unlockedPages = new Set(pages);
+
+    const totalWins = Object.values(winCounts)
+        .reduce((total, count) => total + count, 0);
+
+    message.textContent =
+        `${ALL_PRIZE_PAGES.filter(page => unlockedPages.has(page)).length} of ${ALL_PRIZE_PAGES.length} prizes unlocked · ${totalWins} total wins`;
+
+    ALL_PRIZE_PAGES.forEach((page) => {
+        const isUnlocked = unlockedPages.has(page);
+        const wins = winCounts[page] || 0;
+
+        const card = document.createElement(
+            isUnlocked ? "a" : "div"
+        );
+
+        card.className = "dashboard-prize-card";
+
+        if (isUnlocked) {
+            card.href = page;
+
+            const image = document.createElement("img");
+            image.src = `images/previews/${page.replace(".html", ".png")}`;
+            image.alt = page.replace(".html", "");
+
+            image.onerror = () => {
+                image.onerror = null;
+                image.style.display = "none";
+
+                const placeholder = document.createElement("div");
+                placeholder.className = "dashboard-locked-question";
+                placeholder.textContent = "✓";
+                card.prepend(placeholder);
+            };
+
+            card.appendChild(image);
+        } else {
+            const question = document.createElement("div");
+            question.className = "dashboard-locked-question";
+            question.textContent = "?";
+
+            card.appendChild(question);
+        }
+
+        const label = document.createElement("span");
+        label.textContent = page
+            .replace(".html", "")
+            .replaceAll("-", " ");
+
+        const count = document.createElement("span");
+        count.className = "prize-win-count";
+        count.textContent = `Won ${wins} ${wins === 1 ? "time" : "times"}`;
+
+        card.append(label, count);
+        container.appendChild(card);
+    });
+}
+
     /* =========================
        FIRESTORE
     ========================= */
 
-    async function loadUserFromFirestore(
-      user
-    ) {
+async function loadUserFromFirestore(user) {
+  try {
+    const userRef = doc(db, "users", user.uid);
+    const userSnapshot = await getDoc(userRef);
 
-      try {
+    if (!userSnapshot.exists()) {
+      await setDoc(
+        userRef,
+        {
+          uid: user.uid,
+          name: user.displayName || "",
+          email: user.email || "",
+          createdAt: serverTimestamp(),
+          lastLogin: serverTimestamp()
+        },
+        { merge: true }
+      );
 
-        const userRef =
-          doc(
-            db,
-            "users",
-            user.uid
-          );
+      firestoreStatus.textContent =
+        "✓ Firestore user document created.";
 
-
-        const userSnapshot =
-          await getDoc(
-            userRef
-          );
-
-
-        /*
-         * If the document does not
-         * exist yet, create it.
-         */
-
-        if (!userSnapshot.exists()) {
-
-          await setDoc(
-            userRef,
-            {
-              uid: user.uid,
-              name:
-                user.displayName ||
-                "",
-              email:
-                user.email ||
-                "",
-              createdAt:
-                serverTimestamp(),
-              lastLogin:
-                serverTimestamp()
-            },
-            {
-              merge: true
-            }
-          );
-
-
-          firestoreStatus.textContent =
-            "✓ Firestore user document created.";
-
-          return;
-
-        }
-
-
-        /*
-         * Document exists
-         */
-
-        const data =
-          userSnapshot.data();
-
-
-        firestoreStatus.textContent =
-          "✓ Firestore connected.";
-
-
-        /*
-         * If Firestore has a name,
-         * use it.
-         */
-
-        if (
-          data.name &&
-          data.name.trim()
-        ) {
-
-          userName.textContent =
-            data.name;
-
-        }
-
-      } catch (error) {
-
-        console.error(
-          "Firestore error:",
-          error
-        );
-
-
-        firestoreStatus.textContent =
-          "Firestore error: " +
-          error.message;
-
-      }
-
+renderDashboardCollection([], {});
+      return;
     }
+
+    const data = userSnapshot.data();
+
+    firestoreStatus.textContent = "✓ Firestore connected.";
+
+    if (data.name && data.name.trim()) {
+      userName.textContent = data.name;
+    }
+
+renderDashboardCollection(
+    data.unlockedPages || [],
+    data.pageWinCounts || {}
+);
+
+  } catch (error) {
+    console.error("Firestore error:", error);
+
+    firestoreStatus.textContent =
+      "Firestore error: " + error.message;
+
+    document.getElementById("dashboardCollectionMessage").textContent =
+      "Unable to load collection. Please try refreshing.";
+  }
+}
 
 
     /* =========================

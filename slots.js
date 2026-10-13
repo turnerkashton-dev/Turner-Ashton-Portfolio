@@ -1,3 +1,143 @@
+
+const SPRITE_DEFAULT = 'images/sprite_0.png';
+
+
+const SPRITE_GROUPS = {
+    spin: [
+        'sprite_spin',
+        'sprite_spin2',
+        'sprite_spin3',
+        'sprite_spin4',
+        'sprite_spin5'
+    ],
+
+    loss: [
+        'sprite_no_win',
+        'sprite_no_win2',
+        'sprite_no_win3',
+        'sprite_no_win4',
+        'sprite_no_win5',
+        'sprite_no_win6',
+        'sprite_no_win7',
+        'sprite_no_win8'
+    ],
+
+    win: [
+        'sprite_win',
+        'sprite_win2',
+        'sprite_win3'
+    ],
+
+    fourAcross: [
+        'sprite_four_across',
+        'sprite_four_across2',
+        'sprite_four_across3'
+    ],
+
+    fiveAcross: [
+        'sprite_five_across',
+        'sprite_five_across2',
+        'sprite_five_across3'
+    ],
+
+    fullScreen: [
+        'sprite_full_screen'
+
+    ],
+
+    multipleWin: [
+        'sprite_multiple_win',
+        'sprite_multiple_win2',
+        'sprite_multiple_win3'
+    ]
+};
+
+
+function getRandomSprite(group) {
+    const sprites = SPRITE_GROUPS[group];
+
+    return sprites[Math.floor(Math.random() * sprites.length)];
+}
+
+let spriteResetTimer;
+
+function changeSprite(imageName, duration = 2000) {
+    const sprite = document.getElementById('slotSprite');
+
+    if (!sprite) return;
+
+    clearTimeout(spriteResetTimer);
+
+    sprite.src = `images/${imageName}.png`;
+
+    spriteResetTimer = setTimeout(() => {
+        sprite.src = SPRITE_DEFAULT;
+    }, duration);
+}
+
+const introSprites = [
+    'sprite_intro1',
+    'sprite_intro2',
+    'sprite_intro3'
+];
+
+const introMessages = [
+    'Welcome to my Slot Machine! Extra content is hidden in these Reels...',
+    'Match at least 3 symbols any direction to win special cards.',
+    'Alright, thats pretty much it. Click SPIN to start your first round. Good luck!'
+];
+
+let introIndex = 0;
+let introActive = false;
+
+function playSpriteIntro() {
+    const sprite = document.getElementById('slotSprite');
+    const text = document.getElementById('introText');
+
+    if (!sprite || !text) return;
+
+    introIndex = 0;
+    introActive = true;
+
+    sprite.src = `images/${introSprites[introIndex]}.png`;
+    text.textContent = introMessages[introIndex];
+
+    document.addEventListener('click', advanceSpriteIntro);
+}
+
+function advanceSpriteIntro(event) {
+    if (!introActive) return;
+
+    // Let the SPIN button work normally.
+    if (event.target.closest('.start-button')) return;
+
+    const sprite = document.getElementById('slotSprite');
+    const text = document.getElementById('introText');
+
+    if (!sprite || !text) return;
+
+    introIndex++;
+
+    if (introIndex >= introSprites.length) {
+        stopSpriteIntro();
+
+        sprite.src = SPRITE_DEFAULT;
+        text.textContent = 'Ready to play! Click SPIN to begin.';
+        return;
+    }
+
+    sprite.src = `images/${introSprites[introIndex]}.png`;
+    text.textContent = introMessages[introIndex];
+}
+
+function stopSpriteIntro() {
+    introActive = false;
+    document.removeEventListener('click', advanceSpriteIntro);
+}
+
+document.addEventListener('DOMContentLoaded', playSpriteIntro);
+
+
 const ICONS = [
     'apple',
     'apricot',
@@ -13,10 +153,6 @@ const ICONS = [
     'watermelon'
 ];
 
-
-/*
- * Page for each individual winning symbol.
- */
 const WIN_PAGES = {
     apple: 'apple.html',
     apricot: 'apricot.html',
@@ -32,926 +168,650 @@ const WIN_PAGES = {
     watermelon: 'watermelon.html'
 };
 
-
-/*
- * Page used when multiple DIFFERENT symbols
- * win during the same spin.
- */
 const MULTIPLE_WIN_PAGE = 'multiple-fruits.html';
 
-
-/**
- * Minimum spin time in seconds.
- */
 const BASE_SPINNING_DURATION = 2.0;
-
-
-/**
- * Additional duration for each column.
- */
 const COLUMN_SPINNING_DURATION = 0.3;
 
-
 let cols;
-
-
-/*
- * Stores the final 3 symbols for every reel.
- */
 let currentResults = [];
 
-
 window.addEventListener('DOMContentLoaded', function () {
-
     cols = document.querySelectorAll('.col');
-
     setInitialItems();
-
 });
 
-
-/**
- * Fill the reels with random symbols.
- */
 function setInitialItems() {
-
     const baseItemAmount = 40;
 
     for (let i = 0; i < cols.length; ++i) {
-
         const col = cols[i];
-
-        const amountOfItems =
-            baseItemAmount + (i * 3);
+        const amountOfItems = baseItemAmount + (i * 3);
 
         let elms = '';
         let firstThreeElms = '';
 
-
         for (let x = 0; x < amountOfItems; x++) {
-
             const icon = getRandomIcon();
-
 
             const item =
                 '<div class="icon" data-item="' +
                 icon +
                 '">' +
-
                 '<img src="items/' +
                 icon +
                 '.png">' +
-
                 '</div>';
-
 
             elms += item;
 
-
-            /*
-             * Save the first three items.
-             */
             if (x < 3) {
                 firstThreeElms += item;
             }
         }
 
-
-        /*
-         * Put the reel together.
-         */
-        col.innerHTML =
-            elms + firstThreeElms;
+        col.innerHTML = elms + firstThreeElms;
     }
 }
 
-
-/**
- * Called when the SPIN button is pressed.
- */
 function spin(elem) {
 
-    let duration =
-        BASE_SPINNING_DURATION +
-        randomDuration();
+// Hide tutorial messages when SPIN is clicked
+const introText = document.getElementById('introText');
+const continueText = document.getElementById('continueText');
 
+introText?.classList.add('hidden');
+continueText?.classList.add('hidden');
 
-    /*
-     * Give each reel a slightly different
-     * spinning duration.
-     */
+// Stop the intro tutorial
+
+    stopSpriteIntro();
+    clearTimeout(spriteResetTimer);
+
+    let duration = BASE_SPINNING_DURATION + randomDuration();
+
     for (let col of cols) {
-
-        duration +=
-            COLUMN_SPINNING_DURATION +
-            randomDuration();
-
-
-        col.style.animationDuration =
-            duration + "s";
+        duration += COLUMN_SPINNING_DURATION + randomDuration();
+        col.style.animationDuration = duration + "s";
     }
 
+changeSprite(getRandomSprite('spin'), duration * 500 + 500);
 
-    /*
-     * Disable the spin button.
-     */
-    elem.setAttribute(
-        'disabled',
-        true
-    );
+    elem.setAttribute('disabled', true);
 
-
-    /*
-     * Remove previous winning highlights.
-     */
     clearWinningHighlights();
 
-
-    /*
-     * Remove an old popup if one exists.
-     */
-    const oldPopup =
-        document.querySelector('.win-message');
+    const oldPopup = document.querySelector('.win-message');
 
     if (oldPopup) {
         oldPopup.remove();
     }
 
+    document.getElementById('container').classList.add('spinning');
 
-    /*
-     * Start the spinning animation.
-     */
-    document
-        .getElementById('container')
-        .classList.add('spinning');
-
-
-    /*
-     * Generate the results while
-     * the reels are spinning.
-     */
     window.setTimeout(
         setResult,
-        BASE_SPINNING_DURATION *
-        1000 / 2
+        BASE_SPINNING_DURATION * 1000 / 2
     );
 
-
-    /*
-     * Wait until the reels stop.
-     */
     window.setTimeout(function () {
+        document.getElementById('container').classList.remove('spinning');
 
-        document
-            .getElementById('container')
-            .classList.remove('spinning');
+        elem.removeAttribute('disabled');
 
+        const winningLines = checkForMatches();
 
-        /*
-         * Re-enable the spin button.
-         */
-        elem.removeAttribute(
-            'disabled'
-        );
+        if (winningLines.length === 0) {
+            // No winning combinations.
+changeSprite(getRandomSprite('loss'), 2500);
 
+        } else if (winningLines.some(line => line.type === 'full-screen')) {
+            // Every visible symbol matches.
+changeSprite(getRandomSprite('fullScreen'), 5000);
 
-        /*
-         * Find ALL winning combinations.
-         */
-        const winningLines =
-            checkForMatches();
+} else if (winningLines.some(line => line.type === 'five-across')) {
+    changeSprite(getRandomSprite('fiveAcross'), 4000);
 
+} else if (winningLines.some(line => line.type === 'four-across')) {
+    changeSprite(getRandomSprite('fourAcross'), 3500);
 
-        /*
-         * If there are winners...
-         */
+} else if (winningLines.length >= 2) {
+    changeSprite(getRandomSprite('multipleWin'), 3500);
+
+        } else {
+            // One regular winning pattern.
+changeSprite(getRandomSprite('win'), 3000);
+        }
+
         if (winningLines.length > 0) {
+            const totalBounceTime = highlightWinningSymbols(winningLines);
 
-            /*
-             * Make ALL winning symbols
-             * bounce together.
-             */
-const totalBounceTime =
-    highlightWinningSymbols(
-        winningLines
-    );
-
-
-setTimeout(function () {
-
-    showWinMessage(
-        winningLines
-    );
-
-}, totalBounceTime);
-
+            setTimeout(function () {
+                showWinMessage(winningLines);
+            }, totalBounceTime);
         }
 
     }.bind(elem), duration * 1000);
 }
 
+function applyActiveMultiplierCombo(results) {
+    const active = window.activeMultipliers || {};
+    const randomSymbol = () =>
+        ICONS[Math.floor(Math.random() * ICONS.length)];
 
-/**
- * Generate the final result for every reel.
- */
-function setResult() {
+    // Full-screen jackpot: 0.5% chance per spin when active.
+    if (
+        active["full-screen.html"] &&
+        Math.random() < 0.005
+    ) {
+        const symbol = randomSymbol();
 
-    currentResults = [];
-
-
-    for (let col of cols) {
-
-        /*
-         * Generate three symbols.
-         */
-        const results = [
-
-            getRandomIcon(),
-
-            getRandomIcon(),
-
-            getRandomIcon()
-
-        ];
-
-
-        /*
-         * Save the results.
-         */
-        currentResults.push(results);
-
-
-        /*
-         * Find all images in this reel.
-         */
-        const icons =
-            col.querySelectorAll('.icon img');
-
-
-        /*
-         * Put the results at the beginning
-         * and end of the reel.
-         */
-        for (let x = 0; x < 3; x++) {
-
-            icons[x].setAttribute(
-                'src',
-                'items/' +
-                results[x] +
-                '.png'
-            );
-
-
-            icons[
-                icons.length - 3 + x
-            ].setAttribute(
-                'src',
-                'items/' +
-                results[x] +
-                '.png'
-            );
+        for (let col = 0; col < 5; col++) {
+            for (let row = 0; row < 3; row++) {
+                results[col][row] = symbol;
+            }
         }
+
+        return "full-screen";
     }
+
+    // Five across: 2.5% chance per spin when active.
+    if (
+        active["five-across.html"] &&
+        Math.random() < 0.025
+    ) {
+        const symbol = randomSymbol();
+        const row = Math.floor(Math.random() * 3);
+
+        for (let col = 0; col < 5; col++) {
+            results[col][row] = symbol;
+        }
+
+        return "five-across";
+    }
+
+    // Four across: 5% chance per spin when active.
+    if (
+        active["four-across.html"] &&
+        Math.random() < 0.05
+    ) {
+        const symbol = randomSymbol();
+        const row = Math.floor(Math.random() * 3);
+
+        for (let col = 0; col < 4; col++) {
+            results[col][row] = symbol;
+        }
+
+        return "four-across";
+    }
+
+    // Multiple fruits: 10% chance per spin when active.
+    if (
+        active["multiple-fruits.html"] &&
+        Math.random() < 0.10
+    ) {
+        const firstSymbol = randomSymbol();
+
+        let secondSymbol = randomSymbol();
+
+        while (secondSymbol === firstSymbol) {
+            secondSymbol = randomSymbol();
+        }
+
+        // Two separate horizontal matches on different rows.
+        for (let col = 0; col < 3; col++) {
+            results[col][0] = firstSymbol;
+        }
+
+        for (let col = 2; col < 5; col++) {
+            results[col][1] = secondSymbol;
+        }
+
+        return "multiple-fruits";
+    }
+
+    return null;
 }
 
+function setResult() {
+    currentResults = [];
 
-/**
- * Find ALL groups of three.
- *
- * Returns an array instead of just
- * returning the first match.
- */
+    for (let col = 0; col < cols.length; col++) {
+        currentResults.push([
+            getRandomIcon(),
+            getRandomIcon(),
+            getRandomIcon()
+        ]);
+    }
+
+    // Apply an active special combo, if triggered.
+    const forcedCombo = applyActiveMultiplierCombo(currentResults);
+
+    // Update the visible symbols to match the final results.
+    for (let colIndex = 0; colIndex < cols.length; colIndex++) {
+        const icons = cols[colIndex].querySelectorAll(".icon img");
+
+        for (let row = 0; row < 3; row++) {
+            const src = "items/" + currentResults[colIndex][row] + ".png";
+
+            if (icons[row]) {
+                icons[row].src = src;
+            }
+
+            const duplicate = icons[icons.length - 3 + row];
+
+            if (duplicate) {
+                duplicate.src = src;
+            }
+        }
+    }
+
+    return forcedCombo;
+}
+
 function checkForMatches() {
-
-    const width =
-        currentResults.length;
-
+    const width = currentResults.length;
     const height = 3;
-
-
     const winningLines = [];
-
 
     if (width === 0) {
         return winningLines;
     }
 
+    for (let col = 0; col < width; col++) {
+        for (let row = 0; row < height; row++) {
+            const symbol = currentResults[col][row];
 
-    /*
-     * Check every position.
-     */
-    for (
-        let col = 0;
-        col < width;
-        col++
-    ) {
-
-        for (
-            let row = 0;
-            row < height;
-            row++
-        ) {
-
-            const symbol =
-                currentResults[col][row];
-
-
-            /*
-             * ==================================
-             * HORIZONTAL
-             * ==================================
-             */
+            // HORIZONTAL
             if (
                 col + 2 < width &&
-
-                currentResults[col + 1][row]
-                    === symbol &&
-
-                currentResults[col + 2][row]
-                    === symbol
+                currentResults[col + 1][row] === symbol &&
+                currentResults[col + 2][row] === symbol
             ) {
-
                 winningLines.push({
-
                     type: 'horizontal',
-
                     symbol: symbol,
-
                     positions: [
-
                         [col, row],
-
                         [col + 1, row],
-
                         [col + 2, row]
-
                     ]
                 });
             }
 
-
-            /*
-             * ==================================
-             * VERTICAL
-             * ==================================
-             */
+            // VERTICAL
             if (
                 row + 2 < height &&
-
-                currentResults[col][row + 1]
-                    === symbol &&
-
-                currentResults[col][row + 2]
-                    === symbol
+                currentResults[col][row + 1] === symbol &&
+                currentResults[col][row + 2] === symbol
             ) {
-
                 winningLines.push({
-
                     type: 'vertical',
-
                     symbol: symbol,
-
                     positions: [
-
                         [col, row],
-
                         [col, row + 1],
-
                         [col, row + 2]
-
                     ]
                 });
             }
 
-
-            /*
-             * ==================================
-             * DIAGONAL DOWN
-             * ==================================
-             */
+            // DIAGONAL DOWN
             if (
                 col + 2 < width &&
-
                 row + 2 < height &&
-
-                currentResults[col + 1][row + 1]
-                    === symbol &&
-
-                currentResults[col + 2][row + 2]
-                    === symbol
+                currentResults[col + 1][row + 1] === symbol &&
+                currentResults[col + 2][row + 2] === symbol
             ) {
-
                 winningLines.push({
-
                     type: 'diagonal',
-
                     symbol: symbol,
-
                     positions: [
-
                         [col, row],
-
                         [col + 1, row + 1],
-
                         [col + 2, row + 2]
-
                     ]
                 });
             }
 
-
-            /*
-             * ==================================
-             * DIAGONAL UP
-             * ==================================
-             */
+            // DIAGONAL UP
             if (
                 col + 2 < width &&
-
                 row - 2 >= 0 &&
-
-                currentResults[col + 1][row - 1]
-                    === symbol &&
-
-                currentResults[col + 2][row - 2]
-                    === symbol
+                currentResults[col + 1][row - 1] === symbol &&
+                currentResults[col + 2][row - 2] === symbol
             ) {
-
                 winningLines.push({
-
                     type: 'diagonal',
-
                     symbol: symbol,
-
                     positions: [
-
                         [col, row],
-
                         [col + 1, row - 1],
-
                         [col + 2, row - 2]
-
                     ]
                 });
             }
         }
     }
 
+    // FIVE ACROSS
+    if (width >= 5) {
+        for (let row = 0; row < height; row++) {
+            const symbol = currentResults[0][row];
 
-    /*
-     * Remove duplicate winning lines.
-     */
-    return removeDuplicateWins(
-        winningLines
-    );
+            const isFiveAcross = currentResults
+                .slice(0, 5)
+                .every(col => col[row] === symbol);
+
+            if (isFiveAcross) {
+                winningLines.push({
+                    type: 'five-across',
+                    symbol: symbol,
+                    positions: [
+                        [0, row],
+                        [1, row],
+                        [2, row],
+                        [3, row],
+                        [4, row]
+                    ]
+                });
+            }
+        }
+    }
+
+    // FOUR ACROSS
+if (width >= 4) {
+    for (let row = 0; row < height; row++) {
+        const symbol = currentResults[0][row];
+
+        const isFourAcross = currentResults
+            .slice(0, 4)
+            .every(col => col[row] === symbol);
+
+        if (isFourAcross) {
+            winningLines.push({
+                type: 'four-across',
+                symbol: symbol,
+                positions: [
+                    [0, row],
+                    [1, row],
+                    [2, row],
+                    [3, row]
+                ]
+            });
+        }
+    }
 }
 
+    // FULL-SCREEN JACKPOT
+    if (width === 5) {
+        const symbol = currentResults[0][0];
 
-/**
- * Remove duplicate winning combinations.
- */
+        const isFullScreen = currentResults.every(
+            col => col.every(item => item === symbol)
+        );
+
+        if (isFullScreen) {
+            const positions = [];
+
+            for (let col = 0; col < width; col++) {
+                for (let row = 0; row < height; row++) {
+                    positions.push([col, row]);
+                }
+            }
+
+            winningLines.push({
+                type: 'full-screen',
+                symbol: symbol,
+                positions: positions
+            });
+        }
+    }
+
+    const uniqueWins = removeDuplicateWins(winningLines);
+
+    // Full-screen jackpot overrides every other win.
+    if (uniqueWins.some(line => line.type === 'full-screen')) {
+        return uniqueWins.filter(line => line.type === 'full-screen');
+    }
+
+// Five across overrides smaller patterns.
+if (uniqueWins.some(line => line.type === 'five-across')) {
+    return uniqueWins.filter(line => line.type === 'five-across');
+}
+
+// Four across overrides regular patterns.
+if (uniqueWins.some(line => line.type === 'four-across')) {
+    return uniqueWins.filter(line => line.type === 'four-across');
+}
+
+// Otherwise, return the normal wins.
+return uniqueWins;
+}
+
 function removeDuplicateWins(lines) {
-
     const unique = [];
-
     const seen = new Set();
 
-
     for (const line of lines) {
-
         const key =
             line.type +
             '-' +
             line.symbol +
             '-' +
-            JSON.stringify(
-                line.positions
-            );
-
+            JSON.stringify(line.positions);
 
         if (!seen.has(key)) {
-
             seen.add(key);
-
             unique.push(line);
         }
     }
 
-
     return unique;
 }
 
-
-/**
- * Highlight ALL winning symbols
- * and make them bounce one at a time ONCE.
- */
 function highlightWinningSymbols(winningLines) {
-
-    /*
-     * Remove previous highlights.
-     */
     clearWinningHighlights();
 
-
-    /*
-     * Store every unique winning icon.
-     *
-     * Set prevents the same icon from being
-     * animated twice if it belongs to multiple
-     * winning lines.
-     */
     const winningIcons = [];
-
     const seenIcons = new Set();
 
-
-    /*
-     * Find every winning position.
-     */
     for (const winningLine of winningLines) {
+        for (const [colIndex, rowIndex] of winningLine.positions) {
+            const col = cols[colIndex];
+            const icons = col.querySelectorAll('.icon');
 
-        for (const [
-            colIndex,
-            rowIndex
-        ] of winningLine.positions) {
+            const winningIcon = icons[
+                icons.length - 3 + rowIndex
+            ];
 
-            const col =
-                cols[colIndex];
-
-
-            const icons =
-                col.querySelectorAll('.icon');
-
-
-            /*
-             * The final three icons are the
-             * actual result symbols.
-             */
-            const winningIcon =
-                icons[
-                    icons.length -
-                    3 +
-                    rowIndex
-                ];
-
-
-            /*
-             * Only add each actual icon once.
-             */
-            if (
-                winningIcon &&
-                !seenIcons.has(winningIcon)
-            ) {
-
+            if (winningIcon && !seenIcons.has(winningIcon)) {
                 seenIcons.add(winningIcon);
-
-                winningIcons.push(
-                    winningIcon
-                );
+                winningIcons.push(winningIcon);
             }
         }
     }
 
-
-    /*
-     * Animate the winning symbols
-     * ONE AT A TIME.
-     */
     winningIcons.forEach(function (icon) {
-
-        icon.classList.add(
-            'winning'
-        );
+        icon.classList.add('winning');
     });
 
-
-    /*
-     * Start the sequential animation.
-     */
     let delay = 0;
 
     const bounceTime = 300;
     const gapTime = 450;
 
-
     winningIcons.forEach(function (icon) {
-
         setTimeout(function () {
+            icon.classList.remove('winning-bounce');
 
-            /*
-             * Start this symbol's bounce.
-             */
-            icon.classList.remove(
-                'winning-bounce'
-            );
-
-            /*
-             * Force animation restart.
-             */
             void icon.offsetWidth;
 
-            icon.classList.add(
-                'winning-bounce'
-            );
-
+            icon.classList.add('winning-bounce');
         }, delay);
 
-
-        /*
-         * Wait for this symbol to finish
-         * before starting the next one.
-         */
         delay += bounceTime + gapTime;
     });
 
-
-    /*
-     * Return the total animation time
-     * so the popup can wait for everything.
-     */
     return delay;
 }
 
-
-
-/**
- * Remove all winning highlights.
- */
 function clearWinningHighlights() {
-
     document
-        .querySelectorAll(
-            '.icon.winning'
-        )
+        .querySelectorAll('.icon.winning')
         .forEach(function (icon) {
-
-            icon.classList.remove(
-                'winning'
-            );
-
-            icon.classList.remove(
-                'winning-bounce'
-            );
+            icon.classList.remove('winning');
+            icon.classList.remove('winning-bounce');
         });
 }
 
-
-/**
- * Get the different symbols that won.
- */
-function getWinningSymbols(
-    winningLines
-) {
-
+function getWinningSymbols(winningLines) {
     const symbols = [];
 
-
-    for (const line
-        of winningLines) {
-
-        if (
-            !symbols.includes(
-                line.symbol
-            )
-        ) {
-
-            symbols.push(
-                line.symbol
-            );
+    for (const line of winningLines) {
+        if (!symbols.includes(line.symbol)) {
+            symbols.push(line.symbol);
         }
     }
-
 
     return symbols;
 }
 
+function getWinningPage(winningLines) {
+    // Full-screen jackpot has the highest priority.
+    if (winningLines.some(line => line.type === 'full-screen')) {
+        return 'full-screen.html';
+    }
 
-/**
- * Determine which page to use.
- */
-function getWinningPage(
-    winningLines
-) {
+    // Five-across jackpot takes priority over smaller wins.
+    if (winningLines.some(line => line.type === 'five-across')) {
+        return 'five-across.html';
+    }
 
-    /*
-     * Get every unique winning symbol.
-     */
-    const winningSymbols =
-        getWinningSymbols(
-            winningLines
-        );
+    if (winningLines.some(line => line.type === 'four-across')) {
+    return 'four-across.html';
+    }
 
-
-    /*
-     * If MORE THAN ONE DIFFERENT
-     * symbol won, use the special page.
-     */
-    if (winningSymbols.length > 1) {
-
+    // Count separate three-symbol winning patterns.
+    if (winningLines.length >= 2) {
         return MULTIPLE_WIN_PAGE;
     }
 
+    // One winning pattern: use its symbol's page.
+    const symbol = winningLines[0]?.symbol;
 
-    /*
-     * Otherwise use the page belonging
-     * to the individual symbol.
-     */
-    const symbol =
-        winningSymbols[0];
-
-
-    return WIN_PAGES[symbol]
-        || 'default.html';
+    return WIN_PAGES[symbol] || 'default.html';
 }
 
-
-/**
- * Show the win popup.
- */
-function showWinMessage(
-    winningLines
-) {
-
-    /*
-     * Remove an existing popup.
-     */
-    const oldPopup =
-        document.querySelector(
-            '.win-message'
-        );
-
+function showWinMessage(winningLines) {
+    const oldPopup = document.querySelector('.win-message');
 
     if (oldPopup) {
         oldPopup.remove();
     }
 
+    const winningSymbols = getWinningSymbols(winningLines);
+    const destination = getWinningPage(winningLines);
 
-    /*
-     * Get all different winning symbols.
-     */
-    const winningSymbols =
-        getWinningSymbols(
-            winningLines
-        );
+    // Save prizes to the signed-in player's account.
+if (typeof window.saveUnlockedPage === "function") {
+    window.saveUnlockedPage(destination).catch(console.error);
+}
 
+    const message = document.createElement('div');
+    message.className = 'win-message';
 
-    /*
-     * Determine destination page.
-     */
-    const destination =
-        getWinningPage(
-            winningLines
-        );
+    const symbolText = winningSymbols
+        .map(function (symbol) {
+            return symbol;
+        })
+        .join(', ');
 
+    // Change the message depending on the type of win.
+    const hasFullScreen = winningLines.some(
+        line => line.type === 'full-screen'
+    );
 
-    /*
-     * Create popup.
-     */
-    const message =
-        document.createElement(
-            'div'
-        );
+    const hasFiveAcross = winningLines.some(
+        line => line.type === 'five-across'
+    );
 
+    const hasFourAcross = winningLines.some(
+    line => line.type === "four-across"
+);
 
-    message.className =
-        'win-message';
-
-
-    /*
-     * Display the winning symbols.
-     */
-    const symbolText =
-        winningSymbols
-            .map(function (symbol) {
-
-                return symbol;
-
-            })
-            .join(', ');
-
-
-    /*
-     * Change the message depending
-     * on whether there was one or
-     * multiple different winners.
-     */
     let title;
-
     let description;
 
+    if (hasFullScreen) {
+        title = '🌟 FULL SCREEN JACKPOT! 🌟';
+        description = 'Every symbol matches!';
 
-    if (winningSymbols.length > 1) {
+} else if (hasFiveAcross) {
+    title = '🎰 FIVE ACROSS JACKPOT! 🎰';
+    description = 'You matched all five reels!';
 
-        title =
-            '🎉 MULTIPLE WIN! 🎉';
+} else if (hasFourAcross) {
+    title = '🎰 FOUR ACROSS! 🎰';
+    description = 'You matched four symbols across!';
 
-        description =
-            'You matched multiple different symbols!';
+} else if (winningLines.length >= 2) {
+        title = '🎉 MULTIPLE WIN! 🎉';
+        description = 'You matched multiple winning patterns!';
 
     } else {
-
-        title =
-            'JACKPOT';
-
+        title = 'JACKPOT';
         description =
             'You matched at least 3 ' +
             winningSymbols[0] +
             ' symbols!';
     }
 
-
     message.innerHTML = `
-
         <div class="win-box">
-
-            <h2>
-                ${title}
-            </h2>
-
-            <p>
-                ${description}
-            </p>
-
-            <p>
-                <strong>
-                    ${symbolText}
-                </strong>
-            </p>
-
-            <button class="continue-win">
-                YOUR PRIZE
-            </button>
-
-            <button class="close-win">
-                CLOSE
-            </button>
-
+            <h2>${title}</h2>
+            <p>${description}</p>
+            <p><strong>${symbolText}</strong></p>
+            <button class="continue-win">YOUR PRIZE</button>
+            <button class="close-win">CLOSE</button>
         </div>
     `;
 
+    document.body.appendChild(message);
 
-    document.body.appendChild(
-        message
-    );
+    const continueButton = message.querySelector('.continue-win');
 
+    continueButton.addEventListener('click', function () {
+        window.location.href = destination;
+    });
 
-    /*
-     * CONTINUE button.
-     */
-    const continueButton =
-        message.querySelector(
-            '.continue-win'
-        );
+    const closeButton = message.querySelector('.close-win');
 
-
-    continueButton.addEventListener(
-        'click',
-        function () {
-
-            window.location.href =
-                destination;
-        }
-    );
-
-
-    /*
-     * CLOSE button.
-     */
-    const closeButton =
-        message.querySelector(
-            '.close-win'
-        );
-
-
-    closeButton.addEventListener(
-        'click',
-        function () {
-
-            message.remove();
-
-            clearWinningHighlights();
-        }
-    );
+    closeButton.addEventListener('click', function () {
+        message.remove();
+        clearWinningHighlights();
+    });
 }
 
-
-/**
- * Get a random symbol.
- */
 function getRandomIcon() {
+    const weightedIcons = [];
 
-    return ICONS[
-        Math.floor(
-            Math.random() *
-            ICONS.length
-        )
+    ICONS.forEach(symbol => {
+        const page = WIN_PAGES[symbol];
+        const isActive = window.activeMultipliers?.[page] === true;
+        const weight = isActive ? 3 : 1;
+
+        for (let i = 0; i < weight; i++) {
+            weightedIcons.push(symbol);
+        }
+    });
+
+    return weightedIcons[
+        Math.floor(Math.random() * weightedIcons.length)
     ];
 }
 
-
 function randomDuration() {
-
     const roll = Math.random();
 
     // 75% of spins: normal variation

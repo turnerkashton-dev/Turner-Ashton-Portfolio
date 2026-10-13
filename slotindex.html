@@ -7,6 +7,7 @@
     <title>Slots WIP</title>
     <link rel="stylesheet" href="./slots.css">
     <script src="./slots.js" defer></script>
+    <script type="module" src="./slot-progress.js"></script>
 
 <style>
 html,
@@ -83,9 +84,24 @@ body {
 
 <body>
 
-  <div class="sprite-container">
-    <img src="images/sprite_0.png" alt="Sprite">
-  </div>
+
+  
+
+<div class="sprite-container">
+    <img id="slotSprite" src="images/sprite_0.png" alt="Sprite">
+</div>
+
+<div id="introText">
+    Welcome to the slot machine!
+</div>
+
+<p id="continueText">Click anywhere to continue</p>
+
+
+<div id="multiplierPanel">
+    <h3>UNLOCKED MULTIPLIERS (ON = Symbol is 3x more likely to appear)</h3>
+    <div id="multiplierControls"></div>
+</div>
 
 
   <div id="container">
@@ -135,6 +151,12 @@ body {
 </div>
 
 
+<!-- UNLOCKED PAGES -->
+<section id="unlockedSection">
+    <h2>YOUR COLLECTION</h2>
+    <p id="collectionMessage">Your won pages will appear here.</p>
+    <div id="unlockedPages"></div>
+</section>
 
 
   </div>
@@ -144,6 +166,15 @@ body {
     <button class="slots-home" id="homeBtn">
       <img src="images/home_iconV.2_white.png" alt="Home">
     </button>
+
+          <!-- PROFILE BUTTON -->
+      <a href="dashboard.html">
+        <div class="profile-container">
+          <button class="profile-btn" id="aboutMeBtn">
+            <img src="images/binder.png" alt="Profile Image" class="profile-image">
+          </button>
+        </div>
+      </a>
 
     <script>
     

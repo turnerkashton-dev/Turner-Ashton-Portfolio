@@ -45,6 +45,34 @@
       line-height: 1.6;
     }
 
+.slots-home {
+    position: fixed;
+
+    top: 20px;
+    right: 20px;
+
+    width: 80px;
+    height: 80px;
+
+    border: none;
+    background: transparent;
+
+    cursor: pointer;
+    z-index: 99999;
+
+    transition: transform 0.2s ease;
+}
+
+.slots-home:hover {
+    transform: scale(1.1);
+}
+
+.slots-home img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
     .container {
       position: relative;
       width: 768px;
@@ -481,6 +509,20 @@
 
 <body>
 
+      <!-- HOME BUTTON -->
+    <button class="slots-home" id="homeBtn">
+      <img src="images/home_iconV.2_white.png" alt="Home">
+    </button>
+
+    <script>
+    
+    // HOME BUTTON
+    document.getElementById('homeBtn').addEventListener('click', () => {
+      window.location.href = 'index.html';
+    });
+
+</script>
+
   <div class="container" id="container">
 
     <!-- SIGN UP -->
@@ -602,8 +644,12 @@
           <h1>Hello, Friend!</h1>
 
           <p>
-            Enter your details & get collecting!
+            Enter your details & get collecting all those special cards!
           </p>
+
+          <p style="text-shadow: 4px 4px 6px rgba(90, 3, 252, 0.6);"><strong>YOUR EMAIL WILL ONLY BE USED FOR:</strong></p>
+          <small>&#9900; CONTACTING YOU ABOUT YOUR ACCOUNT.</small>
+          <small>&#9900; NEWSLETTER PURPOSES.</small></p>
 
           <p>
             Already have an account?
@@ -623,7 +669,7 @@
           <h1>Welcome Back!</h1>
 
           <p>
-            To keep connected with us please login with your personal info.
+            Please login to save your collection!
           </p>
 
           <p>
