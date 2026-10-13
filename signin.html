@@ -55,10 +55,10 @@
     height: 80px;
 
     border: none;
-    background: transparent;
+    background: #512da8;
 
     cursor: pointer;
-    z-index: 99999;
+    z-index: 999;
 
     transition: transform 0.2s ease;
 }
@@ -71,6 +71,9 @@
     width: 100%;
     height: 100%;
     object-fit: contain;
+    display:block;
+
+    z-index: 1000;
 }
 
     .container {
@@ -470,7 +473,40 @@
       }
     }
 
-    @media (max-width: 768px) {
+.mobile-signup-btn {
+    display: none;
+}
+
+.mobile-signin-btn {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .mobile-signup-btn {
+        display: inline-block;
+        margin-top: 15px;
+        background: transparent;
+        color: var(--primary-color);
+        border: 1px solid var(--primary-color);
+    }
+
+    .mobile-signup-btn:hover {
+        background: var(--primary-color);
+        color: white;
+    }
+
+        .mobile-signin-btn {
+        display: inline-block;
+        margin-top: 15px;
+        background: transparent;
+        color: var(--primary-color);
+        border: 1px solid var(--primary-color);
+    }
+
+    .mobile-signin-btn:hover {
+        background: var(--primary-color);
+        color: white;
+    }
 
       .container {
         width: 100%;
@@ -574,6 +610,10 @@
           Sign Up
         </button>
 
+        <button type="button" id="mobileSignIn" class="mobile-signin-btn">
+    Back to Log In
+</button>
+
       </form>
 
     </div>
@@ -627,6 +667,10 @@
         <button type="submit" id="loginButton">
           Sign In
         </button>
+
+        <button type="button" id="mobileSignUp" class="mobile-signup-btn">
+    Create Account
+</button>
 
       </form>
 
@@ -875,6 +919,14 @@
       );
 
     });
+
+    document.getElementById("mobileSignUp").addEventListener("click", () => {
+    container.classList.add("right-panel-active");
+});
+
+document.getElementById("mobileSignIn").addEventListener("click", () => {
+    container.classList.remove("right-panel-active");
+});
 
 
     signInButton.addEventListener("click", () => {
