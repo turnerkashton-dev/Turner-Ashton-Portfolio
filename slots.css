@@ -1073,7 +1073,7 @@ body {
         top: 0;
         left: 0;
         width: 100%;
-        min-height: 7vh;
+        min-height: 9vh;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -1173,14 +1173,14 @@ background-image: linear-gradient(to bottom, #000000a4, #00000000);
     border-top: 0px solid #c99b38;
     border-radius: 12px;
 
-    top: 10vh;
+    top: 8vh;
     left: 0vw;
 
     z-index: 8;
 }
 
 #multiplierPanel h3 {
-    margin: 0 0 10px;
+    margin: 5px 0 0px;
     font-size: 12px;
 }
 
@@ -1652,7 +1652,7 @@ background-image: linear-gradient(to bottom, #000000a4, #00000000);
       position: absolute;
 
       left: 10vw;
-      top: 0vh;
+      top: 1vh;
 
       z-index: 11;
 
@@ -1676,7 +1676,7 @@ background-image: linear-gradient(to bottom, #000000a4, #00000000);
       position: absolute;
 
       left: 75vw;
-      top: 0vh;
+      top: 1.45vh;
 
       z-index: 11;
 
@@ -1741,16 +1741,16 @@ background-image: linear-gradient(to bottom, #000000a4, #00000000);
     left: 50%;
     transform: translateX(-50%);
     width: 90vw;
-    height: 20vh;
+    height: 50vh;
 
     max-width: none;
     margin: 0;
     text-align: center;
+    padding-top: 15vh;
 
         z-index: 10;
 
-
-}
+text-shadow: 2px 2px 11px rgba(0,0,0,0.89);}
 
 #introText {
     top: 20vh;

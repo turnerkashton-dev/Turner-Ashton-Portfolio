@@ -335,8 +335,8 @@
 
 
 .dashboard-folder-locked img {
-    border-style: dashed;
-    opacity: 0.7;
+    border-style: none;
+    opacity: 0.25;
 }
 
 .drop-down-account-settings {
@@ -609,7 +609,7 @@
       justify-content: center;
 
 
-      z-index: 3;
+      z-index: 1001;
 
     }
 
@@ -632,6 +632,8 @@
       transition: transform 0.2s ease;
 
       opacity: 1;
+
+      z-index: 1001;
 
     }
 
@@ -1012,6 +1014,43 @@
 
 /* MOBILE CARD FOLDER */
 @media (max-width: 700px) {
+
+
+    /*slots section*/
+
+
+    .slots-container {
+      position: fixed;
+      top: 3%;
+      left: 60%;
+      right: 1%;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+
+      z-index: 1001;
+
+    }
+
+    .slots-image {
+      width: 100%;
+      height: auto;
+      max-width: 800px;
+      max-height: 600px;
+    }
+
+    .slots-btn {
+      width: 150px;
+      height: auto;
+
+      border: none;
+      background: transparent;
+
+      opacity: 1;
+    }
+
     #dashboardCardFolder {
         grid-template-columns: minmax(0, 1fr);
         gap: 0;
@@ -1126,42 +1165,7 @@
     }
 
 
-    
-    /*slots section*/
-
-
-    .slots-container {
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-
-      z-index: 3;
-    }
-
-    .slots-image {
-      width: 100%;
-      height: auto;
-      max-width: 800px;
-      max-height: 600px;
-    }
-
-    .slots-btn {
-      width: 150px;
-      height: auto;
-
-      border: none;
-      background: transparent;
-
-      cursor: pointer;
-
-      transition: transform 0.2s ease;
-
-      opacity: 1;
-
-    }
-
+ 
 
   }
 
@@ -2187,7 +2191,7 @@ function renderCardFolder(viewedCards = []) {
                             `images/previews/${item.page.replace(".html", "_front.png")}`;
 
                         backImage =
-                            `images/previews${item.page.replace(".html", "_back.png")}`;
+                            "images/previews/slots_back.png";
                     }
 
                     openInteractiveCard(item.page, frontImage, backImage);
@@ -2204,8 +2208,10 @@ function renderCardFolder(viewedCards = []) {
                         ? "images"
                         : "images/previews";
 
-                image.src =
-                    `${imageFolder}/${item.page.replace(".html", ".png")}`;
+image.src =
+    item.group === "PACK CARDS"
+        ? `images/${item.page.replace(".html", ".png")}`
+        : `images/previews/${item.page.replace(".html", "_front.png")}`;
 
                 image.alt = item.page.replace(".html", "");
 
@@ -2215,7 +2221,7 @@ function renderCardFolder(viewedCards = []) {
                     image.alt = "Card image unavailable";
                 };
             } else {
-                image.src = "images/question_card.png";
+                image.src = "images/previews/question_card.png";
                 image.alt = "Undiscovered card";
                 image.className = "dashboard-folder-card-back";
             }
