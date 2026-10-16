@@ -48,11 +48,7 @@
     max-width: 300px;
     margin: 20px auto 10px;
     padding: 15px;
-    background-image:
-            linear-gradient(to bottom,
-                rgba(230, 20, 20, 0.212),
-                transparent,
-                rgba(202, 42, 42, 0));    border-radius: 12px;
+    background-image: none;
 
     top: 20vh;
     right: 12vw;
@@ -86,7 +82,7 @@
 /* Hide the intro messages after the game starts */
 #introText.hidden,
 #continueText.hidden {
-    display: none;
+    display: none !important;
 }
 
 
@@ -1767,7 +1763,7 @@ background-image: linear-gradient(to bottom, #000000a4, #00000000);
 /* Hide the intro messages after the game starts */
 #introText.hidden,
 #continueText.hidden {
-    display: none;
+    display: none !important;
 }
 
 
@@ -1955,7 +1951,7 @@ background-image: linear-gradient(to bottom, #000000a4, #00000000);
 /* Hide the intro messages after the game starts */
 #introText.hidden,
 #continueText.hidden {
-    display: none;
+    display: none !important;
 }
 
 

@@ -117,6 +117,58 @@
     });
 </script>
 
+<script type="module">
+    import { initializeApp, getApps } from
+        "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
+
+    import { getAuth, onAuthStateChanged } from
+        "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
+
+    import {
+        getFirestore,
+        doc,
+        setDoc,
+        arrayUnion
+    } from
+        "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyB4srPzYoTzploFgfsnSt7rg6sKKAVK6xo",
+        authDomain: "portfolio-signin-html.firebaseapp.com",
+        projectId: "portfolio-signin-html",
+        storageBucket: "portfolio-signin-html.firebasestorage.app",
+        messagingSenderId: "435126326109",
+        appId: "1:435126326109:web:9dee9abbc93c3c104b4eb4",
+        measurementId: "G-7YK2HQL61F"
+    };
+
+    const app = getApps().length
+        ? getApps()[0]
+        : initializeApp(firebaseConfig);
+
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+    // Automatically identifies the current card page.
+    const cardId = window.location.pathname.split("/").pop();
+
+    onAuthStateChanged(auth, async (user) => {
+        // Do not save discoveries for signed-out visitors.
+        if (!user) return;
+
+        try {
+            const userRef = doc(db, "users", user.uid);
+
+            await setDoc(userRef, {
+                viewedCards: arrayUnion(cardId)
+            }, { merge: true });
+
+            console.log("Card saved to folder:", cardId);
+        } catch (error) {
+            console.error("Could not save card discovery:", error);
+        }
+    });
+</script>
 </body>
 </html>
 

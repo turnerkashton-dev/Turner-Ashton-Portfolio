@@ -127,24 +127,29 @@ function playSpriteIntro() {
 function advanceSpriteIntro(event) {
     if (!introActive) return;
 
-    // Let the SPIN button work normally.
+    // Let SPIN handle its own click.
     if (event.target.closest('.start-button')) return;
 
     const sprite = document.getElementById('slotSprite');
     const text = document.getElementById('introText');
+    const continueText = document.getElementById('continueText');
 
     if (!sprite || !text) return;
 
     introIndex++;
 
+    // Final click: end the intro and hide both messages.
     if (introIndex >= introSprites.length) {
         stopSpriteIntro();
 
         sprite.src = SPRITE_DEFAULT;
-        text.textContent = 'Ready to play! Click SPIN to begin.';
+        text.classList.add('hidden');
+        continueText?.classList.add('hidden');
+
         return;
     }
 
+    // Show the next intro step.
     sprite.src = `images/${introSprites[introIndex]}.png`;
     text.textContent = introMessages[introIndex];
 }

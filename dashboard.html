@@ -32,11 +32,340 @@
       background:
         rgba(0, 0, 0, 0.75) url("images/background_grid.jpeg");
 
-      background-size: cover;
+      background-size: contain;
 
       background-blend-mode: multiply;
 
     }
+
+    .dashboard-folder-card {
+    display: block;
+    min-width: 0;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+}
+
+.dashboard-folder-card > img,
+.dashboard-folder-placeholder {
+    width: 100%;
+    display: block;
+}
+
+.dashboard-folder-card > img:not(.dashboard-folder-card-back) {
+    aspect-ratio: 2 / 3;
+    object-fit: contain;
+}
+
+.dashboard-folder-card span {
+    display: block;
+    margin-top: 6px;
+}
+
+.dashboard-folder-card-back {
+    display: block;
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    object-fit: contain;
+    border-radius: 12px;
+}
+
+/* CARD FOLDER */
+/* OUTER FOLDER */
+#cardFolder {
+    width: min(80%, 1800px);
+    margin: 30px auto;
+    padding: 28px;
+    color: white;
+    background: linear-gradient(145deg, #171717, #050505);
+
+
+    border: 2px solid #b89b42;
+    border-radius: 18px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6);
+}
+
+/* FOLDER TITLE */
+#cardFolder h2 {
+    color: #e7cb72;
+    text-align: center;
+    letter-spacing: 4px;
+    margin-bottom: 12px;
+}
+
+/* DISCOVERY COUNTER */
+#cardFolderMessage {
+    text-align: center;
+    margin-bottom: 24px;
+    color: #c6c6c6;
+}
+
+/* OPEN BOOK PAGES */
+#dashboardCardFolder {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0;
+    width: 100%;
+    perspective: 1800px;
+}
+
+.dashboard-folder-page {
+    position: relative;
+    min-width: 0;
+    padding: 22px;
+    overflow: hidden;
+
+    border: 1px solid #5c4b23;
+    background: linear-gradient(145deg, #202020, #090909);
+
+
+
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4);
+
+  min-height: 520px;
+}
+
+.dashboard-folder-page:first-child {
+    border-radius: 10px 0 0 10px;
+    transform-origin: right center;
+}
+
+.dashboard-folder-page:last-of-type {
+    border-radius: 0 10px 10px 0;
+    transform-origin: left center;
+}
+
+/* PAGE THAT PHYSICALLY FLIPS */
+.book-page-flipper {
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 50%;
+
+    transform-style: preserve-3d;
+    transform-origin: right center;
+    pointer-events: none;
+}
+
+.book-page-flipper.turn-next {
+    left: 50%;
+    transform-origin: left center;
+}
+
+.book-page-flipper.turning-next {
+    animation: flipNextPage 0.75s ease-in-out forwards;
+}
+
+.book-page-flipper.turning-previous {
+    animation: flipPreviousPage 0.75s ease-in-out forwards;
+}
+
+.book-page-flipper .flip-face {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    border: 1px solid #5c4b23;
+    background: linear-gradient(90deg, #302b1d, #171717);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    box-shadow: 0 0 18px rgba(0, 0, 0, 0.5);
+}
+
+.book-page-flipper .flip-face.back {
+    transform: rotateY(180deg);
+    background: linear-gradient(90deg, #171717, #302b1d);
+}
+
+.book-page-flipper .dashboard-folder-page {
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    padding: 22px;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.book-page-flipper .dashboard-folder-grid {
+    gap: 18px;
+}
+
+.book-page-flipper .flip-face {
+    background: linear-gradient(90deg, #302b1d, #171717);
+}
+
+.book-page-flipper .flip-face.back {
+    background: linear-gradient(90deg, #171717, #302b1d);
+}
+
+@keyframes flipNextPage {
+    from { transform: rotateY(0deg); }
+    to   { transform: rotateY(-180deg); }
+}
+
+@keyframes flipPreviousPage {
+    from { transform: rotateY(0deg); }
+    to   { transform: rotateY(180deg); }
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+    .book-page-flipper {
+        animation-duration: 0.01ms !important;
+    }
+}
+
+
+
+
+
+
+/* PAGE TITLE */
+.dashboard-folder-page h3 {
+    color: #e7cb72 !important;
+    letter-spacing: 3px;
+    margin-bottom: 22px !important;
+}
+
+/* THREE CARDS PER ROW */
+.dashboard-folder-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    width: 100%;
+}
+
+/* CARD LABELS */
+.dashboard-folder-card {
+    display: block;
+    min-width: 0;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+    font-size: 13px;
+}
+
+/* CARD IMAGES */
+.dashboard-folder-card > img {
+    display: block;
+    width: 100%;
+    border-radius: 10px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* HOVER EFFECT */
+.dashboard-folder-card:hover > img {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 18px rgba(231, 203, 114, 0.2);
+}
+
+/* CARD-BACK IMAGE */
+.dashboard-folder-card-back {
+    aspect-ratio: 2 / 3;
+    object-fit: contain;
+}
+
+/* PREVIOUS/NEXT CONTROLS */
+.folder-controls {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 16px;
+}
+
+.folder-controls button {
+    padding: 11px 22px;
+    color: #e7cb72;
+    background: #151515;
+    border: 1px solid #8d7436;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.folder-controls button:hover:not(:disabled) {
+    background: #38301b;
+}
+
+.folder-controls button:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+}
+
+.folder-controls span {
+    color: #d6d6d6;
+}
+
+
+
+.folder-controls {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.folder-controls button {
+    padding: 10px 18px;
+    color: #f9e13d;
+    background: #171717;
+    border: 1px solid #f9e13d;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.folder-controls button:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+}
+
+.folder-controls span {
+    color: white;
+}
+
+
+
+
+.dashboard-folder-locked img {
+    border-style: dashed;
+    opacity: 0.7;
+}
+
+.drop-down-account-settings {
+    position: relative;
+    width: 100%;
+}
+
+.drop-down-btn {
+    padding: 10px 18px;
+    color: #8e3df9;
+    background: #171717;
+    border: 1px solid #a43df9;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.account-settings-content {
+    display: none;
+    margin-top: 15px;
+}
+
+.account-settings-content.show {
+    display: block;
+}
+
+
+
+
+
 
 
     /* =========================
@@ -322,10 +651,10 @@
     .dashboard-main {
 
       max-width:
-        1100px;
+        1600px;
 
       width:
-        90%;
+        100%;
 
       margin:
         0 auto;
@@ -543,11 +872,207 @@
 }
 
 
+
+
+/* BACKGROUND OVERLAY */
+.card-viewer {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    padding: 24px;
+    background: rgba(0, 0, 0, 0.72);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.card-viewer.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.viewer-instruction {
+    color: #f9e13d;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+.viewer-close {
+    position: absolute;
+    top: 20px;
+    right: 28px;
+    color: white;
+    background: transparent;
+    border: none;
+    font-size: 42px;
+    cursor: pointer;
+}
+
+.viewer-card-stage {
+    width: min(70vw, 230px);
+    height: min(58vh, 380px);
+    min-height: 220px;
+    perspective: 1200px;
+    touch-action: pan-y;
+}
+
+.interactive-card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    cursor: grab;
+    will-change: transform;
+}
+
+.interactive-card:active {
+    cursor: grabbing;
+}
+
+.interactive-card-face {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    border-radius: 14px;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    background: transparent;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+}
+
+.interactive-card-face img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+.interactive-card-front {
+    transform: rotateY(0deg);
+}
+
+.interactive-card-back {
+    transform: rotateY(180deg);
+}
+
+.viewer-controls {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+
+/* ALLOW DRAGGING ON TOUCHSCREENS */
+.interactive-card {
+    touch-action: none;
+}
+
+/* REDUCE MOTION IF THE USER PREFERS IT */
+@media (prefers-reduced-motion: reduce) {
+    .card-viewer,
+    .interactive-card-face::after {
+        transition: none;
+    }
+}
+
+
+
+
+.viewer-controls button {
+    padding: 12px 18px;
+    color: #f9e13d;
+    background: #171717;
+    border: 1px solid #f9e13d;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.viewer-controls button:hover {
+    background: #38301b;
+}
+
+
+
+
+/* MOBILE CARD FOLDER */
+@media (max-width: 700px) {
+    #dashboardCardFolder {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0;
+    }
+
+    #cardFolder {
+          width: min(95%, 680px);
+
+        padding: 14px;
+        
+    }
+
+    .dashboard-folder-page {
+        width: 100%;
+        min-width: 0;
+        min-height: 420px;
+        border-radius: 10px;
+    }
+
+    .dashboard-folder-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .book-page-flipper {
+        width: 100%;
+        left: 0;
+        transform-origin: right center;
+    }
+
+    .book-page-flipper.turn-next {
+        left: 0;
+        transform-origin: right center;
+    }
+
+    .book-page-flipper.turn-previous {
+        left: 0;
+        transform-origin: left center;
+    }
+
+    .book-page-flipper .dashboard-folder-page {
+        min-height: 100%;
+    }
+}
+
+
     /* =========================
        MOBILE
     ========================= */
 
     @media (max-width: 600px) {
+
+          .viewer-card-stage {
+        width: min(78vw, 300px);
+        height: min(55vh, 430px);
+    }
+
+    .viewer-controls button {
+        padding: 10px 12px;
+        font-size: 11px;
+    }
 
       .dashboard-header {
 
@@ -559,7 +1084,7 @@
       .dashboard-main {
 
         width:
-          90%;
+          95%;
 
         padding:
           40px 0;
@@ -639,9 +1164,37 @@
 
 
   }
+
+/* FADE PAGE CONTENTS WITHOUT HIDING THE PAGE BACKGROUND */
+#dashboardCardFolder .dashboard-folder-page > h3,
+#dashboardCardFolder .dashboard-folder-page > .dashboard-folder-grid {
+    opacity: 1;
+    transition: opacity 0.25s ease-in-out;
+}
+
+/* Fade the contents away before the page turns */
+#dashboardCardFolder.folder-content-fading .dashboard-folder-page > h3,
+#dashboardCardFolder.folder-content-fading .dashboard-folder-page > .dashboard-folder-grid {
+    opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #dashboardCardFolder .dashboard-folder-page > h3,
+    #dashboardCardFolder .dashboard-folder-page > .dashboard-folder-grid {
+        transition-duration: 0.01ms;
+    }
+}
+
+
   </style>
 
 </head>
+
+
+
+<body>
+
+
 
 
     <!-- HOME BUTTON -->
@@ -660,7 +1213,6 @@
       </a>
     
 
-<body>
 
 
   <!-- LOADING -->
@@ -723,107 +1275,78 @@
 
 
 
+<div class="drop-down-account-settings">
+
+    <button class="drop-down-btn" id="accountSettingsBtn">
+        ACCOUNT INFO
+    </button>
+
+    <div id="myDropdown" class="account-settings-content">
+        <!-- Move the account cards you want inside the dropdown here -->
+        <section class="dashboard-grid">
+
+            <div class="dashboard-card">
+                <h2>Account</h2>
+                <p>Signed in as:</p>
+                <p id="userEmail">Loading...</p>
+                <p id="userUid">Loading...</p>
+            </div>
+
+            <div class="dashboard-card">
+                <h2>Firestore</h2>
+                <p>Your Firebase user document is connected to this dashboard.</p>
+                <p id="firestoreStatus">Checking Firestore...</p>
+            </div>
+
+            <div class="dashboard-card">
+                <h2>Portfolio</h2>
+                <p>Return to the main Turner Ashton portfolio.</p>
+                <a href="index.html" class="dashboard-button">
+                    VIEW PORTFOLIO
+                </a>
+            </div>
+
+            <div class="dashboard-card">
+                <h2>Account Status</h2>
+                <p id="accountStatus">Checking...</p>
+            </div>
+
+        </section>
+    </div>
+
+</div>
+
+<script>
+    const accountSettingsBtn = document.getElementById("accountSettingsBtn");
+    const myDropdown = document.getElementById("myDropdown");
+
+    accountSettingsBtn.addEventListener("click", function () {
+        myDropdown.classList.toggle("show");
+    });
+</script>
 
 
-      <!-- CARDS -->
-
-      <section class="dashboard-grid">
 
 
-        <!-- USER CARD -->
-
-        <div class="dashboard-card">
-
-          <h2>
-            Account
-          </h2>
-
-          <p>
-            Signed in as:
-          </p>
-
-          <p id="userEmail" class="user-email">
-
-            Loading...
-
-          </p>
-
-          <p id="userUid">
-
-            Loading...
-
-          </p>
-
-        </div>
 
 
-        <!-- FIRESTORE CARD -->
-
-        <div class="dashboard-card">
-
-          <h2>
-            Firestore
-          </h2>
-
-          <p>
-            Your Firebase user document is connected to this dashboard.
-          </p>
-
-          <p id="firestoreStatus">
-
-            Checking Firestore...
-
-          </p>
-
-        </div>
-
-
-        <!-- PORTFOLIO CARD -->
-
-        <div class="dashboard-card">
-
-          <h2>
-            Portfolio
-          </h2>
-
-          <p>
-            Return to the main Turner Ashton portfolio.
-          </p>
-
-          <a href="index.html" class="dashboard-button">
-
-            VIEW PORTFOLIO
-
-          </a>
-
-        </div>
-
-
-        <!-- ACCOUNT CARD -->
-
-        <div class="dashboard-card">
-
-          <h2>
-            Account Status
-          </h2>
-
-          <p id="accountStatus">
-
-            Checking...
-
-          </p>
-
-        </div>
-
-
-      </section>
-
+<!-- CARD FOLDER -->
+<section id="cardFolder">
+    <h2>CARD FOLDER</h2>
+    <p id="cardFolderMessage">Loading cards...</p>
+    <div id="dashboardCardFolder"></div>
+</section>
 
       <section id="dashboardCollection">
-    <h2>MY COLLECTION</h2>
+    <h2>SLOT MACHINE COLLECTION</h2>
     <p id="dashboardCollectionMessage">Loading collection...</p>
     <div id="dashboardUnlockedPages"></div>
 </section>
+
+
+
+
+
 
     </main>
 
@@ -914,8 +1437,13 @@
       initializeApp(firebaseConfig);
 
 
-    const analytics =
-      getAnalytics(app);
+let analytics;
+
+try {
+    analytics = getAnalytics(app);
+} catch (error) {
+    console.warn("Analytics unavailable:", error);
+}
 
 
     const auth =
@@ -1157,12 +1685,14 @@ async function loadUserFromFirestore(user) {
         { merge: true }
       );
 
-      firestoreStatus.textContent =
-        "✓ Firestore user document created.";
+firestoreStatus.textContent =
+    "✓ Firestore user document created.";
 
 renderDashboardCollection([], {});
-      return;
+renderCardFolder([]);
+return;
     }
+
 
     const data = userSnapshot.data();
 
@@ -1177,6 +1707,8 @@ renderDashboardCollection(
     data.pageWinCounts || {}
 );
 
+renderCardFolder(data.viewedCards || []);
+
   } catch (error) {
     console.error("Firestore error:", error);
 
@@ -1187,6 +1719,291 @@ renderDashboardCollection(
       "Unable to load collection. Please try refreshing.";
   }
 }
+
+
+
+const cardViewer = document.getElementById("cardViewer");
+const interactiveCard = document.getElementById("interactiveCard");
+const viewerFrontImage = document.getElementById("viewerFrontImage");
+const viewerBackImage = document.getElementById("viewerBackImage");
+
+console.log("Card viewer:", cardViewer);
+console.log("Interactive card:", interactiveCard);
+console.log("Front image:", viewerFrontImage);
+console.log("Back image:", viewerBackImage);
+
+let selectedCardPage = "";
+let cardIsFlipped = false;
+let cardRotationY = 0;
+let cardTiltX = 0;
+let dragStartX = 0;
+let dragStartY = 0;
+let startRotationY = 0;
+let startTiltX = 0;
+let isDraggingCard = false;
+let didDragCard = false;
+
+function openInteractiveCard(page, frontImage, backImage) {
+    stopCardAnimation();
+
+    selectedCardPage = page;
+
+    cardRotationY = 0;
+    cardTiltX = 0;
+
+    cardVelocityX = 0;
+    cardVelocityY = 0;
+
+    targetRotationY = 0;
+    targetTiltX = 0;
+
+    isDraggingCard = false;
+    didDragCard = false;
+
+viewerFrontImage.src = frontImage;
+viewerBackImage.src = backImage;
+
+viewerFrontImage.onerror = () => {
+    console.error("Front image failed to load:", viewerFrontImage.src);
+};
+
+viewerBackImage.onerror = () => {
+    console.error("Back image failed to load:", viewerBackImage.src);
+};
+
+viewerBackImage.onload = () => {
+    console.log("Back image loaded successfully:", viewerBackImage.src);
+};
+
+    viewerFrontImage.alt = page.replace(".html", "") + " front";
+    viewerBackImage.alt = page.replace(".html", "") + " back";
+
+    updateCardTransform();
+
+    cardViewer.classList.add("active");
+    cardViewer.setAttribute("aria-hidden", "false");
+
+    document.body.style.overflow = "hidden";
+}
+
+function closeInteractiveCard() {
+    cardViewer.classList.remove("active");
+    cardViewer.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+
+    selectedCardPage = "";
+}
+
+document.getElementById("closeCardViewer").addEventListener("click", closeInteractiveCard);
+
+document.getElementById("flipCardButton").addEventListener("click", () => {
+    if (!selectedCardPage) return;
+
+    stopCardAnimation();
+    isDraggingCard = false;
+
+    cardVelocityX = 0;
+    cardVelocityY = 0;
+
+    targetRotationY =
+        (Math.floor(cardRotationY / 180) + 1) * 180;
+
+    targetTiltX = 0;
+
+    animateCardPhysics();
+});
+
+document.getElementById("openCardPageButton").addEventListener("click", () => {
+    if (selectedCardPage) {
+        window.location.href = selectedCardPage;
+    }
+});
+
+cardViewer.addEventListener("click", event => {
+    if (event.target === cardViewer) {
+        closeInteractiveCard();
+    }
+});
+
+document.addEventListener("keydown", event => {
+    if (event.key === "Escape" && cardViewer.classList.contains("active")) {
+        closeInteractiveCard();
+    }
+});
+
+// Drag to tilt the card.
+/* PHYSICAL CARD MOTION */
+
+let cardVelocityY = 0;
+let cardVelocityX = 0;
+let lastPointerX = 0;
+let lastPointerY = 0;
+let lastMoveTime = 0;
+let animationFrameId = 0;
+let targetRotationY = 0;
+let targetTiltX = 0;
+
+const reducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+);
+
+function updateCardTransform() {
+    interactiveCard.style.transform =
+        `rotateX(${cardTiltX}deg) rotateY(${cardRotationY}deg)`;
+
+    // Move the reflection as the card tilts.
+    const shineX = 50 + Math.sin(cardRotationY * Math.PI / 180) * 35;
+    const shineY = 50 - cardTiltX * 1.5;
+
+    interactiveCard.style.setProperty("--shine-x", `${shineX}%`);
+    interactiveCard.style.setProperty(
+        "--shine-y",
+        `${Math.max(0, Math.min(100, shineY))}%`
+    );
+
+    const motionAmount = Math.min(
+        1,
+        (Math.abs(cardTiltX) + Math.abs(cardVelocityY) * 2) / 35
+    );
+
+    interactiveCard.style.setProperty(
+        "--shine-opacity",
+        `${0.22 + motionAmount * 0.48}`
+    );
+}
+
+function stopCardAnimation() {
+    if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+        animationFrameId = 0;
+    }
+}
+
+function animateCardPhysics() {
+    stopCardAnimation();
+
+    if (reducedMotion.matches) {
+        cardRotationY = targetRotationY;
+        cardTiltX = targetTiltX;
+        cardVelocityY = 0;
+        cardVelocityX = 0;
+        updateCardTransform();
+        return;
+    }
+
+    function step() {
+        if (!isDraggingCard) {
+            // Friction gradually reduces the card's momentum.
+            cardVelocityY *= 0.82;
+            cardVelocityX *= 0.75;
+
+            cardRotationY += cardVelocityY;
+            cardTiltX += cardVelocityX;
+
+            // Spring forces pull the card toward its resting angle.
+            cardVelocityY += (targetRotationY - cardRotationY) * 0.025;
+            cardVelocityX += (targetTiltX - cardTiltX) * 0.07;
+
+            // Stop once the card has settled.
+            const rotationDifference = targetRotationY - cardRotationY;
+            const tiltDifference = targetTiltX - cardTiltX;
+
+            if (
+                Math.abs(rotationDifference) < 0.12 &&
+                Math.abs(tiltDifference) < 0.12 &&
+                Math.abs(cardVelocityY) < 0.12 &&
+                Math.abs(cardVelocityX) < 0.12
+            ) {
+                cardRotationY = targetRotationY;
+                cardTiltX = targetTiltX;
+                cardVelocityY = 0;
+                cardVelocityX = 0;
+                animationFrameId = 0;
+                updateCardTransform();
+                return;
+            }
+        }
+
+        updateCardTransform();
+        animationFrameId = requestAnimationFrame(step);
+    }
+
+    animationFrameId = requestAnimationFrame(step);
+}
+
+interactiveCard.addEventListener("pointerdown", event => {
+    if (!selectedCardPage) return;
+
+    stopCardAnimation();
+
+    isDraggingCard = true;
+    didDragCard = false;
+
+    lastPointerX = event.clientX;
+    lastPointerY = event.clientY;
+    lastMoveTime = performance.now();
+
+    cardVelocityX = 0;
+    cardVelocityY = 0;
+
+    interactiveCard.setPointerCapture(event.pointerId);
+});
+
+interactiveCard.addEventListener("pointermove", event => {
+    if (!isDraggingCard) return;
+
+    const now = performance.now();
+    const elapsed = Math.max(1, now - lastMoveTime);
+
+    const dx = event.clientX - lastPointerX;
+    const dy = event.clientY - lastPointerY;
+
+    if (Math.abs(dx) > 2 || Math.abs(dy) > 2) {
+        didDragCard = true;
+    }
+
+    // Move the card with the pointer.
+    cardRotationY += dx * 0.75;
+    cardTiltX = Math.max(-28, Math.min(28, cardTiltX - dy * 0.45));
+
+    // Estimate the speed of the drag for momentum on release.
+    cardVelocityY = (dx * 0.75) / (elapsed / 16.67);
+    cardVelocityX = (-dy * 0.45) / (elapsed / 16.67);
+
+    lastPointerX = event.clientX;
+    lastPointerY = event.clientY;
+    lastMoveTime = now;
+
+    updateCardTransform();
+});
+
+function releaseCard() {
+    if (!isDraggingCard) return;
+
+    isDraggingCard = false;
+
+    // Let the card coast, then settle on its nearest side.
+    const projectedRotation = cardRotationY + cardVelocityY * 8;
+    targetRotationY = Math.round(projectedRotation / 180) * 180;
+    targetTiltX = 0;
+
+    animateCardPhysics();
+}
+
+interactiveCard.addEventListener("pointerup", releaseCard);
+interactiveCard.addEventListener("pointercancel", releaseCard);
+
+// Recalculate motion preferences if the user changes them.
+reducedMotion.addEventListener("change", () => {
+    if (reducedMotion.matches) {
+        stopCardAnimation();
+        cardVelocityX = 0;
+        cardVelocityY = 0;
+        cardRotationY = targetRotationY;
+        cardTiltX = targetTiltX;
+        updateCardTransform();
+    }
+});
 
 
     /* =========================
@@ -1223,8 +2040,420 @@ renderDashboardCollection(
     );
 
 
+
+
+    const CARD_GROUPS = [
+    {
+        title: "PACK CARDS",
+        pages: [
+            "pack_1_card_1.html",
+            "pack_1_card_2.html",
+            "pack_1_card_3.html",
+            "pack_2_card_1.html",
+            "pack_2_card_2.html",
+            "pack_2_card_3.html",
+            "pack_3_card_1.html",
+            "pack_3_card_2.html",
+            "pack_3_card_3.html",
+            "pack_4_card_1.html",
+            "pack_4_card_2.html",
+            "pack_4_card_3.html",
+            "pack_5_card_1.html",
+            "pack_5_card_2.html",
+            "pack_5_card_3.html"
+        ]
+    },
+    {
+        title: "SLOT MACHINE REWARDS",
+        pages: [
+            "apple.html",
+            "apricot.html",
+            "banana.html",
+            "big-win.html",
+            "cherry.html",
+            "grapes.html",
+            "lemon.html",
+            "lucky-seven.html",
+            "orange.html",
+            "pear.html",
+            "strawberry.html",
+            "watermelon.html",
+            "multiple-fruits.html",
+            "four-across.html",
+            "five-across.html",
+            "full-screen.html"
+        ]
+    }
+];
+
+
+
+let currentFolderPage = 0;
+const CARDS_PER_PAGE = 9;
+
+function renderCardFolder(viewedCards = []) {
+    const container = document.getElementById("dashboardCardFolder");
+    const message = document.getElementById("cardFolderMessage");
+
+    if (!container || !message) return;
+
+    const viewed = new Set(viewedCards);
+
+    const allCards = CARD_GROUPS.flatMap(group =>
+        group.pages.map(page => ({
+            page,
+            group: group.title
+        }))
+    );
+
+    const CARDS_PER_PAGE = 9;
+    const totalPages = Math.ceil(allCards.length / CARDS_PER_PAGE);
+
+    const isMobile = () =>
+        window.matchMedia("(max-width: 700px)").matches;
+
+    const getPagesPerSpread = () => isMobile() ? 1 : 2;
+
+    const getTotalSpreads = () =>
+        Math.ceil(totalPages / getPagesPerSpread());
+
+    currentFolderPage = Math.max(
+        0,
+        Math.min(currentFolderPage, getTotalSpreads() - 1)
+    );
+
+    const discoveredCount = allCards.filter(
+        card => viewed.has(card.page)
+    ).length;
+
+    message.textContent =
+        `${discoveredCount} of ${allCards.length} cards discovered`;
+
+    container.replaceChildren();
+
+    const pagesPerSpread = getPagesPerSpread();
+    const firstPageIndex = currentFolderPage * pagesPerSpread;
+
+    function createPage(pageIndex, interactive = true) {
+        const pageCards = allCards.slice(
+            pageIndex * CARDS_PER_PAGE,
+            (pageIndex + 1) * CARDS_PER_PAGE
+        );
+
+        if (!pageCards.length) return null;
+
+        const page = document.createElement("section");
+        page.className = "dashboard-folder-page";
+
+        const heading = document.createElement("h3");
+        heading.textContent = `PAGE ${pageIndex + 1}`;
+        heading.style.cssText =
+            "color:#f9e13d;text-align:center;margin-bottom:15px;";
+
+        const grid = document.createElement("div");
+        grid.className = "dashboard-folder-grid";
+
+        pageCards.forEach(item => {
+            const isViewed = viewed.has(item.page);
+
+            const card = document.createElement(
+                interactive && isViewed ? "a" : "div"
+            );
+
+            card.className = "dashboard-folder-card";
+
+            if (interactive && isViewed) {
+                card.href = "#";
+
+                card.addEventListener("click", event => {
+                    event.preventDefault();
+
+                    let frontImage;
+                    let backImage;
+
+                    if (item.group === "PACK CARDS") {
+                        frontImage =
+                            `images/${item.page.replace(".html", ".png")}`;
+
+                        const match = item.page.match(
+                            /^pack_(\d+)_card_\d+\.html$/
+                        );
+
+                        if (!match) return;
+
+                        backImage = `images/card_${match[1]}_back.png`;
+                    } else {
+                        frontImage =
+                            `images/previews/${item.page.replace(".html", "_front.png")}`;
+
+                        backImage =
+                            `images/previews${item.page.replace(".html", "_back.png")}`;
+                    }
+
+                    openInteractiveCard(item.page, frontImage, backImage);
+                });
+            } else if (!isViewed) {
+                card.classList.add("dashboard-folder-locked");
+            }
+
+            const image = document.createElement("img");
+
+            if (isViewed) {
+                const imageFolder =
+                    item.group === "PACK CARDS"
+                        ? "images"
+                        : "images/previews";
+
+                image.src =
+                    `${imageFolder}/${item.page.replace(".html", ".png")}`;
+
+                image.alt = item.page.replace(".html", "");
+
+                image.onerror = () => {
+                    image.onerror = null;
+                    image.src = "images/question_card.png";
+                    image.alt = "Card image unavailable";
+                };
+            } else {
+                image.src = "images/question_card.png";
+                image.alt = "Undiscovered card";
+                image.className = "dashboard-folder-card-back";
+            }
+
+            const label = document.createElement("span");
+
+            label.textContent = isViewed
+                ? item.page
+                    .replace(".html", "")
+                    .replaceAll("_", " ")
+                    .replaceAll("-", " ")
+                : "???";
+
+            card.append(image, label);
+            grid.appendChild(card);
+        });
+
+        page.append(heading, grid);
+        return page;
+    }
+
+    // Render the current spread.
+    for (let side = 0; side < pagesPerSpread; side++) {
+        const page = createPage(firstPageIndex + side);
+
+        if (page) container.appendChild(page);
+    }
+
+    // Navigation controls.
+    const controls = document.createElement("div");
+    controls.className = "folder-controls";
+
+    const previous = document.createElement("button");
+    previous.textContent = "← Previous";
+    previous.disabled = currentFolderPage === 0;
+
+    const pageNumber = document.createElement("span");
+
+    const next = document.createElement("button");
+    next.textContent = "Next →";
+    next.disabled = currentFolderPage >= getTotalSpreads() - 1;
+
+    function updatePageNumber() {
+        const total = getTotalSpreads();
+
+        pageNumber.textContent = isMobile()
+            ? `Page ${currentFolderPage + 1} of ${total}`
+            : `Spread ${currentFolderPage + 1} of ${total}`;
+    }
+
+    updatePageNumber();
+
+    let isTurningPage = false;
+
+function turnBookPage(direction) {
+    if (isTurningPage) return;
+
+    const totalSpreads = getTotalSpreads();
+    const nextSpread = currentFolderPage + direction;
+
+    if (nextSpread < 0 || nextSpread >= totalSpreads) return;
+
+    isTurningPage = true;
+
+    // STEP 1: Fade out the current page contents.
+    container.classList.add("folder-content-fading");
+
+    // Wait for the contents to fade away before flipping.
+    setTimeout(() => {
+        const mobile = isMobile();
+        const spreadSize = getPagesPerSpread();
+
+        const oldPages = Array.from(
+            container.querySelectorAll(
+                ":scope > .dashboard-folder-page"
+            )
+        );
+
+        const pageToFlip = mobile
+            ? oldPages[0]
+            : direction === 1
+                ? oldPages[1] || oldPages[0]
+                : oldPages[0];
+
+        if (!pageToFlip) {
+            container.classList.remove("folder-content-fading");
+            isTurningPage = false;
+            return;
+        }
+
+        // Keep the current page's background for the flip.
+        const frontPage = pageToFlip.cloneNode(true);
+
+        // Build the destination pages offscreen.
+        const tempContainer = document.createElement("div");
+
+        tempContainer.style.cssText = `
+            position: absolute;
+            left: -99999px;
+            top: 0;
+            width: ${container.clientWidth}px;
+            display: grid;
+            grid-template-columns: repeat(
+                ${spreadSize},
+                minmax(0, 1fr)
+            );
+        `;
+
+        document.body.appendChild(tempContainer);
+
+        const destinationPages = [];
+        const destinationFirstPage = nextSpread * spreadSize;
+
+        for (let side = 0; side < spreadSize; side++) {
+            const page = createPage(
+                destinationFirstPage + side,
+                false
+            );
+
+            if (page) {
+                destinationPages.push(page);
+                tempContainer.appendChild(page);
+            }
+        }
+
+        const backPage = direction === 1
+            ? destinationPages[0]
+            : destinationPages[destinationPages.length - 1];
+
+        // Create the physical flipping sheet.
+        const flipper = document.createElement("div");
+        flipper.className = "book-page-flipper";
+
+        if (direction === 1) {
+            flipper.classList.add("turn-next");
+        } else {
+            flipper.classList.add("turn-previous");
+        }
+
+        const front = document.createElement("div");
+        front.className = "flip-face";
+        front.appendChild(frontPage);
+
+        const back = document.createElement("div");
+        back.className = "flip-face back";
+
+        if (backPage) {
+            back.appendChild(backPage.cloneNode(true));
+        }
+
+        flipper.append(front, back);
+        container.appendChild(flipper);
+
+        tempContainer.remove();
+
+// MOBILE: Skip the physical page flip.
+if (mobile) {
+    currentFolderPage = nextSpread;
+
+    renderCardFolder(viewedCards);
+
+    void container.offsetWidth;
+
+    container.classList.remove("folder-content-fading");
+
+    isTurningPage = false;
+    return;
+}
+
+// DESKTOP: Play the physical page flip.
+requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+        flipper.classList.add(
+            direction === 1
+                ? "turning-next"
+                : "turning-previous"
+        );
+    });
+});
+
+        // STEP 3: After the flip, show the updated pages.
+        flipper.addEventListener("animationend", () => {
+            currentFolderPage = nextSpread;
+
+            // Redraw the destination spread while its contents
+            // are still hidden.
+            renderCardFolder(viewedCards);
+
+            // Ensure the hidden state is applied first.
+            void container.offsetWidth;
+
+            // Fade in the new page contents.
+            container.classList.remove("folder-content-fading");
+
+            // Unlock navigation.
+            isTurningPage = false;
+
+        }, { once: true });
+
+    }, 280);
+}
+
+    previous.addEventListener("click", () => turnBookPage(-1));
+    next.addEventListener("click", () => turnBookPage(1));
+
+    controls.append(previous, pageNumber, next);
+    container.appendChild(controls);
+}
+
+
   </script>
 
+
+<!-- INTERACTIVE CARD VIEWER -->
+<div id="cardViewer" class="card-viewer" aria-hidden="true">
+    <button id="closeCardViewer" class="viewer-close" aria-label="Close card viewer">
+        &times;
+    </button>
+
+    <p class="viewer-instruction">DRAG TO TILT · FLIP TO VIEW THE BACK</p>
+
+    <div class="viewer-card-stage">
+        <div id="interactiveCard" class="interactive-card">
+            <div class="interactive-card-face interactive-card-front">
+                <img id="viewerFrontImage" src="" alt="Card front">
+            </div>
+
+            <div class="interactive-card-face interactive-card-back">
+                <img id="viewerBackImage" src="" alt="Card back">
+            </div>
+        </div>
+    </div>
+
+    <div class="viewer-controls">
+        <button id="flipCardButton">FLIP CARD</button>
+        <button id="openCardPageButton">OPEN CARD PAGE</button>
+    </div>
+</div>
 
 </body>
 
