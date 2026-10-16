@@ -85,6 +85,24 @@ body {
 <body>
 
 
+  <header class="slots-header">
+    <!-- HOME BUTTON -->
+    <button class="slots-home" id="homeBtn">
+      <img src="images/home_iconV.2_white.png" alt="Home">
+    </button>
+
+          <!-- PROFILE BUTTON -->
+      <a href="dashboard.html">
+        <div class="profile-container">
+          <button class="profile-btn" id="aboutMeBtn">
+            <img src="images/binder.png" alt="Profile Image" class="profile-image">
+          </button>
+        </div>
+      </a>
+</header>
+
+  <div class="mobile-vignette"></div>
+
   
 
 <div class="sprite-container">
@@ -99,8 +117,8 @@ body {
 
 
 <div id="multiplierPanel">
+      <div id="multiplierControls"></div>
     <h3>UNLOCKED MULTIPLIERS (ON = Symbol is 3x more likely to appear)</h3>
-    <div id="multiplierControls"></div>
 </div>
 
 
@@ -144,7 +162,7 @@ body {
     <button class="start-button" onclick="spin(this)" value="Spin">
   <span class="shadow"></span>
   <span class="edge"></span>
-  <span class="front text"> SPIN
+  <span class="front text"> &#10026; SPIN &#10026;
   </span>
     </button>
 
@@ -162,19 +180,6 @@ body {
   </div>
 
 
-    <!-- HOME BUTTON -->
-    <button class="slots-home" id="homeBtn">
-      <img src="images/home_iconV.2_white.png" alt="Home">
-    </button>
-
-          <!-- PROFILE BUTTON -->
-      <a href="dashboard.html">
-        <div class="profile-container">
-          <button class="profile-btn" id="aboutMeBtn">
-            <img src="images/binder.png" alt="Profile Image" class="profile-image">
-          </button>
-        </div>
-      </a>
 
     <script>
     

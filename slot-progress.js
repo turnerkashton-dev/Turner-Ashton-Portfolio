@@ -160,19 +160,19 @@ const MULTIPLIER_OPTIONS = [
     { page: "apple.html", image: "apple" },
     { page: "apricot.html", image: "apricot" },
     { page: "banana.html", image: "banana" },
-    { page: "big-win.html", image: "big_win" },
+    { page: "big_win.html", image: "big_win" },
     { page: "cherry.html", image: "cherry" },
     { page: "grapes.html", image: "grapes" },
     { page: "lemon.html", image: "lemon" },
-    { page: "lucky-seven.html", image: "lucky_seven" },
+    { page: "lucky_seven.html", image: "lucky_seven" },
     { page: "orange.html", image: "orange" },
     { page: "pear.html", image: "pear" },
     { page: "strawberry.html", image: "strawberry" },
     { page: "watermelon.html", image: "watermelon" },
 
     {
-        page: "multiple-fruits.html",
-        image: "multiple-fruits",
+        page: "multiple_fruits.html",
+        image: "multiple_fruits",
         preview: true
     },
     {

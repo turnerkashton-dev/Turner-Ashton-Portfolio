@@ -8,7 +8,12 @@ const SPRITE_GROUPS = {
         'sprite_spin2',
         'sprite_spin3',
         'sprite_spin4',
-        'sprite_spin5'
+        'sprite_spin5',
+        'sprite_spin6',
+        'sprite_spin7',
+        'sprite_spin8',
+        'sprite_spin9',
+        'sprite_spin10'
     ],
 
     loss: [
@@ -19,13 +24,27 @@ const SPRITE_GROUPS = {
         'sprite_no_win5',
         'sprite_no_win6',
         'sprite_no_win7',
-        'sprite_no_win8'
+        'sprite_no_win8',
+        'sprite_no_win9',
+        'sprite_no_win10',
+        'sprite_no_win11',
+        'sprite_no_win12',
+        'sprite_no_win13',
+        'sprite_no_win14',
+        'sprite_no_win15',
+        'sprite_no_win16',
+        'sprite_no_win17',
+        'sprite_no_win18',
+        'sprite_no_win19'
     ],
 
     win: [
         'sprite_win',
         'sprite_win2',
-        'sprite_win3'
+        'sprite_win3',
+        'sprite_win4',
+        'sprite_win5',
+        'sprite_win6'
     ],
 
     fourAcross: [
@@ -41,8 +60,8 @@ const SPRITE_GROUPS = {
     ],
 
     fullScreen: [
-        'sprite_full_screen'
-
+        'sprite_full_screen',
+        'sprite_full_screen2'
     ],
 
     multipleWin: [
@@ -157,18 +176,18 @@ const WIN_PAGES = {
     apple: 'apple.html',
     apricot: 'apricot.html',
     banana: 'banana.html',
-    big_win: 'big-win.html',
+    big_win: 'big_win.html',
     cherry: 'cherry.html',
     grapes: 'grapes.html',
     lemon: 'lemon.html',
-    lucky_seven: 'lucky-seven.html',
+    lucky_seven: 'lucky_seven.html',
     orange: 'orange.html',
     pear: 'pear.html',
     strawberry: 'strawberry.html',
     watermelon: 'watermelon.html'
 };
 
-const MULTIPLE_WIN_PAGE = 'multiple-fruits.html';
+const MULTIPLE_WIN_PAGE = 'multiple_fruits.html';
 
 const BASE_SPINNING_DURATION = 2.0;
 const COLUMN_SPINNING_DURATION = 0.3;
@@ -280,7 +299,7 @@ changeSprite(getRandomSprite('fullScreen'), 5000);
 
         } else {
             // One regular winning pattern.
-changeSprite(getRandomSprite('win'), 3000);
+changeSprite(getRandomSprite('win'), 6000);
         }
 
         if (winningLines.length > 0) {
@@ -347,7 +366,7 @@ function applyActiveMultiplierCombo(results) {
 
     // Multiple fruits: 10% chance per spin when active.
     if (
-        active["multiple-fruits.html"] &&
+        active["multiple_fruits.html"] &&
         Math.random() < 0.10
     ) {
         const firstSymbol = randomSymbol();
@@ -367,7 +386,7 @@ function applyActiveMultiplierCombo(results) {
             results[col][1] = secondSymbol;
         }
 
-        return "multiple-fruits";
+        return "multiple_fruits";
     }
 
     return null;
