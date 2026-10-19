@@ -176,18 +176,18 @@ const MULTIPLIER_OPTIONS = [
         preview: true
     },
     {
-        page: "four-across.html",
-        image: "four-across",
+        page: "four_across.html",
+        image: "four_across",
         preview: true
     },
     {
-        page: "five-across.html",
-        image: "five-across",
+        page: "five_across.html",
+        image: "five_across",
         preview: true
     },
     {
-        page: "full-screen.html",
-        image: "full-screen",
+        page: "full_screen.html",
+        image: "full_screen",
         preview: true
     }
 ];

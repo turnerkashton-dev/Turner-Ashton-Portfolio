@@ -289,14 +289,14 @@ changeSprite(getRandomSprite('spin'), duration * 500 + 500);
             // No winning combinations.
 changeSprite(getRandomSprite('loss'), 2500);
 
-        } else if (winningLines.some(line => line.type === 'full-screen')) {
+        } else if (winningLines.some(line => line.type === 'full_screen')) {
             // Every visible symbol matches.
 changeSprite(getRandomSprite('fullScreen'), 5000);
 
-} else if (winningLines.some(line => line.type === 'five-across')) {
+} else if (winningLines.some(line => line.type === 'five_across')) {
     changeSprite(getRandomSprite('fiveAcross'), 4000);
 
-} else if (winningLines.some(line => line.type === 'four-across')) {
+} else if (winningLines.some(line => line.type === 'four_across')) {
     changeSprite(getRandomSprite('fourAcross'), 3500);
 
 } else if (winningLines.length >= 2) {
@@ -323,9 +323,9 @@ function applyActiveMultiplierCombo(results) {
     const randomSymbol = () =>
         ICONS[Math.floor(Math.random() * ICONS.length)];
 
-    // Full-screen jackpot: 0.5% chance per spin when active.
+    // Full_screen jackpot: 0.5% chance per spin when active.
     if (
-        active["full-screen.html"] &&
+        active["full_screen.html"] &&
         Math.random() < 0.005
     ) {
         const symbol = randomSymbol();
@@ -336,12 +336,12 @@ function applyActiveMultiplierCombo(results) {
             }
         }
 
-        return "full-screen";
+        return "full_screen";
     }
 
     // Five across: 2.5% chance per spin when active.
     if (
-        active["five-across.html"] &&
+        active["five_across.html"] &&
         Math.random() < 0.025
     ) {
         const symbol = randomSymbol();
@@ -351,12 +351,12 @@ function applyActiveMultiplierCombo(results) {
             results[col][row] = symbol;
         }
 
-        return "five-across";
+        return "five_across";
     }
 
     // Four across: 5% chance per spin when active.
     if (
-        active["four-across.html"] &&
+        active["four_across.html"] &&
         Math.random() < 0.05
     ) {
         const symbol = randomSymbol();
@@ -366,7 +366,7 @@ function applyActiveMultiplierCombo(results) {
             results[col][row] = symbol;
         }
 
-        return "four-across";
+        return "four_across";
     }
 
     // Multiple fruits: 10% chance per spin when active.
@@ -529,7 +529,7 @@ function checkForMatches() {
 
             if (isFiveAcross) {
                 winningLines.push({
-                    type: 'five-across',
+                    type: 'five_across',
                     symbol: symbol,
                     positions: [
                         [0, row],
@@ -554,7 +554,7 @@ if (width >= 4) {
 
         if (isFourAcross) {
             winningLines.push({
-                type: 'four-across',
+                type: 'four_across',
                 symbol: symbol,
                 positions: [
                     [0, row],
@@ -567,7 +567,7 @@ if (width >= 4) {
     }
 }
 
-    // FULL-SCREEN JACKPOT
+    // FULL_SCREEN JACKPOT
     if (width === 5) {
         const symbol = currentResults[0][0];
 
@@ -585,7 +585,7 @@ if (width >= 4) {
             }
 
             winningLines.push({
-                type: 'full-screen',
+                type: 'full_screen',
                 symbol: symbol,
                 positions: positions
             });
@@ -594,19 +594,19 @@ if (width >= 4) {
 
     const uniqueWins = removeDuplicateWins(winningLines);
 
-    // Full-screen jackpot overrides every other win.
-    if (uniqueWins.some(line => line.type === 'full-screen')) {
-        return uniqueWins.filter(line => line.type === 'full-screen');
+    // Full_screen jackpot overrides every other win.
+    if (uniqueWins.some(line => line.type === 'full_screen')) {
+        return uniqueWins.filter(line => line.type === 'full_screen');
     }
 
 // Five across overrides smaller patterns.
-if (uniqueWins.some(line => line.type === 'five-across')) {
-    return uniqueWins.filter(line => line.type === 'five-across');
+if (uniqueWins.some(line => line.type === 'five_across')) {
+    return uniqueWins.filter(line => line.type === 'five_across');
 }
 
 // Four across overrides regular patterns.
-if (uniqueWins.some(line => line.type === 'four-across')) {
-    return uniqueWins.filter(line => line.type === 'four-across');
+if (uniqueWins.some(line => line.type === 'four_across')) {
+    return uniqueWins.filter(line => line.type === 'four_across');
 }
 
 // Otherwise, return the normal wins.
@@ -702,18 +702,18 @@ function getWinningSymbols(winningLines) {
 }
 
 function getWinningPage(winningLines) {
-    // Full-screen jackpot has the highest priority.
-    if (winningLines.some(line => line.type === 'full-screen')) {
-        return 'full-screen.html';
+    // Full_screen jackpot has the highest priority.
+    if (winningLines.some(line => line.type === 'full_screen')) {
+        return 'full_screen.html';
     }
 
-    // Five-across jackpot takes priority over smaller wins.
-    if (winningLines.some(line => line.type === 'five-across')) {
-        return 'five-across.html';
+    // five_across jackpot takes priority over smaller wins.
+    if (winningLines.some(line => line.type === 'five_across')) {
+        return 'five_across.html';
     }
 
-    if (winningLines.some(line => line.type === 'four-across')) {
-    return 'four-across.html';
+    if (winningLines.some(line => line.type === 'four_across')) {
+    return 'four_across.html';
     }
 
     // Count separate three-symbol winning patterns.
@@ -753,15 +753,15 @@ if (typeof window.saveUnlockedPage === "function") {
 
     // Change the message depending on the type of win.
     const hasFullScreen = winningLines.some(
-        line => line.type === 'full-screen'
+        line => line.type === 'full_screen'
     );
 
     const hasFiveAcross = winningLines.some(
-        line => line.type === 'five-across'
+        line => line.type === 'five_across'
     );
 
     const hasFourAcross = winningLines.some(
-    line => line.type === "four-across"
+    line => line.type === "four_across"
 );
 
     let title;
