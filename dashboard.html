@@ -440,7 +440,7 @@
 
 
     #dashboardCollection {
-    width: min(90%, 900px);
+    width: min(80%, 1800px);
     margin: 30px auto;
     padding: 20px;
     color: white;
@@ -452,6 +452,14 @@
 #dashboardCollection h2 {
     color: #f9e13d;
     text-align: center;
+}
+
+
+#dashboardCollection p {
+  margin-top: 10px;
+      text-align: center;
+    margin-bottom: 24px;
+    color: #c6c6c6;
 }
 
 #dashboardUnlockedPages {
@@ -527,7 +535,7 @@
         white;
 
       padding:
-        10px 20px;
+        10px 60px;
 
       border-radius:
         20px;
@@ -536,7 +544,7 @@
         pointer;
 
       font-size:
-        12px;
+        24px;
 
       font-weight:
         bold;
@@ -547,6 +555,8 @@
       transition:
         all 0.25s ease;
 
+
+      margin-right: 0vw;
     }
 
 
@@ -563,8 +573,8 @@
     
     
     .header-btn2-home {
-      width: 100px;
-      height: 100px;
+      width: 80px;
+      height: 80px;
 
       border: none;
       background: transparent;
@@ -599,10 +609,10 @@
 
 
     .slots-container {
-      position: fixed;
-      top: 20%;
-      left: 92%;
-      right: 1%;
+      position:absolute;
+      top: 30%;
+      left: 70%;
+      right: 0%;
 
       display: flex;
       align-items: center;
@@ -610,6 +620,9 @@
 
 
       z-index: 1001;
+
+      width: 15vw;
+
 
     }
 
@@ -621,7 +634,7 @@
     }
 
     .slots-btn {
-      width: 150px;
+      width: auto;
       height: auto;
 
       border: none;
@@ -1012,44 +1025,43 @@
 
 
 
+
+  /*DESKTOP CSS FROM HERE ON*/
+  /* =========================*/
+  @media (min-width: 1410px) {
+
+
+.dashboard-footer-mobile {
+  display: none;
+}
+
+.dashboard-footer-mobile img {
+  display: none;
+}
+
+  }
+
+
+
+
+
+
+
 /* MOBILE CARD FOLDER */
 @media (max-width: 700px) {
 
+    body {
+      background-color: #431986;
+      
 
-    /*slots section*/
+      background-size: contain;
 
+      background-blend-mode:multiply;
 
-    .slots-container {
-      position: fixed;
-      top: 3%;
-      left: 60%;
-      right: 1%;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-
-      z-index: 1001;
-
+      background-image: url(images/background_grid_2.jpeg);
+      
     }
 
-    .slots-image {
-      width: 100%;
-      height: auto;
-      max-width: 800px;
-      max-height: 600px;
-    }
-
-    .slots-btn {
-      width: 150px;
-      height: auto;
-
-      border: none;
-      background: transparent;
-
-      opacity: 1;
-    }
 
     #dashboardCardFolder {
         grid-template-columns: minmax(0, 1fr);
@@ -1059,13 +1071,11 @@
     #cardFolder {
           width: min(95%, 680px);
 
-        padding: 14px;
-        
+        padding: 8px;
     }
 
     .dashboard-folder-page {
         width: 100%;
-        min-width: 0;
         min-height: 420px;
         border-radius: 10px;
     }
@@ -1094,67 +1104,78 @@
     .book-page-flipper .dashboard-folder-page {
         min-height: 100%;
     }
+
+
+
+.dashboard-prize-card {
+    min-width: 0;
+    color: white;
+    text-align: center;
+    text-decoration: none;
 }
 
+.dashboard-prize-card img,
+.dashboard-locked-question {
+    display: flex;
+    width: 100%;
+    aspect-ratio: 1 / 0.3;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #f9e03d81;
+    border-radius: 8px;
+}
 
-    /* =========================
-       MOBILE
-    ========================= */
+.dashboard-prize-card img {
+    object-fit: contain;
+}
 
-    @media (max-width: 600px) {
+.dashboard-locked-question {
+    background: rgba(0, 0, 0, 0.65);
+    border-style: dashed;
+    color: #f9e13d;
+    font-size: 48px;
+    font-weight: bold;
+}
 
-          .viewer-card-stage {
-        width: min(78vw, 300px);
-        height: min(55vh, 430px);
-    }
+.dashboard-prize-card span {
+    display: block;
+    margin-top: 6px;
+    overflow-wrap: anywhere;
+}
 
-    .viewer-controls button {
-        padding: 10px 12px;
-        font-size: 11px;
-    }
+  
 
-      .dashboard-header {
-
-        padding:
-          15px;
-
-      }
-
-      .dashboard-main {
-
-        width:
-          95%;
-
-        padding:
-          40px 0;
-
-      }
-
-      .welcome h1 {
-
-        font-size:
-          40px;
-
-      }
-
-      
-    .header-btn2-home {
+    .dashboard-header {
       width: 100vw;
-      height: 7vh;
+      padding: 20px 3vw;
+
+      display: flex;
+      justify-content: space-between;
+
+      border-bottom:
+        1px solid rgba(255, 255, 255, 0.15);
+      background:
+        rgba(0, 0, 0, 0.75);
+      backdrop-filter:
+        blur(10px);
+    }
+
+    .p-dashboard-header {
+      color: red;
+      font-size: 14px;
+      font-style: italic;
+      margin-left: 12%;
+    }
+
+
+
+    .header-btn2-home {
+      width: 60px;
+      height: 60px;
 
       border: none;
       background: transparent;
-
-      position:sticky;
-
-      top: 0vh;
-      left: 0vw;
-
-      background: rgba(255, 255, 255, 0.185);
-      backdrop-filter: blur(10px);
-      z-index: 1000;
-
-      padding: 4px;
 
     }
 
@@ -1165,9 +1186,145 @@
     }
 
 
- 
 
+
+    .dashboard-footer-mobile {
+      width: 100vw;
+      height: 8vh;
+      top: 92vh;
+
+      position: absolute;
+      justify-content:center;
+      align-items: center;
+
+      border-top:
+        1px solid rgba(255, 255, 255, 0.15);
+      background:
+        rgba(0, 0, 0, 0.75);
+      backdrop-filter:
+        blur(10px);
+    }
+
+
+    .slots-container {
+      display: none;
+    }
+
+
+    /*slots section*/
+    .slots-container2 {
+      position: absolute;
+      align-items: center;
+      justify-content: center;
+
+      z-index: 1001;
+      top: 1vh;
+      left: 20vw;
+      width: 60vw;
+      height: auto;
+    }
+
+    .slots-image {
+      width: 100%;
+      height: auto;
+      max-width: 800px;
+      max-height: 600px;
+    }
+
+    .slots-btn {
+      width: auto;
+      height: auto;
+      border: none;
+      background: transparent;
+    }
+
+
+
+
+
+    .dashboard-main {
+      max-width: 700px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 20px 0;
+    }
+
+
+    
+  .welcome {
+      margin-bottom:
+        10px;
   }
+
+  .welcome h1 {
+      font-size:
+        clamp(32px, 6vw, 70px);
+
+   text-align: left;
+   margin-left: 4px;
+   margin-bottom: 2px;
+  }
+
+  .welcome h1 span {
+      color: #8559da;
+  }
+
+.welcome p {
+     text-align: left;
+
+      color:rgba(255, 255, 255, 0.7);
+      font-size: 16px;
+      margin-left: 4px;
+}
+
+.drop-down-account-settings {
+    position: relative;
+    width: 100%;
+    
+  }
+
+.drop-down-btn {
+    padding: 20px 12px;
+    color: #8e3df9;
+    background: #171717;
+    border: 1px solid #a43df9;
+    border-radius: 6px;
+    cursor: pointer;
+
+    margin-left: 70%;
+    margin-right: 4px;
+    transform: translateY(-70px);
+  }
+
+
+
+    
+#dashboardCollection {
+    width: min(95%, 900px);
+    margin: 30px auto;
+    padding: 20px;
+    color: white;
+    background: rgba(0, 0, 0, 0.75);
+    border: 1px solid #f9e13d;
+    border-radius: 12px;
+}
+
+#dashboardCollection h2 {
+    color: #f9e13d;
+    text-align: center;
+}
+
+#dashboardCollection p {
+  margin-top: 10px;
+      text-align: center;
+    margin-bottom: 24px;
+    color: #c6c6c6;
+}
+
+
+}
+
+
 
 /* FADE PAGE CONTENTS WITHOUT HIDING THE PAGE BACKGROUND */
 #dashboardCardFolder .dashboard-folder-page > h3,
@@ -1201,20 +1358,9 @@
 
 
 
-    <!-- HOME BUTTON -->
-    <button class="header-btn2-home" id="homeBtn">
-      <img src="images/home_iconV.2_white.png" alt="Home">
 
-    </button>
     
-          <!-- SLOTS BUTTON -->
-      <a href="slotindex.html">
-        <div class="slots-container">
-          <button class="slots-btn" id="aboutMeBtn">
-            <img src="images/try_your_luck.png" alt="About Me Image" class="slots-image">
-          </button>
-        </div>
-      </a>
+
     
 
 
@@ -1244,13 +1390,24 @@
       </div>
 
 
-      <button id="logoutButton" class="logout-button">
 
-        LOG OUT
+    <!-- HOME BUTTON -->
+    <button class="header-btn2-home" id="homeBtn">
+      <img src="images/home_iconV.2_white.png" alt="Home">
 
-      </button>
+    </button>
 
     </header>
+
+    
+                <!-- SLOTS BUTTON -->
+      <a href="slotindex.html">
+        <div class="slots-container">
+          <button class="slots-btn" id="aboutMeBtn">
+            <img src="images/try_your_luck.png" alt="try your luck" class="slots-image">
+          </button>
+        </div>
+      </a>
 
 
     <!-- MAIN -->
@@ -1273,6 +1430,8 @@
           You are successfully signed in.
         </p>
 
+
+
       </section>
 
 
@@ -1285,9 +1444,21 @@
         ACCOUNT INFO
     </button>
 
+
+    
+
     <div id="myDropdown" class="account-settings-content">
         <!-- Move the account cards you want inside the dropdown here -->
         <section class="dashboard-grid">
+
+          
+
+              <button id="logoutButton" class="logout-button">
+
+        LOG OUT
+
+      </button>
+
 
             <div class="dashboard-card">
                 <h2>Account</h2>
@@ -1314,6 +1485,8 @@
                 <h2>Account Status</h2>
                 <p id="accountStatus">Checking...</p>
             </div>
+
+
 
         </section>
     </div>
@@ -2460,6 +2633,24 @@ requestAnimationFrame(() => {
         <button id="openCardPageButton">OPEN CARD PAGE</button>
     </div>
 </div>
+
+
+
+
+
+    <footer class="dashboard-footer-mobile">
+
+                <!-- SLOTS BUTTON -->
+      <a href="slotindex.html">
+        <div class="slots-container2">
+          <button class="slots-btn" id="aboutMeBtn">
+            <img src="images/try_your_luck.png" alt="try your luck" class="slots-image">
+          </button>
+        </div>
+      </a>
+
+    </footer>
+      
 
 </body>
 
