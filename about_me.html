@@ -121,8 +121,17 @@ const images = [
     document.querySelector('#journey-img6')
 ];
 
-const imageSpacing = 1;
-const stageCount = 6;
+const desktopImageSpacing = 1;
+const mobileImageSpacing = 0.3;
+
+const desktopStageCount = 5;
+const mobileStageCount = 1.5;
+
+function getImageSpacing() {
+    return window.innerWidth <= 700
+        ? mobileImageSpacing
+        : desktopImageSpacing;
+}
 
 function updateJourney() {
     const scrollableDistance = track.offsetHeight - window.innerHeight;
@@ -136,10 +145,20 @@ function updateJourney() {
         Math.min(1, -rect.top / scrollableDistance)
     );
 
-    const stage = progress * stageCount;
+const isMobile = window.innerWidth <= 700;
+
+const imageSpacing = isMobile
+    ? mobileImageSpacing
+    : desktopImageSpacing;
+
+const stageCount = isMobile
+    ? mobileStageCount
+    : desktopStageCount;
+
+const stage = progress * stageCount;
 
     images.forEach((img, index) => {
-        const position = (index * imageSpacing - stage) * 120;
+const position = (index * getImageSpacing() - stage) * 120;
 
         img.style.transform = `translate3d(0, ${position}vh, 0)`;
     });
@@ -602,7 +621,7 @@ body {
 @media (max-width: 700px) {
     .journey-scroll-track {
         position: relative;
-        height: 300vh;
+        height: 600vh;
         width: 100%;
     }
 
@@ -633,7 +652,7 @@ body {
     }
 
     #journey-img {
-        width: 150vw;
+        width: 180vw;
         max-width: none;
         max-height: none;
         flex-shrink: 0;
@@ -697,7 +716,6 @@ body {
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
-
 }
 
 
