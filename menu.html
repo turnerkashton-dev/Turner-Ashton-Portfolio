@@ -61,40 +61,7 @@
 
   </header>
 
-
-  <!-- PAGE CONTENT -->
-  <div class="content">
-
-    <div class="backing-content1">
-
-      <!-- HEADER for MOBILE .html VERSION -->
-      <header class="header-mobile-menutop">
-
-
-        <!-- TIKTOK BUTTON -->
-        <a href="https://www.tiktok.com/@art.tsukii" target="_blank" rel="noopener noreferrer">
-          <button class="header-btn-2-mobile" id="Btn2-mobile">
-            <img src="images/tiktok_icon.png" alt="Btn2">
-          </button>
-        </a>
-
-        <!-- INSTAGRAM BUTTON -->
-        <a href="https://www.instagram.com/art.tsukii/" target="_blank" rel="noopener noreferrer">
-          <button class="header-btn-3-mobile" id="Btn3-mobile">
-            <img src="images/instagram_icon.png" alt="Btn3">
-          </button>
-        </a>
-
-        <!-- LINKEDIN BUTTON -->
-        <a href="https://www.linkedin.com/in/turner-ashton-art-tsukii/" target="_blank" rel="noopener noreferrer">
-          <button class="header-btn-4-mobile" id="Btn4-mobile">
-            <img src="images/linkedin_icon.png" alt="Btn4">
-          </button>
-        </a>
-
-      </header>
-
-
+  
       <!-- ABOUT ME BUTTON -->
       <a href="about_me.html">
         <div class="about-me-container">
@@ -132,6 +99,40 @@
           </button>
         </div>
       </a>
+
+
+
+  <!-- PAGE CONTENT -->
+  <div class="content">
+
+    <div class="backing-content1">
+
+      <!-- HEADER for MOBILE .html VERSION -->
+      <header class="header-mobile-menutop">
+
+
+        <!-- TIKTOK BUTTON -->
+        <a href="https://www.tiktok.com/@art.tsukii" target="_blank" rel="noopener noreferrer">
+          <button class="header-btn-2-mobile" id="Btn2-mobile">
+            <img src="images/tiktok_icon.png" alt="Btn2">
+          </button>
+        </a>
+
+        <!-- INSTAGRAM BUTTON -->
+        <a href="https://www.instagram.com/art.tsukii/" target="_blank" rel="noopener noreferrer">
+          <button class="header-btn-3-mobile" id="Btn3-mobile">
+            <img src="images/instagram_icon.png" alt="Btn3">
+          </button>
+        </a>
+
+        <!-- LINKEDIN BUTTON -->
+        <a href="https://www.linkedin.com/in/turner-ashton-art-tsukii/" target="_blank" rel="noopener noreferrer">
+          <button class="header-btn-4-mobile" id="Btn4-mobile">
+            <img src="images/linkedin_icon.png" alt="Btn4">
+          </button>
+        </a>
+
+      </header>
 
 
       <br>
@@ -1041,7 +1042,7 @@
     .about-me-container {
       position: fixed;
       top: 11%;
-      left: 90%;
+      left: -90%;
       right: 1%;
 
 
@@ -1070,12 +1071,13 @@
       cursor: pointer;
 
       transition: transform 0.2s ease;
-
+      opacity: 0.5;
 
     }
 
     .about-me-btn:hover {
       transform: scale(1.1);
+      opacity: 1;
     }
 
     /*how i made this website section*/
@@ -1083,7 +1085,7 @@
     .how-i-made-this-site-container {
       position: fixed;
       top: 17%;
-      left: 87%;
+      left: -87%;
       right: 1%;
 
       display: flex;
@@ -1111,10 +1113,12 @@
       cursor: pointer;
 
       transition: transform 0.2s ease;
+      opacity: 0.5;
     }
 
     .how-i-made-this-site-btn:hover {
       transform: scale(1.1);
+      opacity: 1;
     }
 
 
@@ -1125,17 +1129,15 @@
 
     .slots-container {
       position: fixed;
-      top: 24%;
-      left: 89%;
+      top: 23%;
+      left: -89%;
       right: 1%;
 
       display: flex;
       align-items: center;
       justify-content: center;
 
-
       z-index: 3;
-
     }
 
     .slots-image {
@@ -1156,7 +1158,7 @@
 
       transition: transform 0.2s ease;
 
-      opacity: 1;
+      opacity: 0.5;
 
     }
 
@@ -1174,7 +1176,7 @@
 
     .profile-container {
       position: fixed;
-      top: 28%;
+      top: 12%;
       left: 95%;
       right: 1%;
 
@@ -1183,7 +1185,7 @@
       align-items: center;
       justify-content: center;
 
-      z-index: 0;
+      z-index: 3;
 
 
     }
@@ -1206,7 +1208,7 @@
 
       transition: transform 0.2s ease;
 
-      opacity: 1;
+      opacity: 0.5;
 
     }
 
@@ -1281,7 +1283,7 @@
 
     /* PAGE CONTENT MOBILE*/
     .content {
-      padding-top: 120px;
+      padding-top: 10px;
       color: white;
 
       width: 100vw;
@@ -1304,17 +1306,49 @@
 
 
     h1 {
-      font-size: 5vw;
+      font-size: 10vw;
     }
 
-    .h2-right {
-      margin-right: 18%;
+
+    .h2-leftV-2 {
+      left: 11%;
+
+      font-size: 4vh;
+      position: absolute;
+
+      color: rgba(0, 0, 0, 0.075);
+      text-shadow: 3px 2px 3px rgba(255, 255, 255, 0.747);
+
+      z-index: 1001;
     }
 
-    .h2-left {
-      margin-left: 18%
+
+    .h2-rightV-2 {
+      left: 49%;
+      font-size: 4vh;
+      position: absolute;
+
+      color: rgba(0, 0, 0, 0.075);
+      text-shadow: 3px 2px 3px rgba(255, 255, 255, 0.747);
+
+      z-index: 1001;
     }
 
+  .header {
+    position: fixed;
+    width: 100%;
+    min-height: 60px;
+
+    background: rgba(255, 255, 255, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 1000;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+  }
 
     /* BUTTONS */
     .header-btn {
@@ -1325,6 +1359,8 @@
       background: transparent;
 
       cursor: pointer;
+
+      z-index: 1002;
     }
 
 
@@ -1345,6 +1381,8 @@
       position: absolute;
 
       left: 3%;
+
+      z-index: 1002;
     }
 
 
@@ -1353,8 +1391,6 @@
       height: 100%;
       object-fit: contain;
     }
-
-
 
 
     .header-btn2-home {
@@ -1368,6 +1404,7 @@
 
       left: 85%;
 
+      z-index: 1002;
     }
 
     .header-btn2-home img {
@@ -1396,6 +1433,7 @@
 
       transition: scale(1.1);
 
+      display: none;
 
     }
 
@@ -1587,12 +1625,13 @@
 
 
     .about-me-container {
-
       display: flex;
       align-items: center;
       justify-content: center;
 
       z-index: 3;
+            padding-top: 8vh;
+
     }
 
     .about-me-image {
@@ -1605,27 +1644,18 @@
     .about-me-btn {
       width: 150px;
       height: auto;
-
       border: none;
       background: transparent;
 
-      cursor: pointer;
-
-      transition: transform 0.2s ease;
+      transform: translateX(-30vw);
     }
 
-    .about-me-btn:hover {
-      transform: scale(1.1);
-    }
 
     /*how i made this website section*/
-
     .how-i-made-this-site-container {
-
       display: flex;
       align-items: center;
       justify-content: center;
-
 
       z-index: 3;
     }
@@ -1640,30 +1670,19 @@
     .how-i-made-this-site-btn {
       width: 200px;
       height: auto;
-
       border: none;
       background: transparent;
 
-      cursor: pointer;
-
-      transition: transform 0.2s ease;
+      margin-bottom: 1vh;
+      transform: translateX(-24vw);
     }
-
-    .how-i-made-this-site-btn:hover {
-      transform: scale(1.1);
-    }
-
 
 
     /*slots section*/
-
-
     .slots-container {
-
       display: flex;
       align-items: center;
       justify-content: center;
-
 
       z-index: 3;
     }
@@ -1676,41 +1695,27 @@
     }
 
     .slots-btn {
-      width: 150px;
+      width: 180px;
       height: auto;
-
       border: none;
       background: transparent;
-
-      cursor: pointer;
-
-      transition: transform 0.2s ease;
-
       opacity: 1;
 
+      transform: translateX(-26vw);
     }
-
-    .slots-btn:hover {
-      transform: scale(1.1);
-
-      opacity: 1;
-
-    }
-
 
 
     /*profile section*/
-
-
     .profile-container {
+      position: absolute;
 
       display: flex;
       align-items: center;
       justify-content: center;
-
-
       z-index: 3;
-
+      
+      left: 80vw;
+      top: 8.5vh;
     }
 
     .profile-image {
@@ -1723,30 +1728,15 @@
     .profile-btn {
       width: 50px;
       height: auto;
-
       border: none;
       background: transparent;
-
-      cursor: pointer;
-
-      transition: transform 0.2s ease;
-
       opacity: 1;
-
-    }
-
-    .profile-btn:hover {
-      transform: scale(1.1);
-
-      opacity: 1;
-
     }
 
 
 
     .email-tka {
       width: 80vw;
-
       margin-left: 8%;
 
       font-size: 2vh;
@@ -1754,7 +1744,6 @@
 
       background-image: url(images/background_horiz.jpeg);
       background-size: cover;
-
 
       box-shadow: 2px 21px 26px 9px rgba(0, 0, 0, 0.75) inset;
       -webkit-box-shadow: 2px 21px 26px 9px rgba(0, 0, 0, 0.75) inset;
@@ -1764,7 +1753,6 @@
       border-radius: 25px;
 
       background-blend-mode: screen;
-
     }
 
   }
