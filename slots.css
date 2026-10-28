@@ -1073,12 +1073,10 @@ body {
         top: 0;
         left: 0;
         width: 100%;
-        min-height: 9vh;
+        min-height: 2vh;
         display: flex;
         align-items: center;
         justify-content: space-between;
-
-        padding: 10px 15px;
 
         background: rgba(0, 0, 0, 0.75);
         backdrop-filter: blur(10px);
@@ -1086,6 +1084,14 @@ body {
 
         border-bottom: 1px solid rgba(255, 255, 255, 0.15);
         z-index: 1000;
+
+    }
+
+    .slots-header p{
+        font-size: 5vw;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.514);
+        margin:auto;
     }
 
 
@@ -1114,11 +1120,15 @@ body {
     background: rgba(0, 0, 0, 0.75);
     border: 1px solid #f9e13d;
     border-radius: 12px;
+
+    display: none;
 }
 
 #unlockedSection h2 {
     margin-bottom: 10px;
     color: #f9e13d;
+
+    display: none;
 }
 
 #unlockedPages {
@@ -1126,7 +1136,9 @@ body {
     grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
     gap: 5px;
 
-    margin-bottom: 45vh;
+    margin-bottom: 0vh;
+
+    display: none;
 }
 
 .unlocked-card {
@@ -1161,27 +1173,26 @@ body {
 
 #multiplierPanel {
     position: relative;
-    z-index: 20;
     margin: 2px auto;
     padding: 2px;
     width: min(98%, 700px);
     color: white;
     text-align: center;
 
-
-background-image: linear-gradient(to bottom, #000000a4, #00000000);
+    background-image: linear-gradient(to bottom, #000000a4, #00000000);
     border-top: 0px solid #c99b38;
     border-radius: 12px;
 
-    top: 8vh;
+    top: 0vh;
     left: 0vw;
 
-    z-index: 8;
+    z-index: 0;
 }
 
 #multiplierPanel h3 {
     margin: 5px 0 0px;
     font-size: 12px;
+    color: rgba(255, 255, 255, 0.76);
 }
 
 #multiplierControls {
@@ -1194,7 +1205,7 @@ background-image: linear-gradient(to bottom, #000000a4, #00000000);
 .multiplier-option {
     width: 40px;
     height: 40px;
-    padding: 5px;
+    padding: 4px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1212,7 +1223,7 @@ background-image: linear-gradient(to bottom, #000000a4, #00000000);
 }
 
 .multiplier-option.active {
-    border: 3px solid #ffe36e;
+    border: 1px solid #ffe36e;
     box-shadow: 0 0 12px rgba(255, 227, 110, 0.8);
 }
 
@@ -1266,17 +1277,16 @@ background-image: linear-gradient(to bottom, #000000a4, #00000000);
 
 
 #container {
-    position: relative;
+    position: absolute;
 
     width: 96vw;
-    height: 60vh;
+    height: 48vh;
 
-    /* Keep the container in a consistent position */
-    margin: 100px auto 0;
+    margin: 0px auto 0;
 
     padding: 2vw;
     padding-top: 5vw;
-    padding-bottom: 4vw;
+    padding-bottom: 0vh;
 
     box-sizing: border-box;
 
@@ -1285,13 +1295,13 @@ background-image: linear-gradient(to bottom, #000000a4, #00000000);
 
     background-image: none;
 
-    background-color: transparent;
+    background-color: black;
 
     /* Prevent inherited desktop positioning */
-    top: auto;
-    left: auto;
-    right: auto;
-    bottom: auto;
+    top: 52vh;
+    left: 1vw;
+    right: 1vw;
+    bottom: 0vh;
 
     z-index: 9;
 }
@@ -1447,11 +1457,11 @@ background-image: linear-gradient(to bottom, #000000a4, #00000000);
 
         background-image:
             linear-gradient(to bottom,
-                rgba(0, 0, 0, 0.26),
+                rgb(110, 0, 0),
                 transparent,
                 rgb(0, 0, 0));
 
-        z-index: 10;
+        z-index: 0;
 
         pointer-events: none;
     }
@@ -1496,7 +1506,7 @@ background-image: linear-gradient(to bottom, #000000a4, #00000000);
 
         display: block;
 
-    width: 90%;
+    width: 92%;
     left: auto;
     margin: 6vw auto;
 
@@ -1556,11 +1566,9 @@ background-image: linear-gradient(to bottom, #000000a4, #00000000);
      */
 
     .win-box {
-
         width: 88vw;
 
         min-width: 0;
-
         max-width: 400px;
 
         padding: 7vw 5vw;
@@ -1569,7 +1577,7 @@ background-image: linear-gradient(to bottom, #000000a4, #00000000);
 
     .win-box h2 {
 
-        font-size: 7vw;
+        font-size: 14vw;
     }
 
 
@@ -1605,7 +1613,7 @@ background-image: linear-gradient(to bottom, #000000a4, #00000000);
 .sprite-container {
     position: fixed;
 
-    top: 48vh;
+    top: 14vh;
     left: -5vw;
 
     width: 100vw;
@@ -1615,7 +1623,7 @@ background-image: linear-gradient(to bottom, #000000a4, #00000000);
     pointer-events: none;
     animation: breathe 16s ease-in-out infinite;
 
-    z-index: 11;
+    z-index: 1;
 }
 
 
@@ -1651,11 +1659,12 @@ background-image: linear-gradient(to bottom, #000000a4, #00000000);
 
       position: absolute;
 
-      left: 10vw;
-      top: 1vh;
+      left: 85vw;
+      top: 16vh;
 
       z-index: 11;
 
+      mix-blend-mode:color;
     }
 
     .slots-home img {
@@ -1673,13 +1682,14 @@ background-image: linear-gradient(to bottom, #000000a4, #00000000);
       border: none;
       background: transparent;
 
-      position: absolute;
+      position: absolute; 
 
-      left: 75vw;
-      top: 1.45vh;
+      left: -1vw;
+      top: 17vh;
 
       z-index: 11;
-
+      
+      mix-blend-mode:color;
     }
 
     .profile-container img {
@@ -1689,6 +1699,9 @@ background-image: linear-gradient(to bottom, #000000a4, #00000000);
 
     }
 
+/*
+            font-family: Arial, Helvetica, sans-serif;
+*/
     
 
 #introText {
@@ -1703,16 +1716,11 @@ background-image: linear-gradient(to bottom, #000000a4, #00000000);
     padding: 15px;
     background-image:
             linear-gradient(to bottom,
-                rgba(0, 0, 0, 0.856),
+                rgba(0, 0, 0, 0.884),
                 transparent,
-                rgba(0, 0, 0, 0.438));    border-radius: 12px;    backdrop-filter: blur(3px);
+                rgba(0, 0, 0, 0.596));    border-radius: 12px;    backdrop-filter: blur(9px);
 
     border-radius: 12px;
-
-    top: 20vh;
-    left: 5vw;
-    
-    z-index: 8;
 
 }
 
@@ -1740,24 +1748,24 @@ background-image: linear-gradient(to bottom, #000000a4, #00000000);
     position: fixed;
     left: 50%;
     transform: translateX(-50%);
-    width: 90vw;
-    height: 50vh;
+    width: 98vw;
+    height: 20vh;
 
     max-width: none;
     margin: 0;
     text-align: center;
-    padding-top: 15vh;
+    padding-top: 5vh;
 
-        z-index: 10;
+        z-index: 1010;
 
 text-shadow: 2px 2px 11px rgba(0,0,0,0.89);}
 
 #introText {
-    top: 20vh;
+    top: 0vh;
 }
 
 #continueText {
-    top: 36vh;
+    top: 12vh;
 }
 
 /* Hide the intro messages after the game starts */
