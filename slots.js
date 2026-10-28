@@ -297,7 +297,9 @@ changeSprite(getRandomSprite('fullScreen'), 5000);
     changeSprite(getRandomSprite('fiveAcross'), 4000);
 
 } else if (winningLines.some(line => line.type === 'four_across')) {
-    changeSprite(getRandomSprite('fourAcross'), 3500);
+    const spriteName = getRandomSprite('fourAcross');
+    console.log('Four-across win detected:', spriteName);
+    changeSprite(spriteName, 5000);
 
 } else if (winningLines.length >= 2) {
     changeSprite(getRandomSprite('multipleWin'), 3500);
@@ -544,28 +546,30 @@ function checkForMatches() {
     }
 
     // FOUR ACROSS
-if (width >= 4) {
-    for (let row = 0; row < height; row++) {
-        const symbol = currentResults[0][row];
+    if (width >= 4) {
+        for (let row = 0; row < height; row++) {
+            for (let startCol = 0; startCol <= width - 4; startCol++) {
+                const symbol = currentResults[startCol][row];
 
-        const isFourAcross = currentResults
-            .slice(0, 4)
-            .every(col => col[row] === symbol);
+                const isFourAcross = currentResults
+                    .slice(startCol, startCol + 4)
+                    .every(col => col[row] === symbol);
 
-        if (isFourAcross) {
-            winningLines.push({
-                type: 'four_across',
-                symbol: symbol,
-                positions: [
-                    [0, row],
-                    [1, row],
-                    [2, row],
-                    [3, row]
-                ]
-            });
+                if (isFourAcross) {
+                    winningLines.push({
+                        type: 'four_across',
+                        symbol: symbol,
+                        positions: [
+                            [startCol, row],
+                            [startCol + 1, row],
+                            [startCol + 2, row],
+                            [startCol + 3, row]
+                        ]
+                    });
+                }
+            }
         }
     }
-}
 
     // FULL_SCREEN JACKPOT
     if (width === 5) {
