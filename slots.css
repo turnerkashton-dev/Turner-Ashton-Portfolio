@@ -1172,7 +1172,7 @@ body {
 
 
 #multiplierPanel {
-    position: relative;
+    position: fixed;
     margin: 2px auto;
     padding: 2px;
     width: min(98%, 700px);
@@ -1183,8 +1183,8 @@ body {
     border-top: 0px solid #c99b38;
     border-radius: 12px;
 
-    top: 0vh;
-    left: 0vw;
+    top: 4vh;
+    left: 1vw;
 
     z-index: 0;
 }
@@ -1447,7 +1447,7 @@ body {
 
 
     .mobile-vignette {
-        position: absolute;
+        position: fixed;
 
         top: 0;
         left: 0;
