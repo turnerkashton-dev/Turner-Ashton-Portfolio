@@ -1073,7 +1073,7 @@ body {
         top: 0;
         left: 0;
         width: 100%;
-        min-height: 2vh;
+        height: 4vh;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -1277,10 +1277,10 @@ body {
 
 
 #container {
-    position: absolute;
+    position: fixed;
 
     width: 96vw;
-    height: 48vh;
+    height: 40vh;
 
     margin: 0px auto 0;
 
@@ -1297,8 +1297,8 @@ body {
 
     background-color: black;
 
-    /* Prevent inherited desktop positioning */
-    top: 52vh;
+    /* Turner ensure to prevent inherited desktop positioning */
+    top: 60vh;
     left: 1vw;
     right: 1vw;
     bottom: 0vh;
@@ -1457,7 +1457,7 @@ body {
 
         background-image:
             linear-gradient(to bottom,
-                rgb(110, 0, 0),
+                rgba(255, 255, 255, 0.658),
                 transparent,
                 rgb(0, 0, 0));
 
@@ -1496,7 +1496,7 @@ body {
     
     background-color: transparent;
 
-    height: 14vh;
+    height: 11vh;
 
     }
 
@@ -1508,7 +1508,7 @@ body {
 
     width: 92%;
     left: auto;
-    margin: 6vw auto;
+    margin: 2.25vw auto;
 
         -webkit-text-fill-color: rgb(136, 56, 56);
 
@@ -1534,7 +1534,7 @@ body {
     justify-content: center;
 
     width: 100%;
-    height: 9vh;
+    height: auto;
     padding: 0;
 
     font-size: 4.2rem;
@@ -1664,7 +1664,7 @@ body {
 
       z-index: 11;
 
-      mix-blend-mode:color;
+      mix-blend-mode: normal;
     }
 
     .slots-home img {
@@ -1689,7 +1689,7 @@ body {
 
       z-index: 11;
       
-      mix-blend-mode:color;
+      mix-blend-mode:normal;
     }
 
     .profile-container img {
@@ -1792,50 +1792,100 @@ text-shadow: 2px 2px 11px rgba(0,0,0,0.89);}
 @media screen and (max-width: 380px) {
 
     :root {
-        --item-height: 19vw;
+        --item-height: 15vw;
     }
 
 
     #container {
-
-        width: 97vw;
-
-        padding: 1.5vw;
-
-        padding-top: 2.5vw;
-        padding-bottom: 3vw;
-
-        z-index: 9;
+        height: 38vh;
+        top: auto;
     }
 
+.col img {
+    width: 80%;
 
-    .col img {
-        width: 88%;
-    }
+    height: auto;
 
+    margin: 1px 10%;
 
-    
-    .mobile-vignette {
-        position: absolute;
+    position: relative;
 
+    z-index: 3;
+}
+
+        .slots-header {
+        position: relative;
         top: 0;
         left: 0;
-
         width: 100%;
-        height: 100%;
+        height: 4vh;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
 
-        background-image:
-            linear-gradient(to bottom,
-                rgba(230, 20, 20, 0.877),
-                transparent,
-                rgba(79, 202, 42, 0.4));
-
+        background: rgb(0, 0, 0);
         z-index: 10;
+        border-bottom: none;
+    }
 
-        pointer-events: none;
+    .slots-header p{
+        font-size: 4vw;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.514);
+        margin:auto;
     }
 
 
+#multiplierPanel {
+    position: relative;
+    margin: 0px auto;
+    padding-bottom: 10px;
+    padding-top: 0px;
+    width: min(98%, 700px);
+    color: white;
+    text-align: center;
+
+    background-image: linear-gradient(to top, #000000c2, #000000);
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+
+
+    top: 0vh;
+    left: 0vw;
+    right: 0vw;
+
+    z-index: 0;
+
+    
+    border-bottom: #fcf8ad 1px solid;
+    border-left: #fcf8ad 1px solid;
+    border-right: #fcf8ad 1px solid;
+
+}
+
+#multiplierPanel h3 {
+    margin: px 0 0px;
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.76);
+}
+
+#multiplierControls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2px;
+}
+
+
+.mobile-vignette{
+            background-image:
+            linear-gradient(to bottom,
+                rgba(255, 0, 0, 0.658),
+                transparent,
+                rgb(0, 0, 0));
+}
 
     
     .slots-home {
@@ -1847,13 +1897,12 @@ text-shadow: 2px 2px 11px rgba(0,0,0,0.89);}
 
       position: absolute;
 
-      left: 75vw;
-      top: 3vh;
+      left: 85vw;
+      top: 26vh;
 
       z-index: 11;
 
-
-
+      mix-blend-mode: soft-light;
     }
 
     .slots-home img {
@@ -1871,15 +1920,14 @@ text-shadow: 2px 2px 11px rgba(0,0,0,0.89);}
       border: none;
       background: transparent;
 
-      position: absolute;
+      position: absolute; 
 
-      left: 10vw;
-      top: 3vh;
+      left: -1vw;
+      top: 27vh;
 
       z-index: 11;
-
-
-
+      
+      mix-blend-mode: soft-light;
     }
 
     .profile-container img {
@@ -1889,8 +1937,8 @@ text-shadow: 2px 2px 11px rgba(0,0,0,0.89);}
 
     }
 
-    
 
+    
 #introText {
     font-size: 28px;
     font-weight: bold;
@@ -1901,15 +1949,13 @@ text-shadow: 2px 2px 11px rgba(0,0,0,0.89);}
     max-width: auto;
     margin: 20px auto 10px;
     padding: 15px;
-    background: rgba(194, 186, 186, 0.438);
-    backdrop-filter: blur(5px);
+    background-image:
+            linear-gradient(to bottom,
+                rgba(0, 0, 0, 0.884),
+                transparent,
+                rgba(0, 0, 0, 0.596));    border-radius: 12px;    backdrop-filter: blur(9px);
 
     border-radius: 12px;
-
-    top: 20vh;
-    left: 5vw;
-    
-    z-index: 8;
 
 }
 
@@ -1918,42 +1964,31 @@ text-shadow: 2px 2px 11px rgba(0,0,0,0.89);}
     color: #ff0000;
     text-align: center;
     animation: pulse 1.5s infinite;
-
-        top: 20vh;
-    right: 12vw;
 }
 
-@keyframes pulse {
-    0%, 100% {
-        opacity: 1;
-    }
-    50% {
-        opacity: 0.4;
-    }
-}
 
 #introText,
 #continueText {
     position: fixed;
     left: 50%;
     transform: translateX(-50%);
-    width: 90vw;
+    width: 98vw;
     height: 20vh;
 
     max-width: none;
     margin: 0;
     text-align: center;
 
-        z-index: 10;
+        z-index: 1010;
 
-}
+text-shadow: 2px 2px 11px rgba(0,0,0,0.89);}
 
 #introText {
-    top: 20vh;
+    top: 0vh;
 }
 
 #continueText {
-    top: 32vh;
+    top: 12vh;
 }
 
 /* Hide the intro messages after the game starts */
@@ -1964,25 +1999,69 @@ text-shadow: 2px 2px 11px rgba(0,0,0,0.89);}
 
 
 
-    .mobile-vignette {
-        position: absolute;
-
-        top: 0;
-        left: 0;
+.spin-button-backing {
+    background-image:
+        linear-gradient(#3c01015d,
+            #741a1a60,
+            #55010159,
+            #3c010152);
 
         width: 100%;
-        height: 100%;
+        margin-top: 5px;
 
-        background-image:
-            linear-gradient(to bottom,
-                rgb(0, 0, 0),
-                transparent,
-                rgb(0, 0, 0));
-
-        z-index: 10;
-
-        pointer-events: none;
+        box-shadow: 0px 0px 9px 5px rgba(0, 0, 0, 0.75) inset;
+        -webkit-box-shadow: 0px 0px 9px 5px rgba(0, 0, 0, 0.75) inset;
+        -moz-box-shadow: 0px 0px 9px 5px rgba(0, 0, 0, 0.75) inset;
+        
+        border-bottom: 1px solid #f9e13d;
+        border-left: none;
+        border-right: none;
+        border-top: none;
     }
+
+    .spin-button-backing {
+    background-color: transparent;
+    height: auto;
+    }
+
+    .start-button {
+    position: relative;
+    display: block;
+
+    width: 96%;
+    left: auto;
+    margin-top: 12px;
+
+    -webkit-text-fill-color: rgb(136, 56, 56);
+    text-shadow: 1px -1px 3px rgba(51, 11, 11, 0.6);
+    }
+
+    .edge {
+        background: black;
+    }
+
+    .back {
+        background: rgb(27, 27, 27);
+    }
+
+
+.front {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: auto;
+    padding: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+
+  font-size: clamp(1.5rem, 4vw + 1rem, 3.5rem);
+    text-align: center;
+    line-height: 1;
+
+    background: rgb(100, 23, 23);
+} 
 
 
 }
