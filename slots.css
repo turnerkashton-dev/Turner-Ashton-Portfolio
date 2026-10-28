@@ -1045,8 +1045,9 @@ body {
         /*
          * Five reels need to fit across the phone.
          */
-        --item-height: 20vw;
+        --item-height: 15vw;
     }
+
 
 
     /*
@@ -1059,13 +1060,14 @@ body {
     body {
 
         
-        width: 100vw;
-        min-height: 100vh;
+        width: 100%;
+        min-height: 100%;
 
         margin: 0;
         padding: 0;
 
-        overflow-x: hidden;
+        overflow: hidden;
+
     }
 
         .slots-header {
@@ -1185,6 +1187,8 @@ body {
 
     top: 4vh;
     left: 1vw;
+    right: 1vw;
+    box-sizing: border-box;
 
     z-index: 0;
 }
@@ -1199,7 +1203,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 10px;
+    gap: 5px;
 }
 
 .multiplier-option {
@@ -1280,7 +1284,7 @@ body {
     position: fixed;
 
     width: 96vw;
-    height: 40vh;
+    height: auto;
 
     margin: 0px auto 0;
 
@@ -1298,7 +1302,7 @@ body {
     background-color: black;
 
     /* Turner ensure to prevent inherited desktop positioning */
-    top: 60vh;
+    top: auto;
     left: 1vw;
     right: 1vw;
     bottom: 0vh;
@@ -1434,16 +1438,15 @@ body {
      */
 
     .col img {
-
         display: block;
 
-        width: 90%;
+        width: 80%;
 
         height: auto;
 
-        margin:
-            calc(var(--item-height) * 0.05) auto;
+        margin: 1px 8%;
     }
+
 
 
     .mobile-vignette {
@@ -1496,7 +1499,7 @@ body {
     
     background-color: transparent;
 
-    height: 11vh;
+    height: auto;
 
     }
 
@@ -1506,25 +1509,19 @@ body {
 
         display: block;
 
-    width: 92%;
+    width: 96%;
     left: auto;
-    margin: 2.25vw auto;
+    margin: 5px auto;
 
         -webkit-text-fill-color: rgb(136, 56, 56);
-
-
         text-shadow: 1px -1px 3px rgba(51, 11, 11, 0.6);
-
     }
 
     .edge {
-
         background: black;
-        
     }
 
     .back {
-
         background: rgb(27, 27, 27);
     }
 
@@ -1537,7 +1534,7 @@ body {
     height: auto;
     padding: 0;
 
-    font-size: 4.2rem;
+  font-size: clamp(1.5rem, 4vw + 1rem, 3.5rem);
     text-align: center;
     line-height: 1;
 
@@ -1619,11 +1616,12 @@ body {
     width: 100vw;
     height: auto;
 
-    
     pointer-events: none;
     animation: breathe 16s ease-in-out infinite;
 
     z-index: 1;
+
+    overflow: hidden;
 }
 
 
@@ -1647,8 +1645,6 @@ body {
     }
 }
 
-
-
     
     .slots-home {
         width: 15vw;
@@ -1659,8 +1655,9 @@ body {
 
       position: absolute;
 
-      left: 85vw;
-      top: 16vh;
+      left: auto;
+      right: 1vw;
+      top: 26vh;
 
       z-index: 11;
 
@@ -1685,7 +1682,7 @@ body {
       position: absolute; 
 
       left: -1vw;
-      top: 17vh;
+      top: 27vh;
 
       z-index: 11;
       
@@ -1730,8 +1727,6 @@ body {
     text-align: center;
     animation: pulse 1.5s infinite;
 
-        top: 20vh;
-    right: 12vw;
 }
 
 @keyframes pulse {
@@ -1754,7 +1749,7 @@ body {
     max-width: none;
     margin: 0;
     text-align: center;
-    padding-top: 5vh;
+    padding-top: 2vh;
 
         z-index: 1010;
 
@@ -1765,7 +1760,7 @@ text-shadow: 2px 2px 11px rgba(0,0,0,0.89);}
 }
 
 #continueText {
-    top: 12vh;
+    top: 14vh;
 }
 
 /* Hide the intro messages after the game starts */
@@ -1851,18 +1846,15 @@ text-shadow: 2px 2px 11px rgba(0,0,0,0.89);}
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
 
-
     top: 0vh;
     left: 0vw;
     right: 0vw;
 
     z-index: 0;
 
-    
     border-bottom: #fcf8ad 1px solid;
     border-left: #fcf8ad 1px solid;
     border-right: #fcf8ad 1px solid;
-
 }
 
 #multiplierPanel h3 {
