@@ -37,6 +37,7 @@
     <button class="header-btn-pack" id="packBtn3">
       <img src="images/pack_3.png" alt="Pack 3">
     </button>
+    
 
     <button class="header-btn-pack" id="packBtn4">
       <img src="images/pack_4.png" alt="Pack 4">
@@ -50,10 +51,21 @@
       <img src="images/pack_random.png" alt="Pack menu">
     </button>
 
+          <!-- PROFILE BUTTON -->
+      <a href="dashboard.html">
+        <div class="profile-container">
+          <button class="profile-btn" id="aboutMeBtn">
+            <img src="images/binder.png" alt="Profile Image" class="profile-image">
+          </button>
+        </div>
+      </a>
+
+
     <h2 class="h2-rightV-2">
       ASHTON
     </h2>
 
+    
     <!-- HOME BUTTON -->
     <button class="header-btn2-home" id="homeBtn">
       <img src="images/home_iconV.2.png" alt="Home">
@@ -61,7 +73,11 @@
 
   </header>
 
-  
+
+      
+    <div class="scrolling-buttons-header">
+
+
       <!-- ABOUT ME BUTTON -->
       <a href="about_me.html">
         <div class="about-me-container">
@@ -91,14 +107,10 @@
         </div>
       </a>
 
-      <!-- PROFILE BUTTON -->
-      <a href="dashboard.html">
-        <div class="profile-container">
-          <button class="profile-btn" id="aboutMeBtn">
-            <img src="images/binder.png" alt="Profile Image" class="profile-image">
-          </button>
-        </div>
-      </a>
+
+
+    </div>
+
 
 
 
@@ -547,21 +559,25 @@
 
     width: 100%;
     min-height: 80px;
+    max-height: 80px;
 
     background: rgba(255, 255, 255, 0.85);
 
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
 
     padding: 0 24px;
 
     z-index: 1000;
 
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 0px solid rgba(255, 255, 255, 0.1);
 
     backdrop-filter: blur(8px);
+
+    overflow-y: hidden;
   }
+
 
 
   /* PAGE CONTENT */
@@ -628,15 +644,15 @@
     font-weight: 600;
   }
 
-
+/*TURNER ITS UNDER THIS NOT ANYTHING ELSE YOU DUMMY*/
   form {
     padding: 30px 25px;
     border: 1px solid #e0dfdf;
     background: #d7d6d6;
     opacity: 98%;
     mix-blend-mode: luminosity;
-    padding-left: 20%;
-    padding-right: 20%;
+    padding-left: 10%;
+    padding-right: 10%;
 
   }
 
@@ -850,12 +866,11 @@
     }
 
 
-
     .h2-leftV-2 {
-      left: 25%;
 
       font-size: 10vh;
-      position: absolute;
+      margin-left: 10vw;
+      position: flex;
 
 
       color: rgba(0, 0, 0, 0.075);
@@ -866,9 +881,10 @@
 
 
     .h2-rightV-2 {
-      left: 54%;
       font-size: 10vh;
-      position: absolute;
+      position: flex;
+      margin-right: 10vw;
+
 
       color: rgba(0, 0, 0, 0.075);
       text-shadow: 3px 2px 3px rgba(255, 255, 255, 0.747);
@@ -1039,188 +1055,217 @@
     }
 
 
-    .about-me-container {
-      position: fixed;
-      top: 11%;
-      left: -90%;
-      right: 1%;
-
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      z-index: 3;
-    }
-
-    .about-me-image {
+    .scrolling-buttons-header {
       width: 100%;
-      height: auto;
-      max-width: 800px;
-      max-height: 600px;
+      height: 5vh;
 
+      position:absolute;
+      top: 8vh;
+
+      box-shadow: 2px 21px 26px 9px rgba(0, 0, 0, 0.75) inset;
+      -webkit-box-shadow: 2px 21px 26px 9px rgba(65, 65, 65, 0.75) inset;
+      -moz-box-shadow: 2px 21px 26px 9px rgba(0, 0, 0, 0.75) inset;
+
+        background-color: rgba(116, 6, 6, 0);
+
+      background-blend-mode: normal;
+
+      border-bottom-left-radius: 25px;
+      border-bottom-right-radius: 25px;
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+
+      overflow: hidden;
+      
     }
 
-    .about-me-btn {
-      width: 150px;
-      height: auto;
-
-      border: none;
-      background: transparent;
-
-      cursor: pointer;
-
-      transition: transform 0.2s ease;
-      opacity: 0.5;
-
-    }
-
-    .about-me-btn:hover {
-      transform: scale(1.1);
-      opacity: 1;
-    }
 
     /*how i made this website section*/
-
     .how-i-made-this-site-container {
-      position: fixed;
-      top: 17%;
-      left: -87%;
+      position:sticky;
+      top: 10%;
+      left: 0%;
       right: 1%;
-
+      margin-top: -10vh;
       display: flex;
       align-items: center;
       justify-content: center;
 
-
       z-index: 3;
+      width: 200px;
+          animation-name: scrollingBtns1;
+          animation-duration: 15s;
+          animation-delay: 0s;
+          animation-iteration-count: infinite;
+          animation-direction:alternate;
+          animation-timing-function:cubic-bezier(.25,0,.75,1);      
     }
-
     .how-i-made-this-site-image {
       width: 100%;
       height: auto;
       max-width: 800px;
       max-height: 600px;
     }
-
     .how-i-made-this-site-btn {
       width: 200px;
       height: auto;
-
       border: none;
       background: transparent;
 
       cursor: pointer;
-
       transition: transform 0.2s ease;
-      opacity: 0.5;
+      opacity: 0.75;
     }
-
     .how-i-made-this-site-btn:hover {
       transform: scale(1.1);
       opacity: 1;
     }
 
+    @keyframes scrollingBtns1 {
+            from {
+            transform: translateX(200%) translateY(0px) rotateY(0deg);
+          }
 
+          to {
+            transform: translateX(-230%) translateY(0px) rotateY(0deg);
+          }
+}
 
-
-    /*slots section*/
-
-
-    .slots-container {
-      position: fixed;
-      top: 23%;
-      left: -89%;
+    /*About me section*/
+    .about-me-container {
+      position: absolute;
+      top: 0%;
+      left: 35%;
       right: 1%;
-
+      margin-top: -0.5vh;
       display: flex;
       align-items: center;
       justify-content: center;
 
       z-index: 3;
+      width: 150px;
+
+          animation-name: scrollingBtns2;
+          animation-duration: 15s;
+          animation-delay: 0s;
+          animation-iteration-count: infinite;
+          animation-direction:alternate;
+          animation-timing-function:cubic-bezier(.25,0,.75,1);      
+    }
+    .about-me-image {
+      width: 100%;
+      height: auto;
+      max-width: 800px;
+      max-height: 600px;
+    }
+    .about-me-btn {
+      width: 150px;
+      height: auto;
+      border: none;
+      background: transparent;
+
+      cursor: pointer;
+      transition: transform 0.2s ease;
+      opacity: 0.75;
+    }
+    .about-me-btn:hover {
+      transform: scale(1.1);
+      opacity: 1;
     }
 
+@keyframes scrollingBtns2 {
+            from {
+            transform: translateX(300%) translateY(0px) rotateY(0deg);
+          }
+
+          to {
+            transform: translateX(-260%) translateY(0px) rotateY(0deg);
+          }
+}
+
+    /*try your luck section*/
+    .slots-container {
+      position: sticky;
+      top: 30%;
+      left: 65%;
+      right: 1%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 150px;
+        margin-top: 0vh;
+      z-index: 3;
+          animation-name: scrollingBtns3;
+          animation-duration: 15s;
+          animation-delay: 0s;
+          animation-iteration-count: infinite;
+          animation-direction:alternate;
+          animation-timing-function:cubic-bezier(.25,0,.75,1);      
+    }
     .slots-image {
       width: 100%;
       height: auto;
       max-width: 800px;
       max-height: 600px;
     }
-
     .slots-btn {
       width: 150px;
       height: auto;
-
       border: none;
       background: transparent;
-
       cursor: pointer;
 
       transition: transform 0.2s ease;
-
-      opacity: 0.5;
-
+      opacity: 0.75;
     }
-
     .slots-btn:hover {
       transform: scale(1.1);
-
       opacity: 1;
-
     }
 
+@keyframes scrollingBtns3 {
+            from {
+            transform: translateX(350%) translateY(0px) rotateY(0deg);
+          }
+
+          to {
+            transform: translateX(-250%) translateY(0px) rotateY(0deg);
+          }
+}
 
 
     /*profile section*/
-
-
     .profile-container {
-      position: fixed;
-      top: 12%;
-      left: 95%;
-      right: 1%;
-
+      position: flex;
 
       display: flex;
       align-items: center;
       justify-content: center;
+      z-index: 1003;
 
-      z-index: 3;
-
-
+      width: auto;
     }
-
     .profile-image {
       width: 100%;
       height: auto;
       max-width: 400px;
       max-height: 300px;
     }
-
     .profile-btn {
-      width: 50px;
+      width: 45px;
       height: auto;
-
       border: none;
       background: transparent;
 
       cursor: pointer;
-
       transition: transform 0.2s ease;
-
-      opacity: 0.5;
-
+      opacity: 0.85;
     }
-
     .profile-btn:hover {
       transform: scale(1.1);
-
       opacity: 1;
-
     }
-
-
-
 
 
     .email-tka {
@@ -1283,10 +1328,15 @@
 
     /* PAGE CONTENT MOBILE*/
     .content {
-      padding-top: 10px;
       color: white;
 
       width: 100vw;
+      height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+
     }
 
     .responsive-tka1 {
@@ -1310,45 +1360,90 @@
     }
 
 
-    .h2-leftV-2 {
-      left: 11%;
 
-      font-size: 4vh;
-      position: absolute;
+    .h2-leftV-2 {
+
+      font-size: 3vh;
+      margin-left: 10vw;
+      position: flex;
+
 
       color: rgba(0, 0, 0, 0.075);
       text-shadow: 3px 2px 3px rgba(255, 255, 255, 0.747);
 
-      z-index: 1001;
+      z-index: 101;
     }
 
 
     .h2-rightV-2 {
-      left: 49%;
-      font-size: 4vh;
-      position: absolute;
+      font-size: 3vh;
+      position: flex;
+      margin-right: 10vw;
+
 
       color: rgba(0, 0, 0, 0.075);
       text-shadow: 3px 2px 3px rgba(255, 255, 255, 0.747);
 
-      z-index: 1001;
+      z-index: 101;
     }
 
-  .header {
+    .header {
     position: fixed;
-    width: 100%;
-    min-height: 60px;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    min-height: 8vh;
+    max-height: 8vh;
 
     background: rgba(255, 255, 255, 0.85);
+
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
 
+    padding: 0 24px;
     z-index: 1000;
 
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 0px solid rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(8px);
   }
+
+
+    .header-btn2-back {
+      width: auto;
+      height: 4vh;
+      border: none;
+      background: transparent;
+      position: absolute;
+      left: 0%;
+      z-index: 1004;
+      opacity: 0.95;
+      mix-blend-mode:multiply;
+    }
+    .header-btn2-back img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+
+    .header-btn2-home {
+      width: auto;
+      height: 6vh;
+      border: none;
+      background: transparent;
+      position: absolute;
+      left: 85%;
+      z-index: 1004;
+            opacity: 0.95;
+      mix-blend-mode:multiply;
+    }
+    .header-btn2-home img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
 
     /* BUTTONS */
     .header-btn {
@@ -1365,49 +1460,6 @@
 
 
     .header-btn img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
-
-
-    .header-btn2-back {
-      width: 50px;
-      height: 50px;
-
-      border: none;
-      background: transparent;
-
-      position: absolute;
-
-      left: 3%;
-
-      z-index: 1002;
-    }
-
-
-    .header-btn2-back img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
-
-
-    .header-btn2-home {
-      width: 50px;
-      height: 50px;
-
-      border: none;
-      background: transparent;
-
-      position: absolute;
-
-      left: 85%;
-
-      z-index: 1002;
-    }
-
-    .header-btn2-home img {
       width: 100%;
       height: 100%;
       object-fit: contain;
@@ -1624,112 +1676,216 @@
     }
 
 
-    .about-me-container {
-      display: flex;
-      align-items: center;
-      justify-content: center;
 
-      z-index: 3;
-            padding-top: 8vh;
-
-    }
-
-    .about-me-image {
+    .scrolling-buttons-header {
       width: 100%;
-      height: auto;
-      max-width: 800px;
-      max-height: 600px;
-    }
+      height: 4vh;
 
-    .about-me-btn {
-      width: 150px;
-      height: auto;
-      border: none;
-      background: transparent;
+      position:absolute;
+      top: 8vh;
 
-      transform: translateX(-30vw);
+      box-shadow: 2px 21px 26px 9px rgba(0, 0, 0, 0.75) inset;
+      -webkit-box-shadow: 2px 21px 26px 9px rgba(65, 65, 65, 0.75) inset;
+      -moz-box-shadow: 2px 21px 26px 9px rgba(0, 0, 0, 0.75) inset;
+
+        background-color: rgba(116, 6, 6, 0);
+
+      background-blend-mode: normal;
+
+      border-bottom-left-radius: 25px;
+      border-bottom-right-radius: 25px;
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+
+      overflow: hidden;
+      
     }
 
 
     /*how i made this website section*/
     .how-i-made-this-site-container {
+      position:sticky;
+      top: 5%;
+      left: 0%;
+      right: 1%;
+      margin-top: -10vh;
       display: flex;
       align-items: center;
       justify-content: center;
 
       z-index: 3;
+      width: 200px;
+          animation-name: scrollingBtns1;
+          animation-duration: 15s;
+          animation-delay: 0s;
+          animation-iteration-count: infinite;
+          animation-direction:alternate;
+          animation-timing-function:cubic-bezier(.25,0,.75,1);      
     }
-
     .how-i-made-this-site-image {
       width: 100%;
       height: auto;
       max-width: 800px;
       max-height: 600px;
     }
-
     .how-i-made-this-site-btn {
       width: 200px;
       height: auto;
       border: none;
       background: transparent;
 
-      margin-bottom: 1vh;
-      transform: translateX(-24vw);
+      cursor: pointer;
+      transition: transform 0.2s ease;
+      opacity: 0.75;
+    }
+    .how-i-made-this-site-btn:hover {
+      transform: scale(1.1);
+      opacity: 1;
     }
 
+    @keyframes scrollingBtns1 {
+            from {
+            transform: translateX(200%) translateY(0px) rotateY(0deg);
+          }
 
-    /*slots section*/
-    .slots-container {
+          to {
+            transform: translateX(-230%) translateY(0px) rotateY(0deg);
+          }
+}
+
+    /*About me section*/
+    .about-me-container {
+      position: absolute;
+      top: 0%;
+      left: 35%;
+      right: 1%;
+      margin-top: -0.5vh;
       display: flex;
       align-items: center;
       justify-content: center;
 
       z-index: 3;
+      width: 150px;
+
+          animation-name: scrollingBtns2;
+          animation-duration: 15s;
+          animation-delay: 0s;
+          animation-iteration-count: infinite;
+          animation-direction:alternate;
+          animation-timing-function:cubic-bezier(.25,0,.75,1);      
+    }
+    .about-me-image {
+      width: 100%;
+      height: auto;
+      max-width: 800px;
+      max-height: 600px;
+    }
+    .about-me-btn {
+      width: 150px;
+      height: auto;
+      border: none;
+      background: transparent;
+
+      cursor: pointer;
+      transition: transform 0.2s ease;
+      opacity: 0.75;
+    }
+    .about-me-btn:hover {
+      transform: scale(1.1);
+      opacity: 1;
     }
 
+@keyframes scrollingBtns2 {
+            from {
+            transform: translateX(300%) translateY(0px) rotateY(0deg);
+          }
+
+          to {
+            transform: translateX(-260%) translateY(0px) rotateY(0deg);
+          }
+}
+
+    /*try your luck section*/
+    .slots-container {
+      position: sticky;
+      top: 30%;
+      left: 65%;
+      right: 1%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 150px;
+        margin-top: 0vh;
+      z-index: 3;
+          animation-name: scrollingBtns3;
+          animation-duration: 15s;
+          animation-delay: 0s;
+          animation-iteration-count: infinite;
+          animation-direction:alternate;
+          animation-timing-function:cubic-bezier(.25,0,.75,1);      
+    }
     .slots-image {
       width: 100%;
       height: auto;
       max-width: 800px;
       max-height: 600px;
     }
-
     .slots-btn {
-      width: 180px;
+      width: 150px;
       height: auto;
       border: none;
       background: transparent;
-      opacity: 1;
+      cursor: pointer;
 
-      transform: translateX(-26vw);
+      transition: transform 0.2s ease;
+      opacity: 0.75;
     }
+    .slots-btn:hover {
+      transform: scale(1.1);
+      opacity: 1;
+    }
+
+@keyframes scrollingBtns3 {
+            from {
+            transform: translateX(350%) translateY(0px) rotateY(0deg);
+          }
+
+          to {
+            transform: translateX(-250%) translateY(0px) rotateY(0deg);
+          }
+}
 
 
     /*profile section*/
     .profile-container {
-      position: absolute;
+      position: flex;
 
       display: flex;
       align-items: center;
       justify-content: center;
-      z-index: 3;
-      
-      left: 80vw;
-      top: 8.5vh;
-    }
+      z-index: 1003;
 
+      width: auto;
+    }
     .profile-image {
       width: 100%;
       height: auto;
       max-width: 400px;
       max-height: 300px;
     }
-
     .profile-btn {
-      width: 50px;
+      width: 45px;
       height: auto;
       border: none;
       background: transparent;
+
+      cursor: pointer;
+      transition: transform 0.2s ease;
+      opacity: 0.85;
+    }
+    .profile-btn:hover {
+      transform: scale(1.1);
       opacity: 1;
     }
 
