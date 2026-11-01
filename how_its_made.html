@@ -16,13 +16,13 @@
   <header class="header">
 
     <!-- BACK BUTTON -->
-    <button class="header-btn" id="backBtn">
-      <img src="images/arrow_icon.png" alt="Back" style="rotate: 90deg;">
+    <button class="header-btn2-back" id="backBtn">
+      <img src="images/arrow_iconV.2.png" alt="Back" style="rotate: 90deg;">
     </button>
 
 
 
-    <h2 class="h2-left">TURNER
+    <h2 class="h2-leftV-2">TURNER
     </h2>
 
 
@@ -31,29 +31,34 @@
     </button>
 
 
-    <h2 class="h2-right">
+
+    <h2 class="h2-rightV-2">
       ASHTON
     </h2>
 
+    
     <!-- HOME BUTTON -->
-    <button class="header-btn" id="homeBtn">
-      <img src="images/home_icon.png" alt="Home">
+    <button class="header-btn2-home" id="homeBtn">
+      <img src="images/home_iconV.2.png" alt="Home">
     </button>
 
   </header>
 
   <!-- PAGE CONTENT -->
   <div class="content">
+
+    <!--
     <h1>
        <&emsp;HOW I MADE THIS WEBSITE&emsp;> </A>
     </h1>
+  -->
 
     <br>
 
 <div class="journey-controls">
 
     <button class="journey-btn" id="journey-back-btn">
-        <img style="rotate: -90deg;" src="images/arrow_icon.png" alt="Previous journey">
+        <img style="rotate: -90deg;" src="images/arrow_iconV.2.png" alt="Previous journey">
     </button>
 
     <button class="journey-btn" id="journey-start-btn">
@@ -61,7 +66,7 @@
     </button>
 
     <button class="journey-btn" id="journey1-btn">
-        <img style="rotate: 90deg;" src="images/arrow_icon.png" alt="Next journey">
+        <img style="rotate: 90deg;" src="images/arrow_iconV.2.png" alt="Next journey">
     </button>
 
 
@@ -101,7 +106,7 @@
 
 </div>
 
-
+<!-- 
 
 <h2 style="color: red;">DISCLAIMERS / CREDITATIONS / THANKS:</h2>
 
@@ -119,6 +124,9 @@
 <p>Chatgpt was only prompted with human written code.</p>
 <p>No full generative AI code was used.</p>
 <p>Any copy & pasted code from Chatgpt was reviewed and modified before being implemented.</p>
+
+-->
+
 
 
   <script>
@@ -223,29 +231,92 @@ startButton.addEventListener('click', () => {
   }
 
 
-  /* HEADER BAR */
+  /* HEADER BAR was 80px height 9.30.26*/
   .header {
     position: fixed;
     top: 0;
     left: 0;
 
     width: 100%;
-    height: 80px;
+    min-height: 80px;
+    max-height: 80px;
 
     background: rgba(255, 255, 255, 0.85);
 
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
 
     padding: 0 24px;
 
     z-index: 1000;
 
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 0px solid rgba(255, 255, 255, 0.1);
 
     backdrop-filter: blur(8px);
+
+    overflow-y: hidden;
   }
+
+  
+
+    .header-btn2-back {
+      width: 130px;
+      height: 130px;
+
+      border: none;
+      background: transparent;
+
+      cursor: pointer;
+
+      transition: transform 0.2s ease;
+
+
+      position: absolute;
+
+      right: 92%;
+    }
+
+    .header-btn2-back:hover {
+      transform: scale(0.8);
+    }
+
+    .header-btn2-back img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+
+    }
+
+
+    .header-btn2-home {
+      width: 100px;
+      height: 100px;
+
+      border: none;
+      background: transparent;
+
+      cursor: pointer;
+
+      transition: transform 0.2s ease;
+
+      position: absolute;
+
+      left: 92%;
+
+    }
+
+    .header-btn2-home:hover {
+      transform: scale(0.89);
+    }
+
+    .header-btn2-home img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+
 
   /* BUTTONS */
   .header-btn {
@@ -315,6 +386,37 @@ startButton.addEventListener('click', () => {
     overflow: hidden;
     }
 
+    
+    .h2-leftV-2 {
+
+      font-size: 10vh;
+      margin-left: 10vw;
+      position: flex;
+
+
+      color: rgba(0, 0, 0, 0.075);
+      text-shadow: 3px 2px 3px rgba(255, 255, 255, 0.747);
+
+      z-index: 1001;
+    }
+
+
+    .h2-rightV-2 {
+      font-size: 10vh;
+      position: flex;
+      margin-right: 10vw;
+
+
+      color: rgba(0, 0, 0, 0.075);
+      text-shadow: 3px 2px 3px rgba(255, 255, 255, 0.747);
+
+      z-index: 1001;
+    }
+    
+    .header-btn-pack {
+      display: none;
+    }
+
 
  /* ============journey begin=============*/
 
@@ -323,7 +425,7 @@ startButton.addEventListener('click', () => {
 .journey-window {
     position: absolute;
 
-    top: 45%;
+    top: 50%;
     left: 50%;
 
     width: 100vw;
@@ -368,7 +470,7 @@ startButton.addEventListener('click', () => {
 
 .journey-slide img {
 
-    width: 80vw;
+    width: 50vw;
     height: auto;
 
     display: block;
@@ -401,22 +503,41 @@ startButton.addEventListener('click', () => {
 
     transition: transform 0.2s ease;
 
-    background: rgba(238, 6, 6, 0.678);
+    background: rgba(238, 91, 6, 0.678);
     border-radius: 50%;
 
+
+
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s;
+  border: 3px solid transparent;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5),
+   -1px -1px 4px rgba(255, 255, 255, 0.5);
 
   }
 
   .journey-btn:hover {
     transform: scale(1.1);
+
+      box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5),
+   -1px -1px 4px rgba(255, 255, 255, 0.5),
+   inset 3px 3px 6px rgba(0, 0, 0, 0.5),
+   inset -1px -1px 4px rgba(255, 255, 255, 0.5);
+  transform: scale(1.1);
   }
 
   .journey-btn img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit:contain;
 
     transform: rotate(180deg);
+    padding: 2px;
   }
 
  /* ===========j==============*/
@@ -481,6 +602,98 @@ startButton.addEventListener('click', () => {
       background-size: contain;
     }
 
+
+    .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    min-height: 8vh;
+    max-height: 8vh;
+
+    background: rgba(255, 255, 255, 0.85);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 24px;
+    z-index: 1000;
+
+    border-bottom: 0px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+  }
+
+
+    .header-btn2-back {
+      width: 6vh;
+      height: 4vh;
+      border: none;
+      background: transparent;
+      position: absolute;
+      left: 0%;
+      z-index: 1004;
+      opacity: 0.95;
+      mix-blend-mode:multiply;
+    }
+    .header-btn2-back img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+
+    .header-btn2-home {
+      width: auto;
+      height: 6vh;
+      border: none;
+      background: transparent;
+      position: absolute;
+      left: 85%;
+      z-index: 1004;
+            opacity: 0.95;
+      mix-blend-mode:multiply;
+    }
+    .header-btn2-home img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+
+
+    .h2-leftV-2 {
+
+      font-size: 3vh;
+      margin-left: auto;
+      margin-right: 2px;
+      position: flex;
+
+
+      color: rgba(0, 0, 0, 0.075);
+      text-shadow: 3px 2px 3px rgba(255, 255, 255, 0.747);
+
+      z-index: 101;
+    }
+
+
+    .h2-rightV-2 {
+      font-size: 3vh;
+      position: flex;
+      margin-right: auto;
+      margin-left: 2px;
+
+
+      color: rgba(0, 0, 0, 0.075);
+      text-shadow: 3px 2px 3px rgba(255, 255, 255, 0.747);
+
+      z-index: 101;
+    }
+
+        
+    .header-btn-pack {
+      display: none;
+    }
 
 
     .responsive-tka1 {
@@ -576,7 +789,7 @@ startButton.addEventListener('click', () => {
 
 .journey-slide img {
 
-    width: 80vw;
+    width: 100vw;
     height: auto;
 
     display: block;
@@ -599,8 +812,8 @@ startButton.addEventListener('click', () => {
 
 
   .journey-btn {
-    width: 48px;
-    height: 48px;
+    width: 72px;
+    height: 72px;
 
     border: none;
     background: transparent;
@@ -609,7 +822,7 @@ startButton.addEventListener('click', () => {
 
     transition: transform 0.2s ease;
 
-    background: rgba(238, 6, 6, 0.678);
+    background: rgba(238, 91, 6, 0.678);
     border-radius: 50%;
 
 
