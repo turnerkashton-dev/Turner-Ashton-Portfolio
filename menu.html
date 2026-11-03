@@ -1083,7 +1083,7 @@
     /*how i made this website section*/
     .how-i-made-this-site-container {
       position:sticky;
-      top: 10%;
+      top: 15%;
       left: 0%;
       right: 1%;
       margin-top: -10vh;
@@ -1134,7 +1134,7 @@
     /*About me section*/
     .about-me-container {
       position: absolute;
-      top: 0%;
+      top: 15%;
       left: 35%;
       right: 1%;
       margin-top: -0.5vh;
@@ -1186,7 +1186,7 @@
     /*try your luck section*/
     .slots-container {
       position: sticky;
-      top: 30%;
+      top: 35%;
       left: 65%;
       right: 1%;
       display: flex;
@@ -1328,6 +1328,7 @@
 
     /* PAGE CONTENT MOBILE*/
     .content {
+      padding-top: 10vh;
       color: white;
 
       width: 100vw;
@@ -1409,40 +1410,51 @@
   }
 
 
-    .header-btn2-back {
-      width: auto;
-      height: 4vh;
-      border: none;
-      background: transparent;
-      position: absolute;
-      left: 0%;
-      z-index: 1004;
-      opacity: 0.95;
-      mix-blend-mode:multiply;
-    }
-    .header-btn2-back img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
+.header-btn2-back {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
 
+    width: 48px;
+    height: 48px;
 
-    .header-btn2-home {
-      width: auto;
-      height: 6vh;
-      border: none;
-      background: transparent;
-      position: absolute;
-      left: 85%;
-      z-index: 1004;
-            opacity: 0.95;
-      mix-blend-mode:multiply;
-    }
-    .header-btn2-home img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
+    border: none;
+    background: transparent;
+    cursor: pointer;
+
+    z-index: 1004;
+}
+
+.header-btn2-home {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 48px;
+    height: 48px;
+
+    border: none;
+    background: transparent;
+    cursor: pointer;
+
+    z-index: 1004;
+}
+
+.header-btn2-back img,
+.header-btn2-home img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.header-btn2-back:hover {
+    transform: translateY(-50%) scale(0.9);
+}
+
+.header-btn2-home:hover {
+    transform: translateY(-50%) scale(0.9);
+}
 
 
     /* BUTTONS */
@@ -1540,28 +1552,22 @@
     }
 
     .header-mobile {
-      position: flex;
-      top: 0;
-      left: 0;
-
-      width: 100%;
+      width: 100vw;
       height: 6vh;
-      /*
-    background: rgba(255, 255, 255, 0.85);
-*/
+      top: 94vh;
+
+      position: absolute;
       display: flex;
+      justify-content:space-around;
       align-items: center;
-      justify-content: space-around;
 
+      border-top:
+        1px solid rgba(255, 255, 255, 0.15);
+      background:
+        rgba(255, 255, 255, 0.75);
+      backdrop-filter:
+        blur(10px);
 
-      padding: 0 24px;
-      margin-top: -5vh;
-
-      z-index: 10;
-
-      /*
-    backdrop-filter: blur(8px);
-*/
     }
 
 
