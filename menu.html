@@ -71,6 +71,46 @@
       <img src="images/home_iconV.2.png" alt="Home">
     </button>
 
+
+
+
+
+    <!-- MOBILE SCROLLING MENU -->
+<div class="mobile-scrolling-wrapper">
+
+  <div class="scrolling-buttons-header" id="scrollingButtons">
+
+    <!-- PROFILE -->
+    <a href="dashboard.html">
+      <img src="images/binder.png" alt="Profile">
+    </a>
+
+    <!-- ABOUT ME -->
+    <a href="about_me.html">
+      <img src="images/about_me.png" alt="About Me">
+    </a>
+
+    <!-- HOW I MADE THIS SITE -->
+    <a href="how_its_made.html">
+      <img src="images/how_i_made_this_site.png" alt="How I Made This Site">
+    </a>
+
+    <!-- SLOTS -->
+    <a href="slotindex.html">
+      <img src="images/try_your_luck.png" alt="Slots">
+    </a>
+
+  </div>
+
+  <div class="scroll-progress">
+    <div class="scroll-progress-bar" id="scrollProgressBar"></div>
+  </div>
+
+</div>
+
+
+
+
   </header>
 
 <div class="scroll-progress">
@@ -105,8 +145,6 @@
   </a>
 
 </div>
-
-
 
 
 
@@ -540,7 +578,7 @@ function updateScrollProgress() {
 
     const progress = maxScroll > 0
         ? (scrollingButtons.scrollLeft / maxScroll) * 100
-        : 100;
+        : 0;
 
     scrollProgressBar.style.width = progress + '%';
 }
@@ -1336,13 +1374,11 @@ updateScrollProgress();
     }
 
 
-
     html,
     body {
       width: auto !important;
       overflow-x: hidden !important
     }
-
 
 
     table,
@@ -1354,7 +1390,7 @@ updateScrollProgress();
 
     /* PAGE CONTENT MOBILE*/
     .content {
-      padding-top: 10vh;
+      padding-top: 5vh;
       color: white;
 
       width: 100vw;
@@ -1366,18 +1402,16 @@ updateScrollProgress();
 
     }
 
+
     .responsive-tka1 {
       max-width: 80%;
       height: auto;
-
       border-radius: 25px;
     }
-
     .responsive-tka2 {
       max-width: 80%;
       height: auto;
       border-radius: 50px;
-
       border-radius: 15px;
     }
 
@@ -1385,103 +1419,6 @@ updateScrollProgress();
     h1 {
       font-size: 12vw;
     }
-
-
-
-    .h2-leftV-2 {
-
-      font-size: 3vh;
-      margin-left: 10vw;
-      position: flex;
-
-
-      color: rgba(0, 0, 0, 0.075);
-      text-shadow: 3px 2px 3px rgba(255, 255, 255, 0.747);
-
-      z-index: 101;
-    }
-
-
-    .h2-rightV-2 {
-      font-size: 3vh;
-      position: flex;
-      margin-right: 10vw;
-
-
-      color: rgba(0, 0, 0, 0.075);
-      text-shadow: 3px 2px 3px rgba(255, 255, 255, 0.747);
-
-      z-index: 101;
-    }
-
-    .header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    min-height: 8vh;
-    max-height: 8vh;
-
-    background: rgba(255, 255, 255, 0.85);
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    padding: 0 24px;
-    z-index: 1000;
-
-    border-bottom: 0px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(8px);
-  }
-
-
-
-.header-btn2-back {
-    position: absolute;
-    left: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-
-    width: 48px;
-    height: 48px;
-
-    border: none;
-    background: transparent;
-    cursor: pointer;
-
-    z-index: 1004;
-}
-
-.header-btn2-home {
-    position: absolute;
-    right: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-
-    width: 48px;
-    height: 48px;
-
-    border: none;
-    background: transparent;
-    cursor: pointer;
-
-    z-index: 1004;
-}
-
-.header-btn2-back img,
-.header-btn2-home img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-.header-btn2-back:hover {
-    transform: translateY(-50%) scale(0.9);
-}
-
-.header-btn2-home:hover {
-    transform: translateY(-50%) scale(0.9);
-}
 
 
     /* BUTTONS */
@@ -1493,17 +1430,13 @@ updateScrollProgress();
       background: transparent;
 
       cursor: pointer;
-
       z-index: 1002;
     }
-
-
     .header-btn img {
       width: 100%;
       height: 100%;
       object-fit: contain;
     }
-
 
 
     .header-btn-pack {
@@ -1512,39 +1445,14 @@ updateScrollProgress();
 
 
     .header-btn-pack-menu {
-      width: 40px;
-      height: 60px;
-
-      margin: none;
-
-      border: none;
-      background: transparent;
-
-      cursor: pointer;
-
-      transition: scale(1.1);
-
       display: none;
-
     }
-
-    .header-btn-pack-menu:hover {
-      transform: scale(1.5);
-    }
-
-    .header-btn-pack-menu img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
-
 
 
     div.gallery {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-
     }
 
     div.gallery-item {
@@ -1558,13 +1466,11 @@ updateScrollProgress();
       width: 100%;
       height: auto;
     }
-
     div.gallery-item div.desc {
       padding: 2px;
       text-align: center;
       font-weight: bold;
     }
-
     div.gallery-item div.desc2 {
       padding: 2px;
       text-align: center;
@@ -1589,7 +1495,6 @@ updateScrollProgress();
       display: flex;
       justify-content:space-around;
       align-items: center;
-
     }
 
 
@@ -1705,203 +1610,22 @@ updateScrollProgress();
 
 
 /*TURNER here for scrolling buttons header ctrl paste to slot websites*/
-.scrolling-buttons-header {
-    position: relative;
-    top: 9vh;
-    left: 2%;
 
-    width: 96%;
-    height: 75px;
-
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-
-    overflow-x: auto;
-    overflow-y: hidden;
-
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-
-    background-image: url('images/background_paper.jpeg');
-    background-size: cover;
-
-    border-radius: 35px;
-    box-sizing: border-box;
-
-    box-shadow: 1px 0px 20px 4px rgba(0,0,0,0.75) inset;
-
-    scrollbar-width: none;
-}
-
-.scrolling-buttons-header::-webkit-scrollbar {
-    display: none;
-}
-
-.scrolling-buttons-header > a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    flex: 0 0 65%;
-    height: 100%;
-    text-decoration: none;
-}
-
-.how-i-made-this-site-container,
-.about-me-container,
-.slots-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    width: 100%;
-    height: 100%;
-}
-
-.how-i-made-this-site-btn,
-.about-me-btn,
-.slots-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    width: 100%;
-    height: 100%;
-
-    border: none;
-    background: transparent;
-    cursor: pointer;
-}
-
-.how-i-made-this-site-image,
-.about-me-image,
-.slots-image {
-    display: block;
-
-    width: 100%;
-    height: 100%;
-
-    object-fit: contain;
-    padding: 8px;
-}
-
-.scroll-progress {
-    position: relative;
-    top: 9vh;
-    left: 2%;
-
-    width: 96%;
-    height: 4px;
-
-    margin-top: 0px;
-
-    background: rgba(255,255,255,0.25);
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.scroll-progress-bar {
-    width: 0%;
-    height: 100%;
-    background: rgb(160, 0, 0);
-    border-radius: 10px;
-    transition: width .1s linear;
-    position: relative;
-}
-
-.scroll-progress-bar::after {
-    content: "";
-    position: absolute;
-    right: -5px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 10px;
-    height: 10px;
-    background: red;
-    border-radius: 50%;
-}
-/* END OF SCROLLING BUTTONS SECTION */
-
-
-
-    /*profile section*/
-    .profile-container {
-      position: flex;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 1003;
-
-      width: 90%;
-      height: 100%;
-    }
-    .profile-image {
-      width: 100%;
-      height: auto;
-      display:flex;
-      justify-content: center;
-      align-items: center; 
-    }
-    .profile-btn {
-      width: 45px;
-      height: auto;
-      border: none;
-      background: transparent;
-
-      cursor: pointer;
-      transition: transform 0.2s ease;
-      opacity: 0.85;
-    }
-    .profile-btn:hover {
-      transform: scale(1.1);
-      opacity: 1;
-    }
-
-
-
-    .email-tka {
-      width: 80vw;
-      margin-left: 8%;
-
-      font-size: 2vh;
-      color: red;
-
-      background-image: url(images/background_horiz.jpeg);
-      background-size: cover;
-
-      box-shadow: 2px 21px 26px 9px rgba(0, 0, 0, 0.75) inset;
-      -webkit-box-shadow: 2px 21px 26px 9px rgba(0, 0, 0, 0.75) inset;
-      -moz-box-shadow: 2px 21px 26px 9px rgba(0, 0, 0, 0.75) inset;
-
-      border: 0px;
-      border-radius: 25px;
-
-      background-blend-mode: screen;
-    }
-
-
-
-
-
-
-/*ABCDEFGHIJKLMNOP HERE TURNER CURRENT EDIT*/
-
+/* MOBILE HEADER */
 .header {
     position: fixed;
     top: 0;
     left: 0;
 
     width: 100%;
-    height: 65px;
+    height: 85px;
 
     display: grid;
-    grid-template-columns: 40px 1fr 45px 1fr 40px;
-    align-items: center;
-    justify-items: center;
+    grid-template-columns: 50px minmax(0, 1fr) 50px;
+    grid-template-rows: 1fr;
+    column-gap: 0;
 
-    padding: 0 8px;
+    padding: 0;
 
     background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(8px);
@@ -1911,94 +1635,138 @@ updateScrollProgress();
     overflow: hidden;
 }
 
-/* BACK */
-.header-btn2-back {
-    grid-column: 1;
+  /* HIDE DESKTOP HEADER ITEMS */
+  .h2-leftV-2,
+  .h2-rightV-2,
+  .header-btn-pack,
+  .header-btn-pack-menu,
+  .header > a:not(.mobile-scrolling-wrapper a) {
+    display: none;
+  }
+
+/* BACK AND HOME BUTTONS */
+.header-btn2-back,
+.header-btn2-home {
+    width: 100%;
+    height: 100%;
+
     grid-row: 1;
-
-    width: 45px;
-    height: 45px;
-}
-
-/* TURNER */
-.h2-leftV-2 {
-    grid-column: 2;
-    grid-row: 1;
-
-    margin: 0;
-    font-size: clamp(24px, 4.5vw, 22px);
-    white-space: nowrap;
-
-    text-align: center;
-}
-
-/* BINDER */
-.header > a {
-    grid-column: 3;
-    grid-row: 1;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.profile-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    width: 40px;
-}
-
-.profile-btn {
-    width: 58px;
-    height: 68px;
 
     border: none;
     background: transparent;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.profile-image {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+.header-btn2-back {
+    grid-column: 1;
 }
 
-/* ASHTON */
-.h2-rightV-2 {
-    grid-column: 4;
-    grid-row: 1;
-
-    margin: 0;
-    font-size: clamp(24px, 4.5vw, 22px);
-    white-space: nowrap;
-
-    text-align: center;
-}
-
-/* HOME */
 .header-btn2-home {
-    grid-column: 5;
-    grid-row: 1;
-
-    width: 45px;
-    height: 45px;
+    grid-column: 3;
 }
 
 .header-btn2-back img,
 .header-btn2-home img {
-    width: 100%;
-    height: 100%;
+    width: 80%;
+    height: 80%;
     object-fit: contain;
 }
 
-/* HIDE PACK BUTTONS */
-.header-btn-pack,
-.header-btn-pack-menu {
-    display: none;
+/* SCROLLING SECTION */
+.mobile-scrolling-wrapper {
+    grid-column: 2;
+    grid-row: 1;
+
+    min-width: 0;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
 }
 
+  .scrolling-buttons-header {
+    width: 100%;
+    height: 58px;
 
+    display: flex;
+    align-items: center;
 
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+
+    background: rgb(116, 82, 82);
+    border-radius: 30px;
+
+    box-shadow: 1px 0px 20px 4px rgba(0,0,0,0.75) inset;
   }
+
+  .scrolling-buttons-header::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrolling-buttons-header > a {
+    flex: 0 0 75%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .scrolling-buttons-header img {
+    width: 100%;
+    height: 100%;
+    padding: 6px;
+
+    object-fit: contain;
+  }
+
+  /* PROGRESS */
+  .scroll-progress {
+    width: 100%;
+    height: 4px;
+
+    background: rgba(0,0,0,0.2);
+    border-radius: 10px;
+    overflow: visible;
+  }
+
+  .scroll-progress-bar {
+    width: 0%;
+    height: 100%;
+
+    background: rgb(160,0,0);
+    border-radius: 10px;
+
+    position: relative;
+    transition: width .1s linear;
+  }
+
+  .scroll-progress-bar::after {
+    content: "";
+    position: absolute;
+
+    right: -5px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 10px;
+    height: 10px;
+
+    background: red;
+    border-radius: 50%;
+  }
+/*ABCDEFGHIJKLMNOP HERE TURNER CURRENT EDIT*/
+
+}
 </style>
