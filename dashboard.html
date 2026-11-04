@@ -38,6 +38,37 @@
 
     }
 
+
+#binderColorSelect {
+    width: 220px;
+    padding: 12px 15px;
+    background-color: #222222;
+    color: white;
+    border: 2px solid #8739b82f;
+    border-radius: 8px;
+
+    font-family: inherit;
+    font-size: 15px;
+    cursor: pointer;
+    outline: none;
+}
+#binderColorSelect:hover {
+    border-color: #8739b883;
+}
+#binderColorSelect:focus {
+    border-color: #000000;
+}
+#binderColorSelect option {
+    background-color: #222222;
+    color: white;
+    padding: 10px;
+}
+
+#binderColorSelect option:disabled {
+    color: #777777;
+}
+
+
     .dashboard-folder-card {
     display: block;
     min-width: 0;
@@ -78,27 +109,78 @@
     margin: 30px auto;
     padding: 28px;
     color: white;
-    background: linear-gradient(145deg, #171717, #050505);
 
+    border: 4px solid #8739B8;
 
-    border: 2px solid #b89b42;
+    background: var(
+        --binder-gradient,
+        linear-gradient(to bottom, #333333, #111111)
+    );
+
+    transition: border-color 0.3s ease;
+
     border-radius: 18px;
     box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6);
+}
+#cardFolder.animated-binder-border {
+    border: 4px solid transparent;
+
+    background:
+        var(--binder-gradient) padding-box,
+        linear-gradient(
+            135deg,
+            #8739B8,
+            #D74747,
+            #E6C43A,
+            #4CAF50,
+            #FF9800,
+            #8739B8
+        ) border-box;
+
+    background-size: 100% 100%, 300% 300%;
+
+    animation: binderBorderAnimation 8s linear infinite;
+}
+
+@keyframes binderBorderAnimation {
+    0% {
+        background-position: 0% 0%, 0% 50%;
+    }
+
+    50% {
+        background-position: 0% 0%, 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 0%, 0% 50%;
+    }
 }
 
 /* FOLDER TITLE */
 #cardFolder h2 {
     color: #e7cb72;
-    text-align: center;
+    text-shadow: 1px 3px 5px rgba(0,0,0,0.6);
+background: rgba(0,19,255,0.3);
+background: linear-gradient(90deg,rgba(0, 17, 255, 0.055) 0%, rgba(58,0,255,0) 80%);
+background: -webkit-linear-gradient(90deg,rgba(0, 17, 255, 0.055) 0%, rgba(58,0,255,0) 80%);
+background: -moz-linear-gradient(90deg,rgba(0, 17, 255, 0.055) 0%, rgba(58,0,255,0) 80%);    text-align: center;
     letter-spacing: 4px;
-    margin-bottom: 12px;
+    margin-bottom: 2px;
+box-shadow: 1px 6px 5px 0px rgba(0,0,0,0.21) inset;
+-webkit-box-shadow: 1px 6px 5px 0px rgba(0,0,0,0.21) inset;
+-moz-box-shadow: 1px 6px 5px 0px rgba(0,0,0,0.21) inset;
+border-radius: 200px 200px 0px 0px;
+-webkit-border-radius: 200px 200px 0px 0px;
+-moz-border-radius: 200px 200px 0px 0px;
 }
 
 /* DISCOVERY COUNTER */
 #cardFolderMessage {
     text-align: center;
-    margin-bottom: 24px;
-    color: #c6c6c6;
+    margin-bottom: 6px;
+    color: #fdfdfd;
+    text-shadow: 1px 3px 5px rgba(0,0,0,0.6);
+
 }
 
 /* OPEN BOOK PAGES */
@@ -113,13 +195,12 @@
 .dashboard-folder-page {
     position: relative;
     min-width: 0;
-    padding: 22px;
+    padding: 2px;
     overflow: hidden;
 
     border: 1px solid #5c4b23;
-    background: linear-gradient(145deg, #202020, #090909);
-
-
+    background: linear-gradient(180deg, #f0f0f044, #58585844);
+    backdrop-filter: blur(8px);
 
     box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4);
 
@@ -165,10 +246,12 @@
 
 .book-page-flipper .flip-face {
     position: absolute;
+    height: 96%;
     inset: 0;
     overflow: hidden;
     border: 1px solid #5c4b23;
-    background: linear-gradient(90deg, #302b1d, #171717);
+    background: linear-gradient(180deg, #f0f0f070, #58585873);
+    backdrop-filter: blur(8px);
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
     box-shadow: 0 0 18px rgba(0, 0, 0, 0.5);
@@ -190,7 +273,7 @@
 }
 
 .book-page-flipper .dashboard-folder-grid {
-    gap: 18px;
+    gap: 2px;
 }
 
 .book-page-flipper .flip-face {
@@ -226,15 +309,17 @@
 /* PAGE TITLE */
 .dashboard-folder-page h3 {
     color: #e7cb72 !important;
+text-shadow: 1px 4px 3px rgba(0,0,0,0.6);
+    font-style: italic;
     letter-spacing: 3px;
-    margin-bottom: 22px !important;
+    margin-bottom: 2px !important;
 }
 
 /* THREE CARDS PER ROW */
 .dashboard-folder-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 18px;
+    gap: 2px;
     width: 100%;
 }
 
@@ -570,7 +655,27 @@
 
     }
 
-    
+    .newsletter-settings {
+    margin-top: 20px;
+}
+
+.newsletter-settings label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.newsletter-settings input {
+    width: 18px;
+    height: 18px;
+    accent-color: #8559da;
+}
+
+#newsletterStatus {
+    margin-top: 12px;
+    font-size: 13px;
+}
     
     .header-btn2-home {
       width: 80px;
@@ -610,9 +715,9 @@
 
     .slots-container {
       position:absolute;
-      top: 30%;
-      left: 70%;
-      right: 0%;
+      top: 4%;
+      left: 78%;
+      right: 12%;
 
       display: flex;
       align-items: center;
@@ -861,6 +966,19 @@
     }
 
 
+    #saveNewsletterPreference {
+    transition: transform 0.15s ease, background 0.2s ease;
+}
+
+#saveNewsletterPreference:hover {
+    transform: translateY(-2px);
+}
+
+#saveNewsletterPreference:active {
+    transform: scale(0.54);
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.25);
+}
+
     /* =========================
        FIRESTORE STATUS
     ========================= */
@@ -1082,7 +1200,7 @@
 
     .dashboard-folder-grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 10px;
+        gap: 2px;
     }
 
     .book-page-flipper {
@@ -1448,16 +1566,37 @@
     
 
     <div id="myDropdown" class="account-settings-content">
-        <!-- Move the account cards you want inside the dropdown here -->
+        <!-- move account cards inside the dropdown here turner -->
         <section class="dashboard-grid">
 
-          
+          <div class="dashboard-card">
+    <h2>Newsletter Preferences</h2>
 
-              <button id="logoutButton" class="logout-button">
+    <p>Manage whether you receive email newsletters and updates.</p>
 
-        LOG OUT
+    <div class="newsletter-settings">
+        <label for="dashboardNewsletterOptIn">
+            <input
+                type="checkbox"
+                id="dashboardNewsletterOptIn"
+            >
+            Subscribe to email newsletters
+        </label>
 
-      </button>
+        <p id="newsletterStatus">
+            Loading preferences...
+        </p>
+
+        <button
+            type="button"
+            id="saveNewsletterPreference"
+            class="dashboard-button"
+        >
+            SAVE PREFERENCES
+        </button>
+    </div>
+  </div>
+
 
 
             <div class="dashboard-card">
@@ -1475,7 +1614,7 @@
 
             <div class="dashboard-card">
                 <h2>Portfolio</h2>
-                <p>Return to the main Turner Ashton portfolio.</p>
+                <p>Return to <span style="font-style: italic;"> Turner Ashton portfolio</span> home page.</p>
                 <a href="index.html" class="dashboard-button">
                     VIEW PORTFOLIO
                 </a>
@@ -1487,6 +1626,11 @@
             </div>
 
 
+              <button id="logoutButton" class="logout-button">
+
+        LOG OUT
+
+      </button>
 
         </section>
     </div>
@@ -1502,8 +1646,38 @@
     });
 </script>
 
+<br>
+
+<div class="binder-customization">
+    <h3>Customize Binder</h3>
+
+    <label for="binderColorSelect">Binder Color: <span style="font-style: italic; color: #adadad;">(slot prizes unlock)</span></label>
+    <br>
+
+    <select id="binderColorSelect">
+        <option value="default">Default</option>
+        <option value="red">Red (Apple)</option>
+        <option value="apricotpurple">?Purple (Apricot)</option>
+        <option value="yellow">Yellow (Banana)</option>
+        <option value="bigwin">?Big Win (Big Win)</option>
+        <option value="red">?Red (Cherry)</option>
+        <option value="fiveinarow">?5 (5 in a row)</option>
+        <option value="fourinarow">?4 (4 in a row)</option>
+        <option value="fullscreen">?Full (Full Screen)</option>
+        <option value="purple">Purple (Grapes)</option>
+        <option value="lemonyellow">?Yellow (Lemon)</option>
+        <option value="seven">?7 (Seven)</option>
+        <option value="multiple">?Multiple (Multiple rows)</option>
+        <option value="orange">Orange (Orange)</option>
+        <option value="pearyellow">?Yellow (Pear)</option>
+        <option value="strawberryred">?Red (Strawberry)</option>
+        <option value="watermelongreen">?Green (Watermelon)</option>
 
 
+    </select>
+
+    <p id="binderColorStatus"></p>
+</div>
 
 
 
@@ -1571,9 +1745,9 @@
       doc,
       getDoc,
       setDoc,
+      updateDoc,
       serverTimestamp
-    } from
-      "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
+    } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
 
 
     /* =========================
@@ -1604,6 +1778,7 @@
         "G-7YK2HQL61F"
 
     };
+    
 
 
     /* =========================
@@ -1629,6 +1804,53 @@ try {
 
     const db =
       getFirestore(app);
+
+const newsletterCheckbox =
+    document.getElementById("dashboardNewsletterOptIn");
+
+const newsletterStatus =
+    document.getElementById("newsletterStatus");
+
+const saveNewsletterButton =
+    document.getElementById("saveNewsletterPreference");
+
+saveNewsletterButton.addEventListener("click", async () => {
+    const user = auth.currentUser;
+
+    if (!user) return;
+
+    saveNewsletterButton.disabled = true;
+
+    const newsletterOptIn = newsletterCheckbox.checked;
+
+    try {
+        await updateDoc(
+            doc(db, "users", user.uid),
+            {
+                newsletterOptIn: newsletterOptIn,
+                newsletterUpdatedAt: serverTimestamp()
+            }
+        );
+
+        newsletterStatus.textContent =
+            newsletterOptIn
+                ? "You are subscribed to newsletters."
+                : "You are unsubscribed from newsletters.";
+
+        newsletterStatus.style.color = newsletterOptIn
+    ? "#4CAF50"
+    : "#888888";
+
+    } catch (error) {
+        console.error("Newsletter update error:", error);
+
+        newsletterStatus.textContent =
+            "Unable to save preferences. Please try again.";
+
+    } finally {
+        saveNewsletterButton.disabled = false;
+    }
+});
 
 
     /* =========================
@@ -1747,6 +1969,8 @@ try {
          * LOAD FIRESTORE USER
          */
 
+
+
         await loadUserFromFirestore(
           user
         );
@@ -1843,9 +2067,176 @@ function renderDashboardCollection(pages = [], winCounts = {}) {
     /* =========================
        FIRESTORE
     ========================= */
+    
+// BINDER COLORS
+const binderColors = {
+    default: {
+        gradient: ["#333333", "#111111"],
+        reward: null,
+        animated: false
+    },
+    purple: {
+        gradient: ["#B77ADD", "#542078"],
+        reward: "grapes.html",
+        animated: false
+    },
+    red: {
+        gradient: ["#FF7777", "#A51F35"],
+        reward: "apple.html",
+        animated: false
+    },
+    yellow: {
+        gradient: ["#FFF176", "#C69A16"],
+        reward: "banana.html",
+        animated: false
+    },
+    watermelongreen: {
+        gradient: ["#81C784", "#1B5E20"],
+        reward: "watermelon.html",
+        animated: false
+    },
+    orange: {
+        gradient: ["#FFCC80", "#E65100"],
+        reward: "orange.html",
+        animated: false
+    },
+    fullscreen: {
+        gradient: ["#8739B8", "#E6C43A"],
+        reward: "full_screen.html",
+        animated: true
+    },
+    apricotpurple: {
+        gradient: ["#B77ADD", "#542078"],
+        reward: "apricot.html",
+        animated: false
+    },
+    bigwin: {
+        gradient: ["#FFD700", "#FFA500"],
+        reward: "big_win.html",
+        animated: false
+    },
+    lemonyellow: {
+        gradient: ["#FFF176", "#C69A16"],
+        reward: "lemon.html",
+        animated: false
+    },
+    pearyellow: {
+        gradient: ["#FFF176", "#C69A16"],
+        reward: "pear.html",
+        animated: false
+    },
+    strawberryred: {
+        gradient: ["#FF7777", "#A51F35"],
+        reward: "strawberry.html",
+        animated: false
+    },
+    seven: {
+        gradient: ["#FF7777", "#A51F35"],
+        reward: "lucky_seven.html",
+        animated: false
+    },
+    multiple: {
+        gradient: ["#FF7777", "#A51F35"],
+        reward: "multiple_fruits.html",
+        animated: true
+    },
+    fourinarow: {
+        gradient: ["#FF7777", "#A51F35"],
+        reward: "four_across.html",
+        animated: true
+    },
+    fiveinarow: {
+        gradient: ["#FF7777", "#A51F35"],
+        reward: "five_across.html",
+        animated: true
+    }
+};
+
+function loadBinderColors(unlockedPages, savedColor) {
+    const select = document.getElementById("binderColorSelect");
+
+    Object.entries(binderColors).forEach(([name, settings]) => {
+        const option = select.querySelector(
+            `option[value="${name}"]`
+        );
+
+        if (!settings.reward) return;
+
+        const unlocked = unlockedPages.includes(settings.reward);
+
+        option.disabled = !unlocked;
+
+        option.textContent = unlocked
+            ? `${name.charAt(0).toUpperCase() + name.slice(1)} (${settings.reward.replace(".html", "")})`
+            : `${name.charAt(0).toUpperCase() + name.slice(1)} (Locked)`;
+    });
+
+    const savedSettings = binderColors[savedColor];
+
+    const canUseSavedColor =
+        savedSettings &&
+        (!savedSettings.reward || unlockedPages.includes(savedSettings.reward));
+
+    const selected = canUseSavedColor ? savedColor : "default";
+
+    select.value = selected;
+
+    applyBinderColor(selected);
+}
+
+function applyBinderColor(colorName) {
+    const folder = document.getElementById("cardFolder");
+
+    if (!folder || !binderColors[colorName]) return;
+
+    const settings = binderColors[colorName];
+
+    folder.style.setProperty(
+        "--binder-gradient",
+        `linear-gradient(to bottom, ${settings.gradient[0]}, ${settings.gradient[1]})`
+    );
+
+    folder.classList.toggle(
+        "animated-binder-border",
+        settings.animated
+    );
+}
+
+document.getElementById("binderColorSelect")
+    .addEventListener("change", async (event) => {
+
+        const colorName = event.target.value;
+        const user = auth.currentUser;
+
+        if (!user || !binderColors[colorName]) return;
+
+        const settings = binderColors[colorName];
+
+        const unlockedPages = window.currentUnlockedPages || [];
+
+        if (
+            settings.reward &&
+            !unlockedPages.includes(settings.reward)
+        ) {
+            return;
+        }
+
+        applyBinderColor(colorName);
+
+        try {
+            await updateDoc(doc(db, "users", user.uid), {
+                binderColor: colorName
+            });
+        } catch (error) {
+            console.error("Binder color save error:", error);
+        }
+    });
+
+  
 
 async function loadUserFromFirestore(user) {
   try {
+    document.getElementById("saveNewsletterPreference").disabled = true;
     const userRef = doc(db, "users", user.uid);
     const userSnapshot = await getDoc(userRef);
 
@@ -1867,11 +2258,40 @@ firestoreStatus.textContent =
 
 renderDashboardCollection([], {});
 renderCardFolder([]);
+document.getElementById("dashboardNewsletterOptIn").checked = false;
+window.currentUnlockedPages = [];
+loadBinderColors([], "default");
+document.getElementById("saveNewsletterPreference").disabled = false;
+
+document.getElementById("newsletterStatus").textContent =
+    "You are not subscribed to newsletters.";
 return;
     }
 
 
     const data = userSnapshot.data();
+    window.currentUnlockedPages = data.unlockedPages || [];
+
+
+    const newsletterCheckbox =
+    document.getElementById("dashboardNewsletterOptIn");
+
+const newsletterStatus =
+    document.getElementById("newsletterStatus");
+
+newsletterCheckbox.checked =
+    data.newsletterOptIn === true;
+
+newsletterStatus.textContent =
+    newsletterCheckbox.checked
+        ? "You are subscribed to newsletters."
+        : "You are not subscribed to newsletters.";
+
+        newsletterStatus.style.color = newsletterCheckbox.checked
+    ? "#4CAF50"
+    : "#888888";
+
+saveNewsletterButton.disabled = false;
 
     firestoreStatus.textContent = "✓ Firestore connected.";
 
@@ -1886,6 +2306,11 @@ renderDashboardCollection(
 
 renderCardFolder(data.viewedCards || []);
 
+  loadBinderColors(
+    data.unlockedPages || [],
+    data.binderColor || "default"
+);
+
   } catch (error) {
     console.error("Firestore error:", error);
 
@@ -1895,6 +2320,8 @@ renderCardFolder(data.viewedCards || []);
     document.getElementById("dashboardCollectionMessage").textContent =
       "Unable to load collection. Please try refreshing.";
   }
+
+
 }
 
 

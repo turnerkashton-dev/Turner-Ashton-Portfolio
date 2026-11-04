@@ -1416,6 +1416,7 @@
   }
 
 
+
 .header-btn2-back {
     position: absolute;
     left: 15px;
@@ -1873,14 +1874,15 @@
       justify-content: center;
       z-index: 1003;
 
-      width: auto;
-      height: 90%;
+      width: 90%;
+      height: 100%;
     }
     .profile-image {
       width: 100%;
       height: auto;
-      max-width: 400px;
-      max-height: 300px;
+      display:flex;
+      justify-content: center;
+      align-items: center; 
     }
     .profile-btn {
       width: 45px;
@@ -1918,6 +1920,125 @@
 
       background-blend-mode: screen;
     }
+
+
+
+
+
+
+
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 65px;
+
+    display: grid;
+    grid-template-columns: 40px 1fr 45px 1fr 40px;
+    align-items: center;
+    justify-items: center;
+
+    padding: 0 8px;
+
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    z-index: 1000;
+    overflow: hidden;
+}
+
+/* BACK */
+.header-btn2-back {
+    grid-column: 1;
+    grid-row: 1;
+
+    width: 45px;
+    height: 45px;
+}
+
+/* TURNER */
+.h2-leftV-2 {
+    grid-column: 2;
+    grid-row: 1;
+
+    margin: 0;
+    font-size: clamp(24px, 4.5vw, 22px);
+    white-space: nowrap;
+
+    text-align: center;
+}
+
+/* BINDER */
+.header > a {
+    grid-column: 3;
+    grid-row: 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 40px;
+}
+
+.profile-btn {
+    width: 48px;
+    height: 58px;
+
+    border: none;
+    background: transparent;
+}
+
+.profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* ASHTON */
+.h2-rightV-2 {
+    grid-column: 4;
+    grid-row: 1;
+
+    margin: 0;
+    font-size: clamp(24px, 4.5vw, 22px);
+    white-space: nowrap;
+
+    text-align: center;
+}
+
+/* HOME */
+.header-btn2-home {
+    grid-column: 5;
+    grid-row: 1;
+
+    width: 45px;
+    height: 45px;
+}
+
+.header-btn2-back img,
+.header-btn2-home img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* HIDE PACK BUTTONS */
+.header-btn-pack,
+.header-btn-pack-menu {
+    display: none;
+}
+
+
 
   }
 </style>

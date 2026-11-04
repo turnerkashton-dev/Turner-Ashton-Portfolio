@@ -55,11 +55,16 @@
     height: 80px;
 
     border: none;
-    background: #512da8;
+    background: #522da8;
+
 
     cursor: pointer;
     z-index: 999;
-
+    padding: 6px;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     transition: transform 0.2s ease;
 }
 
@@ -80,7 +85,7 @@
       position: relative;
       width: 768px;
       max-width: 100%;
-      min-height: 480px;
+      min-height: 520px;
       background: #fff;
       border-radius: 10px;
       overflow: hidden;
@@ -366,6 +371,29 @@
       margin: 0;
     }
 
+.newsletter-opt-in {
+    width: 100%;
+    margin: 10px 0;
+    font-size: 11px;
+}
+
+
+.newsletter-opt-in label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.newsletter-opt-in input {
+    width: auto;
+    margin: 0;
+    flex-shrink: 0;
+    accent-color: var(--primary-color);
+}
+
+
+
     .remember-me {
       display: flex;
       align-items: center;
@@ -605,6 +633,18 @@
           </div>
 
         </div>
+
+
+
+  <div class="newsletter-opt-in">
+    <label for="newsletterOptIn">
+        <input type="checkbox" id="newsletterOptIn">
+        <span>
+            I would like to receive occasional email newsletters and updates.
+        </span>
+    </label>
+  </div>
+
 
         <button type="submit" id="registerButton">
           Sign Up
@@ -1017,6 +1057,9 @@ document.getElementById("mobileSignIn").addEventListener("click", () => {
           document.getElementById("regPassword")
             .value;
 
+        const newsletterOptIn =
+          document.getElementById("newsletterOptIn").checked;
+
 
         if (!name || !email || !password) {
 
@@ -1308,7 +1351,9 @@ document.getElementById("mobileSignIn").addEventListener("click", () => {
             name: user.displayName || "",
             email: user.email || "",
             photoURL: user.photoURL || "",
-            lastLogin: serverTimestamp()
+            lastLogin: serverTimestamp(),
+            newsletterOptIn: newsletterOptIn,
+            newsletterUpdatedAt: serverTimestamp()
           },
           {
             merge: true
