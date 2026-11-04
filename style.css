@@ -541,203 +541,132 @@ body {
 @media (min-width: 1410px) {
 
   /*about me section*/
-
-
   .about-me-container {
     position: fixed;
-    top: 10%;
-    left: 1%;
-    right: 90%;
-
-
+    top: 90px;
+    left: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-
     z-index: 0;
-
-
   }
-
   .about-me-image {
     width: 100%;
     height: auto;
     max-width: 800px;
     max-height: 600px;
   }
-
   .about-me-btn {
     width: 150px;
     height: auto;
-
     border: none;
     background: transparent;
-
     cursor: pointer;
-
     transition: transform 0.2s ease;
-
     opacity: 0.5;
-
   }
-
   .about-me-btn:hover {
     transform: scale(1.1);
-
     opacity: 1;
-
   }
 
-  /*how i made this website section*/
 
+  /*how i made this website section*/
   .how-i-made-this-site-container {
     position: fixed;
-    top: 15%;
-    left: 1%;
-    right: 87%;
-
+    top: 130px;
+    left: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-
-
     z-index: 0;
-
   }
-
   .how-i-made-this-site-image {
     width: 100%;
     height: auto;
     max-width: 800px;
     max-height: 600px;
   }
-
   .how-i-made-this-site-btn {
     width: 200px;
     height: auto;
-
     border: none;
     background: transparent;
-
     cursor: pointer;
-
     transition: transform 0.2s ease;
-
     opacity: 0.5;
   }
-
   .how-i-made-this-site-btn:hover {
     transform: scale(1.1);
-
     opacity: 1;
   }
 
 
-
   /*slots section*/
-
-
   .slots-container {
     position: fixed;
-    top: 7%;
-    left: 1.75%;
-    right: 90%;
-
-
+    top: 60px;
+    left: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-
     z-index: 0;
-
-
   }
-
   .slots-image {
     width: 100%;
     height: auto;
     max-width: 800px;
     max-height: 600px;
   }
-
   .slots-btn {
     width: 150px;
     height: auto;
-
     border: none;
     background: transparent;
-
     cursor: pointer;
-
     transition: transform 0.2s ease;
-
     opacity: 0.5;
-
   }
-
   .slots-btn:hover {
     transform: scale(1.1);
-
     opacity: 1;
-
   }
-
 
 
   /*profile section*/
-
-
   .profile-container {
     position: fixed;
-    top: 6%;
-    left: 93%;
-    right: 1%;
-
-
+    top: 50px;
+    right: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-
     z-index: 0;
-
-
   }
-
   .profile-image {
     width: 100%;
     height: auto;
     max-width: 800px;
     max-height: 600px;
   }
-
   .profile-btn {
     width: 80px;
     height: auto;
-
     border: none;
     background: transparent;
-
     cursor: pointer;
-
     transition: transform 0.2s ease;
-
     opacity: 0.5;
-
   }
-
   .profile-btn:hover {
     transform: scale(1.1);
-
     opacity: 1;
-
   }
 
 
 
 
   /*carousel etc section*/
-
-
   .carousel-container {
     display: none;
   }
@@ -1873,3 +1802,4 @@ body {
   }
 
 }
+

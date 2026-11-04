@@ -25,26 +25,85 @@
     <h2 class="h2-leftV-2">TURNER
     </h2>
 
-      <!-- PROFILE BUTTON -->
-      <a href="dashboard.html">
-        <div class="profile-container">
-          <button class="profile-btn" id="aboutMeBtn">
-            <img src="images/binder.png" alt="Profile Image" class="profile-image">
-          </button>
-        </div>
-      </a>
 
     <h2 class="h2-rightV-2">
       ASHTON
     </h2>
 
+    
     <!-- HOME BUTTON -->
     <button class="header-btn2-home" id="homeBtn">
       <img src="images/home_iconV.2.png" alt="Home">
     </button>
 
+
+
+    <!-- MOBILE SCROLLING MENU -->
+<div class="mobile-scrolling-wrapper">
+
+  <div class="scrolling-buttons-header" id="scrollingButtons">
+
+    <!-- PROFILE -->
+    <a href="dashboard.html">
+      <img src="images/binder2.png" alt="Profile">
+    </a>
+
+    <!-- ABOUT ME -->
+    <a href="about_me.html">
+      <img src="images/about_me2.png" alt="About Me">
+    </a>
+
+    <!-- HOW I MADE THIS SITE -->
+    <a href="how_its_made.html">
+      <img src="images/how_i_made_this_site2.png" alt="How I Made This Site">
+    </a>
+
+    <!-- SLOTS -->
+    <a href="slotindex.html">
+      <img src="images/try_your_luck2.png" alt="Slots">
+    </a>
+
+  </div>
+
+  <div class="scroll-progress">
+    <div class="scroll-progress-bar" id="scrollProgressBar"></div>
+  </div>
+
+</div>
+
   </header>
 
+
+
+
+
+
+<!-- DESKTOP SCROLLING MENU -->
+<div class="desktop-scrolling-wrapper">
+    <div class="desktop-scrolling-buttons">
+
+        <a href="how_its_made.html">
+            <img src="images/how_i_made_this_site2.png"
+                 alt="How I Made This Site">
+        </a>
+
+        <a href="about_me.html">
+            <img src="images/about_me2.png"
+                 alt="About Me">
+        </a>
+
+        <a href="slotindex.html">
+            <img src="images/try_your_luck2.png"
+                 alt="Try Your Luck">
+        </a>
+
+        <a href="dashboard.html">
+            <img src="images/binder2.png"
+                 alt="Profile">
+        </a>
+
+    </div>
+</div>
 
 
 
@@ -62,41 +121,7 @@
 
 
       
-    <div class="scrolling-buttons-header">
 
-
-      <!-- ABOUT ME BUTTON -->
-      <a href="about_me.html">
-        <div class="about-me-container">
-          <button class="about-me-btn" id="aboutMeBtn">
-            <img src="images/about_me.png" alt="About Me Image" class="about-me-image">
-          </button>
-        </div>
-      </a>
-
-      <!-- HOW I MADE THIS SITE BUTTON -->
-      <a href="how_its_made.html">
-        <div class="how-i-made-this-site-container">
-          <button class="how-i-made-this-site-btn" id="howIMadeThisSiteBtn">
-            <img src="images/how_i_made_this_site.png" alt="How I Made This Site Image"
-              class="how-i-made-this-site-image">
-          </button>
-        </div>
-      </a>
-
-
-      <!-- SLOTS BUTTON -->
-      <a href="slotindex.html">
-        <div class="slots-container">
-          <button class="slots-btn" id="aboutMeBtn">
-            <img src="images/try_your_luck.png" alt="About Me Image" class="slots-image">
-          </button>
-        </div>
-      </a>
-
-
-
-    </div>
 
 
 
@@ -262,6 +287,27 @@
             console.error("Could not save card discovery:", error);
         }
     });
+
+
+        const scrollingButtons = document.getElementById('scrollingButtons');
+const scrollProgressBar = document.getElementById('scrollProgressBar');
+
+function updateScrollProgress() {
+    const maxScroll =
+        scrollingButtons.scrollWidth - scrollingButtons.clientWidth;
+
+    const progress = maxScroll > 0
+        ? (scrollingButtons.scrollLeft / maxScroll) * 100
+        : 0;
+
+    scrollProgressBar.style.width = progress + '%';
+}
+
+scrollingButtons.addEventListener('scroll', updateScrollProgress);
+
+window.addEventListener('resize', updateScrollProgress);
+
+updateScrollProgress();
 </script>
 </body>
 
@@ -279,7 +325,8 @@
   body {
     background: #111;
     min-height: 100vh;
-    font-family: Arial, sans-serif;
+    min-height: 100dvh;
+        font-family: Arial, sans-serif;
 
     background-image: url(images/background_grid_2.jpeg);
     background-blend-mode: soft-light;
@@ -486,57 +533,77 @@
   /* =========================*/
   @media (min-width: 1410px) {
 
+    .header {
+        overflow-x: hidden;
+        overflow-y: hidden;
+    }
 
-.special-card-container {
-    width: 18vw;
-    perspective: 1000px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 20vh;
-}
+    .header::-webkit-scrollbar {
+        display: none;
+    }
 
-.special-card {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 1 / 1;
+    .mobile-scrolling-wrapper {
+        display: none;
+    }
 
-    transform-style: preserve-3d;
-    animation: rotateCard 5s ease-in-out 1s infinite alternate;
-}
+    /* DESKTOP NAVIGATION BELOW HEADER */
 
-.card-front,
-.card-back {
+    .desktop-scrolling-wrapper {
     position: absolute;
-    inset: 0;
+    top: 80px;
+    left: 0;
+
+    width: 100%;
+    height: 45px;
+
+    overflow: hidden;
+
+    background: rgba(0, 0, 0, 0.85);
+
+    border-radius: 0 0 25px 25px;
+
+    box-shadow: 2px 10px 20px rgba(0,0,0,0.75) inset;
+
+    z-index: 999;
+    }
+
+    .desktop-scrolling-buttons {
     width: 100%;
     height: 100%;
 
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-}
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    }
 
-.card-front img,
-.card-back img {
-    display: block;
-    width: 100%;
+    .desktop-scrolling-buttons a {
     height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex: 1;
+
+    text-decoration: none;
+    }
+
+    .desktop-scrolling-buttons img {
+    width: auto;
+    height: 80%;
+
+    max-width: 90%;
+
     object-fit: contain;
-    border-radius: 8px;
-}
 
-.card-back {
-    transform: rotateY(180deg);
-}
-
-@keyframes rotateCard {
-    from {
-        transform: translateY(0px) rotateY(0deg) scale(1);
+    opacity: 0.8;
+    transition: transform 0.2s ease, opacity 0.2s ease;
     }
 
-    to {
-        transform: translateY(-50px) rotateY(720deg) scale(1.5);
+    .desktop-scrolling-buttons a:hover img {
+    transform: scale(1.1);
+    opacity: 1;
     }
-}
 
 
     /* BUTTONS */
@@ -634,6 +701,56 @@
 
     }
 
+
+
+.special-card-container {
+    width: 18vw;
+    perspective: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 20vh;
+}
+.special-card {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+
+    transform-style: preserve-3d;
+    animation: rotateCard 5s ease-in-out 1s infinite alternate;
+}
+.card-front,
+.card-back {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+.card-front img,
+.card-back img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+}
+.card-back {
+    transform: rotateY(180deg);
+}
+@keyframes rotateCard {
+    from {
+        transform: translateY(0px) rotateY(0deg) scale(1);
+    }
+
+    to {
+        transform: translateY(-50px) rotateY(720deg) scale(1.5);
+    }
+}
+
+
+
     table,
     th,
     td {
@@ -644,15 +761,6 @@
     h1 {
       font-size: 5vw;
     }
-
-    .h2-right {
-      margin-right: 35%;
-    }
-
-    .h2-left {
-      margin-left: 35%
-    }
-
 
 
     .h2-leftV-2 {
@@ -1124,15 +1232,15 @@
   }
 
 
-
   /*MOBILE CSS FROM HERE ON*/
   /* =========================*/
 
   @media (max-width: 1410px) {
 
+
     body {
       background: #111;
-      min-height: 100vh;
+      height: 100vh;
       font-family: Arial, sans-serif;
 
       background-image: url(images/background_grid_2.jpeg);
@@ -1140,16 +1248,11 @@
     }
 
 
-
     html,
     body {
-      width: 100%;
-      height: 100%;
-      margin: 0;
       width: auto !important;
-      overflow-x: hidden !important;
+      overflow-x: hidden !important
     }
-
 
 
     table,
@@ -1160,46 +1263,38 @@
 
 
     /* PAGE CONTENT MOBILE*/
-    .content {
-      color: white;
+.content {
+    padding-top: 105px;
 
-      width: 100vw;
-      height: 100vh;
+    color: white;
+
+    width: 100%;
+    min-height: 100vh;
     min-height: 100dvh;
+
     display: flex;
     flex-direction: column;
-    box-sizing: border-box;
 
-    }
+    box-sizing: border-box;
+}
+
 
     .responsive-tka1 {
       max-width: 80%;
       height: auto;
-
       border-radius: 25px;
     }
-
     .responsive-tka2 {
       max-width: 80%;
       height: auto;
       border-radius: 50px;
-
       border-radius: 15px;
     }
 
 
     h1 {
-      font-size: 10vw;
+      font-size: 12vw;
     }
-
-    .h2-right {
-      margin-right: 18%;
-    }
-
-    .h2-left {
-      margin-left: 18%
-    }
-
 
 
     /* BUTTONS */
@@ -1211,78 +1306,13 @@
       background: transparent;
 
       cursor: pointer;
+      z-index: 1002;
     }
-
-
     .header-btn img {
       width: 100%;
       height: 100%;
       object-fit: contain;
     }
-
-
-
-
-
-    .header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    min-height: 8vh;
-    max-height: 8vh;
-
-    background: rgba(255, 255, 255, 0.85);
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    padding: 0 24px;
-    z-index: 1000;
-
-    border-bottom: 0px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(8px);
-  }
-
-
-    .header-btn2-back {
-      width: auto;
-      height: 4vh;
-      border: none;
-      background: transparent;
-      position: absolute;
-      left: 0%;
-      z-index: 1004;
-      opacity: 0.95;
-      mix-blend-mode:multiply;
-    }
-    .header-btn2-back img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
-
-
-    .header-btn2-home {
-      width: auto;
-      height: 6vh;
-      border: none;
-      background: transparent;
-      position: absolute;
-      left: 85%;
-      z-index: 1004;
-            opacity: 0.95;
-      mix-blend-mode:multiply;
-    }
-    .header-btn2-home img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
-
-
-
 
 
     .header-btn-pack {
@@ -1291,38 +1321,14 @@
 
 
     .header-btn-pack-menu {
-      width: 40px;
-      height: 60px;
-
-      margin: none;
-
-      border: none;
-      background: transparent;
-
-      cursor: pointer;
-
-      transition: scale(1.1);
-
-
+      display: none;
     }
-
-    .header-btn-pack-menu:hover {
-      transform: scale(1.5);
-    }
-
-    .header-btn-pack-menu img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
-
 
 
     div.gallery {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-
     }
 
     div.gallery-item {
@@ -1336,13 +1342,11 @@
       width: 100%;
       height: auto;
     }
-
     div.gallery-item div.desc {
       padding: 2px;
       text-align: center;
       font-weight: bold;
     }
-
     div.gallery-item div.desc2 {
       padding: 2px;
       text-align: center;
@@ -1357,28 +1361,16 @@
     }
 
     .header-mobile {
-      position: flex;
-      top: 0;
-      left: 0;
+      width: 50%;
+      height: auto;
+      top: 0vh;
+      left: 50%;
+      transform: translateX(-50%);
 
-      width: 100%;
-      height: 6vh;
-      /*
-    background: rgba(255, 255, 255, 0.85);
-*/
+      position: relative;
       display: flex;
+      justify-content:space-around;
       align-items: center;
-      justify-content: space-around;
-
-
-      padding: 0 24px;
-      margin-top: -5vh;
-
-      z-index: 10;
-
-      /*
-    backdrop-filter: blur(8px);
-*/
     }
 
 
@@ -1466,12 +1458,337 @@
     }
 
 
+
+
+
+    .email-tka {
+      width: 92%;
+      margin-left: 4%;
+      font-size: 2vh;
+      color: red;
+
+      background-image: url(images/background_horiz.jpeg);
+      background-size: cover;
+
+      box-shadow: 2px 21px 26px 9px rgba(0, 0, 0, 0.75) inset;
+      -webkit-box-shadow: 2px 21px 26px 9px rgba(0, 0, 0, 0.75) inset;
+      -moz-box-shadow: 2px 21px 26px 9px rgba(0, 0, 0, 0.75) inset;
+
+      border: 0px;
+      border-radius: 25px;
+      background-blend-mode: screen;
+    }
+
+  .email-tka input,
+  .email-tka textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.9);
+    color: black;
+
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    box-sizing: border-box;
+  }
+
+  .email-tka textarea {
+    min-height: 180px;
+    resize: vertical;
+  }
+
+  .email-tka input:focus,
+  .email-tka textarea:focus {
+    outline: 2px solid red;
+  }
+
+  .email-tka button {
+    padding: 12px 25px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: black;
+    color: white;
+
+    font-weight: bold;
+    cursor: pointer;
+
+    transition:
+      transform 0.2s ease,
+      background 0.2s ease;
+  }
+
+
+
+
+/*TURNER here for scrolling buttons header ctrl paste to slot websites*/
+
+/* MOBILE HEADER */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 85px;
+
+    display: grid;
+    grid-template-columns: 50px minmax(0, 1fr) 50px;
+    grid-template-rows: 1fr;
+    column-gap: 0;
+
+    padding: 0;
+
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    z-index: 1000;
+    overflow: hidden;
+}
+
+  /* HIDE DESKTOP HEADER ITEMS */
+  .h2-leftV-2,
+  .h2-rightV-2,
+  .header-btn-pack,
+  .header-btn-pack-menu,
+  .header > a:not(.mobile-scrolling-wrapper a) {
+    display: none;
+  }
+
+/* BACK AND HOME BUTTONS */
+.header-btn2-back,
+.header-btn2-home {
+    width: 100%;
+    height: 100%;
+
+    grid-row: 1;
+
+    border: none;
+    background: transparent;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-btn2-back {
+    grid-column: 1;
+}
+
+.header-btn2-home {
+    grid-column: 3;
+}
+
+.header-btn2-back img,
+.header-btn2-home img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+}
+
+/* SCROLLING SECTION */
+.mobile-scrolling-wrapper {
+    grid-column: 2;
+    grid-row: 1;
+
+    min-width: 0;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+}
+
+.scrolling-buttons-header {
+    width: 100%;
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    gap: 45px;
+
+    padding: 0 50px;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+
+/* 
+background: #9a9a9a;
+background: linear-gradient(180deg,#9a9a9a 10%, #d0d0d0 50%, #9a9a9a 90%);
+background: -webkit-linear-gradient(180deg,#9a9a9a 10%, #d0d0d0 50%, #9a9a9a 90%);
+background: -moz-linear-gradient(180deg,#9a9a9a 10%, #d0d0d0 50%, #9a9a9a 90%);
+
+background: #939fac;
+background: linear-gradient(180deg,#939fac 10%, #bcc8d2 50%, #939fac 90%);
+background: -webkit-linear-gradient(180deg,#939fac 10%, #bcc8d2 50%, #939fac 90%);
+background: -moz-linear-gradient(180deg,#939fac 10%, #bcc8d2 50%, #939fac 90%);
+
+
+background: #ac9a93;
+background: linear-gradient(180deg,#7c6f57 10%, #d2cabc 50%, #7c6f57 90%);
+background: -webkit-linear-gradient(180deg,#7c6f57 10%, #d2cabc 50%, #7c6f57 90%);
+background: -moz-linear-gradient(180deg,#7c6f57 10%, #d2cabc 50%, #7c6f57 90%);
+
+background: #ac9a93;
+background: linear-gradient(180deg,#ac9a93 10%, #d2cabc 50%, #ac9a93 90%);
+background: -webkit-linear-gradient(180deg,#ac9a93 10%, #d2cabc 50%, #ac9a93 90%);
+background: -moz-linear-gradient(180deg,#ac9a93 10%, #d2cabc 50%, #ac9a93 90%);
+
+background: #a25454;
+background: radial-gradient(circle farthest-corner at center center, #a25454 10%, #864d4d 50%, #a25454 90%);
+background: -webkit-radial-gradient(circle farthest-corner at center center, #a25454 10%, #864d4d 50%, #a25454 90%);
+background: -moz-radial-gradient(circle farthest-corner at center center, #a25454 10%, #864d4d 50%, #a25454 90%);
+*/
+background: #4b0e0e;
+background: radial-gradient(circle farthest-corner at center center, #4b0e0e 10%, #5d0b0b 50%, #3c1414 90%);
+background: -webkit-radial-gradient(circle farthest-corner at center center, #4b0e0e 10%, #5d0b0b 50%, #3c1414 90%);
+background: -moz-radial-gradient(circle farthest-corner at center center, #4b0e0e 10%, #5d0b0b 50%, #3c1414 90%);
+
+
+    border-radius: 30px;
+
+    box-shadow: 1px 0px 20px 4px rgba(0,0,0,0.75) inset;
+}
+
+  .scrolling-buttons-header::-webkit-scrollbar {
+    display: none;
+  }
+
+.scrolling-buttons-header > a {
+    flex: 0 0 auto;
+    width: auto;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+    margin: 0;
+}
+
+
+.scrolling-buttons-header img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-height: 48px;
+    object-fit: contain;
+    padding: 0;
+}
+
+.scrolling-buttons-header a:nth-child(1) img {
+    height: 50px;
+}
+
+.scrolling-buttons-header a:nth-child(2) img {
+    height: 50px;
+}
+
+.scrolling-buttons-header a:nth-child(3) img {
+    height: 50px;
+}
+
+.scrolling-buttons-header a:nth-child(4) img {
+    height: 50px;
+}
+
+
+  /* PROGRESS */
+  .scroll-progress {
+    width: 100%;
+    height: 4px;
+
+    background: rgba(0,0,0,0.2);
+    border-radius: 10px;
+    overflow: visible;
+  }
+
+  .scroll-progress-bar {
+    width: 0%;
+    height: 100%;
+
+    background: rgb(160,0,0);
+    border-radius: 10px;
+
+    position: relative;
+    transition: width .1s linear;
+  }
+
+  .scroll-progress-bar::after {
+    content: "";
+    position: absolute;
+
+    right: -5px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 10px;
+    height: 10px;
+
+    background: red;
+    border-radius: 50%;
+  }
+
+      .desktop-scrolling-wrapper {
+    display: none;
+    }
+/*ABCDEFGHIJKLMNOP HERE TURNER CURRENT EDIT*/
+
+
+
+    div.gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+
+    }
+
+    div.gallery-item {
+      margin: 5px;
+      border: 0px solid #ccc;
+      width: 90px;
+    }
+
+
+    div.gallery-item img {
+      width: 100%;
+      height: auto;
+    }
+
+    div.gallery-item div.desc {
+      padding: 2px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    div.gallery-item div.desc2 {
+      padding: 2px;
+      text-align: center;
+      font-style: oblique;
+    }
+
+
+
 .special-card-container {
-    width: 45vw;
+    width: clamp(180px, 45vw, 350px);
+
     perspective: 1000px;
+
     margin-left: auto;
     margin-right: auto;
-    padding-top: 20vh;
+
+    padding-top: clamp(40px, 8vh, 100px);
 }
 
 .special-card {
@@ -1526,7 +1843,7 @@
       padding-top: 0vh;
       padding-bottom: 0px;
       margin-bottom: 0px;
-          margin-top: auto;
+      margin-top: auto;
     flex-shrink: 0;
 
       border-top-left-radius: 25px;
@@ -1538,17 +1855,18 @@
       text-align: center;
 
       background-image: url('images/sprite_give.png');
-      background-size: 120%;
+      background-size: 90%;
       background-position: 45%;
       background-blend-mode: normal;
       background-repeat: no-repeat;
 
-      box-shadow: 2px 21px 26px 9px rgba(65, 65, 65, 0.75) inset;
-      -webkit-box-shadow: 2px 21px 26px 9px rgba(65, 65, 65, 0.75) inset;
-      -moz-box-shadow: 2px 21px 26px 9px rgba(65, 65, 65, 0.75) inset;
-      background-color: rgba(73, 54, 41, 0.26);
+      box-shadow: 2px 21px 26px 9px rgba(0, 0, 0, 0.75) inset;
+      -webkit-box-shadow: 2px 21px 26px 9px rgba(0, 0, 0, 0.75) inset;
+      -moz-box-shadow: 2px 21px 26px 9px rgba(0, 0, 0, 0.75) inset;
+      background-color: rgba(107, 55, 55, 0.26);
 
       overflow-x: hidden;
+      overflow-y: visible;
 
     }
 
@@ -1578,272 +1896,6 @@
       display: none;
     }
 
-
-
-    .h2-leftV-2 {
-
-      font-size: 3vh;
-      margin-left: 10vw;
-      position: flex;
-
-
-      color: rgba(0, 0, 0, 0.075);
-      text-shadow: 3px 2px 3px rgba(255, 255, 255, 0.747);
-
-      z-index: 101;
-    }
-
-
-    .h2-rightV-2 {
-      font-size: 3vh;
-      position: flex;
-      margin-right: 10vw;
-
-
-      color: rgba(0, 0, 0, 0.075);
-      text-shadow: 3px 2px 3px rgba(255, 255, 255, 0.747);
-
-      z-index: 101;
-    }
-
-
-
-    .scrolling-buttons-header {
-      width: 100%;
-      height: 4vh;
-
-      position:absolute;
-      top: 8vh;
-
-      box-shadow: 2px 21px 26px 9px rgba(0, 0, 0, 0.75) inset;
-      -webkit-box-shadow: 2px 21px 26px 9px rgba(65, 65, 65, 0.75) inset;
-      -moz-box-shadow: 2px 21px 26px 9px rgba(0, 0, 0, 0.75) inset;
-
-        background-color: rgba(116, 6, 6, 0);
-
-      background-blend-mode: normal;
-
-      border-bottom-left-radius: 25px;
-      border-bottom-right-radius: 25px;
-      border-top-left-radius: 0px;
-      border-top-right-radius: 0px;
-
-      overflow: hidden;
-      
-    }
-
-
-    /*how i made this website section*/
-    .how-i-made-this-site-container {
-      position:sticky;
-      top: 5%;
-      left: 0%;
-      right: 1%;
-      margin-top: -10vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      z-index: 3;
-      width: 200px;
-          animation-name: scrollingBtns1;
-          animation-duration: 15s;
-          animation-delay: 0s;
-          animation-iteration-count: infinite;
-          animation-direction:alternate;
-          animation-timing-function:cubic-bezier(.25,0,.75,1);      
-    }
-    .how-i-made-this-site-image {
-      width: 100%;
-      height: auto;
-      max-width: 800px;
-      max-height: 600px;
-    }
-    .how-i-made-this-site-btn {
-      width: 200px;
-      height: auto;
-      border: none;
-      background: transparent;
-
-      cursor: pointer;
-      transition: transform 0.2s ease;
-      opacity: 0.75;
-    }
-    .how-i-made-this-site-btn:hover {
-      transform: scale(1.1);
-      opacity: 1;
-    }
-
-    @keyframes scrollingBtns1 {
-            from {
-            transform: translateX(200%) translateY(0px) rotateY(0deg);
-          }
-
-          to {
-            transform: translateX(-230%) translateY(0px) rotateY(0deg);
-          }
-}
-
-    /*About me section*/
-    .about-me-container {
-      position: absolute;
-      top: 0%;
-      left: 35%;
-      right: 1%;
-      margin-top: -0.5vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      z-index: 3;
-      width: 150px;
-
-          animation-name: scrollingBtns2;
-          animation-duration: 15s;
-          animation-delay: 0s;
-          animation-iteration-count: infinite;
-          animation-direction:alternate;
-          animation-timing-function:cubic-bezier(.25,0,.75,1);      
-    }
-    .about-me-image {
-      width: 100%;
-      height: auto;
-      max-width: 800px;
-      max-height: 600px;
-    }
-    .about-me-btn {
-      width: 150px;
-      height: auto;
-      border: none;
-      background: transparent;
-
-      cursor: pointer;
-      transition: transform 0.2s ease;
-      opacity: 0.75;
-    }
-    .about-me-btn:hover {
-      transform: scale(1.1);
-      opacity: 1;
-    }
-
-@keyframes scrollingBtns2 {
-            from {
-            transform: translateX(300%) translateY(0px) rotateY(0deg);
-          }
-
-          to {
-            transform: translateX(-260%) translateY(0px) rotateY(0deg);
-          }
-}
-
-    /*try your luck section*/
-    .slots-container {
-      position: sticky;
-      top: 30%;
-      left: 65%;
-      right: 1%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      width: 150px;
-        margin-top: 0vh;
-      z-index: 3;
-          animation-name: scrollingBtns3;
-          animation-duration: 15s;
-          animation-delay: 0s;
-          animation-iteration-count: infinite;
-          animation-direction:alternate;
-          animation-timing-function:cubic-bezier(.25,0,.75,1);      
-    }
-    .slots-image {
-      width: 100%;
-      height: auto;
-      max-width: 800px;
-      max-height: 600px;
-    }
-    .slots-btn {
-      width: 150px;
-      height: auto;
-      border: none;
-      background: transparent;
-      cursor: pointer;
-
-      transition: transform 0.2s ease;
-      opacity: 0.75;
-    }
-    .slots-btn:hover {
-      transform: scale(1.1);
-      opacity: 1;
-    }
-
-@keyframes scrollingBtns3 {
-            from {
-            transform: translateX(350%) translateY(0px) rotateY(0deg);
-          }
-
-          to {
-            transform: translateX(-250%) translateY(0px) rotateY(0deg);
-          }
-}
-
-
-    /*profile section*/
-    .profile-container {
-      position: flex;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 1003;
-
-      width: auto;
-    }
-    .profile-image {
-      width: 100%;
-      height: auto;
-      max-width: 400px;
-      max-height: 300px;
-    }
-    .profile-btn {
-      width: 45px;
-      height: auto;
-      border: none;
-      background: transparent;
-
-      cursor: pointer;
-      transition: transform 0.2s ease;
-      opacity: 0.85;
-    }
-    .profile-btn:hover {
-      transform: scale(1.1);
-      opacity: 1;
-    }
-
-
-
-    .email-tka {
-      width: 80vw;
-
-      margin-left: 8%;
-
-      font-size: 2vh;
-      color: red;
-
-      background-image: url(images/background_horiz.jpeg);
-      background-size: cover;
-
-
-      box-shadow: 2px 21px 26px 9px rgba(0, 0, 0, 0.75) inset;
-      -webkit-box-shadow: 2px 21px 26px 9px rgba(0, 0, 0, 0.75) inset;
-      -moz-box-shadow: 2px 21px 26px 9px rgba(0, 0, 0, 0.75) inset;
-
-      border: 0px;
-      border-radius: 25px;
-
-      background-blend-mode: screen;
-
-    }
 
   }
 </style>

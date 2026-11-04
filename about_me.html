@@ -16,8 +16,8 @@
   <header class="header">
 
     <!-- BACK BUTTON -->
-    <button class="header-btn" id="backBtn">
-      <img src="images/arrow_icon.png" alt="Back" style="rotate: 90deg;">
+    <button class="header-btn2-back" id="backBtn">
+      <img src="images/arrow_iconV.2.png" alt="Back" style="rotate: 90deg;">
     </button>
 
 
@@ -37,8 +37,8 @@
     </h2>
 
     <!-- HOME BUTTON -->
-    <button class="header-btn" id="homeBtn">
-      <img src="images/home_icon.png" alt="Home">
+    <button class="header-btn2-home" id="homeBtn">
+      <img src="images/home_iconV.2.png" alt="Home">
     </button>
 
   </header>
@@ -242,9 +242,10 @@ initializeJourney();
 
     z-index: 1000;
 
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 0px solid rgba(255, 255, 255, 0.1);
 
     backdrop-filter: blur(8px);
+    overflow-y: hidden;
   }
 
   /* BUTTONS */
@@ -362,7 +363,61 @@ initializeJourney();
     }
 
 
+    .header-btn2-back {
+      width: 130px;
+      height: 130px;
 
+      border: none;
+      background: transparent;
+
+      cursor: pointer;
+
+      transition: transform 0.2s ease;
+
+
+      position: absolute;
+
+      right: 92%;
+    }
+
+    .header-btn2-back:hover {
+      transform: scale(0.8);
+    }
+
+    .header-btn2-back img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+
+    }
+
+
+    .header-btn2-home {
+      width: 100px;
+      height: 100px;
+
+      border: none;
+      background: transparent;
+
+      cursor: pointer;
+
+      transition: transform 0.2s ease;
+
+      position: absolute;
+
+      left: 92%;
+
+    }
+
+    .header-btn2-home:hover {
+      transform: scale(0.89);
+    }
+
+    .header-btn2-home img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
 
 
  /* =journey buttons=*/
@@ -532,8 +587,42 @@ initializeJourney();
 
  /* ===========j==============*/
 
+/* BACK AND HOME BUTTONS */
+.header-btn2-back,
+.header-btn2-home {
+    width: 100%;
+    height: 100%;
+
+    grid-row: 1;
+
+    border: none;
+    background: transparent;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-btn2-back {
+    grid-column: 1;
+}
+
+.header-btn2-home {
+    grid-column: 3;
+}
+
+.header-btn2-back img,
+.header-btn2-home img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
 
 
+.header-btn-pack {
+display: none;
+}
   }
 
 
@@ -662,30 +751,33 @@ body {
 
 
 
-
-  /* HEADER BAR */
-  .header {
+.header {
     position: fixed;
     top: 0;
     left: 0;
 
     width: 100%;
-    height: 80px;
-
-    background: rgba(255, 255, 255, 0.85);
+    height: 85px;
 
     display: flex;
+    grid-template-columns: 50px minmax(0, 1fr) 50px;
+    grid-template-rows: 1fr;
+    column-gap: 0;
+
+    padding: 0;
+
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    z-index: 1000;
     align-items: center;
     justify-content: space-between;
 
-    padding: 0 24px;
+    border-bottom: 0px solid rgba(255, 255, 255, 0.1);
+    overflow-y: hidden;
+}
 
-    z-index: 1000;
-
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-
-    backdrop-filter: blur(8px);
-  }
 
   /* BUTTONS */
   .header-btn {
