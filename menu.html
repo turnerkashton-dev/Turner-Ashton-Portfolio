@@ -73,43 +73,40 @@
 
   </header>
 
-
+<div class="scroll-progress">
+  <div class="scroll-progress-bar" id="scrollProgressBar"></div>
+</div>
       
-    <div class="scrolling-buttons-header">
+<div class="scrolling-buttons-header" id="scrollingButtons">
 
-
-      <!-- ABOUT ME BUTTON -->
-      <a href="about_me.html">
-        <div class="about-me-container">
-          <button class="about-me-btn" id="aboutMeBtn">
-            <img src="images/about_me.png" alt="About Me Image" class="about-me-image">
-          </button>
-        </div>
-      </a>
-
-      <!-- HOW I MADE THIS SITE BUTTON -->
-      <a href="how_its_made.html">
-        <div class="how-i-made-this-site-container">
-          <button class="how-i-made-this-site-btn" id="howIMadeThisSiteBtn">
-            <img src="images/how_i_made_this_site.png" alt="How I Made This Site Image"
-              class="how-i-made-this-site-image">
-          </button>
-        </div>
-      </a>
-
-
-      <!-- SLOTS BUTTON -->
-      <a href="slotindex.html">
-        <div class="slots-container">
-          <button class="slots-btn" id="aboutMeBtn">
-            <img src="images/try_your_luck.png" alt="About Me Image" class="slots-image">
-          </button>
-        </div>
-      </a>
-
-
-
+  <a href="about_me.html">
+    <div class="about-me-container">
+      <button class="about-me-btn">
+        <img src="images/about_me.png" alt="About Me" class="about-me-image">
+      </button>
     </div>
+  </a>
+
+  <a href="how_its_made.html">
+    <div class="how-i-made-this-site-container">
+      <button class="how-i-made-this-site-btn">
+        <img src="images/how_i_made_this_site.png"
+          alt="How I Made This Site" class="how-i-made-this-site-image">
+      </button>
+    </div>
+  </a>
+
+  <a href="slotindex.html">
+    <div class="slots-container">
+      <button class="slots-btn">
+        <img src="images/try_your_luck.png" alt="Slots" class="slots-image">
+      </button>
+    </div>
+  </a>
+
+</div>
+
+
 
 
 
@@ -530,6 +527,29 @@
     document.getElementById('packBtnmenu').addEventListener('click', () => {
       window.location.href = 'index.html';
     });
+
+
+
+
+    const scrollingButtons = document.getElementById('scrollingButtons');
+const scrollProgressBar = document.getElementById('scrollProgressBar');
+
+function updateScrollProgress() {
+    const maxScroll =
+        scrollingButtons.scrollWidth - scrollingButtons.clientWidth;
+
+    const progress = maxScroll > 0
+        ? (scrollingButtons.scrollLeft / maxScroll) * 100
+        : 100;
+
+    scrollProgressBar.style.width = progress + '%';
+}
+
+scrollingButtons.addEventListener('scroll', updateScrollProgress);
+
+window.addEventListener('resize', updateScrollProgress);
+
+updateScrollProgress();
   </script>
 
 </body>
@@ -1684,185 +1704,125 @@
     }
 
 
+/*TURNER here for scrolling buttons header ctrl paste to slot websites*/
+.scrolling-buttons-header {
+    position: relative;
+    top: 9vh;
+    left: 2%;
 
-    .scrolling-buttons-header {
-      width: 100%;
-      min-height: 4vh;
+    width: 96%;
+    height: 75px;
 
-      position:absolute;
-      top: 8vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
 
-      box-shadow: 2px 21px 26px 9px rgba(0, 0, 0, 0.75) inset;
-      -webkit-box-shadow: 2px 21px 26px 9px rgba(65, 65, 65, 0.75) inset;
-      -moz-box-shadow: 2px 21px 26px 9px rgba(0, 0, 0, 0.75) inset;
+    overflow-x: auto;
+    overflow-y: hidden;
 
-        background-color: rgba(116, 6, 6, 0);
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
 
-      background-blend-mode: normal;
+    background-image: url('images/background_paper.jpeg');
+    background-size: cover;
 
-      border-bottom-left-radius: 25px;
-      border-bottom-right-radius: 25px;
-      border-top-left-radius: 0px;
-      border-top-right-radius: 0px;
+    border-radius: 35px;
+    box-sizing: border-box;
 
-      overflow: hidden;
-      
-    }
+    box-shadow: 1px 0px 20px 4px rgba(0,0,0,0.75) inset;
 
-
-    /*how i made this website section*/
-    .how-i-made-this-site-container {
-      position:sticky;
-      top: 5%;
-      left: 0%;
-      right: 1%;
-      margin-top: -10vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      z-index: 3;
-      width: 200px;
-          animation-name: scrollingBtns1;
-          animation-duration: 15s;
-          animation-delay: 0s;
-          animation-iteration-count: infinite;
-          animation-direction:alternate;
-          animation-timing-function:cubic-bezier(.25,0,.75,1);      
-    }
-    .how-i-made-this-site-image {
-      width: 100%;
-      height: auto;
-      max-width: 800px;
-      max-height: 600px;
-    }
-    .how-i-made-this-site-btn {
-      width: 200px;
-      height: auto;
-      border: none;
-      background: transparent;
-
-      cursor: pointer;
-      transition: transform 0.2s ease;
-      opacity: 0.75;
-    }
-    .how-i-made-this-site-btn:hover {
-      transform: scale(1.1);
-      opacity: 1;
-    }
-
-    @keyframes scrollingBtns1 {
-            from {
-            transform: translateX(200%) translateY(0px) rotateY(0deg);
-          }
-
-          to {
-            transform: translateX(-230%) translateY(0px) rotateY(0deg);
-          }
+    scrollbar-width: none;
 }
 
-    /*About me section*/
-    .about-me-container {
-      position: absolute;
-      top: 0%;
-      left: 35%;
-      right: 1%;
-      margin-top: -0.5vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      z-index: 3;
-      width: 150px;
-
-          animation-name: scrollingBtns2;
-          animation-duration: 15s;
-          animation-delay: 0s;
-          animation-iteration-count: infinite;
-          animation-direction:alternate;
-          animation-timing-function:cubic-bezier(.25,0,.75,1);      
-    }
-    .about-me-image {
-      width: 100%;
-      height: auto;
-      max-width: 800px;
-      max-height: 600px;
-    }
-    .about-me-btn {
-      width: 150px;
-      height: auto;
-      border: none;
-      background: transparent;
-
-      cursor: pointer;
-      transition: transform 0.2s ease;
-      opacity: 0.75;
-    }
-    .about-me-btn:hover {
-      transform: scale(1.1);
-      opacity: 1;
-    }
-
-@keyframes scrollingBtns2 {
-            from {
-            transform: translateX(300%) translateY(0px) rotateY(0deg);
-          }
-
-          to {
-            transform: translateX(-260%) translateY(0px) rotateY(0deg);
-          }
+.scrolling-buttons-header::-webkit-scrollbar {
+    display: none;
 }
 
-    /*try your luck section*/
-    .slots-container {
-      position: sticky;
-      top: 30%;
-      left: 65%;
-      right: 1%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+.scrolling-buttons-header > a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-      width: 150px;
-        margin-top: 0vh;
-      z-index: 3;
-          animation-name: scrollingBtns3;
-          animation-duration: 15s;
-          animation-delay: 0s;
-          animation-iteration-count: infinite;
-          animation-direction:alternate;
-          animation-timing-function:cubic-bezier(.25,0,.75,1);      
-    }
-    .slots-image {
-      width: 100%;
-      height: auto;
-      max-width: 800px;
-      max-height: 600px;
-    }
-    .slots-btn {
-      width: 150px;
-      height: auto;
-      border: none;
-      background: transparent;
-      cursor: pointer;
-
-      transition: transform 0.2s ease;
-      opacity: 0.75;
-    }
-    .slots-btn:hover {
-      transform: scale(1.1);
-      opacity: 1;
-    }
-
-@keyframes scrollingBtns3 {
-            from {
-            transform: translateX(350%) translateY(0px) rotateY(0deg);
-          }
-
-          to {
-            transform: translateX(-250%) translateY(0px) rotateY(0deg);
-          }
+    flex: 0 0 65%;
+    height: 100%;
+    text-decoration: none;
 }
+
+.how-i-made-this-site-container,
+.about-me-container,
+.slots-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+}
+
+.how-i-made-this-site-btn,
+.about-me-btn,
+.slots-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.how-i-made-this-site-image,
+.about-me-image,
+.slots-image {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+    padding: 8px;
+}
+
+.scroll-progress {
+    position: relative;
+    top: 9vh;
+    left: 2%;
+
+    width: 96%;
+    height: 4px;
+
+    margin-top: 0px;
+
+    background: rgba(255,255,255,0.25);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.scroll-progress-bar {
+    width: 0%;
+    height: 100%;
+    background: rgb(160, 0, 0);
+    border-radius: 10px;
+    transition: width .1s linear;
+    position: relative;
+}
+
+.scroll-progress-bar::after {
+    content: "";
+    position: absolute;
+    right: -5px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 10px;
+    height: 10px;
+    background: red;
+    border-radius: 50%;
+}
+/* END OF SCROLLING BUTTONS SECTION */
+
 
 
     /*profile section*/
@@ -1926,7 +1886,7 @@
 
 
 
-
+/*ABCDEFGHIJKLMNOP HERE TURNER CURRENT EDIT*/
 
 .header {
     position: fixed;
@@ -1991,8 +1951,8 @@
 }
 
 .profile-btn {
-    width: 48px;
-    height: 58px;
+    width: 58px;
+    height: 68px;
 
     border: none;
     background: transparent;
