@@ -55,11 +55,11 @@
         <a href="about_me.html">
             <img src="images/about_me2.png" alt="About Me">
         </a>
-
+<!--
         <a href="how_its_made.html">
             <img src="images/how_i_made_this_site2.png" alt="How I Made This Site">
         </a>
-
+-->
         <a href="slotindex.html">
             <img src="images/try_your_luck2.png" alt="Slots">
         </a>
@@ -901,34 +901,38 @@ updateScrollProgress();
 
 
   /* ==========================================
-   MOBILE HEADER - MATCH ABOUT_ME.HTML
+   MOBILE HEADER - to match other pages tka
 ========================================== */
 
 @media (max-width: 1410px) {
 
-    .header {
-        position: fixed;
-        top: 0;
-        left: 0;
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
 
-        width: 100%;
-        height: 85px;
+    width: 100%;
+    height: 85px;
+    min-height: 85px;
+    max-height: 85px;
 
-        display: grid;
-        grid-template-columns: 50px minmax(0, 1fr) 50px;
-        grid-template-rows: 1fr;
-        column-gap: 0;
+    display: grid;
+    grid-template-columns: 50px minmax(0, 1fr) 50px;
+    grid-template-rows: 1fr;
+    column-gap: 0;
 
-        padding: 0;
+    align-items: center;
 
-        background: rgba(255, 255, 255, 0.85);
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px);
+    padding: 0;
 
-        z-index: 1000;
-        overflow: hidden;
-    }
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 
+    z-index: 9999;
+
+    overflow: visible;
+}
     /* HIDE DESKTOP HEADER TEXT */
 
     .h2-leftV-2,
@@ -1036,7 +1040,7 @@ updateScrollProgress();
     .scrolling-buttons-header img {
         display: block;
         width: auto;
-        height: 50px;
+        height: 40px;
         max-height: 48px;
         object-fit: contain;
     }
