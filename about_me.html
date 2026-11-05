@@ -22,7 +22,7 @@
 
 
 
-    <h2 class="h2-left">TURNER
+    <h2 class="h2-leftV-2">TURNER
     </h2>
 
 
@@ -32,7 +32,7 @@
 
 
 
-    <h2 class="h2-right">
+    <h2 class="h2-rightV-2">
       ASHTON
     </h2>
 
@@ -40,6 +40,43 @@
     <button class="header-btn2-home" id="homeBtn">
       <img src="images/home_iconV.2.png" alt="Home">
     </button>
+
+
+
+
+<!-- MOBILE SCROLLING MENU -->
+<div class="mobile-scrolling-wrapper">
+
+    <div class="scrolling-buttons-header" id="scrollingButtons">
+
+        <!-- PROFILE -->
+        <a href="dashboard.html">
+            <img src="images/binder2.png" alt="Profile">
+        </a>
+
+        <!-- ABOUT ME -->
+        <a href="about_me.html">
+            <img src="images/about_me2.png" alt="About Me">
+        </a>
+
+        <!-- HOW I MADE THIS SITE -->
+        <a href="how_its_made.html">
+            <img src="images/how_i_made_this_site2.png" alt="How I Made This Site">
+        </a>
+
+        <!-- SLOTS -->
+        <a href="slotindex.html">
+            <img src="images/try_your_luck2.png" alt="Slots">
+        </a>
+
+    </div>
+
+    <div class="scroll-progress">
+        <div class="scroll-progress-bar" id="scrollProgressBar"></div>
+    </div>
+
+</div>
+
 
   </header>
 
@@ -189,6 +226,33 @@ window.addEventListener('resize', updateJourney);
 initializeJourney();
 
 
+
+
+
+
+
+// MOBILE HEADER SCROLL PROGRESS
+
+const scrollingButtons = document.getElementById('scrollingButtons');
+const scrollProgressBar = document.getElementById('scrollProgressBar');
+
+function updateScrollProgress() {
+
+    const maxScroll =
+        scrollingButtons.scrollWidth - scrollingButtons.clientWidth;
+
+    const progress = maxScroll > 0
+        ? (scrollingButtons.scrollLeft / maxScroll) * 100
+        : 0;
+
+    scrollProgressBar.style.width = progress + '%';
+}
+
+scrollingButtons.addEventListener('scroll', updateScrollProgress);
+
+window.addEventListener('resize', updateScrollProgress);
+
+updateScrollProgress();
 
 
   </script>
@@ -484,6 +548,130 @@ initializeJourney();
  /* ===========j==============*/
 
 
+ 
+  /* HEADER BAR was 80px height 9.30.26*/
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    min-height: 80px;
+    max-height: 80px;
+
+    background: rgba(255, 255, 255, 0.85);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    padding: 0 24px;
+
+    z-index: 1000;
+
+    border-bottom: 0px solid rgba(255, 255, 255, 0.1);
+
+    backdrop-filter: blur(8px);
+
+    overflow-y: hidden;
+  }
+
+  
+
+    .header-btn2-back {
+      width: 130px;
+      height: 130px;
+
+      border: none;
+      background: transparent;
+
+      cursor: pointer;
+
+      transition: transform 0.2s ease;
+
+
+      position: absolute;
+
+      right: 92%;
+    }
+
+    .header-btn2-back:hover {
+      transform: scale(0.8);
+    }
+
+    .header-btn2-back img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+
+    }
+
+
+    .header-btn2-home {
+      width: 100px;
+      height: 100px;
+
+      border: none;
+      background: transparent;
+
+      cursor: pointer;
+
+      transition: transform 0.2s ease;
+
+      position: absolute;
+
+      left: 92%;
+
+    }
+
+    .header-btn2-home:hover {
+      transform: scale(0.89);
+    }
+
+    .header-btn2-home img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+
+    .h2-leftV-2 {
+
+      font-size: 10vh;
+      margin-left: 10vw;
+      position: flex;
+
+
+      color: rgba(0, 0, 0, 0.075);
+      text-shadow: 3px 2px 3px rgba(255, 255, 255, 0.747);
+
+      z-index: 1001;
+    }
+
+
+    .h2-rightV-2 {
+      font-size: 10vh;
+      position: flex;
+      margin-right: 10vw;
+
+
+      color: rgba(0, 0, 0, 0.075);
+      text-shadow: 3px 2px 3px rgba(255, 255, 255, 0.747);
+
+      z-index: 1001;
+    }
+    
+    .header-btn-pack {
+      display: none;
+    }
+
+    
+    .h2-right {
+display: none;    }
+
+    .h2-left {
+display: none;    }
+
   }
 
 
@@ -751,32 +939,7 @@ body {
 
 
 
-.header {
-    position: fixed;
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 85px;
-
-    display: flex;
-    grid-template-columns: 50px minmax(0, 1fr) 50px;
-    grid-template-rows: 1fr;
-    column-gap: 0;
-
-    padding: 0;
-
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-
-    z-index: 1000;
-    align-items: center;
-    justify-content: space-between;
-
-    border-bottom: 0px solid rgba(255, 255, 255, 0.1);
-    overflow-y: hidden;
-}
+ /*old header was here*/
 
 
   /* BUTTONS */
@@ -850,6 +1013,217 @@ html:not(.journey-initialized) .journey-stage img {
     inset: 0 !important;
     top: 0 !important;
     transform: none !important;
+}
+
+
+
+
+
+
+
+
+/* ==========================================
+   MOBILE HEADER - MATCH MENU.HTML
+========================================== */
+
+@media (max-width: 1410px) {
+
+    .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 85px;
+
+        display: grid;
+        grid-template-columns: 50px minmax(0, 1fr) 50px;
+        grid-template-rows: 1fr;
+        column-gap: 0;
+
+        padding: 0;
+
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+
+        z-index: 1000;
+        overflow: hidden;
+    }
+
+
+    /* HIDE DESKTOP HEADER ITEMS */
+
+    .h2-left,
+    .h2-right,
+    .header-btn-pack {
+        display: none;
+    }
+
+        .h2-rightV-2 {
+display: none;    }
+
+    .h2-leftV-2 {
+display: none;    }
+
+    /* BACK AND HOME BUTTONS */
+
+    .header-btn2-back,
+    .header-btn2-home {
+        width: 100%;
+        height: 100%;
+
+        grid-row: 1;
+
+        border: none;
+        background: transparent;
+        cursor: pointer;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .header-btn2-back {
+        grid-column: 1;
+    }
+
+    .header-btn2-home {
+        grid-column: 3;
+    }
+
+    .header-btn2-back img,
+    .header-btn2-home img {
+        width: 80%;
+        height: 80%;
+        object-fit: contain;
+    }
+
+
+    /* SCROLLING SECTION */
+
+    .mobile-scrolling-wrapper {
+        grid-column: 2;
+        grid-row: 1;
+
+        min-width: 0;
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+    }
+
+
+    .scrolling-buttons-header {
+        width: 100%;
+        height: 58px;
+
+        display: flex;
+        align-items: center;
+        gap: 45px;
+
+        padding: 0 50px;
+
+        overflow-x: auto;
+        overflow-y: hidden;
+
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+
+        background: #4b0e0e;
+        background: radial-gradient(
+            circle farthest-corner at center center,
+            #4b0e0e 10%,
+            #5d0b0b 50%,
+            #3c1414 90%
+        );
+
+        border-radius: 30px;
+
+        box-shadow: 1px 0px 20px 4px rgba(0,0,0,0.75) inset;
+    }
+
+
+    .scrolling-buttons-header::-webkit-scrollbar {
+        display: none;
+    }
+
+
+    .scrolling-buttons-header > a {
+        flex: 0 0 auto;
+        width: auto;
+        height: 100%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+
+    .scrolling-buttons-header img {
+        display: block;
+        width: auto;
+        height: 50px;
+        max-height: 48px;
+        object-fit: contain;
+    }
+
+
+    /* PROGRESS BAR */
+
+    .scroll-progress {
+        width: 100%;
+        height: 4px;
+
+        background: rgba(0,0,0,0.2);
+        border-radius: 10px;
+        overflow: visible;
+    }
+
+
+    .scroll-progress-bar {
+        width: 0%;
+        height: 100%;
+
+        background: rgb(160,0,0);
+        border-radius: 10px;
+
+        position: relative;
+        transition: width .1s linear;
+    }
+
+
+    .scroll-progress-bar::after {
+        content: "";
+
+        position: absolute;
+
+        right: -5px;
+        top: 50%;
+
+        transform: translateY(-50%);
+
+        width: 10px;
+        height: 10px;
+
+        background: red;
+        border-radius: 50%;
+    }
+
+}
+
+
+/* DESKTOP: KEEP ORIGINAL HOW ITS MADE HEADER */
+
+@media (min-width: 1410px) {
+
+    .mobile-scrolling-wrapper {
+        display: none;
+    }
+
 }
 
 </style>

@@ -42,6 +42,37 @@
       <img src="images/home_iconV.2.png" alt="Home">
     </button>
 
+
+<!-- MOBILE SCROLLING MENU -->
+<div class="mobile-scrolling-wrapper">
+
+    <div class="scrolling-buttons-header" id="scrollingButtons">
+
+        <a href="dashboard.html">
+            <img src="images/binder2.png" alt="Profile">
+        </a>
+
+        <a href="about_me.html">
+            <img src="images/about_me2.png" alt="About Me">
+        </a>
+
+        <a href="how_its_made.html">
+            <img src="images/how_i_made_this_site2.png" alt="How I Made This Site">
+        </a>
+
+        <a href="slotindex.html">
+            <img src="images/try_your_luck2.png" alt="Slots">
+        </a>
+
+    </div>
+
+    <div class="scroll-progress">
+        <div class="scroll-progress-bar" id="scrollProgressBar"></div>
+    </div>
+
+</div>
+
+
   </header>
 
   <!-- PAGE CONTENT -->
@@ -197,6 +228,28 @@ startButton.addEventListener('click', () => {
 
 
 
+
+// MOBILE HEADER SCROLL PROGRESS
+
+const scrollingButtons = document.getElementById('scrollingButtons');
+const scrollProgressBar = document.getElementById('scrollProgressBar');
+
+function updateScrollProgress() {
+
+    const maxScroll =
+        scrollingButtons.scrollWidth - scrollingButtons.clientWidth;
+
+    const progress = maxScroll > 0
+        ? (scrollingButtons.scrollLeft / maxScroll) * 100
+        : 0;
+
+    scrollProgressBar.style.width = progress + '%';
+}
+
+scrollingButtons.addEventListener('scroll', updateScrollProgress);
+window.addEventListener('resize', updateScrollProgress);
+
+updateScrollProgress();
 
 
   </script>
@@ -844,4 +897,198 @@ startButton.addEventListener('click', () => {
 
 
   }
+
+
+
+  /* ==========================================
+   MOBILE HEADER - MATCH ABOUT_ME.HTML
+========================================== */
+
+@media (max-width: 1410px) {
+
+    .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 85px;
+
+        display: grid;
+        grid-template-columns: 50px minmax(0, 1fr) 50px;
+        grid-template-rows: 1fr;
+        column-gap: 0;
+
+        padding: 0;
+
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+
+        z-index: 1000;
+        overflow: hidden;
+    }
+
+    /* HIDE DESKTOP HEADER TEXT */
+
+    .h2-leftV-2,
+    .h2-rightV-2,
+    .h2-left,
+    .h2-right,
+    .header-btn-pack {
+        display: none;
+    }
+
+/* BACK AND HOME BUTTONS */
+
+.header-btn2-back,
+.header-btn2-home {
+    position: static !important;
+
+    width: 50px;
+    height: 85px;
+
+    grid-row: 1;
+
+    border: none;
+    background: transparent;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 1001;
+}
+
+.header-btn2-back {
+    grid-column: 1;
+}
+
+.header-btn2-home {
+    grid-column: 3;
+}
+
+.header-btn2-back img,
+.header-btn2-home img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+}
+
+    /* SCROLLING MENU */
+
+    .mobile-scrolling-wrapper {
+        grid-column: 2;
+        grid-row: 1;
+
+        min-width: 0;
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+    }
+
+    .scrolling-buttons-header {
+        width: 100%;
+        height: 58px;
+
+        display: flex;
+        align-items: center;
+        gap: 45px;
+
+        padding: 0 50px;
+
+        overflow-x: auto;
+        overflow-y: hidden;
+
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+
+        background: radial-gradient(
+            circle farthest-corner at center center,
+            #4b0e0e 10%,
+            #5d0b0b 50%,
+            #3c1414 90%
+        );
+
+        border-radius: 30px;
+        box-shadow: 1px 0px 20px 4px rgba(0,0,0,0.75) inset;
+    }
+
+    .scrolling-buttons-header::-webkit-scrollbar {
+        display: none;
+    }
+
+    .scrolling-buttons-header > a {
+        flex: 0 0 auto;
+        width: auto;
+        height: 100%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .scrolling-buttons-header img {
+        display: block;
+        width: auto;
+        height: 50px;
+        max-height: 48px;
+        object-fit: contain;
+    }
+
+    /* PROGRESS BAR */
+
+    .scroll-progress {
+        width: 100%;
+        height: 4px;
+
+        background: rgba(0,0,0,0.2);
+        border-radius: 10px;
+        overflow: visible;
+    }
+
+    .scroll-progress-bar {
+        width: 0%;
+        height: 100%;
+
+        background: rgb(160,0,0);
+        border-radius: 10px;
+
+        position: relative;
+        transition: width .1s linear;
+    }
+
+    .scroll-progress-bar::after {
+        content: "";
+        position: absolute;
+
+        right: -5px;
+        top: 50%;
+
+        transform: translateY(-50%);
+
+        width: 10px;
+        height: 10px;
+
+        background: red;
+        border-radius: 50%;
+    }
+
+}
+
+/* DESKTOP */
+
+@media (min-width: 1410px) {
+    .mobile-scrolling-wrapper {
+        display: none;
+    }
+}
+
+
+
 </style>
