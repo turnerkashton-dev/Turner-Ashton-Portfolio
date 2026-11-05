@@ -130,6 +130,57 @@
 
   <script>
 
+    const images = [
+    document.querySelector('#journey-img'),
+    document.querySelector('#journey-img2'),
+    document.querySelector('#journey-img3'),
+    document.querySelector('#journey-img4'),
+    document.querySelector('#journey-img5'),
+    document.querySelector('#journey-img6')
+];
+
+
+const desktopImages = [
+    'images/journey1_mountains2.png',
+    'images/journey_lego2.png',
+    'images/journey_travel2.png',
+    'images/journey_soccer2.png',
+    'images/journey_home2.png',
+    'images/journey_turner2.png'
+];
+
+const mobileImages = [
+    'images/journey1_mountainsmobile.png',
+    'images/journey_legomobile.png',
+    'images/journey_travelmobile.png',
+    'images/journey_soccermobile.png',
+    'images/journey_homemobile.png',
+    'images/journey_turnermobile.png'
+];
+
+function updateJourneyImages() {
+    const isMobile = window.innerWidth <= 700;
+
+    images.forEach((img, index) => {
+        img.src = isMobile
+            ? mobileImages[index]
+            : desktopImages[index];
+    });
+}
+
+
+
+window.addEventListener('resize', () => {
+    updateJourneyImages();
+    updateJourney();
+    updateScrollProgress();
+});
+
+
+
+
+
+
     // BACK BUTTON
     document.getElementById('backBtn').addEventListener('click', () => {
       window.history.back();
@@ -149,20 +200,13 @@
 
 const track = document.querySelector('.journey-scroll-track');
 
-const images = [
-    document.querySelector('#journey-img'),
-    document.querySelector('#journey-img2'),
-    document.querySelector('#journey-img3'),
-    document.querySelector('#journey-img4'),
-    document.querySelector('#journey-img5'),
-    document.querySelector('#journey-img6')
-];
+
 
 const desktopImageSpacing = 1;
-const mobileImageSpacing = 0.3;
+const mobileImageSpacing = 0.7;
 
 const desktopStageCount = 5;
-const mobileStageCount = 1.5;
+const mobileStageCount = 3.4;
 
 function getImageSpacing() {
     return window.innerWidth <= 700
@@ -930,7 +974,7 @@ body {
 }
 
     #journey-img {
-        width: 180vw;
+        width: 110vw;
         max-width: none;
         max-height: none;
         flex-shrink: 0;
