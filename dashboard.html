@@ -83,10 +83,11 @@
     width: 100%;
     display: block;
 }
-
+/* TURNER HERE FOR CARD SIZE ADJUSTMENTS */
 .dashboard-folder-card > img:not(.dashboard-folder-card-back) {
     aspect-ratio: 2 / 3;
     object-fit: contain;
+
 }
 
 .dashboard-folder-card span {
@@ -500,28 +501,7 @@ text-shadow: 1px 4px 3px rgba(0,0,0,0.6);
        HEADER
     ========================= */
 
-    .dashboard-header {
 
-      width: 100%;
-
-      padding: 20px 30px;
-
-      display: flex;
-
-      justify-content: space-between;
-
-      align-items: center;
-
-      border-bottom:
-        1px solid rgba(255, 255, 255, 0.15);
-
-      background:
-        rgba(0, 0, 0, 0.75);
-
-      backdrop-filter:
-        blur(10px);
-
-    }
 
 
     #dashboardCollection {
@@ -677,36 +657,6 @@ text-shadow: 1px 4px 3px rgba(0,0,0,0.6);
     font-size: 13px;
 }
     
-    .header-btn2-home {
-      width: 80px;
-      height: 80px;
-
-      border: none;
-      background: transparent;
-
-      cursor: pointer;
-
-      transition: transform 0.2s ease;
-
-      position: fixed;
-
-      left: 94%;
-      top: 7%;
-
-      z-index: 1000;
-
-    }
-
-    .header-btn2-home:hover {
-      transform: scale(0.89);
-    }
-
-    .header-btn2-home img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
-
 
 
     
@@ -1144,6 +1094,56 @@ text-shadow: 1px 4px 3px rgba(0,0,0,0.6);
 
 
 
+
+
+  /* HEADER BAR was 80px height 9.30.26*/
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    min-height: 80px;
+    max-height: 80px;
+
+    background: rgba(255, 255, 255, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    padding: 0 24px;
+    z-index: 1000;
+
+    border-bottom: 0px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    overflow-y: hidden;
+  }
+
+  .header-btn-pack {
+    width: 48px;
+    height: 48px;
+    margin: none;
+
+    border: none;
+    background: transparent;
+    cursor: pointer;
+
+    transform: scale(1.2);
+    transition: scale(1.1);
+    z-index: 1002;
+  }
+
+  .header-btn-pack:hover {
+    transform: scale(1.5);
+  }
+
+  .header-btn-pack img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+
   /*DESKTOP CSS FROM HERE ON*/
   /* =========================*/
   @media (min-width: 1410px) {
@@ -1156,6 +1156,548 @@ text-shadow: 1px 4px 3px rgba(0,0,0,0.6);
 .dashboard-footer-mobile img {
   display: none;
 }
+
+
+
+
+
+    .header {
+        overflow-x: hidden;
+        overflow-y: hidden;
+    }
+
+    .header::-webkit-scrollbar {
+        display: none;
+    }
+
+    .mobile-scrolling-wrapper {
+        display: none;
+    }
+
+    /* DESKTOP NAVIGATION BELOW HEADER */
+
+    .desktop-scrolling-wrapper {
+    position: absolute;
+    top: 80px;
+    left: 0;
+
+    width: 100%;
+    height: 45px;
+
+    overflow: hidden;
+
+    background: rgba(0, 0, 0, 0.85);
+
+    border-radius: 0 0 25px 25px;
+
+    box-shadow: 2px 10px 20px rgba(0,0,0,0.75) inset;
+
+    z-index: 999;
+    }
+
+    .desktop-scrolling-buttons {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    }
+
+    .desktop-scrolling-buttons a {
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex: 1;
+
+    text-decoration: none;
+    }
+
+    .desktop-scrolling-buttons img {
+    width: auto;
+    height: 80%;
+
+    max-width: 90%;
+
+    object-fit: contain;
+
+    opacity: 0.8;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .desktop-scrolling-buttons a:hover img {
+    transform: scale(1.1);
+    opacity: 1;
+    }
+
+
+    /* BUTTONS */
+    .header-btn {
+      width: 48px;
+      height: 48px;
+
+      border: none;
+      background: transparent;
+
+      cursor: pointer;
+
+      transition: transform 0.2s ease;
+    }
+
+    .header-btn:hover {
+      transform: scale(1.1);
+    }
+
+    .header-btn img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+
+    .header-btn2-back {
+      width: 130px;
+      height: 130px;
+
+      border: none;
+      background: transparent;
+
+      cursor: pointer;
+
+      transition: transform 0.2s ease;
+
+
+      position: absolute;
+
+      right: 92%;
+    }
+
+    .header-btn2-back:hover {
+      transform: scale(0.8);
+    }
+
+    .header-btn2-back img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+
+    }
+
+
+    .header-btn2-home {
+      width: 100px;
+      height: 100px;
+
+      border: none;
+      background: transparent;
+
+      cursor: pointer;
+
+      transition: transform 0.2s ease;
+
+      position: absolute;
+
+      left: 92%;
+
+    }
+
+    .header-btn2-home:hover {
+      transform: scale(0.89);
+    }
+
+    .header-btn2-home img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+
+/* DASHBOARD CONTENT SPACING */
+
+.dashboard-main {
+    padding-top: 145px;
+}
+
+
+
+
+    .h2-leftV-2 {
+
+      font-size: 10vh;
+      margin-left: 10vw;
+      position: flex;
+
+
+      color: rgba(0, 0, 0, 0.075);
+      text-shadow: 3px 2px 3px rgba(255, 255, 255, 0.747);
+
+      z-index: 1001;
+    }
+
+
+    .h2-rightV-2 {
+      font-size: 10vh;
+      position: flex;
+      margin-right: 10vw;
+
+
+      color: rgba(0, 0, 0, 0.075);
+      text-shadow: 3px 2px 3px rgba(255, 255, 255, 0.747);
+
+      z-index: 1001;
+    }
+
+
+
+    .header-btn-pack-menu {
+      display: none;
+    }
+
+
+    .header-mobile-menutop {
+
+      align-items: center;
+      justify-content: space-between;
+
+
+      padding: 0 10px;
+      margin-top: 0vh;
+
+      z-index: 3;
+
+      opacity: 90%;
+      /*
+    backdrop-filter: blur(8px);
+    */
+    }
+
+
+
+    .header-mobile {
+      position: relative;
+      top: 0%;
+      left: 0%;
+
+      width: 100%;
+      height: 6vh;
+      /*
+    background: rgba(255, 255, 255, 0.85);
+    */
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+
+      padding: 0 800px;
+      margin-top: 0vh;
+
+      z-index: 3;
+
+      /*
+    backdrop-filter: blur(8px);
+    */
+      display: none;
+    }
+
+
+    /* BUTTONS MOBILE menu*/
+    .header-btn-mobile {
+      width: 60px;
+      height: 60px;
+
+      border: none;
+      background: transparent;
+
+      cursor: pointer;
+
+      transition: transform 0.2s ease;
+    }
+
+    .header-btn-mobile:hover {
+      transform: scale(1.1);
+    }
+
+    .header-btn-mobile img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+
+
+    .header-btn-2-mobile {
+      width: 60px;
+      height: 60px;
+
+      border: none;
+      background: transparent;
+
+      cursor: pointer;
+
+      transition: transform 0.2s ease;
+    }
+
+    .header-btn-2-mobile img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+
+
+    .header-btn-3-mobile {
+      width: 60px;
+      height: 60px;
+
+      border: none;
+      background: transparent;
+
+      cursor: pointer;
+
+      transition: transform 0.2s ease;
+    }
+
+    .header-btn-3-mobile img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+
+
+    .header-btn-4-mobile {
+      width: 60px;
+      height: 60px;
+
+      border: none;
+      background: transparent;
+
+      cursor: pointer;
+
+      transition: transform 0.2s ease;
+    }
+
+    .header-btn-4-mobile img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+
+    .scrolling-buttons-header {
+      width: 100%;
+      height: 5vh;
+
+      position:absolute;
+      top: 8vh;
+
+      box-shadow: 2px 21px 26px 9px rgba(0, 0, 0, 0.75) inset;
+      -webkit-box-shadow: 2px 21px 26px 9px rgba(65, 65, 65, 0.75) inset;
+      -moz-box-shadow: 2px 21px 26px 9px rgba(0, 0, 0, 0.75) inset;
+
+        background-color: rgba(116, 6, 6, 0);
+
+      background-blend-mode: normal;
+
+      border-bottom-left-radius: 25px;
+      border-bottom-right-radius: 25px;
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+
+      overflow: hidden;
+      
+    }
+
+
+    /*how i made this website section*/
+    .how-i-made-this-site-container {
+      position:sticky;
+      top: 15%;
+      left: 0%;
+      right: 1%;
+      margin-top: -10vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      z-index: 3;
+      width: 200px;
+          animation-name: scrollingBtns1;
+          animation-duration: 15s;
+          animation-delay: 0s;
+          animation-iteration-count: infinite;
+          animation-direction:alternate;
+          animation-timing-function:cubic-bezier(.25,0,.75,1);      
+    }
+    .how-i-made-this-site-image {
+      width: 100%;
+      height: auto;
+      max-width: 800px;
+      max-height: 600px;
+    }
+    .how-i-made-this-site-btn {
+      width: 200px;
+      height: auto;
+      border: none;
+      background: transparent;
+
+      cursor: pointer;
+      transition: transform 0.2s ease;
+      opacity: 0.75;
+    }
+    .how-i-made-this-site-btn:hover {
+      transform: scale(1.1);
+      opacity: 1;
+    }
+
+    @keyframes scrollingBtns1 {
+            from {
+            transform: translateX(200%) translateY(0px) rotateY(0deg);
+          }
+
+          to {
+            transform: translateX(-230%) translateY(0px) rotateY(0deg);
+          }
+    }
+
+    /*About me section*/
+    .about-me-container {
+      position: absolute;
+      top: 15%;
+      left: 35%;
+      right: 1%;
+      margin-top: -0.5vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      z-index: 3;
+      width: 150px;
+
+          animation-name: scrollingBtns2;
+          animation-duration: 15s;
+          animation-delay: 0s;
+          animation-iteration-count: infinite;
+          animation-direction:alternate;
+          animation-timing-function:cubic-bezier(.25,0,.75,1);      
+    }
+    .about-me-image {
+      width: 100%;
+      height: auto;
+      max-width: 800px;
+      max-height: 600px;
+    }
+    .about-me-btn {
+      width: 150px;
+      height: auto;
+      border: none;
+      background: transparent;
+
+      cursor: pointer;
+      transition: transform 0.2s ease;
+      opacity: 0.75;
+    }
+    .about-me-btn:hover {
+      transform: scale(1.1);
+      opacity: 1;
+    }
+
+    @keyframes scrollingBtns2 {
+            from {
+            transform: translateX(300%) translateY(0px) rotateY(0deg);
+          }
+
+          to {
+            transform: translateX(-260%) translateY(0px) rotateY(0deg);
+          }
+    }
+
+    /*try your luck section*/
+    .slots-container {
+      position: sticky;
+      top: 35%;
+      left: 65%;
+      right: 1%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 150px;
+        margin-top: 0vh;
+      z-index: 3;
+          animation-name: scrollingBtns3;
+          animation-duration: 15s;
+          animation-delay: 0s;
+          animation-iteration-count: infinite;
+          animation-direction:alternate;
+          animation-timing-function:cubic-bezier(.25,0,.75,1);      
+    }
+    .slots-image {
+      width: 100%;
+      height: auto;
+      max-width: 800px;
+      max-height: 600px;
+    }
+    .slots-btn {
+      width: 150px;
+      height: auto;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+
+      transition: transform 0.2s ease;
+      opacity: 0.75;
+    }
+    .slots-btn:hover {
+      transform: scale(1.1);
+      opacity: 1;
+    }
+
+    @keyframes scrollingBtns3 {
+            from {
+            transform: translateX(350%) translateY(0px) rotateY(0deg);
+          }
+
+          to {
+            transform: translateX(-250%) translateY(0px) rotateY(0deg);
+          }
+    }
+
+
+    /*profile section*/
+    .profile-container {
+      position: flex;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1003;
+
+      width: auto;
+    }
+    .profile-image {
+      width: 100%;
+      height: auto;
+      max-width: 400px;
+      max-height: 300px;
+    }
+    .profile-btn {
+      width: 45px;
+      height: auto;
+      border: none;
+      background: transparent;
+
+      cursor: pointer;
+      transition: transform 0.2s ease;
+      opacity: 0.85;
+    }
+    .profile-btn:hover {
+      transform: scale(1.1);
+      opacity: 1;
+    }
 
   }
 
@@ -1179,6 +1721,11 @@ text-shadow: 1px 4px 3px rgba(0,0,0,0.6);
       background-image: url(images/background_grid_2.jpeg);
       
     }
+
+
+
+
+
 
 
     #dashboardCardFolder {
@@ -1264,44 +1811,10 @@ text-shadow: 1px 4px 3px rgba(0,0,0,0.6);
 
   
 
-    .dashboard-header {
-      width: 100vw;
-
-      display: flex;
-      justify-content: space-between;
-
-      border-bottom:
-        1px solid rgba(255, 255, 255, 0.15);
-      background:
-        rgba(0, 0, 0, 0.75);
-      backdrop-filter:
-        blur(10px);
-    }
-
-    .p-dashboard-header {
-      color: red;
-      font-size: 14px;
-      font-style: italic;
-      margin-left: 12%;
-    }
 
 
 
-    .header-btn2-home {
-      width: 60px;
-      height: 60px;
 
-      border: none;
-      background: transparent;
-
-      transform: translateX(-50px);
-    }
-
-    .header-btn2-home img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
 
 
 
@@ -1360,12 +1873,12 @@ text-shadow: 1px 4px 3px rgba(0,0,0,0.6);
 
 
 
-    .dashboard-main {
-      max-width: 700px;
-      width: 100%;
-      margin: 0 auto;
-      padding: 20px 0;
-    }
+.dashboard-main {
+    max-width: 700px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 110px 0 20px;
+}
 
 
     
@@ -1440,6 +1953,235 @@ text-shadow: 1px 4px 3px rgba(0,0,0,0.6);
 }
 
 
+
+
+
+
+
+
+
+
+/*TURNER here for scrolling buttons header ctrl paste to slot websites*/
+
+/* MOBILE HEADER */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 85px;
+
+    display: grid;
+    grid-template-columns: 50px minmax(0, 1fr) 50px;
+    grid-template-rows: 1fr;
+    column-gap: 0;
+
+    padding: 0;
+
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    z-index: 1000;
+    overflow: hidden;
+}
+
+  /* HIDE DESKTOP HEADER ITEMS */
+  .h2-leftV-2,
+  .h2-rightV-2,
+  .header-btn-pack,
+  .header-btn-pack-menu,
+  .header > a:not(.mobile-scrolling-wrapper a) {
+    display: none;
+  }
+
+/* BACK AND HOME BUTTONS */
+.header-btn2-back,
+.header-btn2-home {
+    width: 100%;
+    height: 100%;
+
+    grid-row: 1;
+
+    border: none;
+    background: transparent;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-btn2-back {
+    grid-column: 1;
+}
+
+.header-btn2-home {
+    grid-column: 3;
+}
+
+.header-btn2-back img,
+.header-btn2-home img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+}
+
+/* SCROLLING SECTION */
+.mobile-scrolling-wrapper {
+    grid-column: 2;
+    grid-row: 1;
+
+    min-width: 0;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+}
+
+.scrolling-buttons-header {
+    width: 100%;
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    gap: 45px;
+
+    padding: 0 50px;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+
+/* 
+background: #9a9a9a;
+background: linear-gradient(180deg,#9a9a9a 10%, #d0d0d0 50%, #9a9a9a 90%);
+background: -webkit-linear-gradient(180deg,#9a9a9a 10%, #d0d0d0 50%, #9a9a9a 90%);
+background: -moz-linear-gradient(180deg,#9a9a9a 10%, #d0d0d0 50%, #9a9a9a 90%);
+
+background: #939fac;
+background: linear-gradient(180deg,#939fac 10%, #bcc8d2 50%, #939fac 90%);
+background: -webkit-linear-gradient(180deg,#939fac 10%, #bcc8d2 50%, #939fac 90%);
+background: -moz-linear-gradient(180deg,#939fac 10%, #bcc8d2 50%, #939fac 90%);
+
+
+background: #ac9a93;
+background: linear-gradient(180deg,#7c6f57 10%, #d2cabc 50%, #7c6f57 90%);
+background: -webkit-linear-gradient(180deg,#7c6f57 10%, #d2cabc 50%, #7c6f57 90%);
+background: -moz-linear-gradient(180deg,#7c6f57 10%, #d2cabc 50%, #7c6f57 90%);
+
+background: #ac9a93;
+background: linear-gradient(180deg,#ac9a93 10%, #d2cabc 50%, #ac9a93 90%);
+background: -webkit-linear-gradient(180deg,#ac9a93 10%, #d2cabc 50%, #ac9a93 90%);
+background: -moz-linear-gradient(180deg,#ac9a93 10%, #d2cabc 50%, #ac9a93 90%);
+
+background: #a25454;
+background: radial-gradient(circle farthest-corner at center center, #a25454 10%, #864d4d 50%, #a25454 90%);
+background: -webkit-radial-gradient(circle farthest-corner at center center, #a25454 10%, #864d4d 50%, #a25454 90%);
+background: -moz-radial-gradient(circle farthest-corner at center center, #a25454 10%, #864d4d 50%, #a25454 90%);
+*/
+background: #4b0e0e;
+background: radial-gradient(circle farthest-corner at center center, #4b0e0e 10%, #5d0b0b 50%, #3c1414 90%);
+background: -webkit-radial-gradient(circle farthest-corner at center center, #4b0e0e 10%, #5d0b0b 50%, #3c1414 90%);
+background: -moz-radial-gradient(circle farthest-corner at center center, #4b0e0e 10%, #5d0b0b 50%, #3c1414 90%);
+
+
+    border-radius: 30px;
+
+    box-shadow: 1px 0px 20px 4px rgba(0,0,0,0.75) inset;
+}
+
+  .scrolling-buttons-header::-webkit-scrollbar {
+    display: none;
+  }
+
+.scrolling-buttons-header > a {
+    flex: 0 0 auto;
+    width: auto;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+    margin: 0;
+}
+
+
+.scrolling-buttons-header img {
+    display: block;
+    width: auto;
+    height: 40px;
+    max-height: 40px;
+    object-fit: contain;
+    padding: 0;
+}
+
+.scrolling-buttons-header a:nth-child(1) img {
+    height: 50px;
+}
+
+.scrolling-buttons-header a:nth-child(2) img {
+    height: 50px;
+}
+
+.scrolling-buttons-header a:nth-child(3) img {
+    height: 50px;
+}
+
+.scrolling-buttons-header a:nth-child(4) img {
+    height: 50px;
+}
+
+
+  /* PROGRESS */
+  .scroll-progress {
+    width: 100%;
+    height: 4px;
+
+    background: rgba(0,0,0,0.2);
+    border-radius: 10px;
+    overflow: visible;
+  }
+
+  .scroll-progress-bar {
+    width: 0%;
+    height: 100%;
+
+    background: rgb(160,0,0);
+    border-radius: 10px;
+
+    position: relative;
+    transition: width .1s linear;
+  }
+
+  .scroll-progress-bar::after {
+    content: "";
+    position: absolute;
+
+    right: -5px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 10px;
+    height: 10px;
+
+    background: red;
+    border-radius: 50%;
+  }
+
+      .desktop-scrolling-wrapper {
+    display: none;
+    }
+/*ABCDEFGHIJKLMNOP HERE TURNER CURRENT EDIT*/
+
 }
 
 
@@ -1463,6 +2205,14 @@ text-shadow: 1px 4px 3px rgba(0,0,0,0.6);
         transition-duration: 0.01ms;
     }
 }
+
+
+
+
+
+
+
+
 
 
   </style>
@@ -1497,35 +2247,96 @@ text-shadow: 1px 4px 3px rgba(0,0,0,0.6);
   <div id="dashboard">
 
 
-    <!-- HEADER -->
+<!-- HEADER -->
+<header class="header">
 
-    <header class="dashboard-header">
-
-      <div class="logo">
-
-        TURNER ASHTON <p class="p-dashboard-header">portfolio & works</p>
-
-      </div>
-
-
-
-    <!-- HOME BUTTON -->
-    <button class="header-btn2-home" id="homeBtn">
-      <img src="images/home_iconV.2_white.png" alt="Home">
-
+    <button class="header-btn2-back" id="backBtn">
+        <img src="images/arrow_iconV.2.png" alt="Back" style="rotate: 90deg;">
     </button>
 
-    </header>
+    <h2 class="h2-leftV-2">TURNER</h2>
 
-    
-                <!-- SLOTS BUTTON -->
-      <a href="slotindex.html">
-        <div class="slots-container">
-          <button class="slots-btn" id="aboutMeBtn">
-            <img src="images/try_your_luck.png" alt="try your luck" class="slots-image">
-          </button>
+    <button class="header-btn-pack" id="packBtn1">
+        <img src="images/pack_1.png" alt="Pack 1">
+    </button>
+
+    <button class="header-btn-pack" id="packBtn2">
+        <img src="images/pack_2.png" alt="Pack 2">
+    </button>
+
+    <button class="header-btn-pack" id="packBtn3">
+        <img src="images/pack_3.png" alt="Pack 3">
+    </button>
+
+    <button class="header-btn-pack" id="packBtn4">
+        <img src="images/pack_4.png" alt="Pack 4">
+    </button>
+
+    <button class="header-btn-pack" id="packBtn5">
+        <img src="images/pack_5.png" alt="Pack 5">
+    </button>
+
+    <button class="header-btn-pack-menu" id="packBtnmenu">
+        <img src="images/pack_random.png" alt="Pack menu">
+    </button>
+
+    <h2 class="h2-rightV-2">ASHTON</h2>
+
+    <button class="header-btn2-home" id="homeBtn">
+        <img src="images/home_iconV.2.png" alt="Home">
+    </button>
+
+    <!-- MOBILE SCROLLING MENU -->
+    <div class="mobile-scrolling-wrapper">
+        <div class="scrolling-buttons-header" id="scrollingButtons">
+
+            <a href="dashboard.html">
+                <img src="images/binder2.png" alt="Profile">
+            </a>
+
+            <a href="about_me.html">
+                <img src="images/about_me2.png" alt="About Me">
+            </a>
+
+            <a href="how_its_made.html">
+                <img src="images/how_i_made_this_site2.png" alt="How I Made This Site">
+            </a>
+
+            <a href="slotindex.html">
+                <img src="images/try_your_luck2.png" alt="Slots">
+            </a>
+
         </div>
-      </a>
+
+        <div class="scroll-progress">
+            <div class="scroll-progress-bar" id="scrollProgressBar"></div>
+        </div>
+    </div>
+
+</header>
+
+<!-- DESKTOP SCROLLING MENU -->
+<div class="desktop-scrolling-wrapper">
+    <div class="desktop-scrolling-buttons">
+
+        <a href="how_its_made.html">
+            <img src="images/how_i_made_this_site2.png" alt="How I Made This Site">
+        </a>
+
+        <a href="about_me.html">
+            <img src="images/about_me2.png" alt="About Me">
+        </a>
+
+        <a href="slotindex.html">
+            <img src="images/try_your_luck2.png" alt="Try Your Luck">
+        </a>
+
+        <a href="dashboard.html">
+            <img src="images/binder2.png" alt="Profile">
+        </a>
+
+    </div>
+</div>
 
 
     <!-- MAIN -->
@@ -1657,12 +2468,12 @@ text-shadow: 1px 4px 3px rgba(0,0,0,0.6);
     <select id="binderColorSelect">
         <option value="default">Default</option>
         <option value="red">Red (Apple)</option>
-        <option value="apricotpurple">?Purple (Apricot)</option>
+        <option value="apricotpurple">Apricot-Purple (Apricot)</option>
         <option value="yellow">Yellow (Banana)</option>
         <option value="bigwin">?Big Win (Big Win)</option>
-        <option value="red">?Red (Cherry)</option>
-        <option value="fiveinarow">?5 (5 in a row)</option>
-        <option value="fourinarow">?4 (4 in a row)</option>
+        <option value="redcherry">Cherry-Red (Cherry)</option>
+        <option value="fiveinarow">Grey-Blue (5 in a row)</option>
+        <option value="fourinarow">Grey-Green (4 in a row)</option>
         <option value="fullscreen">?Full (Full Screen)</option>
         <option value="purple">Purple (Grapes)</option>
         <option value="lemonyellow">?Yellow (Lemon)</option>
@@ -2072,81 +2883,119 @@ function renderDashboardCollection(pages = [], winCounts = {}) {
 const binderColors = {
     default: {
         gradient: ["#333333", "#111111"],
+        border: "4px solid #8739B8",
         reward: null,
         animated: false
     },
+
     purple: {
         gradient: ["#B77ADD", "#542078"],
+        border: "4px solid #542078",
         reward: "grapes.html",
         animated: false
     },
+
     red: {
         gradient: ["#FF7777", "#A51F35"],
+        border: "4px solid #A51F35",
         reward: "apple.html",
         animated: false
     },
+
+    redcherry: {
+        gradient: ["#fe74c2", "#A51F35"],
+        border: "4px solid #fe74c2",
+        reward: "cherry.html",
+        animated: false
+    },
+
     yellow: {
         gradient: ["#FFF176", "#C69A16"],
+        border: "4px solid #C69A16",
         reward: "banana.html",
         animated: false
     },
+
     watermelongreen: {
         gradient: ["#81C784", "#1B5E20"],
+        border: "4px solid #81C784",
         reward: "watermelon.html",
         animated: false
     },
+
     orange: {
         gradient: ["#FFCC80", "#E65100"],
+        border: "4px solid #E65100",
         reward: "orange.html",
         animated: false
     },
+
     fullscreen: {
         gradient: ["#8739B8", "#E6C43A"],
+        border: "5px double #E6C43A",
         reward: "full_screen.html",
         animated: true
     },
+
     apricotpurple: {
-        gradient: ["#B77ADD", "#542078"],
+        gradient: ["#f6009c", "#542078"],
+        border: "4px solid #f6009c",
         reward: "apricot.html",
         animated: false
     },
+
     bigwin: {
         gradient: ["#FFD700", "#FFA500"],
+        border: "5px double #FFD700",
         reward: "big_win.html",
         animated: false
     },
+
     lemonyellow: {
-        gradient: ["#FFF176", "#C69A16"],
+        gradient: ["#FFF176", "#86b62b"],
+        border: "4px solid #FFF176",
         reward: "lemon.html",
         animated: false
     },
+
     pearyellow: {
         gradient: ["#FFF176", "#C69A16"],
+        border: "4px solid #FFF176",
         reward: "pear.html",
         animated: false
     },
+
     strawberryred: {
         gradient: ["#FF7777", "#A51F35"],
+        border: "4px solid #FF7777",
         reward: "strawberry.html",
         animated: false
     },
+
     seven: {
-        gradient: ["#FF7777", "#A51F35"],
+        gradient: ["#880000", "#650044"],
+        border: "5px solid #ff0000",
         reward: "lucky_seven.html",
         animated: false
     },
+
     multiple: {
-        gradient: ["#FF7777", "#A51F35"],
+        gradient: ["#007eff", "#5aff00"],
+        border: "4px solid transparent",
         reward: "multiple_fruits.html",
         animated: true
     },
+
     fourinarow: {
-        gradient: ["#FF7777", "#A51F35"],
+        gradient: ["#5f5f5f", "#4b6f5f"],
+        border: "4px solid #4b6f5f",
         reward: "four_across.html",
         animated: true
     },
+
     fiveinarow: {
-        gradient: ["#FF7777", "#A51F35"],
+        gradient: ["#5f5f5f", "#4b526f"],
+        border: "5px solid #4b526f",
         reward: "five_across.html",
         animated: true
     }
@@ -2195,6 +3044,8 @@ function applyBinderColor(colorName) {
         "--binder-gradient",
         `linear-gradient(to bottom, ${settings.gradient[0]}, ${settings.gradient[1]})`
     );
+
+    folder.style.border = settings.border;
 
     folder.classList.toggle(
         "animated-binder-border",
@@ -3032,6 +3883,61 @@ requestAnimationFrame(() => {
 }
 
 
+
+
+// BACK BUTTON
+document.getElementById('backBtn').addEventListener('click', () => {
+    window.history.back();
+});
+
+// PACK BUTTONS
+document.getElementById('packBtn1').addEventListener('click', () => {
+    window.location.href = 'pack1.html';
+});
+
+document.getElementById('packBtn2').addEventListener('click', () => {
+    window.location.href = 'pack2.html';
+});
+
+document.getElementById('packBtn3').addEventListener('click', () => {
+    window.location.href = 'pack3.html';
+});
+
+document.getElementById('packBtn4').addEventListener('click', () => {
+    window.location.href = 'pack4.html';
+});
+
+document.getElementById('packBtn5').addEventListener('click', () => {
+    window.location.href = 'pack5.html';
+});
+
+document.getElementById('packBtnmenu').addEventListener('click', () => {
+    window.location.href = 'index.html';
+});
+
+
+
+
+const scrollingButtons = document.getElementById('scrollingButtons');
+const scrollProgressBar = document.getElementById('scrollProgressBar');
+
+function updateScrollProgress() {
+
+    const maxScroll =
+        scrollingButtons.scrollWidth - scrollingButtons.clientWidth;
+
+    const progress = maxScroll > 0
+        ? (scrollingButtons.scrollLeft / maxScroll) * 100
+        : 0;
+
+    scrollProgressBar.style.width = progress + '%';
+}
+
+scrollingButtons.addEventListener('scroll', updateScrollProgress);
+
+window.addEventListener('resize', updateScrollProgress);
+
+updateScrollProgress();
   </script>
 
 
@@ -3064,10 +3970,10 @@ requestAnimationFrame(() => {
 
 
 
-
+<!--
     <footer class="dashboard-footer-mobile">
 
-                <!-- SLOTS BUTTON -->
+               
       <a href="slotindex.html">
         <div class="slots-container2">
           <button class="slots-btn" id="aboutMeBtn">
@@ -3077,7 +3983,7 @@ requestAnimationFrame(() => {
       </a>
 
     </footer>
-      
+-->
 
 </body>
 

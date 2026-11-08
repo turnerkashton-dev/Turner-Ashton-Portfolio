@@ -746,7 +746,13 @@ display: none;    }
 
 
     h1 {
-      font-size: 5vw;
+  /* turner here for h1 copy and paste for other pages mobile update */
+  white-space: nowrap;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  font-size: clamp(2rem, 6vw, 3rem);
     }
 
     h2 {
@@ -1212,7 +1218,7 @@ display: none;    }
         display: block;
         width: auto;
         height: 40px;
-        max-height: 48px;
+        max-height: 40px;
         object-fit: contain;
     }
 

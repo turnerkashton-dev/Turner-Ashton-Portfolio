@@ -435,7 +435,7 @@
       <br>
 
 
-      <p style="color: red;">CONTACT ME</p>
+      <p style="color: red; font-size: 1.5em;">CONTACT ME</p>
 
 
       <form action="https://formspree.io/f/xaenogbq" method="POST" class="email-tka">
@@ -1432,7 +1432,13 @@ updateScrollProgress();
 
 
     h1 {
-      font-size: 12vw;
+  /* turner here for h1 copy and paste for other pages mobile update */
+  white-space: nowrap;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  font-size: clamp(2rem, 6vw, 3rem);
     }
 
 
@@ -1845,7 +1851,7 @@ background: -moz-radial-gradient(circle farthest-corner at center center, #4b0e0
     display: block;
     width: auto;
     height: 40px;
-    max-height: 48px;
+    max-height: 40px;
     object-fit: contain;
     padding: 0;
 }

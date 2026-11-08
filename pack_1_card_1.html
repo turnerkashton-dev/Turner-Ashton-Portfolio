@@ -58,11 +58,30 @@
     <h4 style="color: #ff9d53;">Style Guide created for a more "modern & generally appealing" rebrand thought experiment; acutalized.</h4>
 
 
+
+
+<div class="pdf-container">
+    <iframe
+        src="pdfs/tsukii pt2 STYLE GUIDE FINAL PDF.pdf"
+        title="ART.TSUKII Style Guide">
+    </iframe>
+
+    <a
+        href="pdfs/tsukii pt2 STYLE GUIDE FINAL PDF.pdf"
+        target="_blank"
+        class="pdf-mobile-link">
+        Open Style Guide PDF
+    </a>
+</div>
+
+
+
+<!--
     <iframe src="pdfs/tsukii pt2 STYLE GUIDE FINAL PDF.pdf" style="border: none;">
       <p>Your browser does not support iframes. <a href="pdfs/tsukii pt2 STYLE GUIDE FINAL PDF.pdf">Download the PDF
           instead.</a></p>
     </iframe>
-
+-->
 <br>
 
   </div>
@@ -241,6 +260,30 @@
   }
 
 
+
+
+
+
+  /* PDF CONTAINER */
+
+.pdf-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pdf-container iframe {
+    width: 70vw;
+    height: 80vh;
+    border: none;
+}
+
+.pdf-mobile-link {
+    display: none;
+}
+
+
   /*DESKTOP CSS FROM HERE ON*/
   /* =========================*/
   @media (min-width: 1410px) {
@@ -328,6 +371,30 @@
       width: 100%;
 
       font-size: 1.75vh;
+    }
+
+
+
+
+
+
+
+        .pdf-container iframe {
+        display: none;
+    }
+
+    .pdf-mobile-link {
+        display: inline-block;
+
+        padding: 15px 25px;
+        margin: 20px auto;
+
+        background: white;
+        color: #333;
+
+        border-radius: 10px;
+        text-decoration: none;
+        font-weight: bold;
     }
 
 
