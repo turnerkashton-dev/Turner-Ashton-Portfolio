@@ -39,6 +39,16 @@
     }
 
 
+
+#accountSettingsBtn {
+    color: var(--binder-account-button-color);
+    background: var(--binder-account-button-background);
+    border: 2px solid var(--binder-border-color);
+}
+
+
+
+
 #binderColorSelect {
     width: 220px;
     padding: 12px 15px;
@@ -68,7 +78,7 @@
     color: #777777;
 }
 
-
+/*turner here for cards to fit on page, ensure to fix the layout issues accompanying*/
     .dashboard-folder-card {
     display: block;
     min-width: 0;
@@ -83,10 +93,13 @@
     width: 100%;
     display: block;
 }
-/* TURNER HERE FOR CARD SIZE ADJUSTMENTS */
+/* turner here for card size adjustments */
 .dashboard-folder-card > img:not(.dashboard-folder-card-back) {
+    width: 100%;
+    height: auto;
     aspect-ratio: 2 / 3;
     object-fit: contain;
+    image-rendering: auto;
 
 }
 
@@ -101,6 +114,25 @@
     aspect-ratio: 2 / 3;
     object-fit: contain;
     border-radius: 12px;
+}
+
+
+/*turner here for the root variables  zzz*/
+:root {
+    --binder-accent: #c084fc;
+    --binder-border-color: #8739B8;
+    --binder-panel-background: #24152f;
+    --binder-button-background: #321b42;
+    --binder-button-text: #ffffff;
+    --binder-button-hover: #a855f7;
+
+    /* individual default colors */
+    --binder-username-color: #d8a7ff;
+    --binder-account-button-color: #ffffff;
+    --binder-account-button-background: #321b42;
+    --binder-collection-background: #24152f;
+    --binder-collection-border: #c084fc;
+    --binder-collection-title: #d8a7ff;
 }
 
 /* CARD FOLDER */
@@ -159,7 +191,7 @@
 
 /* FOLDER TITLE */
 #cardFolder h2 {
-    color: #e7cb72;
+    color: var(--binder-collection-title);
     text-shadow: 1px 3px 5px rgba(0,0,0,0.6);
 background: rgba(0,19,255,0.3);
 background: linear-gradient(90deg,rgba(0, 17, 255, 0.055) 0%, rgba(58,0,255,0) 80%);
@@ -206,7 +238,51 @@ border-radius: 200px 200px 0px 0px;
     box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4);
 
   min-height: 520px;
+
+    background-image: url('images/background_black_paper.jpeg');
+    background-size: cover;
+    background-position: center;
+
+
+
+
+
+        position: relative;
+    isolation: isolate;
 }
+
+
+
+/*turner here for the plastic image over the pages*/
+.dashboard-folder-page::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-image: url("images/background_binder_plastic.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    z-index: 999;
+    pointer-events: none;
+    opacity: 0.9;
+}
+
+/* left page - normal image */
+.dashboard-folder-page:first-child::after {
+    transform: scaleX(-1);
+}
+
+/* right page - flipped image */
+.dashboard-folder-page:last-of-type::after {
+    transform: scaleX(1);
+}
+
+
+
+
+
 
 .dashboard-folder-page:first-child {
     border-radius: 10px 0 0 10px;
@@ -309,11 +385,13 @@ border-radius: 200px 200px 0px 0px;
 
 /* PAGE TITLE */
 .dashboard-folder-page h3 {
-    color: #e7cb72 !important;
-text-shadow: 1px 4px 3px rgba(0,0,0,0.6);
+    color: #292311 !important;
+text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
     font-style: italic;
     letter-spacing: 3px;
     margin-bottom: 2px !important;
+
+    color: var(--binder-text-color) !important;
 }
 
 /* THREE CARDS PER ROW */
@@ -364,19 +442,19 @@ text-shadow: 1px 4px 3px rgba(0,0,0,0.6);
     gap: 20px;
     margin-top: 16px;
 }
-
+/*zzz*/
 .folder-controls button {
-    padding: 11px 22px;
-    color: #e7cb72;
-    background: #151515;
-    border: 1px solid #8d7436;
-    border-radius: 8px;
+    padding: 10px 18px;
+    color: var(--binder-accent);
+    background: var(--binder-button-background);
+    border: 1px solid var(--binder-border-color);
+    border-radius: 6px;
     cursor: pointer;
     transition: background 0.2s ease;
 }
 
 .folder-controls button:hover:not(:disabled) {
-    background: #38301b;
+    background: var(--binder-button-hover);
 }
 
 .folder-controls button:disabled {
@@ -390,22 +468,25 @@ text-shadow: 1px 4px 3px rgba(0,0,0,0.6);
 
 
 
-.folder-controls {
-    grid-column: 1 / -1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    margin-top: 10px;
-}
-
 .folder-controls button {
     padding: 10px 18px;
-    color: #f9e13d;
-    background: #171717;
-    border: 1px solid #f9e13d;
+
+    color: var(--binder-button-text);
+    background: var(--binder-button-background);
+
+    border: 1px solid var(--binder-border-color);
     border-radius: 6px;
+
     cursor: pointer;
+
+    transition:
+        color 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.folder-controls button:hover:not(:disabled) {
+    background: var(--binder-button-hover);
 }
 
 .folder-controls button:disabled {
@@ -429,7 +510,7 @@ text-shadow: 1px 4px 3px rgba(0,0,0,0.6);
     position: relative;
     width: 100%;
 }
-
+/*
 .drop-down-btn {
     padding: 10px 18px;
     color: #8e3df9;
@@ -438,6 +519,33 @@ text-shadow: 1px 4px 3px rgba(0,0,0,0.6);
     border-radius: 6px;
     cursor: pointer;
 }
+*/
+
+
+
+.drop-down-btn {
+    padding: 10px 18px;
+
+    color: var(--binder-button-text);
+    background: var(--binder-button-background);
+
+    border: 1px solid var(--binder-border-color);
+    border-radius: 6px;
+
+    cursor: pointer;
+
+    transition:
+        color 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.drop-down-btn:hover {
+    background: var(--binder-button-hover);
+    border-color: var(--binder-accent);
+}
+
+
 
 .account-settings-content {
     display: none;
@@ -504,19 +612,27 @@ text-shadow: 1px 4px 3px rgba(0,0,0,0.6);
 
 
 
-    #dashboardCollection {
+#dashboardCollection {
     width: min(80%, 1800px);
     margin: 30px auto;
     padding: 20px;
     color: white;
-    background: rgba(0, 0, 0, 0.75);
-    border: 1px solid #f9e13d;
+
+    background: var(--binder-panel-background);
+
+    border: 2px solid var(--binder-border-color);
     border-radius: 12px;
+
+    transition: background 0.3s ease, border-color 0.3s ease;
+
+    background: var(--binder-collection-background);
+border: 3px solid var(--binder-collection-border);
 }
 
 #dashboardCollection h2 {
-    color: #f9e13d;
+    color: var(--binder-accent);
     text-align: center;
+    transition: color 0.3s ease;
 }
 
 
@@ -549,6 +665,9 @@ text-shadow: 1px 4px 3px rgba(0,0,0,0.6);
     align-items: center;
     justify-content: center;
     border: 2px solid #f9e13d;
+
+
+    border: 2px solid var(--binder-border-color);
     border-radius: 8px;
 }
 
@@ -562,6 +681,8 @@ text-shadow: 1px 4px 3px rgba(0,0,0,0.6);
     color: #f9e13d;
     font-size: 48px;
     font-weight: bold;
+
+    color: var(--binder-accent);
 }
 
 .dashboard-prize-card span {
@@ -772,6 +893,12 @@ text-shadow: 1px 4px 3px rgba(0,0,0,0.6);
 
     }
 
+    .welcome #userName {
+        color: var(--binder-username-color);
+
+        transition: color 0.3s ease;
+
+    }
 
     /* =========================
        CARDS
@@ -918,6 +1045,8 @@ text-shadow: 1px 4px 3px rgba(0,0,0,0.6);
 
     #saveNewsletterPreference {
     transition: transform 0.15s ease, background 0.2s ease;
+
+    
 }
 
 #saveNewsletterPreference:hover {
@@ -952,6 +1081,8 @@ text-shadow: 1px 4px 3px rgba(0,0,0,0.6);
     color: #f9e13d;
     font-size: 13px;
     font-weight: bold;
+
+    color: var(--binder-accent);
 }
 
 
@@ -1106,7 +1237,7 @@ text-shadow: 1px 4px 3px rgba(0,0,0,0.6);
     min-height: 80px;
     max-height: 80px;
 
-    background: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.50);
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -1186,7 +1317,7 @@ text-shadow: 1px 4px 3px rgba(0,0,0,0.6);
 
     overflow: hidden;
 
-    background: rgba(0, 0, 0, 0.85);
+    background: rgba(0, 0, 0, 0);
 
     border-radius: 0 0 25px 25px;
 
@@ -1224,7 +1355,7 @@ text-shadow: 1px 4px 3px rgba(0,0,0,0.6);
 
     object-fit: contain;
 
-    opacity: 0.8;
+    opacity: 0.5;
     transition: transform 0.2s ease, opacity 0.2s ease;
     }
 
@@ -1740,15 +1871,21 @@ text-shadow: 1px 4px 3px rgba(0,0,0,0.6);
     }
 
     .dashboard-folder-page {
-        width: 100%;
-        min-height: 420px;
-        border-radius: 10px;
+    width: 100%;
+    min-height: 420px;
+    border-radius: 10px;
+
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
     }
 
     .dashboard-folder-grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 2px;
     }
+
+    
 
     .book-page-flipper {
         width: 100%;
@@ -1783,12 +1920,14 @@ text-shadow: 1px 4px 3px rgba(0,0,0,0.6);
 .dashboard-locked-question {
     display: flex;
     width: 100%;
-    aspect-ratio: 1 / 0.3;
+    aspect-ratio: 2 / 1;
     box-sizing: border-box;
     align-items: center;
     justify-content: center;
     border: 2px solid #f9e03d81;
     border-radius: 8px;
+
+    border-color: var(--binder-border-color);
 }
 
 .dashboard-prize-card img {
@@ -1801,6 +1940,8 @@ text-shadow: 1px 4px 3px rgba(0,0,0,0.6);
     color: #f9e13d;
     font-size: 48px;
     font-weight: bold;
+
+    border-color: var(--binder-border-color);
 }
 
 .dashboard-prize-card span {
@@ -1908,42 +2049,41 @@ text-shadow: 1px 4px 3px rgba(0,0,0,0.6);
       margin-left: 4px;
 }
 
+.welcome #userName {
+    color: var(--binder-username-color);
+    transition: color 0.3s ease;
+}
+
 .drop-down-account-settings {
     position: relative;
     width: 100%;
     
   }
 
-.drop-down-btn {
-    padding: 20px 12px;
-    color: #8e3df9;
-    background: #171717;
-    border: 1px solid #a43df9;
-    border-radius: 6px;
-    cursor: pointer;
-
-    margin-left: 70%;
-    margin-right: 4px;
-    transform: translateY(-70px);
-  }
 
 
 
     
-#dashboardCollection {
+    #dashboardCollection {
     width: min(95%, 900px);
     margin: 30px auto;
     padding: 20px;
     color: white;
-    background: rgba(0, 0, 0, 0.75);
-    border: 1px solid #f9e13d;
+    background: var(--binder-panel-background);
+    border: 2px solid var(--binder-border-color);
     border-radius: 12px;
-}
 
-#dashboardCollection h2 {
+
+    background: var(--binder-collection-background);
+    border: 3px solid var(--binder-collection-border);
+    }
+
+    #dashboardCollection h2 {
     color: #f9e13d;
     text-align: center;
-}
+
+    color: var(--binder-collection-title);
+    }
 
 #dashboardCollection p {
   margin-top: 10px;
@@ -1955,6 +2095,31 @@ text-shadow: 1px 4px 3px rgba(0,0,0,0.6);
 
 
 
+   .drop-down-btn {
+    padding: 20px 6px;
+
+    color: var(--binder-button-text);
+    background: var(--binder-button-background);
+    border: 1px solid var(--binder-border-color);
+    border-radius: 6px;
+    cursor: pointer;
+    transition:
+        color 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease;
+
+    margin-left: 70%;
+    margin-right: 4px;
+    transform: translateY(-70px);
+  }
+
+  /*turner currently edit here zzz*/
+    #accountSettingsBtn {
+        color: var(--binder-account-button-color);
+        background: var(--binder-account-button-background);
+        border: 4px solid var(--binder-border-color);
+        border-radius: 15px;
+    }
 
 
 
@@ -2255,7 +2420,7 @@ background: -moz-radial-gradient(circle farthest-corner at center center, #4b0e0
     </button>
 
     <h2 class="h2-leftV-2">TURNER</h2>
-
+<!--
     <button class="header-btn-pack" id="packBtn1">
         <img src="images/pack_1.png" alt="Pack 1">
     </button>
@@ -2279,7 +2444,7 @@ background: -moz-radial-gradient(circle farthest-corner at center center, #4b0e0
     <button class="header-btn-pack-menu" id="packBtnmenu">
         <img src="images/pack_random.png" alt="Pack menu">
     </button>
-
+-->
     <h2 class="h2-rightV-2">ASHTON</h2>
 
     <button class="header-btn2-home" id="homeBtn">
@@ -2988,14 +3153,14 @@ const binderColors = {
 
     fourinarow: {
         gradient: ["#5f5f5f", "#4b6f5f"],
-        border: "4px solid #4b6f5f",
+        border: "4px solid transparent",
         reward: "four_across.html",
         animated: true
     },
 
     fiveinarow: {
         gradient: ["#5f5f5f", "#4b526f"],
-        border: "5px solid #4b526f",
+        border: "4px solid transparent",
         reward: "five_across.html",
         animated: true
     }
@@ -3036,10 +3201,18 @@ function loadBinderColors(unlockedPages, savedColor) {
 function applyBinderColor(colorName) {
     const folder = document.getElementById("cardFolder");
 
-    if (!folder || !binderColors[colorName]) return;
+    const collection = document.getElementById("dashboardCollection");
+
+    if (!folder || !collection || !binderColors[colorName]) return;
 
     const settings = binderColors[colorName];
 
+    const accent = settings.gradient[0];
+    const borderColor = settings.gradient[1];
+
+    const darkBackground = `color-mix(in srgb, ${borderColor} 45%, #111111)`;
+
+    // Binder background and border
     folder.style.setProperty(
         "--binder-gradient",
         `linear-gradient(to bottom, ${settings.gradient[0]}, ${settings.gradient[1]})`
@@ -3050,6 +3223,67 @@ function applyBinderColor(colorName) {
     folder.classList.toggle(
         "animated-binder-border",
         settings.animated
+    );
+
+    // Shared theme colors
+    document.documentElement.style.setProperty(
+        "--binder-accent",
+        accent
+    );
+
+    document.documentElement.style.setProperty(
+    "--binder-username-color",
+    colorName === "default" ? "#d8a7ff" : accent
+);
+
+document.documentElement.style.setProperty(
+    "--binder-account-button-color",
+    "#ffffff"
+);
+
+document.documentElement.style.setProperty(
+    "--binder-account-button-background",
+    colorName === "default" ? "#321b42" : darkBackground
+);
+
+document.documentElement.style.setProperty(
+    "--binder-collection-background",
+    colorName === "default" ? "#24152f" : `linear-gradient(to bottom, ${darkBackground}, #111111)`
+);
+
+document.documentElement.style.setProperty(
+    "--binder-collection-border",
+    colorName === "default" ? "#c084fc" : borderColor
+);
+
+document.documentElement.style.setProperty(
+    "--binder-collection-title",
+    colorName === "default" ? "#d8a7ff" : accent
+);
+
+    document.documentElement.style.setProperty(
+        "--binder-border-color",
+        borderColor
+    );
+
+    document.documentElement.style.setProperty(
+        "--binder-panel-background",
+        `linear-gradient(to bottom, ${darkBackground}, #111111)`
+    );
+
+    document.documentElement.style.setProperty(
+        "--binder-button-background",
+        darkBackground
+    );
+
+    document.documentElement.style.setProperty(
+        "--binder-button-text",
+        "#ffffff"
+    );
+
+    document.documentElement.style.setProperty(
+        "--binder-button-hover",
+        accent
     );
 }
 
@@ -3155,7 +3389,9 @@ renderDashboardCollection(
     data.pageWinCounts || {}
 );
 
-renderCardFolder(data.viewedCards || []);
+window.currentViewedCards = data.viewedCards || [];
+
+renderCardFolder(window.currentViewedCards);
 
   loadBinderColors(
     data.unlockedPages || [],
@@ -3566,6 +3802,22 @@ function renderCardFolder(viewedCards = []) {
 
     const isMobile = () =>
         window.matchMedia("(max-width: 700px)").matches;
+
+        // automatically update when size changing
+
+const binderMediaQuery = window.matchMedia("(max-width: 700px)");
+
+binderMediaQuery.addEventListener("change", () => {
+
+    currentFolderPage = 0;
+
+    const folder = document.getElementById("dashboardCardFolder");
+
+    folder.classList.remove("folder-content-fading");
+
+    renderCardFolder(window.currentViewedCards || []);
+
+});
 
     const getPagesPerSpread = () => isMobile() ? 1 : 2;
 
