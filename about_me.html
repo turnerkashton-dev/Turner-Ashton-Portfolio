@@ -93,33 +93,98 @@
 
 
 <!-- JOURNEY CONTROLS -->
-
 <div class="journey-scroll-track">
     <div class="journey-stage">
 
         <div class="journey-image1">
-            <img id="journey-img" src="images/journey1_mountains2.png" alt="Mountains">
+            <picture>
+                <source media="(max-width: 700px)" srcset="images/journey1_mountainsmobile.png">
+                <img id="journey-img" src="images/journey1_mountains2.png" alt="Mountains">
+            </picture>
         </div>
 
         <div class="journey-image2">
-            <img id="journey-img2" src="images/journey_lego2.png" alt="Lego">
+            <picture>
+                <source media="(max-width: 700px)" srcset="images/journey_legomobile.png">
+                <img id="journey-img2" src="images/journey_lego2.png" alt="Lego">
+            </picture>
         </div>
 
         <div class="journey-image3">
-            <img id="journey-img3" src="images/journey_travel2.png" alt="Travel">
+            <picture>
+                <source media="(max-width: 700px)" srcset="images/journey_travelmobile.png">
+                <img id="journey-img3" src="images/journey_travel2.png" alt="Travel">
+            </picture>
         </div>
 
         <div class="journey-image4">
-            <img id="journey-img4" src="images/journey_soccer2.png" alt="Soccer">
+            <picture>
+                <source media="(max-width: 700px)" srcset="images/journey_soccermobile.png">
+                <img id="journey-img4" src="images/journey_soccer2.png" alt="Soccer">
+            </picture>
         </div>
 
         <div class="journey-image5">
-            <img id="journey-img5" src="images/journey_home2.png" alt="Home">
+            <picture>
+                <source media="(max-width: 700px)" srcset="images/journey_homemobile.png">
+                <img id="journey-img5" src="images/journey_home2.png" alt="Home">
+            </picture>
         </div>
 
         <div class="journey-image6">
-            <img id="journey-img6" src="images/journey_turner2.png" alt="About me">
+            <picture>
+                <source media="(max-width: 700px)" srcset="images/journey_turnermobile.png">
+                <img id="journey-img6" src="images/journey_turner2.png" alt="About me">
+            </picture>
         </div>
+
+
+
+
+
+<!-- overlay images for journey flowers-->
+<div class="journey-overlay1">
+    <picture>
+        <source media="(max-width: 700px)" srcset="images/about_me_overlay1_mobile.png">
+        <img src="images/about_me_overlay1_desktop.png" alt="">
+    </picture>
+</div>
+
+<div class="journey-overlay2">
+    <picture>
+        <source media="(max-width: 700px)" srcset="images/about_me_overlay2_mobile.png">
+        <img src="images/about_me_overlay2_desktop.png" alt="">
+    </picture>
+</div>
+
+<div class="journey-overlay3">
+    <picture>
+        <source media="(max-width: 700px)" srcset="images/about_me_overlay3_mobile.png">
+        <img src="images/about_me_overlay3_desktop.png" alt="">
+    </picture>
+</div>
+
+<div class="journey-overlay4">
+    <picture>
+        <source media="(max-width: 700px)" srcset="images/about_me_overlay4_mobile.png">
+        <img src="images/about_me_overlay4_desktop.png" alt="">
+    </picture>
+</div>
+
+<div class="journey-overlay5">
+    <picture>
+        <source media="(max-width: 700px)" srcset="images/about_me_overlay5_mobile.png">
+        <img src="images/about_me_overlay5_desktop.png" alt="">
+    </picture>
+</div>
+
+<div class="journey-overlay6">
+    <picture>
+        <source media="(max-width: 700px)" srcset="images/about_me_overlay6_mobile.png">
+        <img src="images/about_me_overlay6_desktop.png" alt="">
+    </picture>
+</div>
+
 
     </div>
 </div>
@@ -140,38 +205,23 @@
 ];
 
 
-const desktopImages = [
-    'images/journey1_mountains2.png',
-    'images/journey_lego2.png',
-    'images/journey_travel2.png',
-    'images/journey_soccer2.png',
-    'images/journey_home2.png',
-    'images/journey_turner2.png'
+
+
+const overlayImages = [
+    document.querySelector('.journey-overlay1 img'),
+    document.querySelector('.journey-overlay2 img'),
+    document.querySelector('.journey-overlay3 img'),
+    document.querySelector('.journey-overlay4 img'),
+    document.querySelector('.journey-overlay5 img'),
+    document.querySelector('.journey-overlay6 img')
 ];
 
-const mobileImages = [
-    'images/journey1_mountainsmobile.png',
-    'images/journey_legomobile.png',
-    'images/journey_travelmobile.png',
-    'images/journey_soccermobile.png',
-    'images/journey_homemobile.png',
-    'images/journey_turnermobile.png'
-];
 
-function updateJourneyImages() {
-    const isMobile = window.innerWidth <= 700;
 
-    images.forEach((img, index) => {
-        img.src = isMobile
-            ? mobileImages[index]
-            : desktopImages[index];
-    });
-}
 
 
 
 window.addEventListener('resize', () => {
-    updateJourneyImages();
     updateJourney();
     updateScrollProgress();
 });
@@ -202,11 +252,27 @@ const track = document.querySelector('.journey-scroll-track');
 
 
 
-const desktopImageSpacing = 1;
+const desktopImageSpacing = 1.25;
 const mobileImageSpacing = 0.7;
 
-const desktopStageCount = 5;
+const desktopStageCount = 6.2;
 const mobileStageCount = 3.4;
+
+
+
+
+
+
+const desktopOverlaySpacing = 1.1;
+const mobileOverlaySpacing = 0.7;
+
+
+const desktopOverlayStart = 6.4;
+const mobileOverlayStart = 3.75;
+
+
+
+
 
 function getImageSpacing() {
     return window.innerWidth <= 700
@@ -238,11 +304,33 @@ const stageCount = isMobile
 
 const stage = progress * stageCount;
 
-    images.forEach((img, index) => {
-const position = (index * getImageSpacing() - stage) * 100;
+images.forEach((img, index) => {
+    const position = (index * getImageSpacing() - stage) * 100;
 
-        img.style.transform = `translate3d(0, ${position}vh, 0)`;
-    });
+    img.style.transform = `translate3d(0, ${position}vh, 0)`;
+});
+
+overlayImages.forEach((img, index) => {
+
+    const isMobile = window.innerWidth <= 700;
+
+    const overlaySpacing = isMobile
+        ? mobileOverlaySpacing
+        : desktopOverlaySpacing;
+
+    const overlayStart = isMobile
+        ? mobileOverlayStart
+        : desktopOverlayStart;
+
+    const position = (
+        index * overlaySpacing
+        - overlayStart
+        + stage
+    ) * 100;
+
+    img.style.transform = `translate3d(0, ${position}vh, 0)`;
+
+});
 }
 
 // journey top of page on load -t here for edit
@@ -1267,6 +1355,10 @@ display: none;    }
 }
 
 
+
+
+
+
 /* DESKTOP: KEEP ORIGINAL HOW ITS MADE HEADER */
 
 @media (min-width: 1410px) {
@@ -1276,5 +1368,102 @@ display: none;    }
     }
 
 }
+
+
+/* BACKGROUND JOURNEY PICTURES */
+
+.journey-image1 picture,
+.journey-image2 picture,
+.journey-image3 picture,
+.journey-image4 picture,
+.journey-image5 picture,
+.journey-image6 picture {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* FOREGROUND JOURNEY LAYER */
+
+.journey-overlay1,
+.journey-overlay2,
+.journey-overlay3,
+.journey-overlay4,
+.journey-overlay5,
+.journey-overlay6 {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    pointer-events: none;
+    z-index: 5;
+}
+
+
+/* OVERLAY IMAGE SIZING - DESKTOP */
+.journey-stage .journey-overlay1 img,
+.journey-stage .journey-overlay2 img,
+.journey-stage .journey-overlay3 img,
+.journey-stage .journey-overlay4 img,
+.journey-stage .journey-overlay5 img,
+.journey-stage .journey-overlay6 img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    max-width: none;
+    max-height: none;
+
+    object-fit: contain;
+    will-change: transform;
+}
+
+
+
+
+
+/* OVERLAY IMAGE SIZING - MOBILE */
+@media (max-width: 700px) {
+
+    .journey-stage .journey-overlay1 img,
+    .journey-stage .journey-overlay2 img,
+    .journey-stage .journey-overlay3 img,
+    .journey-stage .journey-overlay4 img,
+    .journey-stage .journey-overlay5 img,
+    .journey-stage .journey-overlay6 img {
+        width: 85%;
+        max-width: none;
+    }
+
+}
+
+
+
+
+/* OVERLAY PICTURE CONTAINERS */
+
+.journey-overlay1 picture,
+.journey-overlay2 picture,
+.journey-overlay3 picture,
+.journey-overlay4 picture,
+.journey-overlay5 picture,
+.journey-overlay6 picture {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
 
 </style>
